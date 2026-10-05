@@ -1,211 +1,420 @@
-<h1 align="center">Strata</h1>
+<h1 align="center">JR-Strata</h1>
 
-**English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
+<p align="center">
+<b>Heterogeneous LLM runtime research based on Strata</b><br>
+Intel Arc · SYCL / Level Zero · VRAM + pinned RAM expert tiering · Vulkan next
+</p>
 
-<p align="center"><b>Run a 125-billion-parameter AI model on your own gaming PC</b><br>
-NVIDIA or AMD graphics card (12 GB or more) · Windows or Linux · free and open source</p>
+<p align="center">
+Current milestone: <b>Intel Arc Pro B60 running Swift 1.5 IQ3_XXS with 128K context configuration</b>
+</p>
 
-<p align="center"><a href="https://github.com/Niko1221/Strata/releases/download/v0.1.10/Pagoda.mp4"><img src="docs/media/pagoda-preview.webp" width="720" alt="A voxel pagoda garden that Strata's model wrote, running in the browser"></a><br>
-<sub>A voxel pagoda garden, 1 shot prompt running on an RTX 5070 with Strata (IQ3_S, 128K context) ·
-<a href="https://github.com/Niko1221/Strata/releases/download/v0.1.10/Pagoda.mp4">full video (49 s)</a></sub></p>
+> [!IMPORTANT]
+> JR-Strata is an independent experimental derivative of [Niko1221/Strata](https://github.com/Niko1221/Strata).
+> The original Strata copyright and MIT License are retained.
+> JR-Strata focuses on Intel GPU execution, heterogeneous memory, and future Vulkan backend development.
 
-Strata runs **[Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)** on a normal PC. This is a
-large, smart AI model that usually needs a server. It chats, writes code, reads pictures and works with your apps
-and coding agents. Nothing leaves your PC.
+---
 
-## How fast is it?
+## Intel Arc milestone
 
-We measured it on two ordinary gaming PCs. A token is about ¾ of a word.
+The first JR-Strata milestone establishes a practical Intel Arc inference path on Linux using the existing Strata MoE runtime architecture.
 
-- **Writes answers:** how fast the reply appears in a short chat. 60 tokens per second is faster than you can read.
-- **Reads your prompt:** how fast it takes in what you send (here a 32K-token document, code or chat history).
+### Validated system
 
-<table>
-<tr><th>NVIDIA: RTX 5070 (12 GB), Ryzen 5 7600, 64 GB RAM</th><th>AMD: RX 9070 XT (16 GB), Ryzen 9 3900X, 47 GB RAM</th></tr>
-<tr><td>
-
-| Size | Writes answers | Reads your prompt |
-| --- | ---: | ---: |
-| **Q2_0** | 94 tokens/s | 2,650 tokens/s |
-| **IQ2_XS** | 79 tokens/s | 2,090 tokens/s |
-| **IQ3_XXS** | 62 tokens/s | 1,750 tokens/s |
-| **IQ3_S** | 53 tokens/s | 1,620 tokens/s |
-| **Coder** | 55 tokens/s | 2,180 tokens/s |
-
-</td><td>
-
-| Size | Writes answers | Reads your prompt |
-| --- | ---: | ---: |
-| **Q2_0** | 60 tokens/s | 1,160 tokens/s |
-| **IQ2_XS** | 52 tokens/s | 1,110 tokens/s |
-| **Coder** | 44 tokens/s | 1,420 tokens/s |
-
-</td></tr>
-</table>
-
-NVIDIA: Q2_0 with engine 0.1.36, the other rows with 0.1.26 (4K answers, 32K prompts). The full tables are in
-[DETAILS.md](docs/DETAILS.md#speed-measured). A card with more VRAM is faster: an RTX 3090 (24 GB) should write
-about 100-140 tokens per second. Long chats and other cards: [speed of each model](docs/MODELS.md#how-fast-is-each-size),
-[community results](docs/COMMUNITY_BENCHMARKS.md).
-
-<p align="center"><a href="https://buymeacoffee.com/strataengine"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50"></a><br>
-<sub>Strata is free. If it runs well on your PC, a coffee keeps the work on it going.</sub></p>
-
-## What you need
-
-| | |
+| Component | Configuration |
 | --- | --- |
-| **Graphics card** | **NVIDIA** GeForce RTX 20, 30, 40 or 50 series, or **AMD** Radeon RX 7900 XT / XTX, RX 7800 XT / 7700 XT, RX 9060 XT, RX 9070 / 9070 XT, Radeon AI PRO R9700 or RX 6800 / 6900 series. It needs **12 GB of VRAM or more**. |
-| **RAM** | 32 GB or more. Your RAM decides [which model](#which-model-should-i-pick) fits. 64 GB runs every size. |
-| **Disk** | About 80 GB free. Use an SSD if you can: the first start is much faster. |
-| **System** | Windows 10 / 11 or Linux, and a current graphics driver from NVIDIA or AMD. |
+| OS | Ubuntu 24.04 LTS |
+| GPU | Intel Arc Pro B60 24 GB |
+| GPU architecture | Battlemage / Xe2 / `bmg-g21` |
+| Connection | PCIe 4.0 x4 via OCuLink |
+| Measured H2D bandwidth | ~6.8 GB/s |
+| System RAM | 64 GB |
+| Compiler / runtime | Intel oneAPI DPC++ 2026.1 / Level Zero |
+| Backend | SYCL |
+| Model | Swift 1.5 / Qwen3.8-Flash-Next |
+| Quantization | IQ3_XXS |
+| Context configuration | 131072 tokens |
+| KV cache | INT8 |
+| Resident KV window | 32768 |
+| Speculative decoding | MTP, `--spec 4` |
 
-The installer sets up everything else. Two or three cards can share the model ([multi-GPU](docs/MULTI_GPU.md)).
+---
 
-Experimental, written and tested by community members on their own machines:
+## Expert placement achieved
 
-- **Older graphics cards** (Tesla P40 / V100, GTX 10, Radeon VII / MI50, RX 6700 XT, RX 5500 XT): [Older GPUs](docs/OLDER_GPUS.md).
-- **Intel Arc**, built from source on Linux: [Intel Arc](docs/INTEL_ARC.md).
-- **Older processors without AVX2**: they work, but slowly. [Older CPUs](docs/INSTALL.md#older-cpus-experimental).
+On the validated B60 system:
 
-The full list: [docs/INSTALL.md](docs/INSTALL.md#what-you-need).
+| Tier | Experts | Memory |
+| --- | ---: | ---: |
+| Arc Pro B60 VRAM | 10,617 | ~17.22 GiB |
+| Pinned system RAM | 13,959 / 13,959 | ~22.75 GiB |
+| Expert SSD fallback | **0** | **0** |
 
-## Install
+All experts that do not fit in VRAM remain resident in pinned system memory and are accessible to the GPU over PCIe.
 
-### Let your AI set it up
+PLE remains on NVMe by design.
 
-Do you use an AI coding assistant (Claude Code, Cursor, Codex, GitHub Copilot, ...)? Paste this into it:
+The resulting execution hierarchy is:
 
 ```text
-Set up Strata on this PC for me: https://github.com/Niko1221/Strata - follow docs/AI_SETUP.md in that repository.
+Swift IQ3_XXS
+      |
+      +---- hot experts ----------> Arc B60 VRAM
+      |                              ~17.22 GiB
+      |
+      +---- remaining experts ----> pinned system RAM
+                                     ~22.75 GiB
+                                          |
+                                      PCIe 4.0 x4
+
+PLE / n-gram table --------------> NVMe
 ```
 
-It checks your graphics card, RAM and disk and picks the model that fits. Then it installs and starts it and tells
-you how to connect your apps. AI tools can also install, start and stop Strata through its
-[MCP server](docs/MCP_SERVER.md).
+The goal is therefore:
 
-### Or do it yourself
+```text
+VRAM -> pinned RAM -> SSD only for PLE/storage
+```
 
-[Download Strata](https://github.com/Niko1221/Strata/archive/refs/heads/main.zip) and unzip it (or `git clone` it).
-**Windows:** double-click **`START-HERE.bat`**. **Linux:** run **`./setup.sh`** in the Strata folder.
+rather than using SSD as an active expert execution tier.
 
-The steps are the same for NVIDIA and AMD. The installer finds your card and sets up the right engine for it. It
-asks you a few questions:
+---
 
-- which model and which size,
-- how much context (how much text the model keeps in mind),
-- whether it should read pictures.
+## Observed performance
 
-Press Enter each time for the recommended answer. Then it downloads the model (about 70 GB) and starts it. If the
-download stops, run it again: it continues where it left off. Your browser opens the Strata app at
-`http://127.0.0.1:8080`.
+Representative development observations on the validated B60 system:
 
-> **While the model starts, your PC can be slow or stop responding for 1-3 minutes** (longest the first time).
-> Strata loads 35-55 GB into your RAM and locks part of it for the graphics card. This is normal. Wait, and don't
-> close the window. The window shows what Strata is doing.
+- Decode: up to approximately **33.5 tok/s**
+- Prefill: approximately **311 tok/s** in the observed workload
+- VRAM expert hit rate: approximately **94%**
+- PCIe host-to-device probe: approximately **6.8 GB/s**
 
-**Next time**, run `START-HERE.bat` (or `./setup.sh`) again. It starts right away and downloads nothing twice. Close
-its window to stop the model. `UPDATE.bat` (`./update.sh`) updates Strata without starting it. Updating, Docker,
-several cards, where the files go and every option: [docs/INSTALL.md](docs/INSTALL.md).
+These are development observations, not yet a controlled benchmark suite.
 
-## Which model should I pick?
+A fixed-prompt benchmark, `pcie_frac` sweep, CPU worker tuning, and real 120K–125K prompt test are planned before declaring a final SYCL performance baseline.
 
-The installer recommends one for your RAM. The same model comes in several sizes, compressed more or less. Smaller
-sizes are faster. Larger sizes are a bit smarter.
+---
 
-| Your RAM | Take | Why |
-| --- | --- | --- |
-| **32 GB** | **Coder** | it fits 32 GB, and it is made for code (with a 24 GB card, Q2_0 and IQ2_XS run too) |
-| **48 GB** | **IQ2_XS** (or Q2_0, the fastest) | the larger sizes do not fit |
-| **64 GB** | **IQ2_XS** (recommended), or IQ3_XXS / IQ3_S | every size fits; IQ3_S is the best and the slowest |
-| **96 GB or more** | **IQ3_S**, or Unsloth's UD-IQ4_XS (~4-bit) | room for the largest sizes with everything else open |
+## JR-Strata changes
 
-- **[Coder](docs/MODELS.md#coder):** a coding version with half of the experts removed. It reaches 91% of the full
-  model's SWE-bench Verified score (measured by its authors) and fits 32 GB of RAM. It is weaker outside code,
-  including Chinese and other CJK text (#438). For those, take Q2_0, IQ2_XS or IQ3_S, which keep every expert.
-- **[Swift 1.5](docs/MODELS.md#swift-15):** a fine-tune that thinks for a much shorter time before it answers. You
-  get the answer sooner, at about the same quality.
-- **[Unsloth UD-IQ4_XS](docs/MODELS.md#unsloth-ud-iq4_xs):** Unsloth's ~4-bit version, between IQ3_S and
-  UD-Q4_K_XL in quality. A 94 GB download. With less than ~80 GB of RAM, Strata reads part of it from the SSD
-  while it answers, so it is slower there (an NVMe SSD helps).
-- **[Unsloth UD-Q4_K_XL](docs/MODELS.md#unsloth-ud-q4_k_xl-experimental)** (experimental): the closest to the full
-  model. But Strata reads most of it from the SSD while it answers, so it writes only 7-8.5 tokens/s on a 64 GB PC.
-- **[OrcaRouter's Uncensored IQ3_XXS](docs/MODELS.md#orcarouter-uncensored-iq3_xxs):** you set it up by hand. It is
-  not in the installer's menu.
+JR-Strata currently builds on upstream Strata v0.1.39 and adds/fixes the following areas.
 
-Sizes, downloads and what fits where: [docs/MODELS.md](docs/MODELS.md). To add another model later, run
-`SETUP.bat` (Linux: `./setup.sh --setup`).
+### 1. Intel Arc Pro B60 support
 
-## Using it
+Correct detection of the Arc Pro B60 PCI ID:
 
-<p align="center"><img src="docs/media/runpagoda.png" width="900" alt="The Strata app's Monitor tab next to a coding agent"><br>
-<sub>The Strata app's <b>Monitor</b> (left) while a coding agent writes the pagoda garden from the video (right)</sub></p>
+```text
+8086:e211
+```
 
-- **In the browser:** open `http://127.0.0.1:8080`. It has **Chat**, a live **Monitor** of the model and your
-  GPU/CPU/RAM, and **About** with the settings and addresses.
-- **Your apps and coding agents:** add an "OpenAI-compatible" provider with the base URL
-  **`http://127.0.0.1:8080/v1`**. Any API key and any model name work.
-  - Apps that use Anthropic's API: `http://127.0.0.1:8080/v1/messages` (Claude Code:
-    `ANTHROPIC_BASE_URL=http://127.0.0.1:8080`).
-  - Codex CLI and other apps that use the OpenAI Responses API: `/v1/responses`
-    ([setup](docs/DETAILS.md#the-responses-api-and-codex-cli)).
-- **Thinking:** choose **off, low, medium or high** in the chat menu or in your app's "reasoning effort". Off is the
-  fastest. High is best for hard questions.
-- **Pictures:** say yes to "Images?" in setup. Then click **Picture** in the chat, or attach pictures in your app.
-  AMD cards read pictures on Linux through the processor; on Windows they can't yet.
-- **From your phone or another PC:** `START-HERE.bat --setup --host 0.0.0.0 --api-key <secret>`. Always set a key.
-- **One request at a time:** by default Strata answers one request, and the others wait. To answer several at once,
-  set `"parallel": 2` ([BATCHING.md](docs/BATCHING.md)). On a 12 GB card this makes each answer slower.
-- **Long prompts:** Strata reads the first message of a chat in full, about 1 minute per 30,000 tokens. Follow-up
-  messages start in seconds.
+The validated AOT target is:
 
-More: [where your chats are stored](docs/INSTALL.md#where-things-are-stored), [the API](docs/DETAILS.md#using-it).
+```text
+bmg-g21
+```
 
-## Something went wrong?
+### 2. SYCL API synchronization
 
-- **My PC froze the first time Strata started.** This is normal while it loads the model. Wait, and don't close the
-  window. Still frozen after 10 minutes? Restart the PC, close other programs and try again, or pick a smaller size.
-- **It stopped while downloading or installing.** Run `START-HERE.bat` (or `./setup.sh`) again. It continues where
-  it stopped.
-- **It's very slow and the disk light keeps blinking, or it says "the engine stopped unexpectedly".** Your PC does
-  not have enough free RAM. Close other programs (browsers use a lot), or pick a smaller size (Q2_0 or IQ2_XS).
-- **It says port 8080 is already in use.** Strata is already running. Look for its window.
+The Intel/SYCL path was updated to match interface changes in the current Strata tree, including:
 
-More problems and their fixes: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md). Still stuck? Open an
-[issue](https://github.com/Niko1221/Strata/issues) and attach `strata-<model>.log` from the Strata folder. Found a
-security problem? Report it privately: [SECURITY.md](SECURITY.md).
+- thread-affinity handling
+- native dense layer-range loading
+- Intel setup/run-script argument synchronization
 
-## How does it work?
+### 3. SYCL ring-wait correctness fix
 
-Models like this one usually run on servers with hundreds of gigabytes of graphics memory. Your graphics card has
-12-24 GB. Strata makes the model fit by **sharing the work across your whole PC**. Think of a kitchen: the things
-you use all the time stay on the counter, and the rest waits in the pantry.
+JR-Strata includes the queue-state correction corresponding to the work discussed in upstream PR #866.
 
-<p align="center"><img src="docs/media/how-it-works.svg" width="860" alt="The model's 24,576 experts: the busiest on the graphics card, all of them in RAM, a lookup table on the SSD"></p>
+This fixes failures such as:
 
-- **The model is a team of 24,576 small specialists ("experts").** Each word needs only 10 of them.
-- **Your graphics card** keeps the few thousand experts that are used most often. **Your RAM** holds all of them,
-  and **your processor** works on the rest at the same time. **Your SSD** holds a big lookup table.
+```text
+verify: layer N never rang (graph finished)
+```
 
-<p align="center"><img src="docs/media/guess-and-check.svg" width="860" alt="A small helper guesses the next words; the big model checks them all at once and keeps the right ones"></p>
+where the translated SYCL queue state was previously not evaluated correctly.
 
-- **Guess, then check:** a small helper guesses the next few words. The big model checks them all at once. You get
-  the same answer, 1.6-1.8x sooner.
-- **Long texts are read in big pieces** (up to 8,192 tokens at a time), at over 1,000 tokens per second.
+### 4. Arc B60 uncached doorbell reads
 
-The longer explanation: [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md). Every part and its numbers:
-[the details](docs/DETAILS.md#how-it-works) and the [paper](docs/paper/Strata-Paper.pdf).
+JR-Strata includes the uncached L1/L3 read-hint approach corresponding to the work discussed in upstream PR #889.
 
-## Credits and license
+On the tested B60 host-mirror path this was a major performance fix because the device could otherwise repeatedly observe a cached synchronization value while the CPU had already updated the host-side doorbell.
 
-The model is [Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) by the Qwen team. It was
-compressed by [ISTA-DASLab](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF), UkisAI (Swift 1.5)
-and Unsloth. Strata uses parts of [llama.cpp / ggml](https://github.com/ggml-org/llama.cpp). All credits:
-[docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md#credits). Strata is open source under the [MIT License](LICENSE). A few
-parts and every model have their own licenses ([which ones](docs/HOW_IT_WORKS.md#license)).
+### 5. Chunked pinned-host expert mirror
 
-## Support Strata
+The original host expert mirror attempted one very large allocation similar to:
 
-Strata is free and open source. If it is useful to you, you can support its development:
+```cpp
+sycl::malloc_host(total_bytes)
+```
 
-<p align="center"><a href="https://buymeacoffee.com/strataengine"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50"></a></p>
+For IQ3_XXS, the required host mirror can exceed 20 GiB after filling VRAM.
+
+Even with sufficient total system RAM, a single extremely large Intel USM host allocation can fail.
+
+JR-Strata replaces this with multiple pinned host blocks.
+
+Conceptually:
+
+```text
+24+ GiB host expert complement
+
++---------+
+| 4 GiB   |
++---------+
+| 4 GiB   |
++---------+
+| 4 GiB   |
++---------+
+| 4 GiB   |
++---------+
+| 4 GiB   |
++---------+
+| ...     |
++---------+
+```
+
+Each expert retains its own device-readable host pointer.
+
+This allows the complete non-VRAM IQ3_XXS expert set to remain resident in system RAM and eliminates expert SSD fallback when enough RAM is available.
+
+---
+
+## Current milestone commits
+
+Upstream base:
+
+```text
+Strata v0.1.39
+6f32ec0
+```
+
+JR-Strata milestone commits:
+
+```text
+0bac541  jr: establish Arc B60 SYCL IQ3_XXS baseline
+18f7c3e  jr: chunk Intel SYCL host expert mirror
+```
+
+Milestone tag:
+
+```text
+jr-b60-sycl-iq3xxs-128k-20261006
+```
+
+---
+
+## Intel Arc build
+
+JR-Strata's current Intel path targets Linux.
+
+Validated toolchain:
+
+```text
+Ubuntu 24.04 LTS
+Intel oneAPI 2026.1
+Intel Level Zero
+CMake
+Ninja
+Docker
+```
+
+### Select the Intel GPU
+
+Example for a system where the B60 is `level_zero:0`:
+
+```bash
+source /opt/intel/oneapi/setvars.sh
+
+export ONEAPI_DEVICE_SELECTOR=level_zero:0
+export SYCL_CACHE_PERSISTENT=0
+```
+
+Always verify your own device ordering:
+
+```bash
+sycl-ls --ignore-device-selectors
+```
+
+Do not assume that SYCL device indices are identical across machines.
+
+### Build the B60 AOT binary
+
+```bash
+cmake \
+  -S sycl \
+  -B build-sycl-aot \
+  -G Ninja \
+  -DCMAKE_C_COMPILER=icx \
+  -DCMAKE_CXX_COMPILER=icpx \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DSTRATA_SYCL_AOT=bmg-g21 \
+  -DSTRATA_SYCL_PARITY=ON
+
+cmake --build build-sycl-aot \
+  --target strata \
+  -j"$(nproc)"
+```
+
+---
+
+## Model setup
+
+The validated model is:
+
+```text
+Swift 1.5
+Qwen3.8-Flash-Next
+IQ3_XXS
+```
+
+Example setup using already-downloaded GGUF shards:
+
+```bash
+./setup.sh \
+  --backend sycl \
+  --family swift \
+  --model IQ3_XXS \
+  --context 131072 \
+  --kv int8 \
+  --gpu 0 \
+  --vision none \
+  --data-dir /data/strata-lab/data \
+  --models-dir /data/strata-lab/data/models \
+  --gguf-dir /data/strata-lab/data/models/swift-IQ3_XXS \
+  --yes \
+  --no-start
+```
+
+Adjust paths for your own system.
+
+The validated runtime uses settings equivalent to:
+
+```text
+--max-context 131072
+--kv int8
+--kv-resident 32768
+--stream-experts
+--spec 4
+--spec-min-p 0.5
+--prefill 4096
+```
+
+Current machine-specific tuning reached:
+
+```text
+--vram-reserve-mib 768
+--pcie-frac 0.25
+```
+
+These two values are **not universal defaults**. They depend on GPU VRAM, CPU performance, PCIe bandwidth, and the model.
+
+---
+
+## Current status
+
+### Working
+
+- Intel Arc Pro B60
+- SYCL / Level Zero
+- Battlemage AOT build
+- Swift 1.5 IQ3_XXS
+- 128K configured context
+- INT8 KV streaming
+- MTP speculative decoding
+- OpenAI-compatible serving path
+- VRAM expert cache
+- complete pinned-RAM expert complement
+- PCIe access to host-resident experts
+- zero expert SSD fallback on the validated 64 GB system
+
+### Next
+
+1. Controlled fixed-prompt `pcie_frac` benchmark.
+2. CPU expert-pool worker tuning.
+3. Real 120K–125K prompt benchmark.
+4. Freeze the final Intel SYCL baseline.
+5. Begin Vulkan backend development.
+6. Later investigate heterogeneous Intel multi-GPU execution.
+
+---
+
+## Vulkan roadmap
+
+The next major JR-Strata development line is Vulkan.
+
+The goal is **not** to turn JR-Strata into a wrapper around another inference engine.
+
+The target remains a Strata-style heterogeneous MoE runtime:
+
+```text
+model / router / MTP / KV / PLE
+              |
+        backend interface
+         /           \
+      SYCL          Vulkan
+```
+
+The Vulkan work will initially focus on:
+
+- device discovery
+- device/local buffer allocation
+- host-visible or imported host memory
+- asynchronous transfer and synchronization
+- compute dispatch
+- quantized GEMV / GEMM
+- expert dispatch
+- host expert execution over PCIe
+- validation against the working SYCL implementation
+
+Once a single-B60 Vulkan backend is stable, multi-GPU research can follow.
+
+---
+
+## Repository relationship
+
+```text
+Niko1221/Strata
+      |
+      | upstream base
+      v
+JR-Strata
+      |
+      +-- Intel SYCL stable line
+      |
+      +-- heterogeneous VRAM / RAM execution
+      |
+      `-- Vulkan backend research
+```
+
+JR-Strata is independently maintained and is not an official upstream Strata release.
+
+Original project:
+
+https://github.com/Niko1221/Strata
+
+JR-Strata:
+
+https://github.com/Goldlionren/JR-Strata
+
+---
+
+## Credits
+
+JR-Strata is based on the work of:
+
+- Niko1221 / Strata
+- Strata contributors
+- Intel Arc / SYCL community contributors
+
+The Intel B60 work also incorporates ideas and fixes discussed in upstream Strata issues and pull requests, including the synchronization work associated with #866 and #889.
+
+---
+
+## License
+
+MIT License.
+
+The original Strata copyright notice and MIT License are retained in `LICENSE`.
+
+Copyright (c) 2026 Niko1221 and the Strata contributors.
