@@ -21,7 +21,8 @@ sel=()
 # the port's run-time switches: the device-built verify plan without host handshakes (docs/INTEL.md)
 exec docker run --rm -i --name "$name" --device /dev/dri --oom-score-adj 1000 --stop-timeout 30 --no-healthcheck \
     -v "$root:/work" \
-    -e STRATA_VERIFY_DEVICE_PLAN=1 -e STRATA_VERIFY_NO_HOST=1 -e STRATA_STAGER_THREADS=12 \
+    -e STRATA_VERIFY_DEVICE_PLAN=1 -e STRATA_STAGER_THREADS=12 \
+    -e STRATA_MIRROR_MIB="${STRATA_MIRROR_MIB:-22000}" \
     "${sel[@]}" \
     "${STRATA_SYCL_IMAGE:-strata-sycl-dev}" \
     "cd $repo_in && exec ${STRATA_SYCL_BIN:-build-sycl-aot/strata}$args"

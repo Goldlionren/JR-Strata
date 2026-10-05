@@ -8,14 +8,42 @@
 // goes through these two.
 #pragma once
 #include <sycl/sycl.hpp>
+#include <sycl/ext/intel/experimental/cache_control_properties.hpp>
 #include <cstdint>
 
 namespace strata {
 using sys_atomic_u32 = sycl::atomic_ref<uint32_t, sycl::memory_order::relaxed, sycl::memory_scope::system>;
 
+#ifndef STRATA_DOORBELL_ATOMIC_LOAD
+using doorbell_uncached_read = decltype(
+    sycl::ext::oneapi::experimental::properties(
+        sycl::ext::intel::experimental::read_hint<
+            sycl::ext::intel::experimental::cache_control<
+                sycl::ext::intel::experimental::cache_mode::uncached,
+                sycl::ext::oneapi::experimental::cache_level::L1,
+                sycl::ext::oneapi::experimental::cache_level::L3
+            >
+        >
+    )
+);
+
+inline uint32_t sys_load(const volatile uint32_t* p) {
+    sycl::atomic_fence(
+        sycl::memory_order::acquire,
+        sycl::memory_scope::system
+    );
+
+    sycl::ext::oneapi::experimental::
+        annotated_ptr<uint32_t, doorbell_uncached_read>
+        u(const_cast<uint32_t*>(p));
+
+    return u[0];
+}
+#else
 inline uint32_t sys_load(const volatile uint32_t* p) {
     return sys_atomic_u32(*const_cast<uint32_t*>(p)).load();
 }
+#endif
 inline void sys_store(volatile uint32_t* p, uint32_t v) {
     sys_atomic_u32(*const_cast<uint32_t*>(p)).store(v);
     sycl::atomic_fence(sycl::memory_order::release, sycl::memory_scope::system);

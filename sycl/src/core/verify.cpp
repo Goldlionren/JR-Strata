@@ -1377,7 +1377,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
             if (now - last_flush > std::chrono::microseconds(2000)) {
                 last_flush = now;
                 const dpct::err0 q =
-                    DPCT_CHECK_ERROR(((cs_)->ext_oneapi_empty()));
+                    cs_->ext_oneapi_empty() ? 0 : 1;
                 if (q != 1 && *seq < want) {
                     trace_ev("NEVER-RANG", k, l, (int64_t) q);
                     trace_dump(stderr);
