@@ -48,4 +48,13 @@ class Gates(unittest.TestCase):
         self.assertIn("stopped=True # restore even if the stop command itself times out",source)
         self.assertNotIn("spec=0)",source)
         self.assertIn("slots=10831",source)
+    def test_archived_budget_and_invalid_loaded_profiles(self):
+        metrics=json.loads((R/'logs/fastfix/window-01-resume/historical-metrics-start.json').read_text())
+        log='13745 of 13745 experts missing from VRAM mirrored'
+        f=function('validate_loaded_profile',{'re':re})
+        self.assertEqual(f(metrics,log),10831)
+        for key,value in [('expert_slots',10832),('expert_cache_mib',17991),('vram_free_mib',511),('mtp_max',3),('kv_resident',16384)]:
+            changed=json.loads(json.dumps(metrics));changed['engine'][key]=value
+            with self.assertRaises(RuntimeError):f(changed,log)
+        with self.assertRaises(RuntimeError):f(metrics,'13744 of 13745 experts missing from VRAM mirrored')
 if __name__=='__main__':unittest.main()

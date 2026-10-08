@@ -66,20 +66,28 @@ def stop_exp():
  if any(n==NAME or n.startswith('jr-fastfix-probe-') for n in containers()):raise RuntimeError('surviving experimental container; assess before restoration')
  if cmd('ss','-H','-ltn','sport = :18086').stdout.strip():raise RuntimeError('experimental listener survived shutdown')
  exp_started=False;free_check()
+def validate_loaded_profile(metrics, log, expected_slots=10831):
+ engine=metrics['engine']
+ expected={'expert_slots':expected_slots,'expert_cache_mib':17990,'max_context':131072,'kv':'int8','kv_resident':32768,'spec':6,'mtp_max':4}
+ if any(engine.get(k)!=v for k,v in expected.items()):raise RuntimeError('loaded inference/cache configuration changed')
+ if float(engine['pcie_frac'])!=0.25 or float(engine['spec_min_p'])!=0.5:raise RuntimeError('loaded sampling/offload configuration changed')
+ if engine['vram_free_mib']<512:raise RuntimeError('insufficient loaded VRAM headroom')
+ mirrors=re.findall(r'(\d+) of (\d+) experts missing from VRAM mirrored',log)
+ if not mirrors or any(x!=('13745','13745') for x in mirrors):raise RuntimeError('incomplete or changed Host Mirror')
+ return engine['expert_slots']
 def arm(name,slots=10831,no_host=False,spec=4,no_draft=False):
  global exp_started
  admission(700)
  c=json.loads((D/'runtime.json').read_text());c['exe']=str(D/'p0-engine-wrapper.py');args=c['args']
- if slots:args[args.index('--expert-cache')+1]=str(slots)
+ # Historical auto granted 8098 uniform max-blob slots, expanded to 10831 variable-size profile slots.
+ # Passing 10831 here would INCREASE the byte budget. Freeze the original uniform grant.
+ args[args.index('--expert-cache')+1]='8098'
  args[args.index('--spec')+1]=str(spec)
  c['log']=str(E/(name+'-engine.log'));path=E/(name+'-runtime.json');save(path.name,c)
  run=['systemd-run','--user','--unit',UNIT,'--collect','--service-type=exec','-p','Restart=no','-p','KillMode=process','-p','KillSignal=SIGTERM','-p','SendSIGKILL=no','-p','TimeoutStopSec=90','--setenv=PYTHONDONTWRITEBYTECODE=1','--setenv=PYTHONUNBUFFERED=1','--setenv=FASTFIX_P0=1',f'--setenv=FASTFIX_NO_DRAFT={1 if no_draft else 0}',f'--setenv=FASTFIX_NO_HOST={1 if no_host else 0}',f'--working-directory={R}','/data/strata-lab/Strata/.venv/bin/python','-B',str(R/'sycl/serve/server_intel.py'),'--engine','strata','--config',str(path),'--host','127.0.0.1','--port','18086']
  save(name+'-launch.json',run);cmd(*run);exp_started=True
  save(name+'-models.json',wait_api(18086,300));m=api(18086,'/metrics');save(name+'-metrics-start.json',m)
- log=Path(c['log']).read_text();matches=re.findall(r'(\d+) of (\d+) experts missing from VRAM mirrored',log)
- if not matches or any(x!=y for x,y in matches):raise RuntimeError('incomplete Host Mirror')
- actual=m['engine']['expert_slots'];
- if slots and actual!=slots:raise RuntimeError('cache budget changed')
+ log=Path(c['log']).read_text();actual=validate_loaded_profile(m,log,slots)
  save(name+'-container.json',json.loads(cmd('docker','inspect',NAME).stdout))
  # Validate running ELF hash inside the unchanged runtime image, plus actual loaded libraries.
  actual_sha=cmd('docker','exec',NAME,'sha256sum','/proc/1/exe').stdout.split()[0]
