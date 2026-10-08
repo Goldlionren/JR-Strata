@@ -1472,13 +1472,6 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         err = std::string("verify: ") + dpct::get_error_string_dummy(se);
         return false;
     }
-    // A bounded device wait must never silently turn an unfinished plan into output.
-    // The graph has drained; any state from a failed window is unusable and the caller must end this request.
-    for (auto f : {h_flagA_, h_flagB_, h_flag_}) if (((volatile uint32_t*) f)[1]) {
-        err = "verify: expert readiness device wait expired at ring " + std::to_string(f[1]) +
-              "; window discarded; host seq=" + std::to_string(*h_seq_) + "; restart engine before reuse";
-        return false;
-    }
     if (no_host && std::getenv("STRATA_VERIFY_DEBUG") != nullptr) {   // SYCL port: what the window left behind
         const int Gd = groups_[T] > 0 ? groups_[T] : 1;
         std::vector<uint32_t> sk((size_t) Gd, 0);
@@ -1538,8 +1531,16 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         stat("mixed_", mixed_, (size_t) g.n_embd);
     }
     progress_at("verify window: waiting for the expert copies", (int64_t) T);
-    copy_->wait(); // no host function of this window may raise flag B in the
-                   // next one
+    copy_->wait_and_throw(); // Drain staged expert copies before either success or timeout rejection.
+    // A timeout is checked only after BOTH queues have completed: the copy queue can still
+    // hold references to staging/plan buffers even when the compute graph has ended.
+    // A bounded device wait must never silently turn an unfinished plan into output.
+    // The graph has drained; any state from a failed window is unusable and the caller must end this request.
+    for (auto f : {h_flagA_, h_flagB_, h_flag_}) if (((volatile uint32_t*) f)[1]) {
+        err = "verify: expert readiness device wait expired at ring " + std::to_string(f[1]) +
+              "; window discarded; host seq=" + std::to_string(*h_seq_) + "; restart engine before reuse";
+        return false;
+    }
     if (prof_on_ && G == 1) {       // the window's GPU stage stamps
         if (std::getenv("STRATA_VERIFY_EAGER") == nullptr)   // eager: prof_h_ already holds the host clocks
             dpct::get_in_order_queue()

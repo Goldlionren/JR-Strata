@@ -29,3 +29,11 @@ Source through `be83153` (engine's last source change `c2dfde6`), compiler2026.1
 Stock image loader resolves all libraries; recorded in `docs/jr-v0139-fastfix-evidence/runtime-loader.txt`. Original executable/image unchanged. `tools/fastfix/frozen.json` pins the exact engine, probes, profile and controller inputs.
 
 Final CPU tests pass (`logs/fastfix/cpu-WhFm2i`). Preserved build logs include a corrected missing C++ header, corrected catch-variable shadowing, and an abandoned synthetic SYCL exception-list test that could not use the runtime's private constructor. That abandoned test is not marked PASS. Handler propagation is source-checked and compiled; real async-fault injection is not claimed. Optional historical S2/GR failures are not concealed or reclassified by this task.
+
+## GPU failure and subsequent offline correction
+
+The tested binary `faa0efb9…a0121e` passed the focused probes and four short requests, then rejected a long request after306 delivered tokens with `expert readiness device wait expired at ring33; host seq=48`. At engine exit a ccs reset/page fault occurred, followed by `UR_RESULT_ERROR_UNINITIALIZED`. This is a failed acceptance; no FastFix promotion.
+
+Review found an error in the new timeout rejection placement: it returned before the pre-existing `copy_->wait()` boundary. Compute completion does not establish copy completion. The offline correction moves timeout rejection after `copy_->wait_and_throw()` and before output consumption; a source regression asserts that ordering. This repairs the demonstrable missing cleanup dependency but is **not yet GPU-validated**, and the exact causal chain of the observed page fault is not proven from the fault address alone. No further GPU experiments run after the fault.
+
+After read-only assessment (experiment gone, normal B60, pre-run free memory restored, no continuing fault), unchanged RC1 was restored and smoke-tested successfully. The hardware health sensor command is unsupported on this driver; it is recorded N/A, not passed. The production binary, profile, ranking and unit hashes remain unchanged.

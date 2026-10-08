@@ -9,3 +9,7 @@ assert m.index('wait_and_throw()')<m.index('drafts[0] =')
 assert m.rindex('wait_and_throw()')<m.index('drafts[j] =')
 assert 'ext_oneapi_empty() ? 0 : 1' in s
 print('PASS: actual legacy PLE-before-graph, failure propagation, existing per-draft wait ordering and Boolean queue completion')
+
+v=Path('sycl/src/core/verify.cpp').read_text().split('bool Verifier::run(',1)[1]
+assert v.index('copy_->wait_and_throw()') < v.index('expert readiness device wait expired') < v.index('out[t] =')
+print('PASS: timeout rejection follows copy-queue drain and precedes token consumption')
