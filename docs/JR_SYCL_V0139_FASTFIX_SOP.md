@@ -45,3 +45,5 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B tools/fastfix/maintenance.py \
 ```
 
 The historical native server has no request-level switch that completely disables MTP. After the primary spec4 workload, the controller uses separate startups for device-only spec4 and spec0. It fixes both to the primary run's exact expert slot count. These are correctness-isolation comparisons, not identical-computation performance arms. Existing `STRATA_DECODE_TIMING=1` emits verifier/draft wall times; those are not GPU event timings. No new profiler is installed.
+
+The archived `ple_parity` full-block selftest requires an exact Q2_0 GGUF size/offset, dense pack and captured input/output fixtures absent from this runtime. Preserve its BLOCKED result; do not substitute a Swift shard and call that oracle passed. The executable focused safety sequence uses the independent `fastfix_ple_staging` Direct/mmap graph test instead, followed by the handoff test. A harness-only continuation can use `--resume-start logs/fastfix/window-01/cutover.json`; this inherits the original absolute deadline and cannot extend it.

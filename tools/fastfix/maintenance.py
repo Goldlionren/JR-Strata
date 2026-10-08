@@ -7,7 +7,7 @@ RC='jr-strata-sycl-rc1.service';UNIT='jr-strata-fastfix-test.service';NAME='jr-s
 IMAGE='sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44'
 FROZEN='cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028'
 RCBIN=Path('/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/dist/jr-b60-sycl-v0.1.40.3-rc1/strata')
-TESTS=['fastfix_memory_safety','kv_q8_parity','kv_stream_parity','iq_multi_parity','native_grouped_parity','quantize_act_parity','ple_parity','fastfix_handoff','fastfix_ple_staging']
+TESTS=['fastfix_memory_safety','kv_q8_parity','kv_stream_parity','iq_multi_parity','native_grouped_parity','quantize_act_parity','fastfix_ple_staging','fastfix_handoff']
 def cmd(*args,timeout=20,check=True):return subprocess.run(args,text=True,capture_output=True,timeout=timeout,check=check)
 def sha(p):return hashlib.file_digest(open(p,'rb'),'sha256').hexdigest()
 def api(port,path):return json.load(urllib.request.urlopen(f'http://127.0.0.1:{port}{path}',timeout=8))
@@ -18,10 +18,11 @@ def children(pid):
  for p in Path(f'/proc/{pid}/task/{pid}/children').read_text().split():
   result.append(int(p));result+=children(p)
  return result
-p=argparse.ArgumentParser();p.add_argument('--execute-authorized',action='store_true');p.add_argument('--out',required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--execute-authorized',action='store_true');p.add_argument('--out',required=True);p.add_argument('--resume-start',type=Path);a=p.parse_args()
 if not a.execute_authorized:
  print(json.dumps({'tests':TESTS,'arms':['historical spec4 auto cache','device-only spec4 same slots','MTP-off same slots'],'port':18086,'max_minutes':60,'admission_cutoff_minutes':45,'cleanup_minutes':50,'recovery_reserve_minutes':10},indent=2));sys.exit(0)
-E=Path(a.out).resolve();E.mkdir(parents=True,exist_ok=False);start=time.time();deadline=time.monotonic()+3600;stopped=False;exp_started=False
+E=Path(a.out).resolve();E.mkdir(parents=True,exist_ok=False);start=json.loads(a.resume_start.read_text())['start_epoch'] if a.resume_start else time.time();deadline=time.monotonic()+(start+3600-time.time());stopped=False;exp_started=False
+if time.time()>start+2700:raise SystemExit('original admission deadline expired')
 (E/'cutover.json').write_text(json.dumps({'start_epoch':start,'deadline_epoch':start+3600,'authorization':'operator final execute-all instruction; isolated FastFix only'},indent=2))
 def save(name,data): (E/name).write_text(data if isinstance(data,str) else json.dumps(data,indent=2,ensure_ascii=False)+'\n')
 def health():

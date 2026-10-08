@@ -16,3 +16,9 @@ CPU: PLE Reader selftests pass for90/110-byte rows. Independent PLE test passes9
 |RC1 restoration | BLOCKED |maintenance not started; RC1 unchanged|
 
 Historical28.7tok/s/1036 tokens had confirmed corruption.33.5tok/s/2932 tokens lacks full qualification. Do not compute a correctness-equivalent regression or improvement against those values.
+
+## First maintenance segment
+
+`window-01`: six GPU checks passed (alias/retry, KV Q8, streamed KV, IQ multi, native grouped, quantize activation). Historical `ple_parity` exited2 before GPU work because its hard-coded Q2_0 GGUF and block-capture fixtures are unavailable/incompatible with these model assets. This legacy full-block oracle is **BLOCKED**, not a numerical PASS. Controller restored and verified RC1 safely at PID1547078; no GPU fault. Raw failure retained.
+
+The focused suite uses the already built `fastfix_ple_staging` independent synthetic IQ4_NL graph oracle as its seventh executed check, plus `fastfix_handoff`. This does not reclassify the unavailable full-block oracle. Continuation is constrained to the original window's start/deadline via `--resume-start`, not a new60-minute allowance. Binary, kernels, model and inference settings remain frozen.
