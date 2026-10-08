@@ -245,3 +245,8 @@ endif()
 # FastFix: unchanged arena layout with bounded initialization and alias rejection.
 add_executable(fastfix_memory_safety ${STRATA_ROOT}/tools/fastfix/memory_safety.cpp)
 target_link_libraries(fastfix_memory_safety PRIVATE strata_kernels)
+add_executable(fastfix_ple_staging ${STRATA_ROOT}/tools/fastfix/ple_staging.cpp)
+target_compile_definitions(fastfix_ple_staging PRIVATE PLEFIX_GPU=1)
+target_link_libraries(fastfix_ple_staging PRIVATE strata_kernels)
+add_executable(fastfix_handoff ${STRATA_ROOT}/tools/fastfix/handoff_gpu.cpp)
+target_link_libraries(fastfix_handoff PRIVATE strata_kernels)
