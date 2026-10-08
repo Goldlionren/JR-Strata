@@ -56,7 +56,7 @@ def stop_exp():
   save('experimental-journal.txt',cmd('journalctl','--user','-u',UNIT,'--since',f'@{start:.0f}','--no-pager').stdout)
   if z.returncode:raise RuntimeError('unsafe experimental teardown')
  if any(n==NAME or n.startswith('jr-fastfix-probe-') for n in containers()):raise RuntimeError('surviving experimental container; assess before restoration')
- with socket.socket() as s:s.bind(('127.0.0.1',18086))
+ if cmd('ss','-H','-ltn','sport = :18086').stdout.strip():raise RuntimeError('experimental listener survived shutdown')
  exp_started=False;free_check()
 def arm(name,slots=None,no_host=False,spec=4):
  global exp_started
@@ -115,7 +115,9 @@ try:
  save('rc1-stop.txt',cmd('systemctl','--user','stop',RC,timeout=105).stdout);stopped=True
  if state(RC)!='inactive' or any(Path(f'/proc/{pid}').exists() for pid in [spid,*engines]):raise RuntimeError('RC1 teardown incomplete')
  free_check()
- save('docker-device.txt',cmd('docker','run','--rm','--device','/dev/dri','-e','ONEAPI_DEVICE_SELECTOR=level_zero:0',IMAGE,'sycl-ls',timeout=30).stdout)
+ selection=cmd('docker','run','--rm','--device','/dev/dri','-e','ONEAPI_DEVICE_SELECTOR=level_zero:0',IMAGE,'sycl-ls --verbose',timeout=30).stdout
+ save('docker-device.txt',selection)
+ if 'Arc(TM) Pro B60' not in selection or '57873' not in selection:raise RuntimeError('container selector not verified as B60 e211')
  for i,test in enumerate(TESTS):
   admission(180);name=f'jr-fastfix-probe-{i}'
   arg=[] if test in ('iq_multi_parity','native_grouped_parity','fastfix_memory_safety','fastfix_handoff') else ['--selftest']

@@ -26,6 +26,9 @@ def snapshot():
  p=subprocess.run(['docker','exec',NAME,'python3','-c',PROBE],capture_output=True,text=True,check=True,timeout=8);x=json.loads(p.stdout)
  m=Path('/proc/meminfo').read_text();x['host_available_kib']=int(re.search(r'^MemAvailable:\s+(\d+)',m,re.M)[1]);v=Path('/proc/vmstat').read_text()
  for k in ('pswpin','pswpout'):x[k]=int(re.search('^'+k+r'\s+(\d+)',v,re.M)[1])
+ 
+ try:x['device_stats']=json.loads(subprocess.run(['xpu-smi','stats','-d','0000:07:00.0','-j'],capture_output=True,text=True,check=True,timeout=5).stdout)
+ except (OSError,ValueError,subprocess.SubprocessError):x['device_stats']='N/A'
  return x
 
 def health():
