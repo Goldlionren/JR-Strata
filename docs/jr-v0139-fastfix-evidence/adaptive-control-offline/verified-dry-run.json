@@ -1,0 +1,17 @@
+{
+  "maximum_seconds": 900,
+  "experimental_cleanup_deadline_seconds": 600,
+  "restoration_reserve_seconds": 300,
+  "probe_bound_seconds": 60,
+  "arm_bound_seconds": 390,
+  "last_arm_admission_seconds": 210,
+  "order": [
+    "prepared captured-plan probe",
+    "static: --adapt-swaps 0, one1536-token request",
+    "optional adaptive: unchanged defaults, same request, only after clean static teardown and deadline admission"
+  ],
+  "binary_sha256": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe",
+  "gpu_execution": false,
+  "production_lifecycle_actions": false,
+  "verified_files": 18
+}

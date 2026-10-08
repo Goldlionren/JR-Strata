@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-10-09T10:44:15.124932+11:00",
+  "service": "jr-strata-sycl-rc1.service",
+  "active": "active",
+  "enabled": "enabled",
+  "server_pid": 198898,
+  "engine_pids": [
+    199664
+  ],
+  "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "context": 32768,
+  "api_ready": true,
+  "kernel_fault_lines": [],
+  "journal_stderr": "",
+  "gpu_experiments": false,
+  "production_lifecycle_actions": []
+}

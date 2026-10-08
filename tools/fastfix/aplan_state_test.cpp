@@ -57,5 +57,26 @@ int main(){int cases=0;
   auto before=inspect(ids,slots,mirror,2,2);assert(before.missing==0);
   slots[0]=-1;slots[1]=0; // swap completes and the new residency is published
   auto after=inspect(ids,slots,mirror,2,2);assert(after.missing==1&&after.expert==0);++cases;}
+ // Adaptive-off control: preserve startup slots and static complement through changing windows.
+ {for (bool enabled : {false,true}) {
+    int32_t ids[64]={},slots[64]={};unsigned long long mirror[64]={};
+    for(int i=0;i<64;++i){slots[i]=(i%2==0)?i/2:-1;mirror[i]=(i%2)?123ull+16*i:0ull;}
+    const auto startup=std::array<int32_t,2>{slots[0],slots[1]};
+    int swaps=0;
+    for(int w=1;w<=1000;++w){
+        // Serving gate: usage is initialized only when both adaptation controls are positive.
+        const bool usage_nonempty=enabled;
+        if(usage_nonempty && w%4==0 && swaps==0){slots[1]=slots[0];slots[0]=-1;++swaps;}
+        for(int t : {1,4,6}){
+            const int n=t*10;
+            int32_t routed_slots[64];unsigned long long routed_mirror[64];
+            for(int i=0;i<n;++i){ids[i]=(i+w)%64;routed_slots[i]=slots[ids[i]];routed_mirror[i]=mirror[ids[i]];}
+            auto inspected=inspect(ids,routed_slots,routed_mirror,n,64);
+            if(!enabled)assert(inspected.missing==0&&inspected.invalid==0);
+        }
+    }
+    if(!enabled)assert(swaps==0&&slots[0]==startup[0]&&slots[1]==startup[1]);
+    else {int32_t id[]={0},sl[]={slots[0]};unsigned long long mir[]={mirror[0]};assert(swaps==1&&inspect(id,sl,mir,1,64).missing==1);}
+ }++cases;}
  std::printf("PASS: %d deterministic A-plan state/fault cases; CPU evidence only, not GPU visibility proof; record bytes=%zu\n",cases,sizeof(Device));
 }
