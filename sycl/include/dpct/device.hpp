@@ -75,6 +75,8 @@ inline auto exception_handler = [](sycl::exception_list exceptions) {
                 << e.what() << std::endl
                 << "Exception caught at file:" << __FILE__
                 << ", line:" << __LINE__ << std::endl;
+      // FastFix: wait_and_throw must reach the engine's failure path, not only log.
+      std::rethrow_exception(e);
     }
   }
 };

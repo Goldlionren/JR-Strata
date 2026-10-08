@@ -19,3 +19,5 @@ Existing graph-completion waits become `wait_and_throw` at the token/window/draf
 ## PLE: existing correct ordering retained
 
 Historical `Verifier::run` computes rows, synchronously gathers, propagates failure, fences, then submits the graph. This already covers mixed resident/mirrored experts and `STRATA_VERIFY_NO_HOST`. It does not have RC1's later delayed-prefetch omission. No PLE execution rewrite is necessary. Focused tests reuse the PLEFix independent IQ4_NL reference with the historical gather sequence: 90 windows, T=1/4/6, repeated/changing rows, three histories, Direct/mmap, delayed I/O and failure before submission. Actual graph visibility is a separate GPU test.
+
+The vendored DPCT async handler previously printed and swallowed every exception. It now rethrows the reported exception so `wait_and_throw` can reach the engine's existing fatal-error path. Merely changing wait calls without this correction would not propagate errors on these queues.
