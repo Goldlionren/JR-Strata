@@ -1,0 +1,49 @@
+IQ2_XXS  type 16     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 3.13e-05)
+IQ2_XXS  type 16      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 3.53e-05)
+  IQ2_XS GPU dequant vs CPU decode: 0 of 171520 differ, worst 0 (max |w| 2.58); w[0..3] cpu 0.000888705 0.00477679 0.000888705 -0.000888705 gpu 0.000888705 0.00477679 0.000888705 -0.000888705
+  IQ2_XS mmvq vs the CPU-decode reference: rel 3.22e-05; y[0..2] gpu 3.8724 3.98115 -1.53235
+IQ2_XS   type 17     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 3.66e-05)
+  IQ2_XS GPU dequant vs CPU decode: 0 of 5120 differ, worst 0 (max |w| 1.46); w[0..3] cpu 0.0105071 -0.0564757 0.0564757 -0.0564757 gpu 0.0105071 -0.0564757 0.0564757 -0.0564757
+  IQ2_XS mmvq vs the CPU-decode reference: rel 2.13e-05; y[0..2] gpu 4.93045 -1.54244 8.37833
+IQ2_XS   type 17      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 3.56e-05)
+IQ3_XXS  type 18     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 9.59e-06)
+IQ3_XXS  type 18      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 9.44e-06)
+IQ4_NL   type 20     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 8.21e-08)
+IQ4_NL   type 20      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 1.61e-07)
+IQ3_S    type 21     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 7.21e-08)
+IQ3_S    type 21      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 5.04e-08)
+IQ2_S    type 22     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 3.21e-05)
+IQ2_S    type 22      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 5.66e-05)
+IQ4_XS   type 23     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 7.45e-08)
+IQ4_XS   type 23      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 1.63e-07)
+IQ1_M    type 29     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 6.93e-08)
+IQ1_M    type 29      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 6.65e-08)
+Q2_0     type 42     67 x  2560  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 7.80e-08)
+Q2_0     type 42      5 x  1024  iq_mmvq ncols 1..8, 11: bitwise equal to the old kernel (ref rel <= 8.68e-08)
+IQ2_XXS /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_XXS /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_XXS /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_XS  /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_XS  /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_XS  /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_XXS /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_XXS /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_XXS /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_S   /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_S   /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ3_S   /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_S   /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_S   /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ2_S   /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ4_XS  /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ4_XS  /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ4_XS  /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ1_M   /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ1_M   /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+IQ1_M   /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+Q2_0    /IQ4_NL   2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+Q2_0    /Q2_0     2560 x  640  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+Q2_0    /IQ4_XS   1024 x  512  native_expert_grouped, 9 groups, 35 entries: bitwise equal to the old kernels
+q8_1 finite (quantize_q8_1_rows): 237 finite blocks as before, 3 overflowed blocks clamped finite
+q8_1 finite (native_quantize_q8_1): 237 finite blocks as before, 3 overflowed blocks clamped finite
+iq_multi_parity: 0 failures
