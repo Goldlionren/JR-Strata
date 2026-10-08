@@ -1183,7 +1183,7 @@ bool Verifier::capture(int T, std::string &err) try {
     DPCT1007: Migration of cudaGraphUpload is not supported.
     */
     const dpct::err0 ue = 0;   // no cudaGraphUpload on SYCL: a finalized command_graph is already resident
-    const dpct::err0 us = DPCT_CHECK_ERROR(cs_->wait());
+    const dpct::err0 us = DPCT_CHECK_ERROR(cs_->wait_and_throw());
     std::fprintf(
         stderr,
         "strata verify: captured the %d-token window (upload %s, sync %s)\n", T,
@@ -1590,13 +1590,16 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         SamplerParams sp = sampling_;
         sp.counter = (uint64_t) pos0;
         sample_tokens(head_logits_, T, (int) n_vocab_, hist_d_, hist_len_, sp, m_out_, cs_);
-        if (DPCT_CHECK_ERROR(cs_->wait()) !=
+        if (DPCT_CHECK_ERROR(cs_->wait_and_throw()) !=
             0) { // m_out_ is the mapped h_out_: synced, it is readable
             err = "verify: the head sampling failed";
             return false;
         }
     }
-    for (int t = 0; t < T; ++t) out[t] = ((volatile int32_t*) h_out_)[t];
+    for (int t = 0; t < T; ++t) {
+        out[t] = ((volatile int32_t*) h_out_)[t];
+        if (out[t] < 0 || out[t] >= n_vocab_) { err = "verify: invalid completed token at row " + std::to_string(t); return false; }
+    }
     if (static const bool dbg = std::getenv("STRATA_DBG_NAN") != nullptr; dbg) {   // debug: the first non-finite head
         static bool reported = false;
         if (!reported) {
