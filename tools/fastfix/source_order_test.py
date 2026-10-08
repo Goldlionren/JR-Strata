@@ -27,3 +27,12 @@ g=Path('sycl/src/program/generate.cpp').read_text()
 assert 'if (test_no_draft) { T = 1; from_sfx = false; }' in g
 assert 'const bool drafted = test_no_draft ||' in g
 print('PASS: failure guards, immutable DMA publication, no fabricated readiness, completed commit history, explicit T=1 control')
+k=Path('sycl/src/kernels/cuda/verify_kernels.dp.cpp').read_text()
+assert 'strata::aplan::inspect(s_ids, s_res, s_mir, n, n_expert)' in k
+assert 'if (s_bad || n > 64) { if (tid == 0) *skip = 0; return; }' in k
+assert 'spin < strata::kSpinMax' in k
+assert run.index('copy_->wait_and_throw()') < run.index('aplan_dump(G, timed_out)')
+assert run.index('aplan_h_[i]={}') < run.index('ext_oneapi_graph(')
+assert 'env_on("STRATA_APLAN_DIAG")' in f
+assert 'the GPU never started it' not in f
+print('PASS: opt-in diagnostic records read after both queues, original rejection/spin bound retained')

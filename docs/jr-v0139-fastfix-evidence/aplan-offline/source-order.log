@@ -1,0 +1,4 @@
+PASS: actual legacy PLE-before-graph, failure propagation, existing per-draft wait ordering and Boolean queue completion
+PASS: timeout rejection follows copy-queue drain and precedes token consumption
+PASS: failure guards, immutable DMA publication, no fabricated readiness, completed commit history, explicit T=1 control
+PASS: opt-in diagnostic records read after both queues, original rejection/spin bound retained

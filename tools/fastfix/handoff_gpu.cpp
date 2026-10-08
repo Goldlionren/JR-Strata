@@ -1,6 +1,7 @@
 #include "strata/failed_work.hpp"
 #include <future>
 #include "strata/sycl_verify_guard.hpp"
+#include "strata/kernels/resident_plan_mirror.hpp"
 // Test the real SYCL wait launchers, including skipped device plans and expired host readiness.
 #include "strata/sycl_queue.hpp"
 #include "strata/kernels/verify_kernels.hpp"
@@ -50,6 +51,44 @@ int main() try {
    q.memcpy(hp,plan,sizeof hp).wait_and_throw();for(int i=0;i<4;++i)check(hp[i]==0);
  }
  sycl::free(plan,q);
+ // Exercise diagnostic coverage inside a real captured resident-plan graph, without expert arithmetic.
+ // One graph is reused across covered/missing/invalid routes and generation identities.
+ {
+   auto* dres=sycl::malloc_device<int32_t>(2,q);
+   auto* ids=sycl::malloc_device<int32_t>(2,q);
+   auto* mirror=sycl::malloc_device<unsigned long long>(2,q);
+   auto* cache=sycl::malloc_device<uint8_t>(64,q);
+   auto* pl=sycl::malloc_device<int32_t>(64,q);
+   auto* host=(int32_t*)strata::host_malloc_polled(256,q);
+   auto* obs=(strata::aplan::Device*)strata::host_malloc_polled(sizeof(strata::aplan::Device),q);
+   if(!dres||!ids||!mirror||!cache||!pl||!host||!obs)throw std::runtime_error("diagnostic allocation");
+   for(int i=0;i<64;++i)host[i]=0;
+   int32_t res[]={0,-1};q.memcpy(dres,res,sizeof res).wait_and_throw();
+   strata::kernels::resident_plan_set_mirror(dres,mirror);
+   namespace ex=sycl::ext::oneapi::experimental;
+   ex::command_graph graph(q.get_context(),q.get_device());
+   graph.begin_recording(q);
+   strata::kernels::resident_plan_observed(ids,2,2,dres,2,cache,nullptr,32,pl,2,skip,7,&q,obs);
+   strata::kernels::wait_verify_ready(f,7,skip,nullptr,&q,&obs->wait[0]);
+   strata::kernels::copy_verify_plan(pl,host,32,skip,7,f,&q,obs);
+   graph.end_recording(q);auto exec=graph.finalize();
+   for(unsigned w=1;w<=4;++w){
+     *obs={};obs->generation=w;obs->expected=7;
+     int32_t route[]={0,w==3?9:1};unsigned long long mirrors[]={0,w==2?0ull:(unsigned long long)host};
+     q.memcpy(ids,route,sizeof route).wait_and_throw();q.memcpy(mirror,mirrors,sizeof mirrors).wait_and_throw();
+     f[0]=7;f[1]=f[2]=f[3]=0;
+     q.ext_oneapi_graph(exec).wait_and_throw();
+     const bool covered=w==1||w==4;
+     check(obs->entered==7&&obs->generation==w&&obs->wait[0].exited==7);
+     check(obs->decision==(covered?1u:2u)&&obs->copy_action==(covered?2u:3u));
+     check(obs->route.invalid==(w==3?1u:0u)&&obs->route.missing==(w==2?1u:0u));
+     if(covered)check(obs->skip_written==7&&obs->route.mirrored==1&&obs->route.resident==1);
+   }
+   strata::kernels::resident_plan_set_mirror(nullptr,nullptr);
+   sycl::free(dres,q);sycl::free(ids,q);sycl::free(mirror,q);sycl::free(cache,q);sycl::free(pl,q);
+   strata::host_free_polled(host,q);strata::host_free_polled(obs,q);
+   puts("PASS: 4 captured A-plan diagnostic generations, mixed mirror/device, missing/invalid routes");
+ }
  // A deliberately withheld DMA host task proves readiness cannot publish early.
  // No arbitrary delay: a future controls release; the copy queue stays in-order.
  {

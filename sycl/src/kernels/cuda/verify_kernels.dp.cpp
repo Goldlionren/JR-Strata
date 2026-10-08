@@ -934,7 +934,7 @@ __dpct_inline__ void resident_plan_kernel(
     const int32_t *__restrict__ res, int n_expert, const uint8_t *cache_base,
     const unsigned long long *slot_off, long long blob,
     int32_t *__restrict__ pl, long long capx, uint32_t *skip, uint32_t ring,
-    const unsigned long long *__restrict__ mir, bool par) {
+    const unsigned long long *__restrict__ mir, bool par, strata::aplan::Device* observation) {
 #if STRATA_PLAN_LOCAL
     // SYCL port: the host's exact loop, but over a local copy of the ids and their slots. One thread reading global
     // memory for every compare (n^2 of them) took 87 us per layer on the B70 - 4% of a decode round; a work-group
@@ -958,6 +958,12 @@ __dpct_inline__ void resident_plan_kernel(
         if (!valid || (sl < 0 && ma == 0)) s_bad = 1;
     }
     item.barrier(sycl::access::fence_space::local_space);
+    if (observation && tid == 0) {
+        observation->entered=ring; observation->entries=n; observation->shared_bad=s_bad;
+        observation->res_address=(uint64_t)res; observation->mirror_address=(uint64_t)mir;
+        observation->route=strata::aplan::inspect(s_ids, s_res, s_mir, n, n_expert);
+        observation->decision=(s_bad || n>64) ? 2u : 1u;
+    }
     if (s_bad || n > 64) { if (tid == 0) *skip = 0; return; }   // n > 64 never happens (kVerifyMaxT * 10 = 60); refuse rather than read past
     if (par) {
         // SYCL port: the grouping in parallel, one thread per entry (unitrace: thread 0 alone took 73 us per layer,
@@ -1008,6 +1014,7 @@ __dpct_inline__ void resident_plan_kernel(
         counts[2] = 0;
         sycl::atomic_fence(sycl::memory_order::acq_rel, sycl::memory_scope::device);
         strata::sys_store(skip, ring);
+        if (observation) observation->skip_written=ring;
         return;
     }
     if (tid != 0) return;
@@ -1067,15 +1074,19 @@ __dpct_inline__ void resident_plan_kernel(
     */
     sycl::atomic_fence(sycl::memory_order::acq_rel, sycl::memory_scope::device);
     strata::sys_store(skip, ring);
+        if (observation) observation->skip_written=ring;
 #undef s_ids
 #undef S_RES
 }
 __dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t* flag, uint32_t value,
                                             const volatile uint32_t* skip, int32_t* discard_counts = nullptr,
-                                            bool diagnostics = false) {
+                                            bool diagnostics = false, strata::aplan::Wait* observation = nullptr) {
     const uint32_t bypass = skip ? strata::sys_load(skip) : 0;
+    if (observation) { observation->entered=value; observation->skip=bypass; observation->before=strata::sys_load(flag); }
     if (bypass != value) {
-        for (uint32_t spin = 0; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
+        uint32_t spin=0;
+        for (; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
+        if (observation) observation->spins=spin;
         const uint32_t observed = strata::sys_load(flag);
         if (observed < value) {
             if (diagnostics) strata::readiness::timeout(const_cast<uint32_t*>(flag), value, observed, bypass,
@@ -1084,6 +1095,7 @@ __dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t* flag, uint3
             else if (!strata::sys_load(flag + 1)) strata::sys_store(const_cast<volatile uint32_t*>(flag) + 1, value);
         }
     }
+    if (observation) { observation->after=strata::sys_load(flag); observation->exited=value; }
     // Do not let a bounded failed DMA wait authorize reads of unfinished blobs.
     if (discard_counts && strata::sys_load(flag + 1))
         for (int i = 0; i < 4; ++i) discard_counts[i] = 0;
@@ -1092,11 +1104,12 @@ __dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t* flag, uint3
 __dpct_inline__ void copy_i32_unless_kernel(int32_t *__restrict__ dst,
                                             const volatile int32_t *src, int n,
                                             const uint32_t *skip,
-                                            uint32_t value, const uint32_t* flag = nullptr) {
+                                            uint32_t value, const uint32_t* flag = nullptr, strata::aplan::Device* observation = nullptr) {
     auto item_ct1 = sycl::ext::oneapi::this_work_item::get_nd_item<3>();
     const uint32_t bypass = skip ? strata::sys_load(skip) : 0;
     if (flag) {
         const auto action = strata::readiness::plan(strata::sys_load(flag + 1), strata::sys_load(flag), value, bypass);
+        if (observation && item_ct1.get_local_id(2)==0) observation->copy_action=uint32_t(action)+1;
         if (action == strata::readiness::Plan::reject) {
             // No unready host-plan words (especially pointer words) may be read.
             for (int i = item_ct1.get_local_id(2); i < 4; i += item_ct1.get_local_range(2)) dst[i] = 0;
@@ -1140,6 +1153,11 @@ void resident_plan_set_mirror(const int32_t* d_res, const unsigned long long* mi
 void resident_plan(const int32_t* ids, int n_entries, int k, const int32_t* res_layer, int n_expert,
                    const uint8_t* cache_base, const unsigned long long* slot_off, long long blob, int32_t* plan,
                    long long capx, uint32_t* skip, uint32_t ring, void* stream) {
+    resident_plan_observed(ids,n_entries,k,res_layer,n_expert,cache_base,slot_off,blob,plan,capx,skip,ring,stream,nullptr);
+}
+void resident_plan_observed(const int32_t* ids, int n_entries, int k, const int32_t* res_layer, int n_expert,
+                   const uint8_t* cache_base, const unsigned long long* slot_off, long long blob, int32_t* plan,
+                   long long capx, uint32_t* skip, uint32_t ring, void* stream, strata::aplan::Device* observation) {
     const unsigned long long* mir = nullptr;   // SYCL port: the layer's slice of the host-mirror table, if any
     if (g_mirror_table != nullptr && g_mirror_res != nullptr && res_layer >= g_mirror_res)
         mir = g_mirror_table + (res_layer - g_mirror_res);
@@ -1154,7 +1172,7 @@ void resident_plan(const int32_t* ids, int n_entries, int k, const int32_t* res_
                 exp_props, [=](sycl::nd_item<3> item_ct1) [[sycl::reqd_sub_group_size(32)]] {
                     resident_plan_kernel(ids, n_entries, k, res_layer, n_expert,
                                          cache_base, slot_off, blob, plan, capx,
-                                         skip, ring, mir, par);
+                                         skip, ring, mir, par, observation);
                 });
     }
     check("resident_plan");
@@ -1175,15 +1193,15 @@ void wait_flag_ge_or(const uint32_t* flag, uint32_t value, const uint32_t* skip,
     check("wait_flag_ge_or");
 }
 void wait_verify_ready(const uint32_t* flag, uint32_t ring, const uint32_t* skip,
-                       int32_t* discard_counts, void* stream) {
+                       int32_t* discard_counts, void* stream, strata::aplan::Wait* observation) {
     strata::q_of(stream)->parallel_for(sycl::nd_range<3>(sycl::range(1,1,1), sycl::range(1,1,1)),
-        [=](sycl::nd_item<3>) { wait_flag_ge_or_kernel(flag, ring, skip, discard_counts, true); });
+        [=](sycl::nd_item<3>) { wait_flag_ge_or_kernel(flag, ring, skip, discard_counts, true, observation); });
     check("wait_verify_ready");
 }
 void copy_verify_plan(int32_t* dst, const int32_t* src, long long n, const uint32_t* skip,
-                      uint32_t ring, const uint32_t* flag, void* stream) {
+                      uint32_t ring, const uint32_t* flag, void* stream, strata::aplan::Device* observation) {
     strata::q_of(stream)->parallel_for(sycl::nd_range<3>(sycl::range(1,1,128), sycl::range(1,1,128)),
-        [=](sycl::nd_item<3>) { copy_i32_unless_kernel(dst, src, (int)n, skip, ring, flag); });
+        [=](sycl::nd_item<3>) { copy_i32_unless_kernel(dst, src, (int)n, skip, ring, flag, observation); });
     check("copy_verify_plan");
 }
 void copy_i32_from_mapped_unless(int32_t* dst, const int32_t* src, long long n, const uint32_t* skip, uint32_t value,

@@ -21,6 +21,7 @@
 // selection, native indexer) and a profile-filled VRAM expert tier with its residency table on the device.
 #pragma once
 
+#include "strata/aplan_observation.hpp"
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include <cstdio>
@@ -183,6 +184,10 @@ private:
     int device_ = -1;                    ///< the device `init` ran on: run/commit switch to it (layer split)
     std::atomic<bool> released_{false};  ///< #267: release_gpu_waits ran (maybe on the watchdog thread): no more windows
     bool device_plan_ = false;            ///< E-6: resident-only layers planned on the device (STRATA_VERIFY_DEVICE_PLAN)
+    strata::aplan::Device* aplan_h_ = nullptr;
+    strata::aplan::Device* aplan_m_ = nullptr;
+    std::vector<strata::aplan::Host> aplan_host_;
+    void aplan_dump(int groups, bool failure) const;
     uint32_t* skip_ = nullptr;            ///< E-6: per group, the ring whose plan the device built (0: the host's)
     unsigned long long* slot_off_d_ = nullptr;   ///< E-6: the slot offsets on the device
     int64_t lb_ = 0, le_ = -1;           ///< set_stage: the layers this verifier runs (-1: to the last)

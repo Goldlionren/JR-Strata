@@ -15,3 +15,5 @@ build-fastfix-cpu/lifecycle_test > "$out/lifecycle.log"
 python3 -B tools/fastfix/source_order_test.py > "$out/source-order.log"
 cat "$out/reader.log" "$out/staging.log" "$out/output.log" "$out/source-order.log" "$out/lifecycle.log"
 printf 'Evidence: %s\n' "$out"
+c++ -std=c++20 -Wall -Wextra -Werror -Iinclude tools/fastfix/aplan_state_test.cpp -o build-fastfix-cpu/aplan_state_test
+build-fastfix-cpu/aplan_state_test | tee "$out/aplan-state.log"

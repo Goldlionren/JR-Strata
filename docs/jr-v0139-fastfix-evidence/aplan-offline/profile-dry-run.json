@@ -1,0 +1,27 @@
+{
+  "profile_matches_archived_engine_arguments": true,
+  "only_changes": "server log path and opt-in diagnostics; no inference flags changed",
+  "request_tokens": 1536,
+  "old_controller_preview_only": {
+    "tests": [
+      "fastfix_memory_safety",
+      "kv_q8_parity",
+      "kv_stream_parity",
+      "iq_multi_parity",
+      "native_grouped_parity",
+      "quantize_act_parity",
+      "fastfix_ple_staging",
+      "fastfix_handoff"
+    ],
+    "arms": [
+      "T=1 no Decode drafts: functional +512 tokens",
+      "historical MTP spec4: functional +512 tokens +2048 tokens"
+    ],
+    "port": 18086,
+    "max_minutes": 45,
+    "admission_cutoff_minutes": 30,
+    "cleanup_minutes": 35,
+    "recovery_reserve_minutes": 10
+  },
+  "executed_gpu": false
+}

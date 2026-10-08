@@ -236,7 +236,7 @@ void Verifier::trace_dump(std::FILE* f) const {
         if (t != 0 && t < t0) t0 = t;
     }
     if (t0 == ~0ull) {
-        std::fprintf(f, "strata verify trace: no GPU breadcrumb in this window (the GPU never started it)\n");
+        std::fprintf(f, "strata verify trace: GPU timestamps unavailable in this SYCL port; zero stamps do not establish lack of GPU progress\n");
         return;
     }
     int64_t last_l = -1;
@@ -293,7 +293,7 @@ Verifier::~Verifier() try {
     }
     if (arena_) sycl::free(arena_, dpct::get_in_order_queue());
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_commit_, h_ple_, h_out_, h_x_, h_ids_, h_w_, h_seq_, h_flag_, h_ymiss_,
-                     h_flagA_, h_plan_, h_flagB_, trace_h_};
+                     h_flagA_, h_plan_, h_flagB_, trace_h_, aplan_h_};
     for (void* h : hosts)
         if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
 } catch (...) {
@@ -533,6 +533,20 @@ bool Verifier::init(const WeightTable &wt, const ModelGeometry &g,
         functionality is redundant in SYCL.
         */
         if (!ok2) {; device_plan_ = false; }
+    }
+    if (env_on("STRATA_APLAN_DIAG")) {
+        const size_t count=(size_t)g.n_layers*2;
+        if (!mapped(count*sizeof(strata::aplan::Device), (void**)&aplan_h_, (void**)&aplan_m_)) {
+            err="verify: A-plan diagnostic allocation failed"; return false;
+        }
+        aplan_host_.resize(count);
+        auto allocation = [](const void* p) {
+            std::lock_guard<std::mutex> lk(strata::detail::uncached_mu());
+            return strata::detail::uncached_set().count(const_cast<void*>(p)) ? "ZE_BIAS_UNCACHED" : "SYCL_HOST";
+        };
+        std::fprintf(stderr,"APLAN_CONFIG device_plan=%d split=%d pcie_mode=%d diag_bytes=%zu A=%s B=%s M=%s seq=%s plan=%s diag=%s\n",
+            (int)device_plan_, (int)split_, sink_.pcie_mode, count*sizeof(strata::aplan::Device),
+            allocation(h_flagA_),allocation(h_flagB_),allocation(h_flag_),allocation(h_seq_),allocation(h_plan_),allocation(aplan_h_));
     }
     if (std::getenv("STRATA_VERIFY_DEBUG") != nullptr) {   // SYCL port: the per-layer residual ladder (token 0)
         dbgR_ = (float*) sycl::malloc_device((size_t) g.n_layers * g.n_embd * 4, dpct::get_in_order_queue());
@@ -887,10 +901,10 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
             if (!moe_route(wt, g, l, K, mb, mixed_ + t * N, cs, err, nullptr)) return false;
         }
         if (device_plan_)   // E-6: every routed expert resident: this group's plan without the host
-            resident_plan(ids_ + tb * K, n * (int) K, (int) K, hits_.d_res + l * g.n_expert, (int) g.n_expert,
+            resident_plan_observed(ids_ + tb * K, n * (int) K, (int) K, hits_.d_res + l * g.n_expert, (int) g.n_expert,
                           hits_.cache_base, slot_off_d_, (long long) hits_.blob,
                           plan_ + (size_t) grp * (size_t) (plan_i32_ + 16), (long long) max_t_ * K, skip_ + grp,
-                          (uint32_t) ((l - lb_) * G + grp + 1), cs);
+                          (uint32_t) ((l - lb_) * G + grp + 1), cs, aplan_m_ ? aplan_m_ + (l-lb_)*G+grp : nullptr);
 #if defined(STRATA_USE_HIP)
         if (g_doorbell_store)   // #649 A/B: the step's ring stored, not incremented over PCIe
             doorbell_publish_value(xm, ids_ + tb * K, w_ + tb * K, (int64_t) n * N, (int64_t) n * K, m_x_ + tb * N,
@@ -936,9 +950,11 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         const uint32_t ring = (uint32_t) ((l - lb_) * G + grp + 1);
         const int64_t cap = (int64_t) n * K, capx = (int64_t) max_t_ * K;
         int32_t* pl = plan_ + (size_t) grp * (size_t) (plan_i32_ + 16);
-        wait_verify_ready(m_flagA_, ring, device_plan_ ? skip_ + grp : nullptr, nullptr, cs);
+        auto* observation=aplan_m_ ? aplan_m_ + ring-1 : nullptr;
+        wait_verify_ready(m_flagA_, ring, device_plan_ ? skip_ + grp : nullptr, nullptr, cs,
+                          observation ? &observation->wait[0] : nullptr);
         copy_verify_plan(pl, m_plan_ + (size_t) grp * (size_t) plan_i32_, plan_i32_,
-                         device_plan_ ? skip_ + grp : nullptr, ring, m_flagA_, cs);
+                         device_plan_ ? skip_ + grp : nullptr, ring, m_flagA_, cs, observation);
         stamp(l, 19, grp);
         const int32_t* p_counts = pl;
         const int32_t* p_start = pl + 4;
@@ -966,7 +982,7 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         };
         grouped(p_ptr, p_start, p_counts, 0);
         stamp(l, 20, grp);
-        wait_verify_ready(m_flagB_, ring, device_plan_ ? skip_ + grp : nullptr, pl, cs);
+        wait_verify_ready(m_flagB_, ring, device_plan_ ? skip_ + grp : nullptr, pl, cs, observation ? &observation->wait[1] : nullptr);
         if (sink_.pcie_mode == 2) {                            // stage it with a copy kernel, then point at staging
             const int64_t per = G == 2 ? kStagingBlobs / 2 : kStagingBlobs;
             uint8_t* stage = staging_ + (size_t) (grp * per) * lay.max_blob;
@@ -979,11 +995,11 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         grouped(p_ptr2, p_start2, p_counts + 2, kPcieGroupRows);
         stamp(l, 22, grp);
         if (device_plan_) {   // no CPU share when the device planned the group: its rows are zeros
-            wait_verify_ready(m_flag_, ring, skip_ + grp, nullptr, cs);
+            wait_verify_ready(m_flag_, ring, skip_ + grp, nullptr, cs, observation ? &observation->wait[2] : nullptr);
             copy_or_zero_from_mapped(parts_ + (size_t) tb * K * N, m_ymiss_ + (size_t) tb * K * N, (long long) n * K * N,
                                      skip_ + grp, ring, cs);
         } else {
-            wait_verify_ready(m_flag_, ring, nullptr, nullptr, cs);               // the CPU's share is in the mapped rows
+            wait_verify_ready(m_flag_, ring, nullptr, nullptr, cs, observation ? &observation->wait[2] : nullptr);               // the CPU's share is in the mapped rows
             stamp(l, 23, grp);
             if (dec_batch)   // only the CPU rows cross PCIe (p_dst[0, counts[1]) = the GPU's own rows)
                 copy_rows_from_mapped(parts_ + (size_t) tb * K * N, m_ymiss_ + (size_t) tb * K * N, (int64_t) n * K, N,
@@ -1310,6 +1326,12 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         }
         if (!ss.ple.table->gather_batch(rows, (size_t) T, h_ple_, err)) return false;
     }
+    if (aplan_h_) {
+        for (size_t i=0;i<aplan_host_.size();++i) {
+            aplan_h_[i]={}; aplan_h_[i].generation=windows+1; aplan_h_[i].expected=(uint32_t)i+1;
+            aplan_host_[i]={};
+        }
+    }
     *(volatile uint32_t*) h_seq_ = 0;
     *(volatile uint32_t*) h_flag_ = 0;
     *(volatile uint32_t*) h_flagA_ = 0;
@@ -1417,6 +1439,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         const Clock::time_point b = Clock::now();
         if (g_trace) trace_ev("RANG", k, l, (int64_t) std::chrono::duration_cast<std::chrono::microseconds>(b - a).count());
         VDBG("layer %lld rang\n", (long long) l);
+        if (aplan_h_) { auto& a=aplan_host_[k]; a.begin_ns=trace_now_ns(); a.seq_begin=*seq; }
         cur_layer_ = want - 1;
         set_plan_slot(grp);
         const int tb = gtb[grp], n = gte[grp] - gtb[grp];
@@ -1424,6 +1447,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         if (pool != nullptr)
             pool(user, h_x_ + (size_t) tb * g.n_embd, h_ids_ + (size_t) tb * ss.k, n, ss.k,
                  h_ymiss_ + (size_t) tb * ss.k * g.n_embd, l);
+        if (aplan_h_) { auto& a=aplan_host_[k]; a.return_ns=trace_now_ns(); a.seq_return=*seq; }
         VDBG("layer %lld served\n", (long long) l);
         if (g_trace) trace_ev(*(volatile uint32_t*) h_flagA_ == want ? "SERVED" : "SERVED-NO-PLAN-YET", k, l,
                               (int64_t) ms_since(b));   // aux: ms the CPU experts took
@@ -1551,6 +1575,8 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         if (!timed_out) err = "verify: expert readiness device wait expired: " + detail + "; window discarded; restart engine";
         timed_out = true;
     }
+    // Device diagnostics are read only AFTER existing compute AND copy completion, never by the watchdog.
+    if (aplan_h_ && (timed_out || windows==0)) aplan_dump(G, timed_out);
     if (timed_out) { diag(stderr); return false; }
     if (prof_on_ && G == 1) {       // the window's GPU stage stamps
         if (std::getenv("STRATA_VERIFY_EAGER") == nullptr)   // eager: prof_h_ already holds the host clocks
@@ -1684,6 +1710,7 @@ void Verifier::raise_flag(uint32_t* flag, uint32_t value) {
 void Verifier::fetch_dma(void* ctx, const uint8_t* const* src, int n, size_t bytes) {
     Verifier* v = (Verifier*) ctx;
     const uint32_t want = v->cur_layer_ + 1;
+    if (v->aplan_h_) { auto& a=v->aplan_host_[want-1]; a.fetch_ns=trace_now_ns(); a.dma=n; }
     if (n <= 0) { raise_flag(v->h_flagB_, want); return; }
     uint8_t* stage = (uint8_t*) v->sink_.staging;                  // this group's half in a split window
     /*
@@ -1705,10 +1732,32 @@ void Verifier::fetch_dma(void* ctx, const uint8_t* const* src, int n, size_t byt
     });
 }
 
+void Verifier::aplan_dump(int groups, bool failure) const {
+    std::fprintf(stderr,"APLAN_WINDOW generation=%lld T=%d pos=%lld failure=%d queues=completed\n",
+        (long long)windows+1,last_t_,(long long)last_pos0_,(int)failure);
+    for (int64_t i=0;i<(le_-lb_)*groups;++i) {
+        const auto& d=aplan_h_[i]; const auto& h=aplan_host_[i]; const auto& r=d.route;
+        std::fprintf(stderr,"APLAN ring=%u generation=%llu entered=%u decision=%u skip_written=%u n=%d shared_bad=%d "
+            "res=%llx mirror=%llx hash=%u invalid=%u missing=%u resident=%u mirrored=%u bad_i=%d bad_e=%d bad_slot=%d "
+            "copy=%u host_seq=%u/%u/%u host_ns=%lld/%lld/%lld/%lld host_counts=%d/%d/%d dma=%d",
+            d.expected,(unsigned long long)d.generation,d.entered,d.decision,d.skip_written,d.entries,d.shared_bad,
+            (unsigned long long)d.res_address,(unsigned long long)d.mirror_address,r.hash,r.invalid,r.missing,r.resident,r.mirrored,
+            r.first_bad,r.expert,r.slot,d.copy_action,h.seq_begin,h.seq_publish,h.seq_return,
+            (long long)h.begin_ns,(long long)h.publish_ns,(long long)h.fetch_ns,(long long)h.return_ns,h.groups,h.entries,h.pcie,h.dma);
+        for (int c=0;c<3;++c) { const auto& w=d.wait[c];
+            std::fprintf(stderr," %c=%u/%u/%u/%u/%u/%u","ABM"[c],w.entered,w.skip,w.before,w.after,w.spins,w.exited); }
+        std::fprintf(stderr,"\n");
+    }
+}
+
 void Verifier::publish_plan(void* ctx) {
     Verifier* v = (Verifier*) ctx;
     _mm_sfence();
     *(volatile uint32_t*) v->h_flagA_ = v->cur_layer_ + 1;
+    if (v->aplan_h_) {
+        auto& a=v->aplan_host_[v->cur_layer_]; a.publish_ns=trace_now_ns(); a.seq_publish=*v->h_seq_;
+        a.groups=v->sink_.counts[0]; a.entries=v->sink_.counts[1]; a.pcie=v->sink_.counts[2];
+    }
 }
 
 bool Verifier::window_logprobs(const int32_t* targets, int T, int64_t pos0, int32_t extra_id, std::FILE* out,

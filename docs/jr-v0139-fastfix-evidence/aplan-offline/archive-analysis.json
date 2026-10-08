@@ -1,0 +1,995 @@
+{
+  "archive_sha256": "d48d16e41b1f229b0b5f03627765cb87a13543beda85efcdf92f50eb79834bf1",
+  "upstream_tag": "v0.1.40.3",
+  "upstream_commit": "d5ea7133741e67743c0e886bb426c0ce8d69cf6c",
+  "first_host_backlog": {
+    "us_before_sync": "54542.4",
+    "event": "RANG",
+    "step": "29",
+    "layer": "29",
+    "seq": "33",
+    "M": "29",
+    "A": "29",
+    "B": "29"
+  },
+  "failed_window_host_events": [
+    {
+      "us_before_sync": "79870.8",
+      "event": "RANG",
+      "step": "0",
+      "layer": "0",
+      "seq": "1",
+      "M": "0",
+      "A": "0",
+      "B": "0"
+    },
+    {
+      "us_before_sync": "79859.1",
+      "event": "SERVED",
+      "step": "0",
+      "layer": "0",
+      "seq": "1",
+      "M": "0",
+      "A": "1",
+      "B": "1"
+    },
+    {
+      "us_before_sync": "79001.0",
+      "event": "RANG",
+      "step": "1",
+      "layer": "1",
+      "seq": "2",
+      "M": "1",
+      "A": "1",
+      "B": "1"
+    },
+    {
+      "us_before_sync": "78619.4",
+      "event": "SERVED",
+      "step": "1",
+      "layer": "1",
+      "seq": "2",
+      "M": "1",
+      "A": "2",
+      "B": "2"
+    },
+    {
+      "us_before_sync": "78173.0",
+      "event": "RANG",
+      "step": "2",
+      "layer": "2",
+      "seq": "3",
+      "M": "2",
+      "A": "2",
+      "B": "2"
+    },
+    {
+      "us_before_sync": "78043.6",
+      "event": "SERVED",
+      "step": "2",
+      "layer": "2",
+      "seq": "3",
+      "M": "2",
+      "A": "3",
+      "B": "3"
+    },
+    {
+      "us_before_sync": "77500.9",
+      "event": "RANG",
+      "step": "3",
+      "layer": "3",
+      "seq": "4",
+      "M": "3",
+      "A": "3",
+      "B": "3"
+    },
+    {
+      "us_before_sync": "77487.9",
+      "event": "SERVED",
+      "step": "3",
+      "layer": "3",
+      "seq": "4",
+      "M": "3",
+      "A": "4",
+      "B": "4"
+    },
+    {
+      "us_before_sync": "76843.7",
+      "event": "RANG",
+      "step": "4",
+      "layer": "4",
+      "seq": "5",
+      "M": "4",
+      "A": "4",
+      "B": "4"
+    },
+    {
+      "us_before_sync": "76837.4",
+      "event": "SERVED",
+      "step": "4",
+      "layer": "4",
+      "seq": "5",
+      "M": "4",
+      "A": "5",
+      "B": "5"
+    },
+    {
+      "us_before_sync": "76178.4",
+      "event": "RANG",
+      "step": "5",
+      "layer": "5",
+      "seq": "6",
+      "M": "5",
+      "A": "5",
+      "B": "5"
+    },
+    {
+      "us_before_sync": "76113.6",
+      "event": "SERVED",
+      "step": "5",
+      "layer": "5",
+      "seq": "6",
+      "M": "5",
+      "A": "6",
+      "B": "6"
+    },
+    {
+      "us_before_sync": "75580.4",
+      "event": "RANG",
+      "step": "6",
+      "layer": "6",
+      "seq": "7",
+      "M": "6",
+      "A": "6",
+      "B": "6"
+    },
+    {
+      "us_before_sync": "75570.4",
+      "event": "SERVED",
+      "step": "6",
+      "layer": "6",
+      "seq": "7",
+      "M": "6",
+      "A": "7",
+      "B": "7"
+    },
+    {
+      "us_before_sync": "74915.1",
+      "event": "RANG",
+      "step": "7",
+      "layer": "7",
+      "seq": "8",
+      "M": "7",
+      "A": "7",
+      "B": "7"
+    },
+    {
+      "us_before_sync": "74643.7",
+      "event": "SERVED",
+      "step": "7",
+      "layer": "7",
+      "seq": "8",
+      "M": "7",
+      "A": "8",
+      "B": "8"
+    },
+    {
+      "us_before_sync": "74264.1",
+      "event": "RANG",
+      "step": "8",
+      "layer": "8",
+      "seq": "9",
+      "M": "8",
+      "A": "8",
+      "B": "8"
+    },
+    {
+      "us_before_sync": "74249.8",
+      "event": "SERVED",
+      "step": "8",
+      "layer": "8",
+      "seq": "9",
+      "M": "8",
+      "A": "9",
+      "B": "9"
+    },
+    {
+      "us_before_sync": "73659.7",
+      "event": "RANG",
+      "step": "9",
+      "layer": "9",
+      "seq": "10",
+      "M": "9",
+      "A": "9",
+      "B": "9"
+    },
+    {
+      "us_before_sync": "72392.4",
+      "event": "SERVED",
+      "step": "9",
+      "layer": "9",
+      "seq": "10",
+      "M": "9",
+      "A": "10",
+      "B": "10"
+    },
+    {
+      "us_before_sync": "71975.5",
+      "event": "RANG",
+      "step": "10",
+      "layer": "10",
+      "seq": "11",
+      "M": "10",
+      "A": "10",
+      "B": "10"
+    },
+    {
+      "us_before_sync": "71553.2",
+      "event": "SERVED",
+      "step": "10",
+      "layer": "10",
+      "seq": "11",
+      "M": "10",
+      "A": "11",
+      "B": "11"
+    },
+    {
+      "us_before_sync": "71089.3",
+      "event": "RANG",
+      "step": "11",
+      "layer": "11",
+      "seq": "12",
+      "M": "11",
+      "A": "11",
+      "B": "11"
+    },
+    {
+      "us_before_sync": "71074.9",
+      "event": "SERVED",
+      "step": "11",
+      "layer": "11",
+      "seq": "12",
+      "M": "11",
+      "A": "12",
+      "B": "12"
+    },
+    {
+      "us_before_sync": "70462.9",
+      "event": "RANG",
+      "step": "12",
+      "layer": "12",
+      "seq": "13",
+      "M": "12",
+      "A": "12",
+      "B": "12"
+    },
+    {
+      "us_before_sync": "70256.3",
+      "event": "SERVED",
+      "step": "12",
+      "layer": "12",
+      "seq": "13",
+      "M": "12",
+      "A": "13",
+      "B": "13"
+    },
+    {
+      "us_before_sync": "69339.2",
+      "event": "RANG",
+      "step": "13",
+      "layer": "13",
+      "seq": "14",
+      "M": "13",
+      "A": "13",
+      "B": "13"
+    },
+    {
+      "us_before_sync": "69271.2",
+      "event": "SERVED",
+      "step": "13",
+      "layer": "13",
+      "seq": "14",
+      "M": "13",
+      "A": "14",
+      "B": "14"
+    },
+    {
+      "us_before_sync": "68577.2",
+      "event": "RANG",
+      "step": "14",
+      "layer": "14",
+      "seq": "15",
+      "M": "14",
+      "A": "14",
+      "B": "14"
+    },
+    {
+      "us_before_sync": "68569.1",
+      "event": "SERVED",
+      "step": "14",
+      "layer": "14",
+      "seq": "15",
+      "M": "14",
+      "A": "15",
+      "B": "15"
+    },
+    {
+      "us_before_sync": "67919.7",
+      "event": "RANG",
+      "step": "15",
+      "layer": "15",
+      "seq": "16",
+      "M": "15",
+      "A": "15",
+      "B": "15"
+    },
+    {
+      "us_before_sync": "67914.0",
+      "event": "SERVED",
+      "step": "15",
+      "layer": "15",
+      "seq": "16",
+      "M": "15",
+      "A": "16",
+      "B": "16"
+    },
+    {
+      "us_before_sync": "67334.5",
+      "event": "RANG",
+      "step": "16",
+      "layer": "16",
+      "seq": "17",
+      "M": "16",
+      "A": "16",
+      "B": "16"
+    },
+    {
+      "us_before_sync": "67028.0",
+      "event": "SERVED",
+      "step": "16",
+      "layer": "16",
+      "seq": "17",
+      "M": "16",
+      "A": "17",
+      "B": "17"
+    },
+    {
+      "us_before_sync": "66640.8",
+      "event": "RANG",
+      "step": "17",
+      "layer": "17",
+      "seq": "18",
+      "M": "17",
+      "A": "17",
+      "B": "17"
+    },
+    {
+      "us_before_sync": "66625.4",
+      "event": "SERVED",
+      "step": "17",
+      "layer": "17",
+      "seq": "18",
+      "M": "17",
+      "A": "18",
+      "B": "18"
+    },
+    {
+      "us_before_sync": "66072.7",
+      "event": "RANG",
+      "step": "18",
+      "layer": "18",
+      "seq": "19",
+      "M": "18",
+      "A": "18",
+      "B": "18"
+    },
+    {
+      "us_before_sync": "66066.5",
+      "event": "SERVED",
+      "step": "18",
+      "layer": "18",
+      "seq": "19",
+      "M": "18",
+      "A": "19",
+      "B": "19"
+    },
+    {
+      "us_before_sync": "65405.4",
+      "event": "RANG",
+      "step": "19",
+      "layer": "19",
+      "seq": "20",
+      "M": "19",
+      "A": "19",
+      "B": "19"
+    },
+    {
+      "us_before_sync": "65399.0",
+      "event": "SERVED",
+      "step": "19",
+      "layer": "19",
+      "seq": "20",
+      "M": "19",
+      "A": "20",
+      "B": "20"
+    },
+    {
+      "us_before_sync": "64824.4",
+      "event": "RANG",
+      "step": "20",
+      "layer": "20",
+      "seq": "21",
+      "M": "20",
+      "A": "20",
+      "B": "20"
+    },
+    {
+      "us_before_sync": "64818.6",
+      "event": "SERVED",
+      "step": "20",
+      "layer": "20",
+      "seq": "21",
+      "M": "20",
+      "A": "21",
+      "B": "21"
+    },
+    {
+      "us_before_sync": "64092.9",
+      "event": "RANG",
+      "step": "21",
+      "layer": "21",
+      "seq": "22",
+      "M": "21",
+      "A": "21",
+      "B": "21"
+    },
+    {
+      "us_before_sync": "64029.4",
+      "event": "SERVED",
+      "step": "21",
+      "layer": "21",
+      "seq": "22",
+      "M": "21",
+      "A": "22",
+      "B": "22"
+    },
+    {
+      "us_before_sync": "63175.8",
+      "event": "RANG",
+      "step": "22",
+      "layer": "22",
+      "seq": "23",
+      "M": "22",
+      "A": "22",
+      "B": "22"
+    },
+    {
+      "us_before_sync": "63169.8",
+      "event": "SERVED",
+      "step": "22",
+      "layer": "22",
+      "seq": "23",
+      "M": "22",
+      "A": "23",
+      "B": "23"
+    },
+    {
+      "us_before_sync": "62511.9",
+      "event": "RANG",
+      "step": "23",
+      "layer": "23",
+      "seq": "24",
+      "M": "23",
+      "A": "23",
+      "B": "23"
+    },
+    {
+      "us_before_sync": "62414.8",
+      "event": "SERVED",
+      "step": "23",
+      "layer": "23",
+      "seq": "24",
+      "M": "23",
+      "A": "24",
+      "B": "24"
+    },
+    {
+      "us_before_sync": "61564.8",
+      "event": "RANG",
+      "step": "24",
+      "layer": "24",
+      "seq": "25",
+      "M": "24",
+      "A": "24",
+      "B": "24"
+    },
+    {
+      "us_before_sync": "61558.6",
+      "event": "SERVED",
+      "step": "24",
+      "layer": "24",
+      "seq": "25",
+      "M": "24",
+      "A": "25",
+      "B": "25"
+    },
+    {
+      "us_before_sync": "60943.4",
+      "event": "RANG",
+      "step": "25",
+      "layer": "25",
+      "seq": "26",
+      "M": "25",
+      "A": "25",
+      "B": "25"
+    },
+    {
+      "us_before_sync": "60590.1",
+      "event": "SERVED",
+      "step": "25",
+      "layer": "25",
+      "seq": "26",
+      "M": "25",
+      "A": "26",
+      "B": "26"
+    },
+    {
+      "us_before_sync": "60212.7",
+      "event": "RANG",
+      "step": "26",
+      "layer": "26",
+      "seq": "27",
+      "M": "26",
+      "A": "26",
+      "B": "26"
+    },
+    {
+      "us_before_sync": "59869.3",
+      "event": "SERVED",
+      "step": "26",
+      "layer": "26",
+      "seq": "27",
+      "M": "26",
+      "A": "27",
+      "B": "27"
+    },
+    {
+      "us_before_sync": "59389.3",
+      "event": "RANG",
+      "step": "27",
+      "layer": "27",
+      "seq": "28",
+      "M": "27",
+      "A": "27",
+      "B": "27"
+    },
+    {
+      "us_before_sync": "58850.5",
+      "event": "SERVED",
+      "step": "27",
+      "layer": "27",
+      "seq": "28",
+      "M": "27",
+      "A": "28",
+      "B": "28"
+    },
+    {
+      "us_before_sync": "58452.0",
+      "event": "RANG",
+      "step": "28",
+      "layer": "28",
+      "seq": "29",
+      "M": "28",
+      "A": "28",
+      "B": "28"
+    },
+    {
+      "us_before_sync": "58258.2",
+      "event": "SERVED",
+      "step": "28",
+      "layer": "28",
+      "seq": "29",
+      "M": "28",
+      "A": "29",
+      "B": "29"
+    },
+    {
+      "us_before_sync": "54542.4",
+      "event": "RANG",
+      "step": "29",
+      "layer": "29",
+      "seq": "33",
+      "M": "29",
+      "A": "29",
+      "B": "29"
+    },
+    {
+      "us_before_sync": "52569.5",
+      "event": "SERVED",
+      "step": "29",
+      "layer": "29",
+      "seq": "36",
+      "M": "29",
+      "A": "30",
+      "B": "30"
+    },
+    {
+      "us_before_sync": "52568.4",
+      "event": "RANG",
+      "step": "30",
+      "layer": "30",
+      "seq": "36",
+      "M": "30",
+      "A": "30",
+      "B": "30"
+    },
+    {
+      "us_before_sync": "51202.2",
+      "event": "SERVED",
+      "step": "30",
+      "layer": "30",
+      "seq": "37",
+      "M": "30",
+      "A": "31",
+      "B": "31"
+    },
+    {
+      "us_before_sync": "51201.5",
+      "event": "RANG",
+      "step": "31",
+      "layer": "31",
+      "seq": "37",
+      "M": "31",
+      "A": "31",
+      "B": "31"
+    },
+    {
+      "us_before_sync": "44533.8",
+      "event": "SERVED",
+      "step": "31",
+      "layer": "31",
+      "seq": "47",
+      "M": "31",
+      "A": "32",
+      "B": "32"
+    },
+    {
+      "us_before_sync": "44533.3",
+      "event": "RANG",
+      "step": "32",
+      "layer": "32",
+      "seq": "47",
+      "M": "32",
+      "A": "32",
+      "B": "32"
+    },
+    {
+      "us_before_sync": "39131.4",
+      "event": "SERVED",
+      "step": "32",
+      "layer": "32",
+      "seq": "47",
+      "M": "32",
+      "A": "33",
+      "B": "33"
+    },
+    {
+      "us_before_sync": "39130.8",
+      "event": "RANG",
+      "step": "33",
+      "layer": "33",
+      "seq": "47",
+      "M": "33",
+      "A": "33",
+      "B": "33"
+    },
+    {
+      "us_before_sync": "37227.7",
+      "event": "SERVED",
+      "step": "33",
+      "layer": "33",
+      "seq": "47",
+      "M": "33",
+      "A": "34",
+      "B": "34"
+    },
+    {
+      "us_before_sync": "37226.5",
+      "event": "RANG",
+      "step": "34",
+      "layer": "34",
+      "seq": "47",
+      "M": "34",
+      "A": "34",
+      "B": "34"
+    },
+    {
+      "us_before_sync": "32335.6",
+      "event": "SERVED",
+      "step": "34",
+      "layer": "34",
+      "seq": "47",
+      "M": "34",
+      "A": "35",
+      "B": "35"
+    },
+    {
+      "us_before_sync": "32335.1",
+      "event": "RANG",
+      "step": "35",
+      "layer": "35",
+      "seq": "47",
+      "M": "35",
+      "A": "35",
+      "B": "35"
+    },
+    {
+      "us_before_sync": "32182.7",
+      "event": "SERVED",
+      "step": "35",
+      "layer": "35",
+      "seq": "47",
+      "M": "35",
+      "A": "36",
+      "B": "36"
+    },
+    {
+      "us_before_sync": "32182.6",
+      "event": "RANG",
+      "step": "36",
+      "layer": "36",
+      "seq": "47",
+      "M": "36",
+      "A": "36",
+      "B": "36"
+    },
+    {
+      "us_before_sync": "27988.4",
+      "event": "SERVED",
+      "step": "36",
+      "layer": "36",
+      "seq": "47",
+      "M": "36",
+      "A": "37",
+      "B": "37"
+    },
+    {
+      "us_before_sync": "27987.5",
+      "event": "RANG",
+      "step": "37",
+      "layer": "37",
+      "seq": "47",
+      "M": "37",
+      "A": "37",
+      "B": "37"
+    },
+    {
+      "us_before_sync": "27712.6",
+      "event": "SERVED",
+      "step": "37",
+      "layer": "37",
+      "seq": "47",
+      "M": "37",
+      "A": "38",
+      "B": "38"
+    },
+    {
+      "us_before_sync": "27711.9",
+      "event": "RANG",
+      "step": "38",
+      "layer": "38",
+      "seq": "47",
+      "M": "38",
+      "A": "38",
+      "B": "38"
+    },
+    {
+      "us_before_sync": "22541.7",
+      "event": "SERVED",
+      "step": "38",
+      "layer": "38",
+      "seq": "47",
+      "M": "38",
+      "A": "39",
+      "B": "39"
+    },
+    {
+      "us_before_sync": "22541.4",
+      "event": "RANG",
+      "step": "39",
+      "layer": "39",
+      "seq": "47",
+      "M": "39",
+      "A": "39",
+      "B": "39"
+    },
+    {
+      "us_before_sync": "18975.9",
+      "event": "SERVED",
+      "step": "39",
+      "layer": "39",
+      "seq": "47",
+      "M": "39",
+      "A": "40",
+      "B": "40"
+    },
+    {
+      "us_before_sync": "18975.4",
+      "event": "RANG",
+      "step": "40",
+      "layer": "40",
+      "seq": "47",
+      "M": "40",
+      "A": "40",
+      "B": "40"
+    },
+    {
+      "us_before_sync": "12463.9",
+      "event": "SERVED",
+      "step": "40",
+      "layer": "40",
+      "seq": "47",
+      "M": "40",
+      "A": "41",
+      "B": "41"
+    },
+    {
+      "us_before_sync": "12463.5",
+      "event": "RANG",
+      "step": "41",
+      "layer": "41",
+      "seq": "47",
+      "M": "41",
+      "A": "41",
+      "B": "41"
+    },
+    {
+      "us_before_sync": "11798.7",
+      "event": "SERVED",
+      "step": "41",
+      "layer": "41",
+      "seq": "47",
+      "M": "41",
+      "A": "42",
+      "B": "42"
+    },
+    {
+      "us_before_sync": "11798.3",
+      "event": "RANG",
+      "step": "42",
+      "layer": "42",
+      "seq": "47",
+      "M": "42",
+      "A": "42",
+      "B": "42"
+    },
+    {
+      "us_before_sync": "11118.4",
+      "event": "SERVED",
+      "step": "42",
+      "layer": "42",
+      "seq": "47",
+      "M": "42",
+      "A": "43",
+      "B": "43"
+    },
+    {
+      "us_before_sync": "11118.1",
+      "event": "RANG",
+      "step": "43",
+      "layer": "43",
+      "seq": "47",
+      "M": "43",
+      "A": "43",
+      "B": "43"
+    },
+    {
+      "us_before_sync": "9859.5",
+      "event": "SERVED",
+      "step": "43",
+      "layer": "43",
+      "seq": "47",
+      "M": "43",
+      "A": "44",
+      "B": "44"
+    },
+    {
+      "us_before_sync": "9859.1",
+      "event": "RANG",
+      "step": "44",
+      "layer": "44",
+      "seq": "47",
+      "M": "44",
+      "A": "44",
+      "B": "44"
+    },
+    {
+      "us_before_sync": "6849.1",
+      "event": "SERVED",
+      "step": "44",
+      "layer": "44",
+      "seq": "47",
+      "M": "44",
+      "A": "45",
+      "B": "45"
+    },
+    {
+      "us_before_sync": "6848.5",
+      "event": "RANG",
+      "step": "45",
+      "layer": "45",
+      "seq": "47",
+      "M": "45",
+      "A": "45",
+      "B": "45"
+    },
+    {
+      "us_before_sync": "3364.5",
+      "event": "SERVED",
+      "step": "45",
+      "layer": "45",
+      "seq": "47",
+      "M": "45",
+      "A": "46",
+      "B": "46"
+    },
+    {
+      "us_before_sync": "3364.0",
+      "event": "RANG",
+      "step": "46",
+      "layer": "46",
+      "seq": "47",
+      "M": "46",
+      "A": "46",
+      "B": "46"
+    },
+    {
+      "us_before_sync": "2682.7",
+      "event": "SERVED",
+      "step": "46",
+      "layer": "46",
+      "seq": "47",
+      "M": "46",
+      "A": "47",
+      "B": "47"
+    },
+    {
+      "us_before_sync": "2093.0",
+      "event": "RANG",
+      "step": "47",
+      "layer": "47",
+      "seq": "48",
+      "M": "47",
+      "A": "47",
+      "B": "47"
+    },
+    {
+      "us_before_sync": "2078.8",
+      "event": "SERVED",
+      "step": "47",
+      "layer": "47",
+      "seq": "48",
+      "M": "47",
+      "A": "48",
+      "B": "48"
+    }
+  ],
+  "upstream_files": {
+    "sycl/include/strata/sycl_doorbell.hpp": "7f81a61bb8e40b993ad36bf9cfd9039d63b029ef09b3709ef8e3ec3fedbde3fb",
+    "sycl/include/strata/sycl_queue.hpp": "696ad9d9073b50f2b68033a94040e96ecb9747ac8dcfb40bbeefd2b71eccbe45",
+    "sycl/src/core/verify.cpp": "fadbf789353c67e9efb18eb7d37940ec12c2a4fd0ea067e290b531f152f6c6b0",
+    "sycl/src/core/mtp.cpp": "ac7e6b0b183a93e32aaada308b437e4ce9153c0bc7fbb93999ce3595ae9dd261"
+  },
+  "archived_command": [
+    "exec /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata --serve --pack /work/data/packs/swift-iq3_xxs --native /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --ple-gguf /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --expert-profile /work/Strata/data/expert-profile.bin --expert-cache 8098 --spec 4 --spec-min-p 0.5 --mtp /work/data/mtp/rt --max-context 131072 --kv int8 --kv-resident 32768 --stream-experts --vram-reserve-mib 768 --prefill 4096 --pcie-frac 0.25"
+  ],
+  "adaptation": {
+    "explicit_override_present": false,
+    "source_defaults": {
+      "adapt_every": 4,
+      "adapt_swaps": 96
+    },
+    "mirror_table_rebuilt_by_adapt": false,
+    "actual_failed_expert": "not recorded"
+  }
+}

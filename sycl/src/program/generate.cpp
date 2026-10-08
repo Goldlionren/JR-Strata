@@ -5813,6 +5813,23 @@ int main(int argc, char **argv) try {
             }
             pending.clear();
             res_upload();
+            // Opt-in evidence only: the startup mirror is static while adaptive residency can change.
+            static const bool aplan_diag = [] { const char* v=std::getenv("STRATA_APLAN_DIAG"); return v && std::atoi(v)!=0; }();
+            static uint64_t aplan_upload=0;
+            if (aplan_diag && srcp==&gguf_src) {
+                size_t holes=0; int64_t first=-1;
+                uint32_t hash=2166136261u;
+                for (size_t i=0;i<host_res.size();++i) {
+                    hash=(hash ^ (uint32_t)host_res[i])*16777619u;
+                    if (host_res[i]<0 && !gguf_src.pinned(i/g.n_expert,i%g.n_expert)) {
+                        if (first<0) first=(int64_t)i;
+                        ++holes;
+                    }
+                }
+                std::fprintf(stderr,"APLAN_RESIDENCY upload=%llu adapt_every=%d adapt_swaps=%d holes=%zu first_layer=%lld first_expert=%lld hash=%u\n",
+                    (unsigned long long)++aplan_upload,o.adapt_every,o.adapt_swaps,holes,
+                    (long long)(first<0?-1:first/g.n_expert),(long long)(first<0?-1:first%g.n_expert),hash);
+            }
         }
         catch (sycl::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__

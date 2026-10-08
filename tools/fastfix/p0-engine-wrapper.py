@@ -12,6 +12,7 @@ for v in ['ONEAPI_DEVICE_SELECTOR=level_zero:0','SYCL_CACHE_PERSISTENT=0','STRAT
  args+=['-e',v]
 if os.environ.get('FASTFIX_P0')!='1':raise SystemExit('P0 wrapper requires the dedicated approved controller')
 args+=['-e','STRATA_VERIFY_TRACE=1']
+if os.environ.get('FASTFIX_APLAN_DIAG')=='1':args+=['-e','STRATA_APLAN_DIAG=1']
 if os.environ.get('FASTFIX_NO_DRAFT')=='1':args+=['-e','STRATA_TEST_VERIFY_NO_DRAFT=1']
 if os.environ.get('FASTFIX_NO_HOST')=='1':args+=['-e','STRATA_VERIFY_NO_HOST=1']
 binary='/work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata'
