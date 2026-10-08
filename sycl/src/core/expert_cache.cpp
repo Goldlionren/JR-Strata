@@ -508,8 +508,8 @@ bool ExpertCache::open(int64_t n_slots, int64_t n_layers, int64_t n_expert,
     if (seg_req_ > 0) {   // #533: --vram-elastic: physical segments behind one address range (zeroed below)
         if (!open_segmented(want, err)) return false;
     } else if (DPCT_CHECK_ERROR(
-                   base_ = (uint8_t *)sycl::malloc_device(
-                       (size_t)want, dpct::get_in_order_queue())) != 0) {
+                   base_ = (uint8_t *)strata::malloc_device_guarded(
+                       (size_t)want, dpct::get_in_order_queue(), "expert cache")) != 0) {
         base_ = nullptr;
         char buf[256];
         std::snprintf(
@@ -531,7 +531,7 @@ bool ExpertCache::open(int64_t n_slots, int64_t n_layers, int64_t n_expert,
     // Zeroed so a slot read before it is filled is a DETERMINISTIC wrong answer rather than whatever the
     // allocator handed back.  A stale block of a previous process's memory would still sum to finite floats.
     if (DPCT_CHECK_ERROR(
-            dpct::get_in_order_queue().memset(base_, 0, (size_t)want).wait()) !=
+            strata::big_fill_zero(dpct::get_in_order_queue(), base_, (size_t)want)) !=
         0) {
         err = "ExpertCache: cudaMemset of the slot arena failed";
         close();

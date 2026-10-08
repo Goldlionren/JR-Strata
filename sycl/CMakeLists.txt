@@ -79,6 +79,8 @@ target_include_directories(strata_includes INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/include      # migrated headers + dpct/ helpers, first
   ${STRATA_ROOT}/include)
 target_compile_options(strata_includes INTERFACE -Wall -Wextra)
+find_library(STRATA_ZE_LOADER ze_loader REQUIRED)
+target_link_libraries(strata_includes INTERFACE ${STRATA_ZE_LOADER})
 
 # --- CPU-side pieces, identical to the top-level build ------------------------------------------------------------
 strata_resolve(_spec src/spec/suffix_drafter.cpp src/spec/controller.cpp src/spec/draft_policy.cpp)
@@ -239,3 +241,7 @@ if(STRATA_SYCL_PARITY)
     target_link_libraries(native_expert_parity PRIVATE strata_kernels strata_kernels_cpu)
   endif()
 endif()
+
+# FastFix: unchanged arena layout with bounded initialization and alias rejection.
+add_executable(fastfix_memory_safety ${STRATA_ROOT}/tools/fastfix/memory_safety.cpp)
+target_link_libraries(fastfix_memory_safety PRIVATE strata_kernels)
