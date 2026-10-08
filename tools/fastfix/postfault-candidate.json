@@ -1,0 +1,9 @@
+{
+  "source_engine_commit": "355ebe7e1969cf2091ca40fd95c6a3a4134b2cdb",
+  "binary": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata",
+  "sha256": "39701868b8532bc20c03faf8ab0009cf881f0611462a09914739c9d5d6696996",
+  "gpu_status": "NOT TESTED after copy-drain correction",
+  "failed_tested_binary": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-window-01/strata",
+  "failed_tested_sha256": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e",
+  "deployment": "BLOCKED; RC1 remains active"
+}
