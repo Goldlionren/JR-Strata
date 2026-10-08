@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:18083/",
+  "http": 200,
+  "tabs": {
+    "Chat": true,
+    "Monitor": true,
+    "About": true
+  },
+  "assets": {
+    "web/app.js": {
+      "status": 200,
+      "bytes": 59958
+    }
+  }
+}

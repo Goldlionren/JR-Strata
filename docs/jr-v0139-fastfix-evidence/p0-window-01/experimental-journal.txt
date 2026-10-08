@@ -1,0 +1,153 @@
+Oct 09 08:47:12 james-NUC12SNKi72 systemd[1802]: Starting jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-off-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 08:47:12 james-NUC12SNKi72 systemd[1802]: Started jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-off-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 08:47:13 james-NUC12SNKi72 python[169022]: loading the model (the first start takes a minute or two) ...
+Oct 09 08:47:13 james-NUC12SNKi72 python[169022]: [strata] starting the engine: reading the model's weights ...
+Oct 09 08:47:16 james-NUC12SNKi72 python[169022]: [strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+Oct 09 08:47:16 james-NUC12SNKi72 python[169022]:          YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+Oct 09 08:47:16 james-NUC12SNKi72 python[169022]:          Please wait and don't close this window; the browser opens when it is ready.
+Oct 09 08:47:17 james-NUC12SNKi72 python[169022]: [strata] filling the GPU's expert cache (10831 experts, 17.57 GiB of VRAM) ...
+Oct 09 08:47:31 james-NUC12SNKi72 python[169022]: ready: http://127.0.0.1:18086/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 131072 tokens)
+Oct 09 08:47:31 james-NUC12SNKi72 python[169022]:        open http://127.0.0.1:18086/ in a browser to chat; close this window to stop the model
+Oct 09 08:47:33 james-NUC12SNKi72 python[169022]: [strata] reading the prompt: 19 of 26 tokens, 1 s so far
+Oct 09 08:47:34 james-NUC12SNKi72 python[169022]: [strata] answering: 7 of max 128 tokens, 11.0 tok/s, 2 s
+Oct 09 08:47:35 james-NUC12SNKi72 python[169022]: [strata] answering: 21 of max 128 tokens, 12.6 tok/s, 3 s
+Oct 09 08:47:36 james-NUC12SNKi72 python[169022]: [strata] answering: 39 of max 128 tokens, 14.5 tok/s, 4 s
+Oct 09 08:47:37 james-NUC12SNKi72 python[169022]: [strata] done: 54 tokens in 5 s (15.3 tok/s) (stop, cancel=False), expert cache 81.7% hit (+1.9% of the routed experts over PCIe)
+Oct 09 08:47:39 james-NUC12SNKi72 python[169022]: [strata] reading the prompt: 25 of 26 tokens, 1 s so far
+Oct 09 08:47:40 james-NUC12SNKi72 python[169022]: [strata] answering: 15 of max 128 tokens, 15.3 tok/s, 2 s
+Oct 09 08:47:41 james-NUC12SNKi72 python[169022]: [strata] answering: 34 of max 128 tokens, 17.1 tok/s, 3 s
+Oct 09 08:47:41 james-NUC12SNKi72 python[169022]: [strata] done: 46 tokens in 4 s (17.3 tok/s) (stop, cancel=False), expert cache 86.2% hit (+1.1% of the routed experts over PCIe)
+Oct 09 08:47:43 james-NUC12SNKi72 python[169022]: [strata] reading the prompt: 36 of 43 tokens, 1 s so far
+Oct 09 08:47:44 james-NUC12SNKi72 python[169022]: [strata] answering: 10 of max 192 tokens, 12.9 tok/s, 2 s
+Oct 09 08:47:45 james-NUC12SNKi72 python[169022]: [strata] answering: 21 of max 192 tokens, 11.5 tok/s, 3 s
+Oct 09 08:47:46 james-NUC12SNKi72 python[169022]: [strata] answering: 34 of max 192 tokens, 11.9 tok/s, 4 s
+Oct 09 08:47:47 james-NUC12SNKi72 python[169022]: [strata] answering: 48 of max 192 tokens, 12.3 tok/s, 5 s
+Oct 09 08:47:48 james-NUC12SNKi72 python[169022]: [strata] done: 53 tokens in 6 s (12.3 tok/s) (stop, cancel=False), expert cache 65.6% hit (+5.1% of the routed experts over PCIe)
+Oct 09 08:47:50 james-NUC12SNKi72 python[169022]: [strata] reading the prompt: 42 of 43 tokens, 1 s so far
+Oct 09 08:47:51 james-NUC12SNKi72 python[169022]: [strata] answering: 16 of max 192 tokens, 16.5 tok/s, 2 s
+Oct 09 08:47:52 james-NUC12SNKi72 python[169022]: [strata] answering: 33 of max 192 tokens, 16.6 tok/s, 3 s
+Oct 09 08:47:53 james-NUC12SNKi72 python[169022]: [strata] answering: 48 of max 192 tokens, 15.7 tok/s, 4 s
+Oct 09 08:47:54 james-NUC12SNKi72 python[169022]: [strata] answering: 62 of max 192 tokens, 15.3 tok/s, 5 s
+Oct 09 08:47:55 james-NUC12SNKi72 python[169022]: [strata] answering: 80 of max 192 tokens, 15.7 tok/s, 6 s
+Oct 09 08:47:56 james-NUC12SNKi72 python[169022]: [strata] answering: 97 of max 192 tokens, 15.9 tok/s, 7 s
+Oct 09 08:47:56 james-NUC12SNKi72 python[169022]: [strata] done: 110 tokens in 8 s (16.1 tok/s) (stop, cancel=False), expert cache 79.9% hit (+1.9% of the routed experts over PCIe)
+Oct 09 08:47:59 james-NUC12SNKi72 python[169022]: [strata] reading the prompt: 72 of 79 tokens, 2 s so far
+Oct 09 08:48:00 james-NUC12SNKi72 python[169022]: [strata] answering: 9 of max 512 tokens, 15.4 tok/s, 3 s
+Oct 09 08:48:01 james-NUC12SNKi72 python[169022]: [strata] answering: 26 of max 512 tokens, 16.0 tok/s, 4 s
+Oct 09 08:48:02 james-NUC12SNKi72 python[169022]: [strata] answering: 40 of max 512 tokens, 15.2 tok/s, 5 s
+Oct 09 08:48:03 james-NUC12SNKi72 python[169022]: [strata] answering: 57 of max 512 tokens, 15.4 tok/s, 6 s
+Oct 09 08:48:05 james-NUC12SNKi72 python[169022]: [strata] answering: 74 of max 512 tokens, 15.6 tok/s, 7 s
+Oct 09 08:48:06 james-NUC12SNKi72 python[169022]: [strata] answering: 94 of max 512 tokens, 16.2 tok/s, 8 s
+Oct 09 08:48:07 james-NUC12SNKi72 python[169022]: [strata] answering: 116 of max 512 tokens, 17.0 tok/s, 9 s
+Oct 09 08:48:08 james-NUC12SNKi72 python[169022]: [strata] answering: 138 of max 512 tokens, 17.5 tok/s, 10 s
+Oct 09 08:48:09 james-NUC12SNKi72 python[169022]: [strata] answering: 160 of max 512 tokens, 18.0 tok/s, 11 s
+Oct 09 08:48:10 james-NUC12SNKi72 python[169022]: [strata] answering: 180 of max 512 tokens, 18.2 tok/s, 12 s
+Oct 09 08:48:11 james-NUC12SNKi72 python[169022]: [strata] answering: 203 of max 512 tokens, 18.6 tok/s, 13 s
+Oct 09 08:48:12 james-NUC12SNKi72 python[169022]: [strata] answering: 225 of max 512 tokens, 18.9 tok/s, 14 s
+Oct 09 08:48:13 james-NUC12SNKi72 python[169022]: [strata] answering: 246 of max 512 tokens, 19.0 tok/s, 15 s
+Oct 09 08:48:14 james-NUC12SNKi72 python[169022]: [strata] answering: 270 of max 512 tokens, 19.3 tok/s, 16 s
+Oct 09 08:48:15 james-NUC12SNKi72 python[169022]: [strata] answering: 290 of max 512 tokens, 19.3 tok/s, 18 s
+Oct 09 08:48:16 james-NUC12SNKi72 python[169022]: [strata] answering: 310 of max 512 tokens, 19.2 tok/s, 19 s
+Oct 09 08:48:17 james-NUC12SNKi72 python[169022]: [strata] answering: 330 of max 512 tokens, 19.2 tok/s, 20 s
+Oct 09 08:48:18 james-NUC12SNKi72 python[169022]: [strata] answering: 352 of max 512 tokens, 19.4 tok/s, 21 s
+Oct 09 08:48:19 james-NUC12SNKi72 python[169022]: [strata] answering: 373 of max 512 tokens, 19.4 tok/s, 22 s
+Oct 09 08:48:20 james-NUC12SNKi72 python[169022]: [strata] answering: 395 of max 512 tokens, 19.5 tok/s, 23 s
+Oct 09 08:48:21 james-NUC12SNKi72 python[169022]: [strata] answering: 419 of max 512 tokens, 19.7 tok/s, 24 s
+Oct 09 08:48:22 james-NUC12SNKi72 python[169022]: [strata] answering: 442 of max 512 tokens, 19.9 tok/s, 25 s
+Oct 09 08:48:23 james-NUC12SNKi72 python[169022]: [strata] answering: 466 of max 512 tokens, 20.0 tok/s, 26 s
+Oct 09 08:48:24 james-NUC12SNKi72 python[169022]: [strata] answering: 490 of max 512 tokens, 20.2 tok/s, 27 s
+Oct 09 08:48:25 james-NUC12SNKi72 python[169022]: [strata] done: 512 tokens in 28 s (20.3 tok/s) (length, cancel=False), expert cache 87.7% hit (+0.5% of the routed experts over PCIe)
+Oct 09 08:48:26 james-NUC12SNKi72 systemd[1802]: Stopping jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-off-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 08:48:26 james-NUC12SNKi72 python[169022]: [strata] stopping (Ctrl+C again to end the engine at once) ...
+Oct 09 08:48:27 james-NUC12SNKi72 python[169022]: [strata] stopped
+Oct 09 08:48:27 james-NUC12SNKi72 systemd[1802]: Stopped jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-off-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 08:48:27 james-NUC12SNKi72 systemd[1802]: Starting jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-on-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 08:48:27 james-NUC12SNKi72 systemd[1802]: Started jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-on-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 08:48:27 james-NUC12SNKi72 python[179872]: loading the model (the first start takes a minute or two) ...
+Oct 09 08:48:27 james-NUC12SNKi72 python[179872]: [strata] starting the engine: reading the model's weights ...
+Oct 09 08:48:29 james-NUC12SNKi72 python[179872]: [strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+Oct 09 08:48:29 james-NUC12SNKi72 python[179872]:          YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+Oct 09 08:48:29 james-NUC12SNKi72 python[179872]:          Please wait and don't close this window; the browser opens when it is ready.
+Oct 09 08:48:30 james-NUC12SNKi72 python[179872]: [strata] filling the GPU's expert cache (10831 experts, 17.57 GiB of VRAM) ...
+Oct 09 08:48:43 james-NUC12SNKi72 python[179872]: ready: http://127.0.0.1:18086/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 131072 tokens)
+Oct 09 08:48:43 james-NUC12SNKi72 python[179872]:        open http://127.0.0.1:18086/ in a browser to chat; close this window to stop the model
+Oct 09 08:48:47 james-NUC12SNKi72 python[179872]: [strata] reading the prompt: 19 of 26 tokens, 1 s so far
+Oct 09 08:48:48 james-NUC12SNKi72 python[179872]: [strata] answering: 7 of max 128 tokens, 11.2 tok/s, 2 s
+Oct 09 08:48:50 james-NUC12SNKi72 python[179872]: [strata] answering: 22 of max 128 tokens, 12.5 tok/s, 3 s
+Oct 09 08:48:51 james-NUC12SNKi72 python[179872]: [strata] answering: 44 of max 128 tokens, 15.6 tok/s, 4 s
+Oct 09 08:48:51 james-NUC12SNKi72 python[179872]: [strata] done: 54 tokens in 5 s (16.7 tok/s) (stop, cancel=False), expert cache 74.4% hit (+4.0% of the routed experts over PCIe)
+Oct 09 08:48:53 james-NUC12SNKi72 python[179872]: [strata] reading the prompt: 25 of 26 tokens, 1 s so far
+Oct 09 08:48:54 james-NUC12SNKi72 python[179872]: [strata] answering: 15 of max 128 tokens, 15.7 tok/s, 2 s
+Oct 09 08:48:55 james-NUC12SNKi72 python[179872]: [strata] answering: 36 of max 128 tokens, 18.0 tok/s, 3 s
+Oct 09 08:48:56 james-NUC12SNKi72 python[179872]: [strata] done: 48 tokens in 4 s (18.0 tok/s) (stop, cancel=False), expert cache 81.7% hit (+2.7% of the routed experts over PCIe)
+Oct 09 08:48:58 james-NUC12SNKi72 python[179872]: [strata] reading the prompt: 36 of 43 tokens, 1 s so far
+Oct 09 08:48:59 james-NUC12SNKi72 python[179872]: [strata] answering: 14 of max 192 tokens, 17.0 tok/s, 2 s
+Oct 09 08:49:00 james-NUC12SNKi72 python[179872]: [strata] answering: 38 of max 192 tokens, 19.2 tok/s, 3 s
+Oct 09 08:49:01 james-NUC12SNKi72 python[179872]: [strata] done: 53 tokens in 4 s (20.1 tok/s) (stop, cancel=False), expert cache 60.3% hit (+7.1% of the routed experts over PCIe)
+Oct 09 08:49:03 james-NUC12SNKi72 python[179872]: [strata] reading the prompt: 36 of 43 tokens, 1 s so far
+Oct 09 08:49:04 james-NUC12SNKi72 python[179872]: [strata] answering: 14 of max 192 tokens, 16.9 tok/s, 2 s
+Oct 09 08:49:05 james-NUC12SNKi72 python[179872]: [strata] answering: 36 of max 192 tokens, 19.1 tok/s, 3 s
+Oct 09 08:49:06 james-NUC12SNKi72 python[179872]: [strata] answering: 58 of max 192 tokens, 19.6 tok/s, 4 s
+Oct 09 08:49:07 james-NUC12SNKi72 python[179872]: [strata] answering: 85 of max 192 tokens, 21.1 tok/s, 5 s
+Oct 09 08:49:08 james-NUC12SNKi72 python[179872]: [strata] done: 110 tokens in 6 s (22.7 tok/s) (stop, cancel=False), expert cache 71.6% hit (+5.2% of the routed experts over PCIe)
+Oct 09 08:49:11 james-NUC12SNKi72 python[179872]: [strata] reading the prompt: 72 of 79 tokens, 2 s so far
+Oct 09 08:49:12 james-NUC12SNKi72 python[179872]: [strata] answering: 7 of max 512 tokens, 13.6 tok/s, 3 s
+Oct 09 08:49:13 james-NUC12SNKi72 python[179872]: [strata] answering: 33 of max 512 tokens, 20.6 tok/s, 4 s
+Oct 09 08:49:14 james-NUC12SNKi72 python[179872]: [strata] answering: 55 of max 512 tokens, 21.1 tok/s, 5 s
+Oct 09 08:49:15 james-NUC12SNKi72 python[179872]: [strata] answering: 74 of max 512 tokens, 20.4 tok/s, 6 s
+Oct 09 08:49:16 james-NUC12SNKi72 python[179872]: [strata] answering: 97 of max 512 tokens, 20.6 tok/s, 7 s
+Oct 09 08:49:17 james-NUC12SNKi72 python[179872]: [strata] answering: 131 of max 512 tokens, 22.8 tok/s, 8 s
+Oct 09 08:49:18 james-NUC12SNKi72 python[179872]: [strata] answering: 160 of max 512 tokens, 23.6 tok/s, 9 s
+Oct 09 08:49:19 james-NUC12SNKi72 python[179872]: [strata] answering: 186 of max 512 tokens, 23.8 tok/s, 10 s
+Oct 09 08:49:20 james-NUC12SNKi72 python[179872]: [strata] answering: 216 of max 512 tokens, 24.3 tok/s, 11 s
+Oct 09 08:49:21 james-NUC12SNKi72 python[179872]: [strata] answering: 243 of max 512 tokens, 24.5 tok/s, 12 s
+Oct 09 08:49:22 james-NUC12SNKi72 python[179872]: [strata] answering: 275 of max 512 tokens, 25.2 tok/s, 13 s
+Oct 09 08:49:23 james-NUC12SNKi72 python[179872]: [strata] answering: 301 of max 512 tokens, 25.0 tok/s, 14 s
+Oct 09 08:49:24 james-NUC12SNKi72 python[179872]: [strata] answering: 337 of max 512 tokens, 25.9 tok/s, 16 s
+Oct 09 08:49:25 james-NUC12SNKi72 python[179872]: [strata] answering: 367 of max 512 tokens, 26.0 tok/s, 17 s
+Oct 09 08:49:26 james-NUC12SNKi72 python[179872]: [strata] answering: 407 of max 512 tokens, 26.8 tok/s, 18 s
+Oct 09 08:49:28 james-NUC12SNKi72 python[179872]: [strata] answering: 440 of max 512 tokens, 27.1 tok/s, 19 s
+Oct 09 08:49:29 james-NUC12SNKi72 python[179872]: [strata] answering: 480 of max 512 tokens, 27.8 tok/s, 20 s
+Oct 09 08:49:30 james-NUC12SNKi72 python[179872]: [strata] answering: 511 of max 512 tokens, 28.0 tok/s, 21 s
+Oct 09 08:49:30 james-NUC12SNKi72 python[179872]: [strata] done: 512 tokens in 21 s (28.0 tok/s) (length, cancel=False), expert cache 89.0% hit (+1.0% of the routed experts over PCIe)
+Oct 09 08:49:32 james-NUC12SNKi72 python[179872]: [strata] answering: 20 of max 2048 tokens, 27.6 tok/s, 1 s
+Oct 09 08:49:33 james-NUC12SNKi72 python[179872]: [strata] answering: 51 of max 2048 tokens, 29.6 tok/s, 2 s
+Oct 09 08:49:34 james-NUC12SNKi72 python[179872]: [strata] answering: 83 of max 2048 tokens, 30.0 tok/s, 3 s
+Oct 09 08:49:35 james-NUC12SNKi72 python[179872]: [strata] answering: 115 of max 2048 tokens, 30.2 tok/s, 4 s
+Oct 09 08:49:36 james-NUC12SNKi72 python[179872]: [strata] answering: 156 of max 2048 tokens, 32.1 tok/s, 5 s
+Oct 09 08:49:37 james-NUC12SNKi72 python[179872]: [strata] answering: 191 of max 2048 tokens, 32.3 tok/s, 6 s
+Oct 09 08:49:38 james-NUC12SNKi72 python[179872]: [strata] answering: 222 of max 2048 tokens, 32.1 tok/s, 7 s
+Oct 09 08:49:39 james-NUC12SNKi72 python[179872]: [strata] answering: 259 of max 2048 tokens, 32.7 tok/s, 8 s
+Oct 09 08:49:40 james-NUC12SNKi72 python[179872]: [strata] answering: 300 of max 2048 tokens, 33.5 tok/s, 9 s
+Oct 09 08:49:41 james-NUC12SNKi72 python[179872]: [strata] answering: 338 of max 2048 tokens, 33.7 tok/s, 10 s
+Oct 09 08:49:42 james-NUC12SNKi72 python[179872]: [strata] answering: 377 of max 2048 tokens, 34.0 tok/s, 11 s
+Oct 09 08:49:43 james-NUC12SNKi72 python[179872]: [strata] answering: 415 of max 2048 tokens, 34.3 tok/s, 12 s
+Oct 09 08:49:44 james-NUC12SNKi72 python[179872]: [strata] answering: 451 of max 2048 tokens, 34.4 tok/s, 13 s
+Oct 09 08:49:45 james-NUC12SNKi72 python[179872]: [strata] answering: 486 of max 2048 tokens, 34.4 tok/s, 14 s
+Oct 09 08:49:46 james-NUC12SNKi72 python[179872]: [strata] answering: 524 of max 2048 tokens, 34.6 tok/s, 15 s
+Oct 09 08:49:47 james-NUC12SNKi72 python[179872]: [strata] answering: 562 of max 2048 tokens, 34.8 tok/s, 16 s
+Oct 09 08:49:48 james-NUC12SNKi72 python[179872]: [strata] answering: 597 of max 2048 tokens, 34.7 tok/s, 17 s
+Oct 09 08:49:49 james-NUC12SNKi72 python[179872]: [strata] answering: 627 of max 2048 tokens, 34.4 tok/s, 19 s
+Oct 09 08:49:50 james-NUC12SNKi72 python[179872]: [strata] answering: 661 of max 2048 tokens, 34.3 tok/s, 20 s
+Oct 09 08:49:51 james-NUC12SNKi72 python[179872]: [strata] answering: 695 of max 2048 tokens, 34.2 tok/s, 21 s
+Oct 09 08:49:52 james-NUC12SNKi72 python[179872]: [strata] answering: 725 of max 2048 tokens, 33.9 tok/s, 22 s
+Oct 09 08:49:53 james-NUC12SNKi72 python[179872]: [strata] answering: 760 of max 2048 tokens, 33.9 tok/s, 23 s
+Oct 09 08:49:54 james-NUC12SNKi72 python[179872]: [strata] answering: 805 of max 2048 tokens, 34.3 tok/s, 24 s
+Oct 09 08:49:55 james-NUC12SNKi72 python[179872]: [strata] answering: 843 of max 2048 tokens, 34.4 tok/s, 25 s
+Oct 09 08:49:56 james-NUC12SNKi72 python[179872]: [strata] answering: 871 of max 2048 tokens, 34.1 tok/s, 26 s
+Oct 09 08:49:57 james-NUC12SNKi72 python[179872]: [strata] answering: 910 of max 2048 tokens, 34.3 tok/s, 27 s
+Oct 09 08:49:58 james-NUC12SNKi72 python[179872]: [strata] answering: 944 of max 2048 tokens, 34.3 tok/s, 28 s
+Oct 09 08:49:59 james-NUC12SNKi72 python[179872]: [strata] answering: 973 of max 2048 tokens, 34.0 tok/s, 29 s
+Oct 09 08:50:00 james-NUC12SNKi72 python[179872]: [strata] answering: 1010 of max 2048 tokens, 34.1 tok/s, 30 s
+Oct 09 08:50:01 james-NUC12SNKi72 python[179872]: [strata] answering: 1046 of max 2048 tokens, 34.2 tok/s, 31 s
+Oct 09 08:50:02 james-NUC12SNKi72 python[179872]: [strata] answering: 1077 of max 2048 tokens, 34.1 tok/s, 32 s
+Oct 09 08:50:03 james-NUC12SNKi72 python[179872]: [strata] answering: 1104 of max 2048 tokens, 33.8 tok/s, 33 s
+Oct 09 08:50:05 james-NUC12SNKi72 python[179872]: [strata] answering: 1138 of max 2048 tokens, 33.8 tok/s, 34 s
+Oct 09 08:50:06 james-NUC12SNKi72 python[179872]: [strata] answering: 1181 of max 2048 tokens, 34.0 tok/s, 35 s
+Oct 09 08:50:06 james-NUC12SNKi72 python[179872]: [strata] the engine reported an error: verify: expert readiness device wait expired: A-plan ring=47 layer=46 group=0 observed=40 skip=0; window discarded; restart engine
+Oct 09 08:50:06 james-NUC12SNKi72 python[179872]: [strata] done: 1186 tokens in 35 s (33.9 tok/s) (error, cancel=False)
+Oct 09 08:50:06 james-NUC12SNKi72 systemd[1802]: Stopping jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-on-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 08:50:06 james-NUC12SNKi72 python[179872]: [strata] stopping (Ctrl+C again to end the engine at once) ...
+Oct 09 08:50:07 james-NUC12SNKi72 python[179872]: [strata] stopped
+Oct 09 08:50:07 james-NUC12SNKi72 systemd[1802]: Stopped jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/p0-window-01/mtp-on-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 08:50:07 james-NUC12SNKi72 systemd[1802]: jr-strata-fastfix-test.service: Consumed 1.049s CPU time.

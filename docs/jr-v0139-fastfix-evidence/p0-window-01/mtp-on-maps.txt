@@ -1,0 +1,614 @@
+00400000-0040e000 r--p 00000000 103:04 39217370                          /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata
+0040e000-00981000 r-xp 0000e000 103:04 39217370                          /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata
+00981000-03793000 r--p 00581000 103:04 39217370                          /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata
+03793000-03796000 r--p 03392000 103:04 39217370                          /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata
+03796000-0379a000 rw-p 03395000 103:04 39217370                          /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata
+0379a000-03873000 rw-p 00000000 00:00 0 
+2df30000-79479000 rw-p 00000000 00:00 0                                  [heap]
+724dfb800000-724e0be00000 rw-s 10e44e000 00:b1 17                        /dev/dri/renderD130
+725670000000-725670021000 rw-p 00000000 00:00 0 
+725670021000-725674000000 ---p 00000000 00:00 0 
+7256757ff000-725675800000 ---s 00000000 00:01 919019                     /dev/zero (deleted)
+725675800000-725675a00000 rw-s 188a6e000 00:b1 17                        /dev/dri/renderD130
+725675bff000-725676400000 rw-p 00000000 00:00 0 
+725676400000-725676600000 rw-s 17d95e000 00:b1 17                        /dev/dri/renderD130
+725676800000-725676a00000 rw-s 17ca0e000 00:b1 17                        /dev/dri/renderD130
+725676c00000-725676e00000 rw-s 17c80e000 00:b1 17                        /dev/dri/renderD130
+725904000000-725904021000 rw-p 00000000 00:00 0 
+725904021000-725908000000 ---p 00000000 00:00 0 
+725908000000-725908021000 rw-p 00000000 00:00 0 
+725908021000-72590c000000 ---p 00000000 00:00 0 
+72590c000000-72590c021000 rw-p 00000000 00:00 0 
+72590c021000-725910000000 ---p 00000000 00:00 0 
+725910000000-725910021000 rw-p 00000000 00:00 0 
+725910021000-725914000000 ---p 00000000 00:00 0 
+725914000000-725914021000 rw-p 00000000 00:00 0 
+725914021000-725918000000 ---p 00000000 00:00 0 
+725918000000-725918021000 rw-p 00000000 00:00 0 
+725918021000-72591c000000 ---p 00000000 00:00 0 
+72591c000000-72591c021000 rw-p 00000000 00:00 0 
+72591c021000-725920000000 ---p 00000000 00:00 0 
+725920000000-725920021000 rw-p 00000000 00:00 0 
+725920021000-725924000000 ---p 00000000 00:00 0 
+725924000000-725924021000 rw-p 00000000 00:00 0 
+725924021000-725928000000 ---p 00000000 00:00 0 
+725929600000-7259c3400000 rw-s c3f50b000 00:b1 17                        /dev/dri/renderD130
+7259c3600000-725ac3600000 rw-s b3f50b000 00:b1 17                        /dev/dri/renderD130
+725ac3800000-725bc3800000 rw-s a3f50b000 00:b1 17                        /dev/dri/renderD130
+725bc3a00000-725cc3a00000 rw-s 93f50b000 00:b1 17                        /dev/dri/renderD130
+725cc3c00000-725dc3c00000 rw-s 83f50b000 00:b1 17                        /dev/dri/renderD130
+725dc3e00000-725ec3e00000 rw-s 73f50b000 00:b1 17                        /dev/dri/renderD130
+725ec4000000-725ec4021000 rw-p 00000000 00:00 0 
+725ec4021000-725ec8000000 ---p 00000000 00:00 0 
+725ec8000000-725ec8021000 rw-p 00000000 00:00 0 
+725ec8021000-725ecc000000 ---p 00000000 00:00 0 
+725ecc000000-725ecc021000 rw-p 00000000 00:00 0 
+725ecc021000-725ed0000000 ---p 00000000 00:00 0 
+725ed5600000-725ed7e00000 rw-s cdf70b000 00:b1 17                        /dev/dri/renderD130
+725ed8000000-725ed8021000 rw-p 00000000 00:00 0 
+725ed8021000-725edc000000 ---p 00000000 00:00 0 
+725edc3f8000-725edd3fa000 rw-p 00000000 00:00 0 
+725edd3fa000-725edd400000 ---s 00000000 00:01 920901                     /dev/zero (deleted)
+725edd400000-725edfc00000 rw-s cdcf0b000 00:b1 17                        /dev/dri/renderD130
+725edfdfa000-725edfe00000 ---s 00000000 00:01 920899                     /dev/zero (deleted)
+725edfe00000-725ee0e00000 rw-s cdbf0b000 00:b1 17                        /dev/dri/renderD130
+725ee0ffa000-725ee4000000 rw-p 00000000 00:00 0 
+725ee4000000-725ee4021000 rw-p 00000000 00:00 0 
+725ee4021000-725ee8000000 ---p 00000000 00:00 0 
+725ee85fe000-725ee9600000 rw-p 00000000 00:00 0 
+725ee9600000-725ee9a00000 rw-s cdbb0b000 00:b1 17                        /dev/dri/renderD130
+725ee9c00000-725eea000000 rw-s cdb70b000 00:b1 17                        /dev/dri/renderD130
+725eea200000-725eea600000 rw-s cdb30b000 00:b1 17                        /dev/dri/renderD130
+725eea800000-725eeac00000 rw-s cdaf0b000 00:b1 17                        /dev/dri/renderD130
+725eeae00000-725eeb200000 rw-s cdab0b000 00:b1 17                        /dev/dri/renderD130
+725eeb400000-725eeb800000 rw-s cda70b000 00:b1 17                        /dev/dri/renderD130
+725eeba00000-725eebe00000 rw-s cda30b000 00:b1 17                        /dev/dri/renderD130
+725eec000000-725eec021000 rw-p 00000000 00:00 0 
+725eec021000-725ef0000000 ---p 00000000 00:00 0 
+725ef01ff000-725ef0200000 ---s 00000000 00:01 920883                     /dev/zero (deleted)
+725ef0200000-725ef0600000 rw-s cd9f0b000 00:b1 17                        /dev/dri/renderD130
+725ef07ff000-725ef0800000 ---s 00000000 00:01 920881                     /dev/zero (deleted)
+725ef0800000-725ef0c00000 rw-s cd9b0b000 00:b1 17                        /dev/dri/renderD130
+725ef0dff000-725ef0e00000 ---s 00000000 00:01 920879                     /dev/zero (deleted)
+725ef0e00000-725ef1200000 rw-s cd970b000 00:b1 17                        /dev/dri/renderD130
+725ef13ff000-725ef1400000 ---s 00000000 00:01 920877                     /dev/zero (deleted)
+725ef1400000-725ef1800000 rw-s cd930b000 00:b1 17                        /dev/dri/renderD130
+725ef19ff000-725ef1a00000 ---s 00000000 00:01 920875                     /dev/zero (deleted)
+725ef1a00000-725ef1e00000 rw-s 17b827000 00:b1 17                        /dev/dri/renderD130
+725ef1fff000-725ef2000000 ---s 00000000 00:01 920873                     /dev/zero (deleted)
+725ef2000000-725ef2400000 rw-s 17b427000 00:b1 17                        /dev/dri/renderD130
+725ef25ff000-725ef2600000 ---s 00000000 00:01 920871                     /dev/zero (deleted)
+725ef2600000-725ef2a00000 rw-s 17b027000 00:b1 17                        /dev/dri/renderD130
+725ef2bff000-725ef2c00000 ---s 00000000 00:01 920869                     /dev/zero (deleted)
+725ef2c00000-725ef3000000 rw-s 17ac27000 00:b1 17                        /dev/dri/renderD130
+725ef31ff000-725ef3200000 ---s 00000000 00:01 920867                     /dev/zero (deleted)
+725ef3200000-725ef3600000 rw-s 17a827000 00:b1 17                        /dev/dri/renderD130
+725ef37ff000-725ef4000000 rw-p 00000000 00:00 0 
+725ef4000000-725ef4021000 rw-p 00000000 00:00 0 
+725ef4021000-725ef8000000 ---p 00000000 00:00 0 
+725ef8000000-725ef8021000 rw-p 00000000 00:00 0 
+725ef8021000-725efc000000 ---p 00000000 00:00 0 
+725efc000000-725efc021000 rw-p 00000000 00:00 0 
+725efc021000-725f00000000 ---p 00000000 00:00 0 
+725f00000000-725f00021000 rw-p 00000000 00:00 0 
+725f00021000-725f04000000 ---p 00000000 00:00 0 
+725f04000000-725f04021000 rw-p 00000000 00:00 0 
+725f04021000-725f08000000 ---p 00000000 00:00 0 
+725f08000000-725f08021000 rw-p 00000000 00:00 0 
+725f08021000-725f0c000000 ---p 00000000 00:00 0 
+725f0c000000-725f0c021000 rw-p 00000000 00:00 0 
+725f0c021000-725f10000000 ---p 00000000 00:00 0 
+725f10000000-725f10021000 rw-p 00000000 00:00 0 
+725f10021000-725f14000000 ---p 00000000 00:00 0 
+725f14000000-725f14021000 rw-p 00000000 00:00 0 
+725f14021000-725f18000000 ---p 00000000 00:00 0 
+725f18000000-725f18021000 rw-p 00000000 00:00 0 
+725f18021000-725f1c000000 ---p 00000000 00:00 0 
+725f1c1b3000-725f1e9b8000 rw-p 00000000 00:00 0 
+725f1e9b8000-725f1ea00000 ---s 00000000 00:01 919069                     /dev/zero (deleted)
+725f1ea00000-725f27000000 rw-s 2b7455000 00:b1 17                        /dev/dri/renderD130
+725f271b8000-725f27200000 ---s 00000000 00:01 919067                     /dev/zero (deleted)
+725f27200000-725f27400000 rw-s 2b5115000 00:b1 17                        /dev/dri/renderD130
+725f275b8000-725f27600000 ---s 00000000 00:01 919065                     /dev/zero (deleted)
+725f27600000-725f27800000 rw-s 2b4f15000 00:b1 17                        /dev/dri/renderD130
+725f279b1000-725f2b9b9000 rw-p 00000000 00:00 0 
+725f2b9b9000-725f2ba00000 ---s 00000000 00:01 919045                     /dev/zero (deleted)
+725f2ba00000-725f34000000 rw-s 27a4f5000 00:b1 17                        /dev/dri/renderD130
+725f341b9000-725f34200000 ---s 00000000 00:01 919043                     /dev/zero (deleted)
+725f34200000-725f3c800000 rw-s 271ef5000 00:b1 17                        /dev/dri/renderD130
+725f3c9b9000-725f3ca00000 ---s 00000000 00:01 919041                     /dev/zero (deleted)
+725f3ca00000-725f45000000 rw-s 2698f5000 00:b1 17                        /dev/dri/renderD130
+725f451b9000-725f45200000 ---s 00000000 00:01 919039                     /dev/zero (deleted)
+725f45200000-725f4d800000 rw-s 2612f5000 00:b1 17                        /dev/dri/renderD130
+725f4d9b9000-725f4da00000 ---s 00000000 00:01 919037                     /dev/zero (deleted)
+725f4da00000-725f56000000 rw-s 258cf5000 00:b1 17                        /dev/dri/renderD130
+725f561b9000-725f56200000 ---s 00000000 00:01 919035                     /dev/zero (deleted)
+725f56200000-725f5e800000 rw-s 2506f5000 00:b1 17                        /dev/dri/renderD130
+725f5e9b9000-725f5ea00000 ---s 00000000 00:01 919033                     /dev/zero (deleted)
+725f5ea00000-725f67000000 rw-s 2480f5000 00:b1 17                        /dev/dri/renderD130
+725f671b9000-725f67200000 ---s 00000000 00:01 919031                     /dev/zero (deleted)
+725f67200000-725f6f800000 rw-s 23faf5000 00:b1 17                        /dev/dri/renderD130
+725f6f9b9000-725f6fa00000 ---s 00000000 00:01 919029                     /dev/zero (deleted)
+725f6fa00000-725f78000000 rw-s 2374f5000 00:b1 17                        /dev/dri/renderD130
+725f781b9000-725f78200000 ---s 00000000 00:01 919027                     /dev/zero (deleted)
+725f78200000-725f80800000 rw-s 22eef5000 00:b1 17                        /dev/dri/renderD130
+725f809b9000-725f80a00000 ---s 00000000 00:01 919025                     /dev/zero (deleted)
+725f80a00000-725f89000000 rw-s 2268f5000 00:b1 17                        /dev/dri/renderD130
+725f891b9000-725f89200000 ---s 00000000 00:01 919023                     /dev/zero (deleted)
+725f89200000-725f89400000 rw-s 2262f5000 00:b1 17                        /dev/dri/renderD130
+725f895b9000-725f89600000 ---s 00000000 00:01 919021                     /dev/zero (deleted)
+725f89600000-725f89800000 rw-s 2260f5000 00:b1 17                        /dev/dri/renderD130
+725f89868000-725f89978000 rw-s cf23eb000 00:b1 17                        /dev/dri/renderD130
+725f89979000-725f89a89000 rw-s cf22db000 00:b1 17                        /dev/dri/renderD130
+725f89a89000-725f89b99000 rw-s ce68db000 00:b1 17                        /dev/dri/renderD130
+725f89b9a000-725f89c00000 ---s 00000000 00:01 919063                     /dev/zero (deleted)
+725f89c00000-725f89e00000 rw-s 2b4d15000 00:b1 17                        /dev/dri/renderD130
+725f89e8a000-725f89f9a000 rw-s ce67cb000 00:b1 17                        /dev/dri/renderD130
+725f89f9a000-725f8a000000 ---s 00000000 00:01 919061                     /dev/zero (deleted)
+725f8a000000-725f8a200000 rw-s 2b4b15000 00:b1 17                        /dev/dri/renderD130
+725f8a289000-725f8a399000 rw-s ce65eb000 00:b1 17                        /dev/dri/renderD130
+725f8a39a000-725f8a400000 ---s 00000000 00:01 919059                     /dev/zero (deleted)
+725f8a400000-725f8a600000 rw-s 28a615000 00:b1 17                        /dev/dri/renderD130
+725f8a68a000-725f8a79a000 rw-s ce64db000 00:b1 17                        /dev/dri/renderD130
+725f8a79a000-725f8a800000 ---s 00000000 00:01 919057                     /dev/zero (deleted)
+725f8a800000-725f8aa00000 rw-s 28a415000 00:b1 17                        /dev/dri/renderD130
+725f8aa59000-725f8aa89000 rw-s cf253b000 00:b1 17                        /dev/dri/renderD130
+725f8aa89000-725f8ab99000 rw-s 17a6a7000 00:b1 17                        /dev/dri/renderD130
+725f8ab9a000-725f8ac00000 ---s 00000000 00:01 919055                     /dev/zero (deleted)
+725f8ac00000-725f8ae00000 rw-s 28a215000 00:b1 17                        /dev/dri/renderD130
+725f8ae2a000-725f8ae5a000 rw-s cf250b000 00:b1 17                        /dev/dri/renderD130
+725f8ae5a000-725f8ae8a000 rw-s cf22ab000 00:b1 17                        /dev/dri/renderD130
+725f8ae8a000-725f8af9a000 rw-s 17a597000 00:b1 17                        /dev/dri/renderD130
+725f8af9a000-725f8b000000 ---s 00000000 00:01 919053                     /dev/zero (deleted)
+725f8b000000-725f8b200000 rw-s 28a015000 00:b1 17                        /dev/dri/renderD130
+725f8b229000-725f8b259000 rw-s cf227b000 00:b1 17                        /dev/dri/renderD130
+725f8b259000-725f8b289000 rw-s ce6a2b000 00:b1 17                        /dev/dri/renderD130
+725f8b289000-725f8b399000 rw-s 2c0c0b000 00:b1 17                        /dev/dri/renderD130
+725f8b39a000-725f8b400000 ---s 00000000 00:01 919051                     /dev/zero (deleted)
+725f8b400000-725f8b600000 rw-s 289e15000 00:b1 17                        /dev/dri/renderD130
+725f8b62a000-725f8b65a000 rw-s ce69fb000 00:b1 17                        /dev/dri/renderD130
+725f8b65a000-725f8b68a000 rw-s ce679b000 00:b1 17                        /dev/dri/renderD130
+725f8b68a000-725f8b79a000 rw-s 2c0afb000 00:b1 17                        /dev/dri/renderD130
+725f8b79a000-725f8b8aa000 rw-s 282e25000 00:b1 17                        /dev/dri/renderD130
+725f8b8ab000-725f8b9bb000 rw-s 282d15000 00:b1 17                        /dev/dri/renderD130
+725f8b9bb000-725f8ba00000 ---s 00000000 00:01 914311                     /dev/zero (deleted)
+725f8ba00000-725f94000000 rw-s 21daf5000 00:b1 17                        /dev/dri/renderD130
+725f9401a000-725f9404a000 rw-s ce676b000 00:b1 17                        /dev/dri/renderD130
+725f9404a000-725f9407a000 rw-s ce673b000 00:b1 17                        /dev/dri/renderD130
+725f9407a000-725f940aa000 rw-s ce670b000 00:b1 17                        /dev/dri/renderD130
+725f940aa000-725f941ba000 rw-s 282c05000 00:b1 17                        /dev/dri/renderD130
+725f941bb000-725f94200000 ---s 00000000 00:01 914309                     /dev/zero (deleted)
+725f94200000-725f94400000 rw-s 21d8f5000 00:b1 17                        /dev/dri/renderD130
+725f94404000-725f94414000 rw-s cf24fb000 00:b1 17                        /dev/dri/renderD130
+725f94414000-725f944aa000 rw-s 17bc50000 00:b1 17                        /dev/dri/renderD130
+725f944ab000-725f945bb000 rw-s 282af5000 00:b1 17                        /dev/dri/renderD130
+725f945bb000-725f947bb000 rw-s 1eede5000 00:b1 17                        /dev/dri/renderD130
+725f947bb000-725f94fbc000 rw-p 00000000 00:00 0 
+725f94fbc000-725f9afc0000 rw-p 00000000 00:00 0 
+725f9afc0000-725fbb000000 rw-p 00000000 00:00 0 
+725fbb005000-725fbb015000 rw-s ce69eb000 00:b1 17                        /dev/dri/renderD130
+725fbb015000-725fbb025000 rw-s ce66fb000 00:b1 17                        /dev/dri/renderD130
+725fbb025000-725fbb055000 rw-s ce64ab000 00:b1 17                        /dev/dri/renderD130
+725fbb055000-725fbb085000 rw-s 17bcee000 00:b1 17                        /dev/dri/renderD130
+725fbb085000-725fbb08c000 rw-s 17bce7000 00:b1 17                        /dev/dri/renderD130
+725fbb08d000-725fbc08f000 rw-p 00000000 00:00 0 
+725fbc08f000-725fbc0bf000 rw-s 2c0d4b000 00:b1 17                        /dev/dri/renderD130
+725fbc0bf000-725fbc0ef000 rw-s 2c0d1b000 00:b1 17                        /dev/dri/renderD130
+725fbc0ef000-725fbc1ff000 rw-s 1eec5e000 00:b1 17                        /dev/dri/renderD130
+725fbc200000-727fbc200000 ---p 00000000 00:00 0 
+727fbc206000-727fbc215000 rw-s 17bc3b000 00:b1 17                        /dev/dri/renderD130
+727fbc216000-727fbc225000 rw-s 17bc2b000 00:b1 17                        /dev/dri/renderD130
+727fbc226000-727fbc336000 rw-s 1eeb4e000 00:b1 17                        /dev/dri/renderD130
+727fbc336000-727fbd396000 r--p 00000000 00:65 9733565                    /usr/local/lib/libigc.so.2.41.5+1788943183
+727fbd396000-727fc0d5d000 r-xp 0105f000 00:65 9733565                    /usr/local/lib/libigc.so.2.41.5+1788943183
+727fc0d5d000-727fc0fbd000 r--p 04a25000 00:65 9733565                    /usr/local/lib/libigc.so.2.41.5+1788943183
+727fc0fbd000-727fc26ec000 rw-p 04c84000 00:65 9733565                    /usr/local/lib/libigc.so.2.41.5+1788943183
+727fc26ec000-727fc28bc000 rw-p 00000000 00:00 0 
+727fc28bc000-727fc2d54000 r--p 00000000 00:65 9733568                    /usr/local/lib/libopencl-clang2.so.22.1
+727fc2d54000-727fc7a9e000 r-xp 00498000 00:65 9733568                    /usr/local/lib/libopencl-clang2.so.22.1
+727fc7a9e000-727fc8ab1000 r--p 051e2000 00:65 9733568                    /usr/local/lib/libopencl-clang2.so.22.1
+727fc8ab1000-727fc8cf2000 r--p 061f5000 00:65 9733568                    /usr/local/lib/libopencl-clang2.so.22.1
+727fc8cf2000-727fcbf79000 rw-p 06436000 00:65 9733568                    /usr/local/lib/libopencl-clang2.so.22.1
+727fcbf79000-727fcc021000 rw-p 00000000 00:00 0 
+727fcc021000-727fd0000000 ---p 00000000 00:00 0 
+727fd0007000-727fd0008000 rw-s 17bce6000 00:b1 17                        /dev/dri/renderD130
+727fd0009000-727fd000a000 rw-s 17bc4f000 00:b1 17                        /dev/dri/renderD130
+727fd000b000-727fd003b000 rw-s 2c0acb000 00:b1 17                        /dev/dri/renderD130
+727fd003b000-727fd006b000 rw-s 2c0a9b000 00:b1 17                        /dev/dri/renderD130
+727fd006b000-727fd006c000 rw-s 2bfa5a000 00:b1 17                        /dev/dri/renderD130
+727fd006d000-727fd006e000 rw-s 2bfa59000 00:b1 17                        /dev/dri/renderD130
+727fd006f000-727fd007f000 rw-s 282f45000 00:b1 17                        /dev/dri/renderD130
+727fd007f000-727fd008f000 rw-s 282f35000 00:b1 17                        /dev/dri/renderD130
+727fd008f000-727fd00bf000 rw-s 1eed9e000 00:b1 17                        /dev/dri/renderD130
+727fd00bf000-727fd01cf000 rw-s 17c04e000 00:b1 17                        /dev/dri/renderD130
+727fd01d0000-727fd02e0000 rw-s 17bf3e000 00:b1 17                        /dev/dri/renderD130
+727fd02e0000-727fd03f0000 rw-s 17be2e000 00:b1 17                        /dev/dri/renderD130
+727fd03f1000-727fd0501000 rw-s 17bd1e000 00:b1 17                        /dev/dri/renderD130
+727fd0502000-727fd0503000 rw-s 17bc4e000 00:b1 17                        /dev/dri/renderD130
+727fd0504000-727fd0505000 rw-s 17bc4d000 00:b1 17                        /dev/dri/renderD130
+727fd0506000-727fd0507000 rw-s 17bc4c000 00:b1 17                        /dev/dri/renderD130
+727fd0508000-727fd0509000 rw-s 17bc4b000 00:b1 17                        /dev/dri/renderD130
+727fd050a000-727fd050b000 rw-s 17bc4a000 00:b1 17                        /dev/dri/renderD130
+727fd050c000-727fd050d000 rw-s 17bc3a000 00:b1 17                        /dev/dri/renderD130
+727fd050e000-727fd050f000 rw-s 17bc2a000 00:b1 17                        /dev/dri/renderD130
+727fd0510000-727fd0511000 rw-s 17bc29000 00:b1 17                        /dev/dri/renderD130
+727fd0512000-727fd0513000 rw-s 17bc28000 00:b1 17                        /dev/dri/renderD130
+727fd0514000-727fd0515000 rw-s 17bc27000 00:b1 17                        /dev/dri/renderD130
+727fd0516000-727fd0546000 rw-s 17a7f7000 00:b1 17                        /dev/dri/renderD130
+727fd0546000-727fd0576000 rw-s 17a7c7000 00:b1 17                        /dev/dri/renderD130
+727fd0576000-727fd0586000 rw-s 17a7b7000 00:b1 17                        /dev/dri/renderD130
+727fd0586000-727fd05b6000 rw-s 17a567000 00:b1 17                        /dev/dri/renderD130
+727fd05b6000-727fd05e6000 rw-s 17a537000 00:b1 17                        /dev/dri/renderD130
+727fd05e6000-727fd05ff000 rw-s 17a51e000 00:b1 17                        /dev/dri/renderD130
+727fd0600000-727fd0e01000 rw-p 00000000 00:00 0 
+727fd0e01000-727fd0e02000 rw-s 2bfa58000 00:b1 17                        /dev/dri/renderD130
+727fd0e03000-727fd0e04000 rw-s 2bfa57000 00:b1 17                        /dev/dri/renderD130
+727fd0e05000-727fd0e06000 rw-s 2bfa56000 00:b1 17                        /dev/dri/renderD130
+727fd0e07000-727fd0e08000 rw-s 2bfa55000 00:b1 17                        /dev/dri/renderD130
+727fd0e09000-727fd0e19000 rw-s 1eefe5000 00:b1 17                        /dev/dri/renderD130
+727fd0e19000-727fd0e1a000 rw-s 1eedd4000 00:b1 17                        /dev/dri/renderD130
+727fd0e1b000-727fd0e1c000 rw-s 1eedd3000 00:b1 17                        /dev/dri/renderD130
+727fd0e1d000-727fd0e1e000 rw-s 1eedd2000 00:b1 17                        /dev/dri/renderD130
+727fd0e1f000-727fd0e20000 rw-s 1eedd1000 00:b1 17                        /dev/dri/renderD130
+727fd0e21000-727fd0e51000 rw-s 1eed6e000 00:b1 17                        /dev/dri/renderD130
+727fd0e51000-727fd0e81000 rw-s 1eeb1e000 00:b1 17                        /dev/dri/renderD130
+727fd0e81000-727fd0ed1000 rw-s 18670e000 00:b1 17                        /dev/dri/renderD130
+727fd0ed1000-727fd0ee1000 rw-s 17c17e000 00:b1 17                        /dev/dri/renderD130
+727fd0ee1000-727fd0ef1000 rw-s 17c16e000 00:b1 17                        /dev/dri/renderD130
+727fd0ef1000-727fd0f01000 rw-s 17c15e000 00:b1 17                        /dev/dri/renderD130
+727fd0f02000-727fd0f05000 rw-s 1eedce000 00:b1 17                        /dev/dri/renderD130
+727fd0f06000-727fd0f36000 rw-s 1eeaee000 00:b1 17                        /dev/dri/renderD130
+727fd0f36000-727fd0f4e000 rw-p 00000000 00:00 0 
+727fd0f4e000-727fd0f7e000 rw-s 10e41e000 00:b1 17                        /dev/dri/renderD130
+727fd0f7e000-727fd0fae000 rw-s 10e3ee000 00:b1 17                        /dev/dri/renderD130
+727fd0fae000-727fd0fbe000 rw-s 10e3de000 00:b1 17                        /dev/dri/renderD130
+727fd0fbe000-727fd10ce000 rw-s 10e2ce000 00:b1 17                        /dev/dri/renderD130
+727fd10cf000-727fd11df000 rw-s 10e1be000 00:b1 17                        /dev/dri/renderD130
+727fd11df000-727fd120f000 rw-s 10e18e000 00:b1 17                        /dev/dri/renderD130
+727fd120f000-727fd123f000 rw-s 10e15e000 00:b1 17                        /dev/dri/renderD130
+727fd123f000-727fd126f000 rw-s 10e12e000 00:b1 17                        /dev/dri/renderD130
+727fd126f000-727fd129f000 rw-s 10e0fe000 00:b1 17                        /dev/dri/renderD130
+727fd129f000-727fd12af000 rw-s 10e0ee000 00:b1 17                        /dev/dri/renderD130
+727fd12af000-727fd13bf000 rw-s 10dfde000 00:b1 17                        /dev/dri/renderD130
+727fd13c0000-727fd14d0000 rw-s 10dece000 00:b1 17                        /dev/dri/renderD130
+727fd14d0000-727fd1500000 rw-s 10de9e000 00:b1 17                        /dev/dri/renderD130
+727fd1500000-727fd1530000 rw-s 10de6e000 00:b1 17                        /dev/dri/renderD130
+727fd1530000-727fd1560000 rw-s 10de3e000 00:b1 17                        /dev/dri/renderD130
+727fd1560000-727fd1590000 rw-s 10de0e000 00:b1 17                        /dev/dri/renderD130
+727fd1590000-727fd15a0000 rw-s 10ddfe000 00:b1 17                        /dev/dri/renderD130
+727fd15a0000-727fd16b0000 rw-s 10dcee000 00:b1 17                        /dev/dri/renderD130
+727fd16b1000-727fd17c1000 rw-s 10dbde000 00:b1 17                        /dev/dri/renderD130
+727fd17c1000-727fd17f1000 rw-s 10dbae000 00:b1 17                        /dev/dri/renderD130
+727fd17f1000-727fd1821000 rw-s 10db7e000 00:b1 17                        /dev/dri/renderD130
+727fd1821000-727fd1851000 rw-s 10db4e000 00:b1 17                        /dev/dri/renderD130
+727fd1851000-727fd1881000 rw-s 10db1e000 00:b1 17                        /dev/dri/renderD130
+727fd1881000-727fd1891000 rw-s 10db0e000 00:b1 17                        /dev/dri/renderD130
+727fd1891000-727fd19a1000 rw-s 10d9fe000 00:b1 17                        /dev/dri/renderD130
+727fd19a2000-727fd1ab2000 rw-s 10d8ee000 00:b1 17                        /dev/dri/renderD130
+727fd1ab2000-727fd1ae2000 rw-s 10d8be000 00:b1 17                        /dev/dri/renderD130
+727fd1ae2000-727fd1b12000 rw-s 10d88e000 00:b1 17                        /dev/dri/renderD130
+727fd1b12000-727fd1b43000 rw-p 00000000 00:00 0 
+727fd1b43000-727fd1b73000 rw-s 10d85e000 00:b1 17                        /dev/dri/renderD130
+727fd1b73000-727fd1ba3000 rw-s 10d82e000 00:b1 17                        /dev/dri/renderD130
+727fd1ba3000-727fd1bb3000 rw-s 10d81e000 00:b1 17                        /dev/dri/renderD130
+727fd1bb3000-727fd1cc3000 rw-s 10d70e000 00:b1 17                        /dev/dri/renderD130
+727fd1cc3000-727fd1cc4000 rw-p 00000000 00:00 0 
+727fd1cc4000-727fd1dd4000 rw-s 10d5fe000 00:b1 17                        /dev/dri/renderD130
+727fd1dd4000-727fd1e04000 rw-s 10d5ce000 00:b1 17                        /dev/dri/renderD130
+727fd1e04000-727fd1e34000 rw-s 10d59e000 00:b1 17                        /dev/dri/renderD130
+727fd1e34000-727fd1e64000 rw-s 10d56e000 00:b1 17                        /dev/dri/renderD130
+727fd1e64000-727fd1e94000 rw-s 10d53e000 00:b1 17                        /dev/dri/renderD130
+727fd1e94000-727fd1ea4000 rw-s 10d52e000 00:b1 17                        /dev/dri/renderD130
+727fd1ea4000-727fd1fb4000 rw-s 10d41e000 00:b1 17                        /dev/dri/renderD130
+727fd1fb4000-727fd1fb5000 rw-p 00000000 00:00 0 
+727fd1fb5000-727fd20c5000 rw-s 10d30e000 00:b1 17                        /dev/dri/renderD130
+727fd20c5000-727fd20f5000 rw-s 10d2de000 00:b1 17                        /dev/dri/renderD130
+727fd20f5000-727fd2125000 rw-s 10d2ae000 00:b1 17                        /dev/dri/renderD130
+727fd2125000-727fd2155000 rw-s 10d27e000 00:b1 17                        /dev/dri/renderD130
+727fd2155000-727fd2185000 rw-s 10d24e000 00:b1 17                        /dev/dri/renderD130
+727fd2185000-727fd2195000 rw-s 10d23e000 00:b1 17                        /dev/dri/renderD130
+727fd2195000-727fd22a5000 rw-s 10d12e000 00:b1 17                        /dev/dri/renderD130
+727fd22a5000-727fd22a6000 rw-p 00000000 00:00 0 
+727fd22a6000-727fd23b6000 rw-s 10d01e000 00:b1 17                        /dev/dri/renderD130
+727fd23b6000-727fd23e6000 rw-s 10cfee000 00:b1 17                        /dev/dri/renderD130
+727fd23e6000-727fd2416000 rw-s 10cfbe000 00:b1 17                        /dev/dri/renderD130
+727fd2416000-727fd2446000 rw-s 10cf8e000 00:b1 17                        /dev/dri/renderD130
+727fd2446000-727fd2476000 rw-s 10cf5e000 00:b1 17                        /dev/dri/renderD130
+727fd2476000-727fd2586000 rw-s 10ce4e000 00:b1 17                        /dev/dri/renderD130
+727fd2586000-727fd2587000 rw-p 00000000 00:00 0 
+727fd2587000-727fd2697000 rw-s 10cd3e000 00:b1 17                        /dev/dri/renderD130
+727fd2697000-727fd26c7000 rw-s 10cd0e000 00:b1 17                        /dev/dri/renderD130
+727fd26c7000-727fd26f7000 rw-s 10ccde000 00:b1 17                        /dev/dri/renderD130
+727fd26f7000-727fd2707000 rw-s 10ccce000 00:b1 17                        /dev/dri/renderD130
+727fd2707000-727fd2757000 rw-s 10cc7e000 00:b1 17                        /dev/dri/renderD130
+727fd2757000-727fd27a7000 rw-s 10cc2e000 00:b1 17                        /dev/dri/renderD130
+727fd27a7000-727fd27b7000 rw-s 10cc1e000 00:b1 17                        /dev/dri/renderD130
+727fd27b7000-727fd28c7000 rw-s 10caae000 00:b1 17                        /dev/dri/renderD130
+727fd28c7000-727fd28c8000 rw-p 00000000 00:00 0 
+727fd28c8000-727fd29d8000 rw-s 10c99e000 00:b1 17                        /dev/dri/renderD130
+727fd29d8000-727fd31d9000 rw-p 00000000 00:00 0 
+727fd31d9000-727fd3200000 ---s 00000000 00:01 918975                     /dev/zero (deleted)
+727fd3200000-727fd3400000 rw-s 1006e4000 00:b1 17                        /dev/dri/renderD130
+727fd3400000-727fd3405000 rw-p 00000000 00:00 0 
+727fd3405000-727fd3406000 -w-s 00050000 00:b1 17                         /dev/dri/renderD130
+727fd3406000-727fd3416000 rw-s 1009e4000 00:b1 17                        /dev/dri/renderD130
+727fd3416000-727fd3446000 rw-s 10cbee000 00:b1 17                        /dev/dri/renderD130
+727fd3446000-727fd3476000 rw-s 10cbbe000 00:b1 17                        /dev/dri/renderD130
+727fd3476000-727fd3486000 rw-s 1009d4000 00:b1 17                        /dev/dri/renderD130
+727fd3486000-727fd34b6000 rw-s 10c96e000 00:b1 17                        /dev/dri/renderD130
+727fd34b6000-727fd34e6000 rw-s 10c93e000 00:b1 17                        /dev/dri/renderD130
+727fd34e6000-727fd34f6000 rw-s 1009c4000 00:b1 17                        /dev/dri/renderD130
+727fd34f6000-727fd3546000 rw-s 100974000 00:b1 17                        /dev/dri/renderD130
+727fd3546000-727fd3596000 rw-s 100924000 00:b1 17                        /dev/dri/renderD130
+727fd3596000-727fd3597000 -w-s 00050000 00:b1 17                         /dev/dri/renderD130
+727fd3597000-727fd35a7000 rw-s 100914000 00:b1 17                        /dev/dri/renderD130
+727fd35a7000-727fd35b7000 rw-s 100904000 00:b1 17                        /dev/dri/renderD130
+727fd35b7000-727fd35c7000 rw-s 1008f4000 00:b1 17                        /dev/dri/renderD130
+727fd35c7000-727fd35d7000 rw-s 1008e4000 00:b1 17                        /dev/dri/renderD130
+727fd35d7000-727fd35d9000 rw-p 00000000 00:00 0 
+727fd35d9000-727fd36e9000 rw-s 1003d8000 00:11 2084                      anon_inode:i915.gem
+727fd36e9000-727fd3719000 rw-s 1003a8000 00:11 2084                      anon_inode:i915.gem
+727fd3719000-727fd3749000 rw-s 100378000 00:11 2084                      anon_inode:i915.gem
+727fd3749000-727fd3859000 rw-s 1005d4000 00:b1 17                        /dev/dri/renderD130
+727fd3859000-727fd3889000 rw-s 1005a4000 00:b1 17                        /dev/dri/renderD130
+727fd3889000-727fd38b9000 rw-s 100574000 00:b1 17                        /dev/dri/renderD130
+727fd38b9000-727fd38bd000 r--p 00000000 00:65 8916576                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7
+727fd38bd000-727fd396d000 r-xp 00004000 00:65 8916576                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7
+727fd396d000-727fd397a000 r--p 000b4000 00:65 8916576                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7
+727fd397a000-727fd397b000 r--p 000c1000 00:65 8916576                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7
+727fd397b000-727fd397c000 rw-p 000c2000 00:65 8916576                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7
+727fd397c000-727fd3a26000 r--p 00000000 00:65 9733567                    /usr/local/lib/libigdfcl.so.2.41.5+1788943183
+727fd3a26000-727fd3ba1000 r-xp 000a9000 00:65 9733567                    /usr/local/lib/libigdfcl.so.2.41.5+1788943183
+727fd3ba1000-727fd3bae000 r--p 00223000 00:65 9733567                    /usr/local/lib/libigdfcl.so.2.41.5+1788943183
+727fd3bae000-727fd3bee000 rw-p 0022f000 00:65 9733567                    /usr/local/lib/libigdfcl.so.2.41.5+1788943183
+727fd3bee000-727fd3d0d000 rw-p 00000000 00:00 0 
+727fd3d0d000-727fd450e000 rw-p 00000000 00:00 0 
+727fd450e000-727fd4516000 r--p 00000000 00:65 9740746                    /usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0
+727fd4516000-727fd45c5000 r-xp 00008000 00:65 9740746                    /usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0
+727fd45c5000-727fd45dc000 r--p 000b7000 00:65 9740746                    /usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0
+727fd45dc000-727fd45dd000 r--p 000ce000 00:65 9740746                    /usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0
+727fd45dd000-727fd45de000 rw-p 000cf000 00:65 9740746                    /usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0
+727fd45de000-727fd45e6000 r--p 00000000 00:65 9733551                    /usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0
+727fd45e6000-727fd46aa000 r-xp 00008000 00:65 9733551                    /usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0
+727fd46aa000-727fd46b2000 r--p 000cc000 00:65 9733551                    /usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0
+727fd46b2000-727fd46b4000 r--p 000d4000 00:65 9733551                    /usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0
+727fd46b4000-727fd46b5000 rw-p 000d6000 00:65 9733551                    /usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0
+727fd46b5000-727fd52ab000 r-xp 00000000 00:65 9733555                    /usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758
+727fd52ab000-727fd52ac000 ---p 00bf6000 00:65 9733555                    /usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758
+727fd52ac000-727fd52f2000 r--p 00bf6000 00:65 9733555                    /usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758
+727fd52f2000-727fd834a000 rw-p 00c3c000 00:65 9733555                    /usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758
+727fd834a000-727fd844c000 rw-p 00000000 00:00 0 
+727fd844c000-727fd84a0000 r--p 00000000 00:65 9727136                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0
+727fd84a0000-727fd85f9000 r-xp 00053000 00:65 9727136                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0
+727fd85f9000-727fd85fc000 r--p 001ab000 00:65 9727136                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0
+727fd85fc000-727fd85fe000 rw-p 001ad000 00:65 9727136                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0
+727fd85fe000-727fd8600000 rw-p 00000000 00:00 0 
+727fd8600000-727fd865d000 r-xp 00000000 00:65 9732979                    /opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2
+727fd865d000-727fd885d000 ---p 0005d000 00:65 9732979                    /opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2
+727fd885d000-727fd885e000 r--p 0005d000 00:65 9732979                    /opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2
+727fd885e000-727fd885f000 rw-p 0005e000 00:65 9732979                    /opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2
+727fd885f000-727fd887d000 rw-p 00000000 00:00 0 
+727fd887d000-727fd888d000 rw-s 100368000 00:11 2084                      anon_inode:i915.gem
+727fd888d000-727fd889d000 rw-s 100564000 00:b1 17                        /dev/dri/renderD130
+727fd889d000-727fd88ad000 rw-s 100554000 00:b1 17                        /dev/dri/renderD130
+727fd88ad000-727fd88ae000 rw-s 102741000 00:11 2084                      anon_inode:i915.gem
+727fd88ae000-727fd88af000 rw-p 00000000 00:00 0 
+727fd88af000-727fd88b0000 rw-s 104ae9000 00:11 2084                      anon_inode:i915.gem
+727fd88b0000-727fd88b1000 rw-p 00000000 00:00 0 
+727fd88b1000-727fd88b2000 rw-s 104bea000 00:11 2084                      anon_inode:i915.gem
+727fd88b2000-727fd88b3000 rw-p 00000000 00:00 0 
+727fd88b3000-727fd88c3000 rw-s 100544000 00:b1 17                        /dev/dri/renderD130
+727fd88c3000-727fd88d3000 rw-s 100534000 00:b1 17                        /dev/dri/renderD130
+727fd88d3000-727fd88e3000 rw-s 100524000 00:b1 17                        /dev/dri/renderD130
+727fd88e3000-727fd88f3000 rw-s 100514000 00:b1 17                        /dev/dri/renderD130
+727fd88f3000-727fd88f4000 rw-s 100513000 00:b1 17                        /dev/dri/renderD130
+727fd88f4000-727fd88f5000 rw-p 00000000 00:00 0 
+727fd88f5000-727fd88f6000 rw-s 100512000 00:b1 17                        /dev/dri/renderD130
+727fd88f6000-727fd88f7000 rw-p 00000000 00:00 0 
+727fd88f7000-727fd88f8000 rw-s 100511000 00:b1 17                        /dev/dri/renderD130
+727fd88f8000-727fd88f9000 rw-p 00000000 00:00 0 
+727fd88f9000-727fd88fa000 rw-s 100510000 00:b1 17                        /dev/dri/renderD130
+727fd88fa000-727fd88fb000 rw-p 00000000 00:00 0 
+727fd88fb000-727fd88fc000 rw-s 10050f000 00:b1 17                        /dev/dri/renderD130
+727fd88fc000-727fd88fd000 rw-p 00000000 00:00 0 
+727fd88fd000-727fd88fe000 rw-s 10050e000 00:b1 17                        /dev/dri/renderD130
+727fd88fe000-727fd88ff000 rw-p 00000000 00:00 0 
+727fd88ff000-727fd8900000 rw-s 10050d000 00:b1 17                        /dev/dri/renderD130
+727fd8900000-727fd8901000 rw-p 00000000 00:00 0 
+727fd8901000-727fd8911000 rw-s 100358000 00:11 2084                      anon_inode:i915.gem
+727fd8911000-727fd8921000 rw-s 100348000 00:11 2084                      anon_inode:i915.gem
+727fd8921000-727fd8973000 r--p 00000000 00:65 9727133                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0
+727fd8973000-727fd8afd000 r-xp 00051000 00:65 9727133                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0
+727fd8afd000-727fd8aff000 r--p 001da000 00:65 9727133                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0
+727fd8aff000-727fd8b00000 rw-p 001db000 00:65 9727133                    /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0
+727fd8b00000-727fd8ca2000 rw-p 00000000 00:00 0 
+727fd8ca2000-727fd8ca3000 rw-s 10050c000 00:b1 17                        /dev/dri/renderD130
+727fd8ca3000-727fd8ca4000 rw-p 00000000 00:00 0 
+727fd8ca4000-727fd8ca5000 rw-s 10050b000 00:b1 17                        /dev/dri/renderD130
+727fd8ca5000-727fd8ca6000 rw-p 00000000 00:00 0 
+727fd8ca6000-727fd8ca7000 rw-s 10050a000 00:b1 17                        /dev/dri/renderD130
+727fd8ca7000-727fd8ca8000 rw-p 00000000 00:00 0 
+727fd8ca8000-727fd8cb8000 rw-s 100338000 00:11 2084                      anon_inode:i915.gem
+727fd8cb8000-727fd8cc8000 rw-s 100328000 00:11 2084                      anon_inode:i915.gem
+727fd8cc8000-727fd8cc9000 rw-s 100327000 00:11 2084                      anon_inode:i915.gem
+727fd8cc9000-727fd8cca000 rw-p 00000000 00:00 0 
+727fd8cca000-727fd8ccb000 rw-s 100326000 00:11 2084                      anon_inode:i915.gem
+727fd8ccb000-727fd8ccc000 rw-p 00000000 00:00 0 
+727fd8ccc000-727fd8ccd000 rw-s 100325000 00:11 2084                      anon_inode:i915.gem
+727fd8ccd000-727fd8cce000 rw-p 00000000 00:00 0 
+727fd8cce000-727fd8ccf000 rw-s 100324000 00:11 2084                      anon_inode:i915.gem
+727fd8ccf000-727fd8cd0000 rw-p 00000000 00:00 0 
+727fd8cd0000-727fd8cd1000 rw-s 100323000 00:11 2084                      anon_inode:i915.gem
+727fd8cd1000-727fd8cf3000 rw-p 00000000 00:00 0 
+727fd8cf3000-727fd8cfa000 r--p 00000000 00:65 9733039                    /opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0
+727fd8cfa000-727fd8d1e000 r-xp 00007000 00:65 9733039                    /opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0
+727fd8d1e000-727fd8d31000 r--p 0002b000 00:65 9733039                    /opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0
+727fd8d31000-727fd8d34000 r--p 0003d000 00:65 9733039                    /opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0
+727fd8d34000-727fd8d35000 rw-p 00040000 00:65 9733039                    /opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0
+727fd8d35000-727fd8d56000 rw-p 00000000 00:00 0 
+727fd8d56000-727fd8d59000 r--p 00000000 00:65 8916574                    /usr/lib/x86_64-linux-gnu/libz.so.1.3.1
+727fd8d59000-727fd8d6c000 r-xp 00003000 00:65 8916574                    /usr/lib/x86_64-linux-gnu/libz.so.1.3.1
+727fd8d6c000-727fd8d72000 r--p 00016000 00:65 8916574                    /usr/lib/x86_64-linux-gnu/libz.so.1.3.1
+727fd8d72000-727fd8d73000 r--p 0001c000 00:65 8916574                    /usr/lib/x86_64-linux-gnu/libz.so.1.3.1
+727fd8d73000-727fd8d74000 rw-p 0001d000 00:65 8916574                    /usr/lib/x86_64-linux-gnu/libz.so.1.3.1
+727fd8d74000-727fd8d75000 r--p 00000000 00:65 8916497                    /usr/lib/x86_64-linux-gnu/librt.so.1
+727fd8d75000-727fd8d76000 r-xp 00001000 00:65 8916497                    /usr/lib/x86_64-linux-gnu/librt.so.1
+727fd8d76000-727fd8d77000 r--p 00002000 00:65 8916497                    /usr/lib/x86_64-linux-gnu/librt.so.1
+727fd8d77000-727fd8d78000 r--p 00002000 00:65 8916497                    /usr/lib/x86_64-linux-gnu/librt.so.1
+727fd8d78000-727fd8d79000 rw-p 00003000 00:65 8916497                    /usr/lib/x86_64-linux-gnu/librt.so.1
+727fd8d79000-727fd8d7b000 rw-p 00000000 00:00 0 
+727fd8d7b000-727fd8d8c000 r--p 00000000 00:65 9726977                    /opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5
+727fd8d8c000-727fd8dd9000 r-xp 00010000 00:65 9726977                    /opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5
+727fd8dd9000-727fd8dda000 r--p 0005c000 00:65 9726977                    /opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5
+727fd8dda000-727fd8ddb000 rw-p 0005c000 00:65 9726977                    /opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5
+727fd8ddb000-727fd8dde000 rw-p 00000000 00:00 0 
+727fd8dde000-727fd904d000 r--p 00000000 00:65 9726972                    /opt/intel/oneapi/compiler/2026.1/lib/libimf.so
+727fd904d000-727fd91df000 r-xp 0026e000 00:65 9726972                    /opt/intel/oneapi/compiler/2026.1/lib/libimf.so
+727fd91df000-727fd91e7000 r--p 003ff000 00:65 9726972                    /opt/intel/oneapi/compiler/2026.1/lib/libimf.so
+727fd91e7000-727fd922d000 rw-p 00406000 00:65 9726972                    /opt/intel/oneapi/compiler/2026.1/lib/libimf.so
+727fd922d000-727fd92cd000 r--p 00000000 00:65 9726989                    /opt/intel/oneapi/compiler/2026.1/lib/libirng.so
+727fd92cd000-727fd9312000 r-xp 0009f000 00:65 9726989                    /opt/intel/oneapi/compiler/2026.1/lib/libirng.so
+727fd9312000-727fd9313000 r--p 000e3000 00:65 9726989                    /opt/intel/oneapi/compiler/2026.1/lib/libirng.so
+727fd9313000-727fd9325000 rw-p 000e3000 00:65 9726989                    /opt/intel/oneapi/compiler/2026.1/lib/libirng.so
+727fd9325000-727fd9326000 rw-p 00000000 00:00 0 
+727fd9326000-727fd9f2e000 r--p 00000000 00:65 9727005                    /opt/intel/oneapi/compiler/2026.1/lib/libsvml.so
+727fd9f2e000-727fda9d7000 r-xp 00c07000 00:65 9727005                    /opt/intel/oneapi/compiler/2026.1/lib/libsvml.so
+727fda9d7000-727fdaa80000 r--p 016af000 00:65 9727005                    /opt/intel/oneapi/compiler/2026.1/lib/libsvml.so
+727fdaa80000-727fdaad7000 rw-p 01757000 00:65 9727005                    /opt/intel/oneapi/compiler/2026.1/lib/libsvml.so
+727fdaad7000-727fdaecd000 r--p 00000000 00:65 9727142                    /opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0
+727fdaecd000-727fdb849000 r-xp 003f5000 00:65 9727142                    /opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0
+727fdb849000-727fdb88d000 r--p 00d70000 00:65 9727142                    /opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0
+727fdb88d000-727fdb88f000 rw-p 00db3000 00:65 9727142                    /opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0
+727fdb88f000-727fdb899000 rw-p 00000000 00:00 0 
+727fdb899000-727fdb89a000 r--p 00000000 00:65 8916495                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+727fdb89a000-727fdb89b000 r-xp 00001000 00:65 8916495                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+727fdb89b000-727fdb89c000 r--p 00002000 00:65 8916495                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+727fdb89c000-727fdb89d000 r--p 00002000 00:65 8916495                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+727fdb89d000-727fdb89e000 rw-p 00003000 00:65 8916495                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+727fdb89e000-727fdb89f000 r--p 00000000 00:65 8916351                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+727fdb89f000-727fdb8a0000 r-xp 00001000 00:65 8916351                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+727fdb8a0000-727fdb8a1000 r--p 00002000 00:65 8916351                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+727fdb8a1000-727fdb8a2000 r--p 00002000 00:65 8916351                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+727fdb8a2000-727fdb8a3000 rw-p 00003000 00:65 8916351                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+727fdb8a3000-727fdb8cb000 r--p 00000000 00:65 8916339                    /usr/lib/x86_64-linux-gnu/libc.so.6
+727fdb8cb000-727fdba63000 r-xp 00028000 00:65 8916339                    /usr/lib/x86_64-linux-gnu/libc.so.6
+727fdba63000-727fdbab1000 r--p 001c0000 00:65 8916339                    /usr/lib/x86_64-linux-gnu/libc.so.6
+727fdbab1000-727fdbab5000 r--p 0020d000 00:65 8916339                    /usr/lib/x86_64-linux-gnu/libc.so.6
+727fdbab5000-727fdbab7000 rw-p 00211000 00:65 8916339                    /usr/lib/x86_64-linux-gnu/libc.so.6
+727fdbab7000-727fdbac4000 rw-p 00000000 00:00 0 
+727fdbac4000-727fdbacc000 r--p 00000000 00:65 9726964                    /opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0
+727fdbacc000-727fdbad6000 r-xp 00007000 00:65 9726964                    /opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0
+727fdbad6000-727fdbad7000 r--p 00010000 00:65 9726964                    /opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0
+727fdbad7000-727fdbad8000 rw-p 00010000 00:65 9726964                    /opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0
+727fdbad8000-727fdbbd5000 r--p 00000000 00:65 9727128                    /opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0
+727fdbbd5000-727fdbea9000 r-xp 000fc000 00:65 9727128                    /opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0
+727fdbea9000-727fdbeaf000 r--p 003cf000 00:65 9727128                    /opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0
+727fdbeaf000-727fdbeb1000 rw-p 003d4000 00:65 9727128                    /opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0
+727fdbeb1000-727fdbeb5000 rw-p 00000000 00:00 0 
+727fdbeb5000-727fdbeb9000 r--p 00000000 00:65 8916361                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+727fdbeb9000-727fdbedd000 r-xp 00004000 00:65 8916361                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+727fdbedd000-727fdbee1000 r--p 00028000 00:65 8916361                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+727fdbee1000-727fdbee2000 r--p 0002c000 00:65 8916361                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+727fdbee2000-727fdbee3000 rw-p 0002d000 00:65 8916361                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+727fdbee3000-727fdbef5000 r--p 00000000 00:65 8916373                    /usr/lib/x86_64-linux-gnu/libm.so.6
+727fdbef5000-727fdbf95000 r-xp 00012000 00:65 8916373                    /usr/lib/x86_64-linux-gnu/libm.so.6
+727fdbf95000-727fdc007000 r--p 000b2000 00:65 8916373                    /usr/lib/x86_64-linux-gnu/libm.so.6
+727fdc007000-727fdc008000 r--p 00123000 00:65 8916373                    /usr/lib/x86_64-linux-gnu/libm.so.6
+727fdc008000-727fdc009000 rw-p 00124000 00:65 8916373                    /usr/lib/x86_64-linux-gnu/libm.so.6
+727fdc009000-727fdc0ac000 r--p 00000000 00:65 8916558                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35
+727fdc0ac000-727fdc207000 r-xp 000a3000 00:65 8916558                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35
+727fdc207000-727fdc293000 r--p 001fe000 00:65 8916558                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35
+727fdc293000-727fdc2a2000 r--p 0028a000 00:65 8916558                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35
+727fdc2a2000-727fdc2a5000 rw-p 00299000 00:65 8916558                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35
+727fdc2a5000-727fdc2a9000 rw-p 00000000 00:00 0 
+727fdc2a9000-727fdc465000 r--p 00000000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fdc465000-727fe0398000 r-xp 001bc000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe0398000-727fe087c000 r--p 040ef000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe087c000-727fe087d000 ---p 045d3000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe087d000-727fe0884000 r--p 045d3000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe0884000-727fe089e000 rw-p 045da000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe089e000-727fe08c1000 rw-p 00000000 00:00 0 
+727fe08c1000-727fe08d4000 r--p 045f3000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe08d4000-727fe08e6000 rw-p 04605000 00:65 9729428                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3
+727fe08e6000-727fe0a19000 r--p 00000000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe0a19000-727fe1de9000 r-xp 00133000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe1de9000-727fe1f98000 r--p 01503000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe1f98000-727fe1f9b000 r--p 016b1000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe1f9b000-727fe1fb9000 rw-p 016b4000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe1fb9000-727fe1fba000 rw-p 00000000 00:00 0 
+727fe1fba000-727fe1fbc000 r--p 016d2000 00:65 9729461                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3
+727fe1fbc000-727fe21f8000 r--p 00000000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe21f8000-727fe2d0f000 r-xp 0023c000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2d0f000-727fe2f94000 r--p 00d53000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2f94000-727fe2f95000 ---p 00fd8000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2f95000-727fe2f98000 r--p 00fd8000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2f98000-727fe2fb8000 rw-p 00fdb000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2fb8000-727fe2fbc000 rw-p 00000000 00:00 0 
+727fe2fbc000-727fe2fc1000 r--p 00ffa000 00:65 9729444                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3
+727fe2fc1000-727fe2fc3000 rw-p 00000000 00:00 0 
+727fe2fc3000-727fe3350000 r--p 00000000 00:65 9729466                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6
+727fe3350000-727fe33fb000 r-xp 0038d000 00:65 9729466                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6
+727fe33fb000-727fe35cd000 r--p 00438000 00:65 9729466                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6
+727fe35cd000-727fe3616000 r--p 00609000 00:65 9729466                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6
+727fe3616000-727fe3619000 rw-p 00652000 00:65 9729466                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6
+727fe3619000-727fe361f000 rw-p 00000000 00:00 0 
+727fe361f000-727fe483f000 r--p 00000000 00:65 9729478                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6
+727fe483f000-727fe6010000 r-xp 01220000 00:65 9729478                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6
+727fe6010000-727fe744d000 r--p 029f1000 00:65 9729478                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6
+727fe744d000-727fe7717000 r--p 03e2d000 00:65 9729478                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6
+727fe7717000-727fe7730000 rw-p 040f7000 00:65 9729478                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6
+727fe7730000-727fe7746000 rw-p 00000000 00:00 0 
+727fe7746000-727fe7b9d000 r--p 00000000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe7b9d000-727fe7fb5000 r-xp 00457000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe7fb5000-727fe8431000 r--p 0086f000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe8431000-727fe8432000 ---p 00ceb000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe8432000-727fe84a0000 r--p 00ceb000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe84a0000-727fe84a7000 rw-p 00d59000 00:65 9729476                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6
+727fe84a7000-727fe84af000 rw-p 00000000 00:00 0 
+727fe84af000-727fe9331000 r--p 00000000 00:65 9729472                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6
+727fe9331000-727feaa1c000 r-xp 00e82000 00:65 9729472                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6
+727feaa1c000-727febf96000 r--p 0256d000 00:65 9729472                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6
+727febf96000-727fec1ce000 r--p 03ae6000 00:65 9729472                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6
+727fec1ce000-727fec1ed000 rw-p 03d1e000 00:65 9729472                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6
+727fec1ed000-727fec200000 rw-p 00000000 00:00 0 
+727fec200000-727feced1000 r--p 00000000 00:65 9729474                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6
+727feced1000-727fee4f4000 r-xp 00cd1000 00:65 9729474                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6
+727fee4f4000-727fef618000 r--p 022f4000 00:65 9729474                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6
+727fef618000-727fef869000 r--p 03417000 00:65 9729474                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6
+727fef869000-727fef887000 rw-p 03668000 00:65 9729474                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6
+727fef887000-727fef89e000 rw-p 00000000 00:00 0 
+727fef89e000-727fef916000 r--p 00000000 00:65 9729468                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6
+727fef916000-727fefc84000 r-xp 00078000 00:65 9729468                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6
+727fefc84000-727ff1b18000 r--p 003e6000 00:65 9729468                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6
+727ff1b18000-727ff1b3a000 r--p 02279000 00:65 9729468                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6
+727ff1b3a000-727ff1b3e000 rw-p 0229b000 00:65 9729468                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6
+727ff1b3e000-727ff1b43000 rw-p 00000000 00:00 0 
+727ff1b43000-727ff20f5000 r--p 00000000 00:65 9729470                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6
+727ff20f5000-727ff2f4d000 r-xp 005b2000 00:65 9729470                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6
+727ff2f4d000-727ff34d2000 r--p 0140a000 00:65 9729470                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6
+727ff34d2000-727ff3618000 r--p 0198e000 00:65 9729470                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6
+727ff3618000-727ff362d000 rw-p 01ad4000 00:65 9729470                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6
+727ff362d000-727ff3638000 rw-p 00000000 00:00 0 
+727ff3638000-727ff41a7000 r--p 00000000 00:65 9729464                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6
+727ff41a7000-727ff5f78000 r-xp 00b6f000 00:65 9729464                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6
+727ff5f78000-727ff7024000 r--p 02940000 00:65 9729464                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6
+727ff7024000-727ff7248000 r--p 039eb000 00:65 9729464                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6
+727ff7248000-727ff7269000 rw-p 03c0f000 00:65 9729464                    /opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6
+727ff7269000-727ff730f000 rw-p 00000000 00:00 0 
+727ff730f000-727ff7328000 r--p 00000000 00:65 9740742                    /usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0
+727ff7328000-727ff73ad000 r-xp 00019000 00:65 9740742                    /usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0
+727ff73ad000-727ff73cf000 r--p 0009e000 00:65 9740742                    /usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0
+727ff73cf000-727ff73d0000 r--p 000bf000 00:65 9740742                    /usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0
+727ff73d0000-727ff73d1000 rw-p 000c0000 00:65 9740742                    /usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0
+727ff73d1000-727ff73da000 rw-p 00000000 00:00 0 
+727ff73da000-727ff73de000 r--p 00000000 00:00 0                          [vvar]
+727ff73de000-727ff73e0000 r--p 00000000 00:00 0                          [vvar_vclock]
+727ff73e0000-727ff73e2000 r-xp 00000000 00:00 0                          [vdso]
+727ff73e2000-727ff73e3000 r--p 00000000 00:65 8916317                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+727ff73e3000-727ff7412000 r-xp 00001000 00:65 8916317                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+727ff7412000-727ff741d000 r--p 00030000 00:65 8916317                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+727ff741d000-727ff741f000 r--p 0003b000 00:65 8916317                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+727ff741f000-727ff7420000 rw-p 0003d000 00:65 8916317                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+727ff7420000-727ff7421000 rw-p 00000000 00:00 0 
+7fff7e604000-7fff7e634000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

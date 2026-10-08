@@ -1,0 +1,17 @@
+{
+  "authorized_test_commit": "d50b425b811495df7af34df40f23cf352d31dcc1",
+  "start_epoch": 1791496007.7614498,
+  "restoration_verified_epoch": 1791496337.8470674,
+  "elapsed_to_verified_restoration_s": 330.08561754226685,
+  "window_closed": true,
+  "further_gpu_tests_authorized": false,
+  "A": "PASS",
+  "B": "PASS",
+  "C": "PASS",
+  "D": "PASS",
+  "E": "FAIL",
+  "new_gpu_faults": 0,
+  "readiness_timeout_eliminated": false,
+  "restoration": "PASS after independent assessment",
+  "production_promotion": "BLOCKED"
+}

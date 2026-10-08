@@ -1,0 +1,33 @@
+{
+  "status": "PASS after independent health assessment",
+  "server_pid": 198898,
+  "engine_pids": [
+    199664
+  ],
+  "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "enabled": "enabled",
+  "active": "active",
+  "elapsed_s": 330.08561754226685,
+  "context": 32768,
+  "expert_slots": 9248,
+  "smoke": "2 plus 2 is 4.",
+  "new_gpu_faults": 0,
+  "experimental_engines_remaining": false,
+  "protected_files_unchanged": true,
+  "ui": {
+    "url": "http://127.0.0.1:18083/",
+    "http": 200,
+    "tabs": {
+      "Chat": true,
+      "Monitor": true,
+      "About": true
+    },
+    "assets": {
+      "web/app.js": {
+        "status": 200,
+        "bytes": 59958
+      }
+    }
+  },
+  "automatic_controller_incident_preserved": true
+}

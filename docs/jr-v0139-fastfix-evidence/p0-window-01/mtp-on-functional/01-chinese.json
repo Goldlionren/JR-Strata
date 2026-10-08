@@ -1,0 +1,680 @@
+{
+  "case": "chinese",
+  "prompt": "请用两句简洁的中文解释为什么盐水的冰点低于纯水。",
+  "max_tokens": 128,
+  "before": {
+    "epoch": 1791496132.3654342,
+    "io": {
+      "rchar": 45380506944,
+      "wchar": 15144,
+      "syscr": 77007,
+      "syscw": 121,
+      "read_bytes": 32109928448,
+      "write_bytes": 0,
+      "cancelled_write_bytes": 0
+    },
+    "majflt": 64661,
+    "minflt": 814249,
+    "VmRSS_kib": 1820016,
+    "VmHWM_kib": 1820016,
+    "VmSwap_kib": 0,
+    "vram_kib": 24497308,
+    "gtt_kib": 25775900,
+    "host_available_kib": 31803184,
+    "pswpin": 25722403,
+    "pswpout": 29808039,
+    "device_stats": {
+      "device_index": 0,
+      "pci_bdf": "0000:07:00.0",
+      "device_type": "discrete",
+      "timestamps": {
+        "start": "2026-10-08T21:48:52.432Z",
+        "end": "2026-10-08T21:48:52.639Z",
+        "elapsed_seconds": 0.206864079
+      },
+      "power": {
+        "gpu_power_w": {
+          "tile_0": {
+            "avg": 20.80814887365328,
+            "min": 0.0,
+            "max": 41.61629774730656,
+            "current": 41.61629774730656
+          }
+        },
+        "energy_consumed_j": 4.316162
+      },
+      "frequency": {
+        "gpu_frequency_mhz": {
+          "tile_0": {
+            "avg": 1350.0,
+            "min": 1350.0,
+            "max": 1350.0,
+            "current": 1350.0
+          }
+        },
+        "media_frequency_mhz": {
+          "tile_0": {
+            "avg": 1200.0,
+            "min": 1200.0,
+            "max": 1200.0,
+            "current": 1200.0
+          }
+        }
+      },
+      "memory": {
+        "used_mib": {
+          "tile_0": {
+            "avg": 24153.94921875,
+            "min": 24153.94921875,
+            "max": 24153.94921875,
+            "current": 24153.94921875
+          }
+        },
+        "util_percent": {
+          "tile_0": {
+            "avg": 98.66809321384804,
+            "min": 98.66809321384804,
+            "max": 98.66809321384804,
+            "current": 98.66809321384804
+          }
+        }
+      }
+    }
+  },
+  "ttft_s": 1.3193182139948476,
+  "request": {
+    "model": "swift-1.5-iq3_xxs",
+    "messages": [
+      {
+        "role": "user",
+        "content": "请用两句简洁的中文解释为什么盐水的冰点低于纯水。"
+      }
+    ],
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 128,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    }
+  },
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 26,
+    "completion_tokens": 48,
+    "total_tokens": 74,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 26,
+    "prompt_ms": 1232.7,
+    "prompt_per_token_ms": 47.412,
+    "prompt_per_second": 21.1,
+    "predicted_n": 48,
+    "predicted_ms": 2743.2,
+    "predicted_per_token_ms": 57.15,
+    "predicted_per_second": 17.5,
+    "draft_n": 35,
+    "draft_n_accepted": 24
+  },
+  "content": "溶解的盐离子会干扰水分子形成有序冰晶结构的能力，迫使体系必须降低温度才能凝固。\n同时，溶质降低了水的化学势，导致冰与溶液达到平衡所需的温度低于纯水的冰点。",
+  "reasoning": "",
+  "elapsed_s": 3.9943378289754037,
+  "error": null,
+  "samples": [
+    {
+      "epoch": 1791496132.7260857,
+      "io": {
+        "rchar": 45382128106,
+        "wchar": 15153,
+        "syscr": 77062,
+        "syscw": 122,
+        "read_bytes": 32111538176,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "majflt": 64661,
+      "minflt": 814250,
+      "VmRSS_kib": 1705104,
+      "VmHWM_kib": 1818768,
+      "VmSwap_kib": 0,
+      "vram_kib": 24497308,
+      "gtt_kib": 25775900,
+      "host_available_kib": 31771816,
+      "pswpin": 25722403,
+      "pswpout": 29808039,
+      "device_stats": {
+        "device_index": 0,
+        "pci_bdf": "0000:07:00.0",
+        "device_type": "discrete",
+        "timestamps": {
+          "start": "2026-10-08T21:48:52.794Z",
+          "end": "2026-10-08T21:48:52.995Z",
+          "elapsed_seconds": 0.201145566
+        },
+        "power": {
+          "gpu_power_w": {
+            "tile_0": {
+              "avg": 64.50224646958995,
+              "min": 64.34943173343675,
+              "max": 64.65506120574315,
+              "current": 64.34943173343675
+            }
+          },
+          "energy_consumed_j": 12.947021
+        },
+        "frequency": {
+          "gpu_frequency_mhz": {
+            "tile_0": {
+              "avg": 2400.0,
+              "min": 2400.0,
+              "max": 2400.0,
+              "current": 2400.0
+            }
+          },
+          "media_frequency_mhz": {
+            "tile_0": {
+              "avg": 1200.0,
+              "min": 1200.0,
+              "max": 1200.0,
+              "current": 1200.0
+            }
+          }
+        },
+        "memory": {
+          "used_mib": {
+            "tile_0": {
+              "avg": 24153.94921875,
+              "min": 24153.94921875,
+              "max": 24153.94921875,
+              "current": 24153.94921875
+            }
+          },
+          "util_percent": {
+            "tile_0": {
+              "avg": 98.66809321384804,
+              "min": 98.66809321384804,
+              "max": 98.66809321384804,
+              "current": 98.66809321384804
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 1791496135.0919244,
+      "io": {
+        "rchar": 45434523114,
+        "wchar": 15348,
+        "syscr": 77783,
+        "syscw": 143,
+        "read_bytes": 32173367296,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "majflt": 64661,
+      "minflt": 843031,
+      "VmRSS_kib": 1820228,
+      "VmHWM_kib": 1820228,
+      "VmSwap_kib": 0,
+      "vram_kib": 24497308,
+      "gtt_kib": 25775900,
+      "host_available_kib": 31411624,
+      "pswpin": 25722403,
+      "pswpout": 29808039,
+      "device_stats": {
+        "device_index": 0,
+        "pci_bdf": "0000:07:00.0",
+        "device_type": "discrete",
+        "timestamps": {
+          "start": "2026-10-08T21:48:55.159Z",
+          "end": "2026-10-08T21:48:55.361Z",
+          "elapsed_seconds": 0.201787733
+        },
+        "power": {
+          "gpu_power_w": {
+            "tile_0": {
+              "avg": 76.95525697517036,
+              "min": 72.67426651824759,
+              "max": 81.23624743209312,
+              "current": 72.67426651824759
+            }
+          },
+          "energy_consumed_j": 15.497802
+        },
+        "frequency": {
+          "gpu_frequency_mhz": {
+            "tile_0": {
+              "avg": 2400.0,
+              "min": 2400.0,
+              "max": 2400.0,
+              "current": 2400.0
+            }
+          },
+          "media_frequency_mhz": {
+            "tile_0": {
+              "avg": 1200.0,
+              "min": 1200.0,
+              "max": 1200.0,
+              "current": 1200.0
+            }
+          }
+        },
+        "memory": {
+          "used_mib": {
+            "tile_0": {
+              "avg": 24153.94921875,
+              "min": 24153.94921875,
+              "max": 24153.94921875,
+              "current": 24153.94921875
+            }
+          },
+          "util_percent": {
+            "tile_0": {
+              "avg": 98.66809321384804,
+              "min": 98.66809321384804,
+              "max": 98.66809321384804,
+              "current": 98.66809321384804
+            }
+          }
+        }
+      }
+    }
+  ],
+  "after": {
+    "epoch": 1791496136.7213922,
+    "io": {
+      "rchar": 45541362159,
+      "wchar": 16371,
+      "syscr": 78474,
+      "syscw": 182,
+      "read_bytes": 32291041280,
+      "write_bytes": 0,
+      "cancelled_write_bytes": 0
+    },
+    "majflt": 64661,
+    "minflt": 843047,
+    "VmRSS_kib": 1820292,
+    "VmHWM_kib": 1820292,
+    "VmSwap_kib": 0,
+    "vram_kib": 24497308,
+    "gtt_kib": 25775900,
+    "host_available_kib": 31426424,
+    "pswpin": 25722403,
+    "pswpout": 29808039,
+    "device_stats": {
+      "device_index": 0,
+      "pci_bdf": "0000:07:00.0",
+      "device_type": "discrete",
+      "timestamps": {
+        "start": "2026-10-08T21:48:56.789Z",
+        "end": "2026-10-08T21:48:56.994Z",
+        "elapsed_seconds": 0.205578496
+      },
+      "power": {
+        "gpu_power_w": {
+          "tile_0": {
+            "avg": 0.6708604724497893,
+            "min": 0.6566536290282854,
+            "max": 0.6850673158712932,
+            "current": 0.6850673158712932
+          }
+        },
+        "energy_consumed_j": 0.136719
+      },
+      "frequency": {
+        "gpu_frequency_mhz": {
+          "tile_0": {
+            "avg": 1950.0,
+            "min": 1950.0,
+            "max": 1950.0,
+            "current": 1950.0
+          }
+        },
+        "media_frequency_mhz": {
+          "tile_0": {
+            "avg": 1200.0,
+            "min": 1200.0,
+            "max": 1200.0,
+            "current": 1200.0
+          }
+        }
+      },
+      "memory": {
+        "used_mib": {
+          "tile_0": {
+            "avg": 24153.94921875,
+            "min": 24153.94921875,
+            "max": 24153.94921875,
+            "current": 24153.94921875
+          }
+        },
+        "util_percent": {
+          "tile_0": {
+            "avg": 98.66809321384804,
+            "min": 98.66809321384804,
+            "max": 98.66809321384804,
+            "current": 98.66809321384804
+          }
+        }
+      }
+    }
+  },
+  "native_metrics": {
+    "engine": {
+      "model": "swift-1.5-iq3_xxs",
+      "max_context": 131072,
+      "images": false,
+      "version": "0.1.39-sycl",
+      "context": 131072,
+      "kv": "int8",
+      "kv_resident": 32768,
+      "expert_slots": 10831,
+      "expert_cache_mib": 17990,
+      "expert_slots_primary": 10831,
+      "expert_cache_primary_mib": 17990,
+      "spec": 6,
+      "mtp_max": 4,
+      "lookup": 3,
+      "vram_free_mib": 652,
+      "cvec": 0,
+      "arena_mib": 40925,
+      "pool_workers": 13,
+      "pcie_frac": "0.25",
+      "spec_min_p": "0.50",
+      "conversation_cache_mib": 0,
+      "conversation_cache_slots": 4,
+      "conversation_cache_min_free_mib": 2560,
+      "tail_role_token": -1,
+      "vram_elastic": 0,
+      "engine": "0.1.39-sycl"
+    },
+    "live": {
+      "state": "idle",
+      "queued": 0,
+      "phase": null,
+      "prompt_tokens": null,
+      "prompt_read": null,
+      "prompt_total": null,
+      "generated": null,
+      "max_tokens": null,
+      "elapsed_s": null,
+      "tok_s": null,
+      "tok_s_mean": null,
+      "prefill_tok_s_mean": null,
+      "tok_s_window_s": null
+    },
+    "requests": [
+      {
+        "projection": null,
+        "time": 1791496132.6510339,
+        "duration_s": 4.0,
+        "finish": "stop",
+        "prompt_tokens": 26,
+        "reused": 0,
+        "output_tokens": 48,
+        "prompt_total": 26,
+        "prompt_read": 26,
+        "engine_generated": 48,
+        "prompt_ms": 1232.7,
+        "decode_ms": 2743.2,
+        "decode_tok_s": 17.5,
+        "hit_rate": 0.817,
+        "pcie_share": 0.027,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0.0,
+        "drafts_offered": 35,
+        "drafts_accepted": 24
+      },
+      {
+        "projection": null,
+        "time": 1791496126.9084651,
+        "duration_s": 4.7,
+        "finish": "stop",
+        "prompt_tokens": 26,
+        "reused": 0,
+        "output_tokens": 54,
+        "prompt_total": 26,
+        "prompt_read": 26,
+        "engine_generated": 54,
+        "prompt_ms": 1386.3,
+        "decode_ms": 3301.2,
+        "decode_tok_s": 16.4,
+        "hit_rate": 0.744,
+        "pcie_share": 0.04,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0.0,
+        "drafts_offered": 45,
+        "drafts_accepted": 31
+      }
+    ],
+    "conversation_cache": {
+      "enabled": false,
+      "budget_mib": 0,
+      "slots": 4,
+      "parked": 0,
+      "bytes": 0,
+      "evictions": 0,
+      "parks": 0,
+      "restores": 0,
+      "last_event": null,
+      "last_tokens": null,
+      "last_at": null,
+      "requests": 2,
+      "requests_reused": 0,
+      "reused_tokens": 0,
+      "prompt_tokens": 52,
+      "last_reused": 0,
+      "last_prompt": 26
+    },
+    "requests_kept": 2,
+    "totals": {
+      "since": 1791496123.1978462,
+      "requests": 2,
+      "prompt_tokens": 52,
+      "reused": 0,
+      "output_tokens": 102,
+      "prompt_ms": 2619.0,
+      "decode_ms": 6044.4,
+      "drafts_offered": 80,
+      "drafts_accepted": 55
+    },
+    "hardware": {
+      "gpu_temp": 61.0,
+      "gpu_power": 85.06854690233291,
+      "gpu_power_limit": null,
+      "gpu_pcie_gen": 4,
+      "gpu_pcie_gen_max": 4,
+      "gpu_pcie_width": 4,
+      "gpu_pcie_rx_mb": null,
+      "gpu_pcie_tx_mb": null,
+      "cpu": 71.5,
+      "ram_used": 34764566528,
+      "ram_total": 66967355392,
+      "disk_read_mb": 76.70710730690247,
+      "disk_write_mb": 0.027303455260262247,
+      "tok_s": 17.405104586503114,
+      "tok_s_mean": 17.60171186692828,
+      "prefill_tok_s_mean": 0.0
+    },
+    "hardware_static": {
+      "gpu_name": "Intel Arc GPU",
+      "gpu_count": 1,
+      "cpu_name": "12th Gen Intel(R) Core(TM) i7-12700H",
+      "cores": 14,
+      "threads": 20,
+      "psutil": true
+    },
+    "history": {
+      "gpu_util": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "gpu_mem_used": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "gpu_temp": [
+        54.0,
+        54.0,
+        54.0,
+        53.0,
+        57.0,
+        58.0,
+        59.0,
+        59.0,
+        60.0,
+        55.0,
+        58.0,
+        59.0,
+        60.0,
+        61.0
+      ],
+      "gpu_power": [
+        null,
+        0.14,
+        8.99,
+        19.16,
+        37.24,
+        68.38,
+        71.96,
+        73.93,
+        81.71,
+        38.97,
+        46.55,
+        72.73,
+        78.47,
+        85.07
+      ],
+      "gpu_pcie_rx_mb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpu": [
+        0.0,
+        6.1,
+        6.4,
+        7.5,
+        37.1,
+        74.9,
+        72.7,
+        70.6,
+        69.1,
+        31.9,
+        49.1,
+        75.2,
+        75.1,
+        71.5
+      ],
+      "ram_used": [
+        33514409984,
+        33603518464,
+        33807392768,
+        33948069888,
+        34123792384,
+        34286190592,
+        34346541056,
+        34322214912,
+        34341920768,
+        34456805376,
+        34424479744,
+        34592792576,
+        34821029888,
+        34764566528
+      ],
+      "disk_read_mb": [
+        null,
+        2.76,
+        0.15,
+        4.31,
+        27.39,
+        1.45,
+        7.03,
+        31.14,
+        57.89,
+        25.23,
+        23.53,
+        24.43,
+        20.3,
+        76.71
+      ],
+      "tok_s": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        11.08,
+        13.02,
+        16.21,
+        0.0,
+        0.0,
+        14.84,
+        16.99,
+        17.41
+      ],
+      "prefill_tok_s_mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        18.4,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "time": 1791496137.0053945
+  }
+}

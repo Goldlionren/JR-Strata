@@ -87,3 +87,10 @@ Frozen new executable: `/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fast
 SHA256: `14db752d630df2c1d992f77e0da71eb61852ffca0ab6c77ef71bda646af63434`
 
 Final isolated build: **PASS** (`logs/fastfix/p0-final-build.log`). Engine source `47f505b`; controller/profile checks `5a9e576`. CPU lifecycle policy also passes ASan/UBSan. GPU tests have **not** been executed. Final read-only production check: server1586519, engine1587016, frozen RC1 hash, context32768, active/enabled; no new kernel faults in the 07:30–08:39 offline check interval.
+
+
+## Latest P0 GPU outcome — window closed (2026-10-09)
+
+**FAIL: readiness timeout remains; no new GPU faults; RC1 restored.** [Full measured results and recovery](JR_SYCL_V0139_FASTFIX_P0_GPU_RESULTS.md) supersede the earlier “GPU pending” state. Seven GPU safety tests and the event probe passed. T=1 and MTP-on512-token controls passed at20.3 and27.9tok/s. The2,048-token request stopped after1,186 tokens with `A-plan ring47 layer46 observed40 skip0`, window896/T1/position1264. No successful sustained2,048-token result exists. Failed-prefix33.9tok/s is not accepted performance.
+
+The controller suspended restoration for assessment; all experimental processes exited, B60 resources returned, no kernel fault or unsafe-drain marker appeared, and unchanged RC1 was restored and verified at330.09 seconds. RC1 engine199664, original32K configuration, active/enabled. The window is closed; do not rerun this failing candidate. Binary/hash/ranking/runtime remain unchanged. Full raw evidence and the initial restoration incident are preserved.

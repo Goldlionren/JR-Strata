@@ -13,10 +13,10 @@
   "cpu_lifecycle_sanitizers": "PASS ASan/UBSan",
   "cpu_maintenance_cases": 10,
   "cpu_ple_windows": 90,
-  "gpu_validation": "NOT RUN; requires new focused maintenance authorization",
+  "gpu_validation": "FAIL: A-plan ring47 after1186 long-response tokens; stages A-D passed; no GPU reset; RC1 restored",
   "root_cause": "original readiness trigger unresolved; failure-plan and lifetime defects repaired offline",
   "production": "RC1 active and unchanged",
-  "deployment": "BLOCKED",
+  "deployment": "BLOCKED; do not rerun this failing candidate",
   "cache_control": {
     "uniform_grant": 8098,
     "expected_actual_experts": 10831,
@@ -25,5 +25,19 @@
     "minimum_loaded_free_vram_mib": 512
   },
   "failed_artifact": "dist/failed-window-01/strata",
-  "failed_sha256": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e"
+  "failed_sha256": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e",
+  "gpu_evidence": "docs/jr-v0139-fastfix-evidence/p0-window-01/",
+  "latest_failure": {
+    "channel": "A-plan",
+    "ring": 47,
+    "layer": 46,
+    "group": 0,
+    "observed": 40,
+    "skip": 0,
+    "window": 896,
+    "T": 1,
+    "position": 1264,
+    "output_tokens_before_error": 1186,
+    "new_gpu_faults": 0
+  }
 }
