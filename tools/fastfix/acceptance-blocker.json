@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED",
+  "failed_tested_sha256": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e",
+  "reason": "readiness timeout at ring33 followed by ccs reset/page fault; offline cleanup correction not GPU validated",
+  "evidence": "logs/fastfix/window-01-resume/",
+  "production": "RC1 restored and verified; no further FastFix GPU execution"
+}

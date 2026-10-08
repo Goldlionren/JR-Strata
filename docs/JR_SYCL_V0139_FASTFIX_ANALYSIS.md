@@ -32,3 +32,11 @@ Preserved image ID/digest `sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1
 Original ranking SHA256 `8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf`. Keep historical auto cache,768MiB reserve,131072 context, INT8/32768 resident KV, prefill4096, spec4/min-p0.5, original model/pack/MTP. A device-only profile and separate-engine MTP-off checks are isolation controls, not an unreported default change. PLE Direct remains the historical default; mmap throughput tuning is outside this surgical task.
 
 Performance and GPU gates are pending until the bounded maintenance run. No claim of recovered20+tok/s or solved corruption follows from source inspection or CPU tests.
+
+## Observed GPU evidence (supersedes pending status above)
+
+The first long request reached a real bounded expert-readiness expiry at ring33, after306 delivered tokens. This confirms silent fall-through was a live correctness risk in the historical host-assisted path: a later flag reaching48 does not prove its data was ready when ring33 was consumed. It does not establish that the earlier1036-token`root!!!!!` has exactly the same cause.
+
+A subsequent page fault/reset on engine exit blocks further GPU tests. The newly introduced timeout-return placement skipped the existing expert copy-queue drain; this demonstrable dependency error is corrected offline. Its exact relationship to the fault address still requires validation. The committed correction has no GPU PASS claim. MTP-off and device-only arms remain unexecuted, so neither MTP nor CPU-assisted routing can yet be isolated as the sole cause.
+
+Recommendation: retain RC1. The next narrow investigation, after reviewing this failure, is readiness ring/channel diagnostics and a safe failure-teardown regression, followed by MTP-on/off isolation. Do not change ranking, quantization, residency budget or blanket timeouts to hide the failure. No new GPU window is initiated by this report.

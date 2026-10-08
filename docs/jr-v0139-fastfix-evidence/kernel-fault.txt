@@ -1,0 +1,19 @@
+Oct 09 00:41:19 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: Engine reset: engine_class=ccs, logical_mask: 0x1, guc_id=6, state=0x289
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: 
+                                                  ASID: 6195
+                                                  Faulted Address: 0x0000c71e38990000
+                                                  FaultType: 0
+                                                  AccessType: 0
+                                                  FaultLevel: 4
+                                                  EngineClass: 5 ccs
+                                                  EngineInstance: 0
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: Fault response: Unsuccessful -ENOENT
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: docker0: port 1(veth99152d1) entered disabled state
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: veth2b703a6: renamed from eth0
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: docker0: port 1(veth99152d1) entered disabled state
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: veth99152d1 (unregistering): left allmulticast mode
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: veth99152d1 (unregistering): left promiscuous mode
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: docker0: port 1(veth99152d1) entered disabled state

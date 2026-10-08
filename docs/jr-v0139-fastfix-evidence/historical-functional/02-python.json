@@ -1,0 +1,722 @@
+{
+  "case": "python",
+  "prompt": "Return only Python code defining triangular(n) for nonnegative integers, and assertions for n=0,1,10. Use a closed-form formula.",
+  "max_tokens": 192,
+  "before": {
+    "epoch": 1791466852.547092,
+    "io": {
+      "rchar": 45541361166,
+      "wchar": 16451,
+      "syscr": 78473,
+      "syscw": 182,
+      "read_bytes": 39669821440,
+      "write_bytes": 0,
+      "cancelled_write_bytes": 0
+    },
+    "majflt": 64716,
+    "minflt": 844841,
+    "VmRSS_kib": 1810280,
+    "VmHWM_kib": 1810280,
+    "VmSwap_kib": 0,
+    "vram_kib": 24501280,
+    "gtt_kib": 25775872,
+    "host_available_kib": 31875116,
+    "pswpin": 25716461,
+    "pswpout": 29808038,
+    "device_stats": {
+      "device_index": 0,
+      "pci_bdf": "0000:07:00.0",
+      "device_type": "discrete",
+      "timestamps": {
+        "start": "2026-10-08T13:40:52.614Z",
+        "end": "2026-10-08T13:40:52.821Z",
+        "elapsed_seconds": 0.206809502
+      },
+      "power": {
+        "gpu_power_w": {
+          "tile_0": {
+            "avg": 19.668407464488705,
+            "min": 0.0,
+            "max": 39.33681492897741,
+            "current": 39.33681492897741
+          }
+        },
+        "energy_consumed_j": 4.24292
+      },
+      "frequency": {
+        "gpu_frequency_mhz": {
+          "tile_0": {
+            "avg": 900.0,
+            "min": 400.0,
+            "max": 1400.0,
+            "current": 400.0
+          }
+        },
+        "media_frequency_mhz": {
+          "tile_0": {
+            "avg": 800.0,
+            "min": 400.0,
+            "max": 1200.0,
+            "current": 400.0
+          }
+        }
+      },
+      "memory": {
+        "used_mib": {
+          "tile_0": {
+            "avg": 24157.796875,
+            "min": 24157.796875,
+            "max": 24157.796875,
+            "current": 24157.796875
+          }
+        },
+        "util_percent": {
+          "tile_0": {
+            "avg": 98.68381076388889,
+            "min": 98.68381076388889,
+            "max": 98.68381076388889,
+            "current": 98.68381076388889
+          }
+        }
+      }
+    }
+  },
+  "ttft_s": 1.4006925160065293,
+  "request": {
+    "model": "swift-1.5-iq3_xxs",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Return only Python code defining triangular(n) for nonnegative integers, and assertions for n=0,1,10. Use a closed-form formula."
+      }
+    ],
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 192,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    }
+  },
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 53,
+    "total_tokens": 96,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 43,
+    "prompt_ms": 1343.6,
+    "prompt_per_token_ms": 31.247,
+    "prompt_per_second": 32.0,
+    "predicted_n": 53,
+    "predicted_ms": 2625.2,
+    "predicted_per_token_ms": 49.532,
+    "predicted_per_second": 20.2,
+    "draft_n": 45,
+    "draft_n_accepted": 36
+  },
+  "content": "```python\ndef triangular(n):\n    return n * (n + 1) // 2\n\nassert triangular(0) == 0\nassert triangular(1) == 1\nassert triangular(10) == 55\n```",
+  "reasoning": "",
+  "elapsed_s": 3.988285621016985,
+  "error": null,
+  "samples": [
+    {
+      "epoch": 1791466852.9198627,
+      "io": {
+        "rchar": 45567020773,
+        "wchar": 16460,
+        "syscr": 78573,
+        "syscw": 183,
+        "read_bytes": 39700426752,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "majflt": 64716,
+      "minflt": 844841,
+      "VmRSS_kib": 1695364,
+      "VmHWM_kib": 1809604,
+      "VmSwap_kib": 0,
+      "vram_kib": 24501280,
+      "gtt_kib": 25775872,
+      "host_available_kib": 31858284,
+      "pswpin": 25716461,
+      "pswpout": 29808038,
+      "device_stats": {
+        "device_index": 0,
+        "pci_bdf": "0000:07:00.0",
+        "device_type": "discrete",
+        "timestamps": {
+          "start": "2026-10-08T13:40:52.985Z",
+          "end": "2026-10-08T13:40:53.186Z",
+          "elapsed_seconds": 0.201227117
+        },
+        "power": {
+          "gpu_power_w": {
+            "tile_0": {
+              "avg": 73.3092518811532,
+              "min": 67.38702880822807,
+              "max": 79.23147495407834,
+              "current": 79.23147495407834
+            }
+          },
+          "energy_consumed_j": 14.728272
+        },
+        "frequency": {
+          "gpu_frequency_mhz": {
+            "tile_0": {
+              "avg": 2400.0,
+              "min": 2400.0,
+              "max": 2400.0,
+              "current": 2400.0
+            }
+          },
+          "media_frequency_mhz": {
+            "tile_0": {
+              "avg": 1200.0,
+              "min": 1200.0,
+              "max": 1200.0,
+              "current": 1200.0
+            }
+          }
+        },
+        "memory": {
+          "used_mib": {
+            "tile_0": {
+              "avg": 24157.796875,
+              "min": 24157.796875,
+              "max": 24157.796875,
+              "current": 24157.796875
+            }
+          },
+          "util_percent": {
+            "tile_0": {
+              "avg": 98.68381076388889,
+              "min": 98.68381076388889,
+              "max": 98.68381076388889,
+              "current": 98.68381076388889
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 1791466855.2836058,
+      "io": {
+        "rchar": 46220851941,
+        "wchar": 16636,
+        "syscr": 80498,
+        "syscw": 207,
+        "read_bytes": 40506298368,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "majflt": 64716,
+      "minflt": 873607,
+      "VmRSS_kib": 1810360,
+      "VmHWM_kib": 1810360,
+      "VmSwap_kib": 0,
+      "vram_kib": 24501280,
+      "gtt_kib": 25775872,
+      "host_available_kib": 31957788,
+      "pswpin": 25716461,
+      "pswpout": 29808038,
+      "device_stats": {
+        "device_index": 0,
+        "pci_bdf": "0000:07:00.0",
+        "device_type": "discrete",
+        "timestamps": {
+          "start": "2026-10-08T13:40:55.342Z",
+          "end": "2026-10-08T13:40:55.543Z",
+          "elapsed_seconds": 0.20107102
+        },
+        "power": {
+          "gpu_power_w": {
+            "tile_0": {
+              "avg": 74.9327810867585,
+              "min": 73.36605650616792,
+              "max": 76.49950566734908,
+              "current": 73.36605650616792
+            }
+          },
+          "energy_consumed_j": 15.240112
+        },
+        "frequency": {
+          "gpu_frequency_mhz": {
+            "tile_0": {
+              "avg": 2400.0,
+              "min": 2400.0,
+              "max": 2400.0,
+              "current": 2400.0
+            }
+          },
+          "media_frequency_mhz": {
+            "tile_0": {
+              "avg": 1200.0,
+              "min": 1200.0,
+              "max": 1200.0,
+              "current": 1200.0
+            }
+          }
+        },
+        "memory": {
+          "used_mib": {
+            "tile_0": {
+              "avg": 24157.796875,
+              "min": 24157.796875,
+              "max": 24157.796875,
+              "current": 24157.796875
+            }
+          },
+          "util_percent": {
+            "tile_0": {
+              "avg": 98.68381076388889,
+              "min": 98.68381076388889,
+              "max": 98.68381076388889,
+              "current": 98.68381076388889
+            }
+          }
+        }
+      }
+    }
+  ],
+  "after": {
+    "epoch": 1791466856.8902016,
+    "io": {
+      "rchar": 46461417194,
+      "wchar": 17608,
+      "syscr": 81259,
+      "syscw": 248,
+      "read_bytes": 40769527808,
+      "write_bytes": 0,
+      "cancelled_write_bytes": 0
+    },
+    "majflt": 64716,
+    "minflt": 873616,
+    "VmRSS_kib": 1810264,
+    "VmHWM_kib": 1810264,
+    "VmSwap_kib": 0,
+    "vram_kib": 24501280,
+    "gtt_kib": 25775872,
+    "host_available_kib": 31962856,
+    "pswpin": 25716461,
+    "pswpout": 29808038,
+    "device_stats": {
+      "device_index": 0,
+      "pci_bdf": "0000:07:00.0",
+      "device_type": "discrete",
+      "timestamps": {
+        "start": "2026-10-08T13:40:56.953Z",
+        "end": "2026-10-08T13:40:57.164Z",
+        "elapsed_seconds": 0.21032914
+      },
+      "power": {
+        "gpu_power_w": {
+          "tile_0": {
+            "avg": 1.177760620097457,
+            "min": 0.8224729008328621,
+            "max": 1.533048339362052,
+            "current": 0.8224729008328621
+          }
+        },
+        "energy_consumed_j": 1.200867
+      },
+      "frequency": {
+        "gpu_frequency_mhz": {
+          "tile_0": {
+            "avg": 1800.0,
+            "min": 1800.0,
+            "max": 1800.0,
+            "current": 1800.0
+          }
+        },
+        "media_frequency_mhz": {
+          "tile_0": {
+            "avg": 1200.0,
+            "min": 1200.0,
+            "max": 1200.0,
+            "current": 1200.0
+          }
+        }
+      },
+      "memory": {
+        "used_mib": {
+          "tile_0": {
+            "avg": 24157.796875,
+            "min": 24157.796875,
+            "max": 24157.796875,
+            "current": 24157.796875
+          }
+        },
+        "util_percent": {
+          "tile_0": {
+            "avg": 98.68381076388889,
+            "min": 98.68381076388889,
+            "max": 98.68381076388889,
+            "current": 98.68381076388889
+          }
+        }
+      }
+    }
+  },
+  "native_metrics": {
+    "engine": {
+      "model": "swift-1.5-iq3_xxs",
+      "max_context": 131072,
+      "images": false,
+      "version": "0.1.39-sycl",
+      "context": 131072,
+      "kv": "int8",
+      "kv_resident": 32768,
+      "expert_slots": 10831,
+      "expert_cache_mib": 17990,
+      "expert_slots_primary": 10831,
+      "expert_cache_primary_mib": 17990,
+      "spec": 6,
+      "mtp_max": 4,
+      "lookup": 3,
+      "vram_free_mib": 648,
+      "cvec": 0,
+      "arena_mib": 40925,
+      "pool_workers": 13,
+      "pcie_frac": "0.25",
+      "spec_min_p": "0.50",
+      "conversation_cache_mib": 0,
+      "conversation_cache_slots": 4,
+      "conversation_cache_min_free_mib": 2560,
+      "tail_role_token": -1,
+      "vram_elastic": 0,
+      "engine": "0.1.39-sycl"
+    },
+    "live": {
+      "state": "idle",
+      "queued": 0,
+      "phase": null,
+      "prompt_tokens": null,
+      "prompt_read": null,
+      "prompt_total": null,
+      "generated": null,
+      "max_tokens": null,
+      "elapsed_s": null,
+      "tok_s": null,
+      "tok_s_mean": null,
+      "prefill_tok_s_mean": null,
+      "tok_s_window_s": null
+    },
+    "requests": [
+      {
+        "projection": null,
+        "time": 1791466852.8328855,
+        "duration_s": 4.0,
+        "finish": "stop",
+        "prompt_tokens": 43,
+        "reused": 0,
+        "output_tokens": 53,
+        "prompt_total": 43,
+        "prompt_read": 43,
+        "engine_generated": 53,
+        "prompt_ms": 1343.6,
+        "decode_ms": 2625.2,
+        "decode_tok_s": 20.2,
+        "hit_rate": 0.607,
+        "pcie_share": 0.07,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0.0,
+        "drafts_offered": 45,
+        "drafts_accepted": 36
+      },
+      {
+        "projection": null,
+        "time": 1791466848.1939733,
+        "duration_s": 3.9,
+        "finish": "stop",
+        "prompt_tokens": 26,
+        "reused": 0,
+        "output_tokens": 48,
+        "prompt_total": 26,
+        "prompt_read": 26,
+        "engine_generated": 48,
+        "prompt_ms": 1213.9,
+        "decode_ms": 2694.0,
+        "decode_tok_s": 17.8,
+        "hit_rate": 0.817,
+        "pcie_share": 0.027,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0.0,
+        "drafts_offered": 35,
+        "drafts_accepted": 24
+      },
+      {
+        "projection": null,
+        "time": 1791466842.8708794,
+        "duration_s": 4.6,
+        "finish": "stop",
+        "prompt_tokens": 26,
+        "reused": 0,
+        "output_tokens": 54,
+        "prompt_total": 26,
+        "prompt_read": 26,
+        "engine_generated": 54,
+        "prompt_ms": 1366.4,
+        "decode_ms": 3247.7,
+        "decode_tok_s": 16.6,
+        "hit_rate": 0.744,
+        "pcie_share": 0.04,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0.0,
+        "drafts_offered": 45,
+        "drafts_accepted": 31
+      }
+    ],
+    "conversation_cache": {
+      "enabled": false,
+      "budget_mib": 0,
+      "slots": 4,
+      "parked": 0,
+      "bytes": 0,
+      "evictions": 0,
+      "parks": 0,
+      "restores": 0,
+      "last_event": null,
+      "last_tokens": null,
+      "last_at": null,
+      "requests": 3,
+      "requests_reused": 0,
+      "reused_tokens": 0,
+      "prompt_tokens": 95,
+      "last_reused": 0,
+      "last_prompt": 43
+    },
+    "requests_kept": 3,
+    "totals": {
+      "since": 1791466841.2287455,
+      "requests": 3,
+      "prompt_tokens": 95,
+      "reused": 0,
+      "output_tokens": 155,
+      "prompt_ms": 3923.9,
+      "decode_ms": 8566.9,
+      "drafts_offered": 125,
+      "drafts_accepted": 91
+    },
+    "hardware": {
+      "gpu_temp": 64.0,
+      "gpu_power": 78.56449637629488,
+      "gpu_power_limit": null,
+      "gpu_pcie_gen": 4,
+      "gpu_pcie_gen_max": 4,
+      "gpu_pcie_width": 4,
+      "gpu_pcie_rx_mb": null,
+      "gpu_pcie_tx_mb": null,
+      "cpu": 70.3,
+      "ram_used": 34236362752,
+      "ram_total": 66967355392,
+      "disk_read_mb": 158.0957215045373,
+      "disk_write_mb": 0.03901382461923779,
+      "tok_s": 22.816078506861928,
+      "tok_s_mean": 20.17870365502895,
+      "prefill_tok_s_mean": 0.0
+    },
+    "hardware_static": {
+      "gpu_name": "Intel Arc GPU",
+      "gpu_count": 1,
+      "cpu_name": "12th Gen Intel(R) Core(TM) i7-12700H",
+      "cores": 14,
+      "threads": 20,
+      "psutil": true
+    },
+    "history": {
+      "gpu_util": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "gpu_mem_used": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "gpu_temp": [
+        57.0,
+        57.0,
+        61.0,
+        62.0,
+        63.0,
+        63.0,
+        64.0,
+        59.0,
+        63.0,
+        64.0,
+        65.0,
+        60.0,
+        63.0,
+        64.0,
+        64.0,
+        64.0
+      ],
+      "gpu_power": [
+        null,
+        16.73,
+        39.87,
+        68.68,
+        72.45,
+        75.12,
+        84.1,
+        31.56,
+        69.8,
+        76.82,
+        82.63,
+        73.68,
+        38.31,
+        77.9,
+        72.72,
+        78.56
+      ],
+      "gpu_pcie_rx_mb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpu": [
+        0.0,
+        4.1,
+        33.0,
+        71.8,
+        71.4,
+        73.4,
+        70.4,
+        35.0,
+        75.5,
+        73.8,
+        73.6,
+        64.2,
+        43.4,
+        74.4,
+        69.2,
+        70.3
+      ],
+      "ram_used": [
+        34012610560,
+        34056069120,
+        34134290432,
+        34613608448,
+        34691080192,
+        34690682880,
+        33965428736,
+        34068525056,
+        34090983424,
+        34147188736,
+        34255900672,
+        34358456320,
+        34042265600,
+        34233139200,
+        34245111808,
+        34236362752
+      ],
+      "disk_read_mb": [
+        null,
+        0.0,
+        5.35,
+        0.93,
+        10.49,
+        36.36,
+        58.01,
+        16.63,
+        38.66,
+        13.61,
+        50.61,
+        65.0,
+        234.31,
+        426.01,
+        139.12,
+        158.1
+      ],
+      "tok_s": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        13.44,
+        14.07,
+        19.3,
+        0.0,
+        0.0,
+        16.41,
+        17.23,
+        0.0,
+        0.0,
+        4.0,
+        21.38,
+        22.82
+      ],
+      "prefill_tok_s_mean": [
+        0.0,
+        0.0,
+        null,
+        18.3,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        20.4,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "time": 1791466857.1773531
+  }
+}

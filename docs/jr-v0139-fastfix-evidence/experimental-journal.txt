@@ -1,0 +1,48 @@
+Oct 09 00:40:23 james-NUC12SNKi72 systemd[1802]: Starting jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 00:40:23 james-NUC12SNKi72 systemd[1802]: Started jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 00:40:23 james-NUC12SNKi72 python[1563446]: loading the model (the first start takes a minute or two) ...
+Oct 09 00:40:23 james-NUC12SNKi72 python[1563446]: [strata] starting the engine: reading the model's weights ...
+Oct 09 00:40:26 james-NUC12SNKi72 python[1563446]: [strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+Oct 09 00:40:26 james-NUC12SNKi72 python[1563446]:          YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+Oct 09 00:40:26 james-NUC12SNKi72 python[1563446]:          Please wait and don't close this window; the browser opens when it is ready.
+Oct 09 00:40:27 james-NUC12SNKi72 python[1563446]: [strata] filling the GPU's expert cache (10831 experts, 17.57 GiB of VRAM) ...
+Oct 09 00:40:41 james-NUC12SNKi72 python[1563446]: ready: http://127.0.0.1:18086/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 131072 tokens)
+Oct 09 00:40:41 james-NUC12SNKi72 python[1563446]:        open http://127.0.0.1:18086/ in a browser to chat; close this window to stop the model
+Oct 09 00:40:43 james-NUC12SNKi72 python[1563446]: [strata] reading the prompt: 19 of 26 tokens, 1 s so far
+Oct 09 00:40:44 james-NUC12SNKi72 python[1563446]: [strata] answering: 7 of max 128 tokens, 11.4 tok/s, 2 s
+Oct 09 00:40:46 james-NUC12SNKi72 python[1563446]: [strata] answering: 22 of max 128 tokens, 12.6 tok/s, 3 s
+Oct 09 00:40:47 james-NUC12SNKi72 python[1563446]: [strata] answering: 44 of max 128 tokens, 15.9 tok/s, 4 s
+Oct 09 00:40:47 james-NUC12SNKi72 python[1563446]: [strata] done: 54 tokens in 5 s (17.0 tok/s) (stop, cancel=False), expert cache 74.4% hit (+4.0% of the routed experts over PCIe)
+Oct 09 00:40:49 james-NUC12SNKi72 python[1563446]: [strata] reading the prompt: 25 of 26 tokens, 1 s so far
+Oct 09 00:40:50 james-NUC12SNKi72 python[1563446]: [strata] answering: 15 of max 128 tokens, 16.0 tok/s, 2 s
+Oct 09 00:40:51 james-NUC12SNKi72 python[1563446]: [strata] answering: 36 of max 128 tokens, 18.4 tok/s, 3 s
+Oct 09 00:40:52 james-NUC12SNKi72 python[1563446]: [strata] done: 48 tokens in 4 s (18.4 tok/s) (stop, cancel=False), expert cache 81.7% hit (+2.7% of the routed experts over PCIe)
+Oct 09 00:40:53 james-NUC12SNKi72 python[1563446]: [strata] reading the prompt: 36 of 43 tokens, 1 s so far
+Oct 09 00:40:54 james-NUC12SNKi72 python[1563446]: [strata] answering: 14 of max 192 tokens, 18.5 tok/s, 2 s
+Oct 09 00:40:56 james-NUC12SNKi72 python[1563446]: [strata] answering: 34 of max 192 tokens, 19.0 tok/s, 3 s
+Oct 09 00:40:56 james-NUC12SNKi72 python[1563446]: [strata] done: 53 tokens in 4 s (20.6 tok/s) (stop, cancel=False), expert cache 60.7% hit (+7.0% of the routed experts over PCIe)
+Oct 09 00:40:58 james-NUC12SNKi72 python[1563446]: [strata] reading the prompt: 42 of 43 tokens, 1 s so far
+Oct 09 00:40:59 james-NUC12SNKi72 python[1563446]: [strata] answering: 21 of max 192 tokens, 21.8 tok/s, 2 s
+Oct 09 00:41:00 james-NUC12SNKi72 python[1563446]: [strata] answering: 43 of max 192 tokens, 21.4 tok/s, 3 s
+Oct 09 00:41:01 james-NUC12SNKi72 python[1563446]: [strata] answering: 63 of max 192 tokens, 20.7 tok/s, 4 s
+Oct 09 00:41:02 james-NUC12SNKi72 python[1563446]: [strata] answering: 91 of max 192 tokens, 22.1 tok/s, 5 s
+Oct 09 00:41:04 james-NUC12SNKi72 python[1563446]: [strata] answering: 122 of max 192 tokens, 23.2 tok/s, 7 s
+Oct 09 00:41:04 james-NUC12SNKi72 python[1563446]: [strata] done: 146 tokens in 7 s (23.8 tok/s) (stop, cancel=False), expert cache 74.0% hit (+4.6% of the routed experts over PCIe)
+Oct 09 00:41:07 james-NUC12SNKi72 python[1563446]: [strata] reading the prompt: 72 of 79 tokens, 2 s so far
+Oct 09 00:41:08 james-NUC12SNKi72 python[1563446]: [strata] answering: 11 of max 2048 tokens, 18.8 tok/s, 3 s
+Oct 09 00:41:09 james-NUC12SNKi72 python[1563446]: [strata] answering: 34 of max 2048 tokens, 20.7 tok/s, 4 s
+Oct 09 00:41:10 james-NUC12SNKi72 python[1563446]: [strata] answering: 58 of max 2048 tokens, 21.8 tok/s, 5 s
+Oct 09 00:41:12 james-NUC12SNKi72 python[1563446]: [strata] answering: 79 of max 2048 tokens, 21.5 tok/s, 6 s
+Oct 09 00:41:13 james-NUC12SNKi72 python[1563446]: [strata] answering: 106 of max 2048 tokens, 22.3 tok/s, 7 s
+Oct 09 00:41:14 james-NUC12SNKi72 python[1563446]: [strata] answering: 134 of max 2048 tokens, 22.9 tok/s, 8 s
+Oct 09 00:41:15 james-NUC12SNKi72 python[1563446]: [strata] answering: 168 of max 2048 tokens, 24.3 tok/s, 9 s
+Oct 09 00:41:16 james-NUC12SNKi72 python[1563446]: [strata] answering: 200 of max 2048 tokens, 25.1 tok/s, 10 s
+Oct 09 00:41:17 james-NUC12SNKi72 python[1563446]: [strata] answering: 229 of max 2048 tokens, 25.5 tok/s, 11 s
+Oct 09 00:41:18 james-NUC12SNKi72 python[1563446]: [strata] answering: 256 of max 2048 tokens, 25.5 tok/s, 12 s
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] answering: 294 of max 2048 tokens, 26.6 tok/s, 13 s
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] the engine reported an error: verify: expert readiness device wait expired at ring 33; window discarded; host seq=48; restart engine before reuse
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] done: 306 tokens in 14 s (26.4 tok/s) (error, cancel=False)
+Oct 09 00:41:20 james-NUC12SNKi72 systemd[1802]: Stopping jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 00:41:20 james-NUC12SNKi72 python[1563446]: [strata] stopping (Ctrl+C again to end the engine at once) ...
+Oct 09 00:41:20 james-NUC12SNKi72 python[1563446]: [strata] stopped
+Oct 09 00:41:20 james-NUC12SNKi72 systemd[1802]: Stopped jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086.

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "server_pid": 1586519,
+  "engine_pid": 1587016,
+  "running_sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "new_faults_during_restoration": 0,
+  "enabled": "enabled",
+  "smoke": "2 plus 2 equals 4.",
+  "epoch": 1791467051.7413821,
+  "original_window_elapsed_s": 392.9019296169281
+}

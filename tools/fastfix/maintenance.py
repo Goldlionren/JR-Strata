@@ -21,6 +21,7 @@ def children(pid):
 p=argparse.ArgumentParser();p.add_argument('--execute-authorized',action='store_true');p.add_argument('--out',required=True);p.add_argument('--resume-start',type=Path);a=p.parse_args()
 if not a.execute_authorized:
  print(json.dumps({'tests':TESTS,'arms':['historical spec4 auto cache','device-only spec4 same slots','MTP-off same slots'],'port':18086,'max_minutes':60,'admission_cutoff_minutes':45,'cleanup_minutes':50,'recovery_reserve_minutes':10},indent=2));sys.exit(0)
+if (D/'acceptance-blocker.json').exists():raise SystemExit('BLOCKED: failed GPU acceptance; offline correction requires a separately reviewed test plan')
 E=Path(a.out).resolve();E.mkdir(parents=True,exist_ok=False);start=json.loads(a.resume_start.read_text())['start_epoch'] if a.resume_start else time.time();deadline=time.monotonic()+(start+3600-time.time());stopped=False;exp_started=False
 if time.time()>start+2700:raise SystemExit('original admission deadline expired')
 (E/'cutover.json').write_text(json.dumps({'start_epoch':start,'deadline_epoch':start+3600,'authorization':'operator final execute-all instruction; isolated FastFix only'},indent=2))

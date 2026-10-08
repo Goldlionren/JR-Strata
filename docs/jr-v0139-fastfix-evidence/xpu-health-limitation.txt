@@ -1,0 +1,5 @@
+{
+    "device_id": 0
+}
+[Error] Failed to get core temperature: 0x78000003 (ZE_RESULT_ERROR_UNSUPPORTED_FEATURE)
+[Error] Health check failed for device id: 0
