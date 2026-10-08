@@ -21,3 +21,11 @@ Existing graph-completion waits become `wait_and_throw` at the token/window/draf
 Historical `Verifier::run` computes rows, synchronously gathers, propagates failure, fences, then submits the graph. This already covers mixed resident/mirrored experts and `STRATA_VERIFY_NO_HOST`. It does not have RC1's later delayed-prefetch omission. No PLE execution rewrite is necessary. Focused tests reuse the PLEFix independent IQ4_NL reference with the historical gather sequence: 90 windows, T=1/4/6, repeated/changing rows, three histories, Direct/mmap, delayed I/O and failure before submission. Actual graph visibility is a separate GPU test.
 
 The vendored DPCT async handler previously printed and swallowed every exception. It now rethrows the reported exception so `wait_and_throw` can reach the engine's existing fatal-error path. Merely changing wait calls without this correction would not propagate errors on these queues.
+
+## Frozen build for acceptance
+
+Source through `be83153` (engine's last source change `c2dfde6`), compiler2026.1.1, AOT bmg-g21, precise FP32 and subgroup32, same historical ggml source cache. Experimental engine SHA256:
+`faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e`.
+Stock image loader resolves all libraries; recorded in `docs/jr-v0139-fastfix-evidence/runtime-loader.txt`. Original executable/image unchanged. `tools/fastfix/frozen.json` pins the exact engine, probes, profile and controller inputs.
+
+Final CPU tests pass (`logs/fastfix/cpu-WhFm2i`). Preserved build logs include a corrected missing C++ header, corrected catch-variable shadowing, and an abandoned synthetic SYCL exception-list test that could not use the runtime's private constructor. That abandoned test is not marked PASS. Handler propagation is source-checked and compiled; real async-fault injection is not claimed. Optional historical S2/GR failures are not concealed or reclassified by this task.
