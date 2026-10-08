@@ -18,7 +18,7 @@ f=Path('sycl/src/core/verify.cpp').read_text()
 run=f.split('bool Verifier::run(',1)[1].split('void Verifier::set_plan_slot',1)[0]
 assert run.index('FailureGuard failed_window') < run.index('ext_oneapi_graph(')
 assert run.index('out[t] =') < run.index('failed_window.accepted = true')
-assert 'FlagSet' not in f and 'host_task([publication]' in f
+assert 'FlagSet' not in f and 'host_task([publication, v]' in f
 release=f.split('bool Verifier::release_gpu_waits',1)[1].split('void Verifier::trace_ev',1)[0]
 assert 'UINT32_MAX' not in release and 'wait_and_throw()' in release
 commit=f.split('bool Verifier::commit_finish',1)[1].split('bool Verifier::wait_commit',1)[0]

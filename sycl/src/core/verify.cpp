@@ -146,7 +146,7 @@ void release_live_verifiers(std::FILE* f) {
             const Clock::time_point t0 = Clock::now();
             const bool done = v->release_gpu_waits(5000);
             if (f != nullptr)
-                std::fprintf(f, "strata: released the verify window's GPU waits (#267): the GPU %s\n",
+                std::fprintf(f, "strata: failed verifier quiescence check (readiness flags unchanged): GPU %s\n",
                              done ? ("finished in " + std::to_string((long long) ms_since(t0)) + " ms").c_str()
                                   : "did not finish within 5 s");
         }
@@ -167,8 +167,8 @@ int64_t trace_now_ns() {
     return std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now().time_since_epoch()).count();
 }
 std::string released_note(bool drained) {
-    return drained ? "; its GPU waits were released and the GPU finished (#267)"
-                   : "; its GPU waits were released but the GPU did not finish within 5 s (#267)";
+    return drained ? "; queues completed without fabricated readiness"
+                   : "; queues did not complete cleanly within 5 s";
 }
 // #267 test hook: STRATA_TEST_VERIFY_STALL=N withholds the last layer's flag in the N-th window (1-based), so the
 // GPU spins on a flag nobody raises - the bounded window wait and the release are then what ends it.  Unset: never.
@@ -274,8 +274,8 @@ void Verifier::diag(std::FILE* f) const {
 }
 
 Verifier::~Verifier() try {
-    // SYCL port: at process exit the Level Zero context can already be gone (serve mode's end), and a destructor
-    // that throws aborts the process (exit 139); the waits and frees below are best-effort then.
+    // All queues sharing expert/cache/mirror owners must finish before any free.
+    // An unproven or failed queue takes the no-unwind unsafe-exit path instead.
     const Verifier* self = this;
     g_diag_verifier.compare_exchange_strong(self, nullptr);
     for (auto& slot : g_live) {
@@ -1329,6 +1329,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     strata::failed_work::FailureGuard failed_window{[&]() noexcept {
         released_.store(true); // no failed state can be reused by another request
         trace_ev("FAILED-DRAIN", -1, -1, 0);
+        diag(stderr);
         strata::drain_device_or_exit("failed verifier window (compute/copy/commit/draft queues)");
     }};
     const dpct::err0 le = (std::getenv("STRATA_VERIFY_EAGER") != nullptr)
@@ -1695,8 +1696,12 @@ void Verifier::fetch_dma(void* ctx, const uint8_t* const* src, int n, size_t byt
         v->copy_->memcpy(stage + (size_t)i * bytes, src[i], bytes);
     const strata::failed_work::Publication publication{v->h_flagB_, want};
     // copy_ is in-order: this callback runs after every submitted memcpy.
-    v->copy_->submit([publication](sycl::handler& cgh) {
-        cgh.host_task([publication]() { publication(raise_flag); });
+    v->trace_ev("DMA-QUEUED", want - 1, -1, n);
+    v->copy_->submit([publication, v](sycl::handler& cgh) {
+        cgh.host_task([publication, v]() {
+            publication(raise_flag);
+            v->trace_ev("DMA-PUBLISHED", publication.value - 1, -1, 0);
+        });
     });
 }
 

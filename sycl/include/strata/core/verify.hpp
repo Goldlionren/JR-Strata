@@ -65,10 +65,9 @@ public:
     /// (in mapped memory, so they read while the GPU hangs).  Nothing when the trace is off.
     void trace_dump(std::FILE* f) const;
 
-    /// #267: raise every flag the window's spin kernels wait on past any ring (UINT32_MAX), so a window the GPU
-    /// cannot finish drains instead of staying resident, then wait up to `timeout_ms` for its streams.  For the
-    /// paths that give up on the engine (a timed-out window, the serve watchdog): the window then ran on whatever
-    /// the flags guarded, so this verifier refuses every later window.  True when the streams finished.
+    /// Failed-window/watchdog hook: poison the verifier and check bounded queue
+    /// completion without fabricating readiness. False means memory owners must
+    /// not unwind; the fatal cleanup guard retains them until process termination.
     bool release_gpu_waits(int timeout_ms);
 
     /// `max_t` <= kVerifyMaxT.  `head` may be null (the canonical head is then run per token).
