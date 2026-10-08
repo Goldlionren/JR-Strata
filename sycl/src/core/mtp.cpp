@@ -1,7 +1,9 @@
+#include "strata/sycl_queue.hpp"
 // src/core/mtp.cpp - see include/strata/core/mtp.hpp.
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "strata/core/mtp.hpp"
+#include "strata/core/fastfix_output.hpp"
 #include "strata/core/coupled_draft.hpp"
 #include "strata/core/on_device.hpp"
 
@@ -64,9 +66,9 @@ bool mapped(size_t bytes, void **h, void **d) try {
     migrated code and was removed or replaced with 0. You may need to check the
     migrated code.
     */
-    if (DPCT_CHECK_ERROR(*h = (void *)sycl::malloc_host(
+    if (DPCT_CHECK_ERROR(*h = strata::host_malloc_polled(
                              bytes, dpct::get_in_order_queue())) !=
-        0) return false;
+        0 || !*h) return false;
     std::memset(*h, 0, bytes);
     return DPCT_CHECK_ERROR(*d = (void *)*h) == 0;
 }
@@ -139,7 +141,7 @@ MtpDrafter::~MtpDrafter() {
     if (dhead_) sycl::free(dhead_, dpct::get_in_order_queue());
     if (dvocab_) sycl::free(dvocab_, dpct::get_in_order_queue());
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_row_, h_out_, h_prob_};
-    for (void *h : hosts) if (h) sycl::free(h, dpct::get_in_order_queue());
+    for (void *h : hosts) if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
 }
 
 const float* MtpDrafter::f32(const char* name) const {
@@ -185,8 +187,7 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
         std::vector<uint8_t> blob;
         if (!read_file(rt_dir + "/dense.bin", blob)) { err = "mtp: cannot read dense.bin"; return false; }
         const dpct::err0 alloc =
-            DPCT_CHECK_ERROR(dense_ = (uint8_t *)sycl::malloc_device(
-                                 blob.size(), dpct::get_in_order_queue()));
+            DPCT_CHECK_ERROR(dense_ = (uint8_t *)strata::malloc_device_guarded(blob.size(), dpct::get_in_order_queue(), "mtp dense_"));
         /*
         DPCT1000: Error handling if-stmt was detected but could not be
         rewritten.
@@ -237,8 +238,7 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
             FILE* f;
             ~Closer() { if (f != nullptr) std::fclose(f); }
         } closer{f};
-        if (DPCT_CHECK_ERROR(experts_ = (uint8_t *)sycl::malloc_device(
-                                 bytes, dpct::get_in_order_queue())) != 0) {
+        if (DPCT_CHECK_ERROR(experts_ = (uint8_t *)strata::malloc_device_guarded(bytes, dpct::get_in_order_queue(), "mtp experts_")) != 0) {
             err = "mtp: the 512 experts do not fit in VRAM"; return false;
         }
         std::vector<uint8_t> chunk(64u << 20);
@@ -271,8 +271,7 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
     qsa_set_kv_hybrid(false);
     if (kv_hybrid_was) qsa_set_kv_int8(true);   // the drafter under --kv k8v4: plain INT8
     uint64_t sb = qsa_state_bytes(g, max_cells, false, ring);
-    if (DPCT_CHECK_ERROR(state_arena_ = (void *)sycl::malloc_device(
-                             sb, dpct::get_in_order_queue())) != 0) {
+    if (DPCT_CHECK_ERROR(state_arena_ = (void *)strata::malloc_device_guarded(sb, dpct::get_in_order_queue(), "mtp state_arena_")) != 0) {
         err = "mtp: the K/V state does not fit"; return false;
     }
     if (qsa_state_init(g, max_cells, state_arena_, st_, &ss.qsa_states[ss.qsa_primary()], ring) == 0) {
@@ -286,8 +285,7 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
         st_ = QsaState{};
         ring = -1;   // fully resident
         sb = qsa_state_bytes(g, max_cells, false, ring);
-        if (DPCT_CHECK_ERROR(state_arena_ = (void *)sycl::malloc_device(
-                                 sb, dpct::get_in_order_queue())) != 0) {
+        if (DPCT_CHECK_ERROR(state_arena_ = (void *)strata::malloc_device_guarded(sb, dpct::get_in_order_queue(), "mtp state_arena_")) != 0) {
             err = "mtp: the K/V state does not fit"; return false;
         }
         if (qsa_state_init(g, max_cells, state_arena_, st_, &ss.qsa_states[ss.qsa_primary()], ring) == 0) { err = "mtp: state init failed"; return false; }
@@ -342,11 +340,10 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
     };
     Bump count;
     carve(count);
-    if (DPCT_CHECK_ERROR(arena_ = (void *)sycl::malloc_device(
-                             count.used, dpct::get_in_order_queue())) != 0) {
+    if (DPCT_CHECK_ERROR(arena_ = (void *)strata::malloc_device_guarded(count.used, dpct::get_in_order_queue(), "mtp arena_")) != 0) {
         err = "mtp: buffers do not fit"; return false;
     }
-    dpct::get_in_order_queue().memset(arena_, 0, count.used).wait();
+    strata::big_fill_zero(dpct::get_in_order_queue(), arena_, count.used);
     Bump real;
     real.base = (uint8_t*) arena_;
     carve(real);
@@ -1001,7 +998,7 @@ bool MtpDrafter::prefill(const float *R_rows, const int32_t *next_tokens,
                 return false;
             }
         }
-        if (DPCT_CHECK_ERROR(cs_->wait()) != 0) {
+        if (DPCT_CHECK_ERROR(cs_->wait_and_throw()) != 0) {
             /*
             DPCT1009: SYCL reports errors using exceptions and does not use
             error codes. Please replace the "get_error_string_dummy(...)" with a
@@ -1042,7 +1039,7 @@ bool MtpDrafter::prefill(const float *R_rows, const int32_t *next_tokens,
                                          (size_t)T * HCN * sizeof(float))) !=
                 0 ||
             DPCT_CHECK_ERROR((cs_)->ext_oneapi_graph(*prefill_exec_[T])) != 0 ||
-            DPCT_CHECK_ERROR(cs_->wait()) != 0) {
+            DPCT_CHECK_ERROR(cs_->wait_and_throw()) != 0) {
             /*
             DPCT1009: SYCL reports errors using exceptions and does not use
             error codes. Please replace the "get_error_string_dummy(...)" with a
@@ -1091,7 +1088,7 @@ bool MtpDrafter::draft(int T, const int32_t* tokens, int64_t p, int a, int32_t* 
     h_row_[1] = 0;
     std::atomic_thread_fence(std::memory_order_seq_cst);
     if (DPCT_CHECK_ERROR((cs_)->ext_oneapi_graph(*(cp ? round_exec_c_[T] : round_exec_[T]))) != 0 ||
-        DPCT_CHECK_ERROR(cs_->wait()) != 0) {
+        DPCT_CHECK_ERROR(cs_->wait_and_throw()) != 0) {
         /*
         DPCT1009: SYCL reports errors using exceptions and does not use error
         codes. Please replace the "get_error_string_dummy(...)" with a real
@@ -1107,6 +1104,7 @@ bool MtpDrafter::draft(int T, const int32_t* tokens, int64_t p, int a, int32_t* 
     }
     drafts[0] = ((volatile int32_t*) h_out_)[0];
     float pj = ((volatile float*) h_prob_)[0];
+    if (!valid_draft_result(drafts[0], pj, n_vocab_)) { err = "mtp: invalid completed draft token/probability"; return false; }
     if (probs) probs[0] = pj;
     int n = 1;
     // the chain continues while the last draft is likely enough to be verified
@@ -1115,7 +1113,7 @@ bool MtpDrafter::draft(int T, const int32_t* tokens, int64_t p, int a, int32_t* 
         put(max_t_ + j - 1, coupled_draft_cell(p, a, j));   // p + a + j; coupled: drawn at counter cell + 1
         std::atomic_thread_fence(std::memory_order_seq_cst);
         if (DPCT_CHECK_ERROR((cs_)->ext_oneapi_graph(*(cp ? step_exec_c_[j] : step_exec_[j]))) != 0 ||
-            DPCT_CHECK_ERROR(cs_->wait()) != 0) {
+            DPCT_CHECK_ERROR(cs_->wait_and_throw()) != 0) {
             /*
             DPCT1009: SYCL reports errors using exceptions and does not use
             error codes. Please replace the "get_error_string_dummy(...)" with a
@@ -1132,6 +1130,7 @@ bool MtpDrafter::draft(int T, const int32_t* tokens, int64_t p, int a, int32_t* 
         }
         drafts[j] = ((volatile int32_t*) h_out_)[j];
         pj = ((volatile float*) h_prob_)[j];
+        if (!valid_draft_result(drafts[j], pj, n_vocab_)) { err = "mtp: invalid completed draft token/probability at step " + std::to_string(j); return false; }
         if (probs) probs[j] = pj;
         ++n;
     }
