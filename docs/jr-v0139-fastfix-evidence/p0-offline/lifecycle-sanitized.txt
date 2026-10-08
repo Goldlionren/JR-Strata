@@ -1,0 +1,1 @@
+PASS: 11 lifecycle/readiness fault-injection cases (CPU policy; GPU behavior pending)

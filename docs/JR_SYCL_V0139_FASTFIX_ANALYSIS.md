@@ -40,3 +40,10 @@ The first long request reached a real bounded expert-readiness expiry at ring33,
 A subsequent page fault/reset on engine exit blocks further GPU tests. The newly introduced timeout-return placement skipped the existing expert copy-queue drain; this demonstrable dependency error is corrected offline. Its exact relationship to the fault address still requires validation. The committed correction has no GPU PASS claim. MTP-off and device-only arms remain unexecuted, so neither MTP nor CPU-assisted routing can yet be isolated as the sole cause.
 
 Recommendation: retain RC1. The next narrow investigation, after reviewing this failure, is readiness ring/channel diagnostics and a safe failure-teardown regression, followed by MTP-on/off isolation. Do not change ranking, quantization, residency budget or blanket timeouts to hide the failure. No new GPU window is initiated by this report.
+
+
+## P0 ring-timeout offline follow-up (2026-10-09)
+
+The current candidate is an **offline-only lifecycle/readiness repair**, not the failed GPU-tested ELF or the intermediate copy-drain-only build. See [timestamp/root-cause classification, source changes and CPU evidence](JR_SYCL_V0139_FASTFIX_RING_TIMEOUT.md) and the [new 45-minute gated GPU plan](JR_SYCL_V0139_FASTFIX_P0_GPU_PLAN.md). The old maintenance command remains blocked. Current hashes are in `tools/fastfix/p0-candidate.json` and `p0-frozen.json`; no new GPU PASS or throughput result exists.
+
+11 CPU lifecycle/readiness cases, 90 PLE oracle windows, existing reader/output/harness checks and 10 CPU maintenance/profile gates passed. The exact producer responsible for ring33 is still unresolved. New guards reject unready plans, retain GPU owners until verified completion, preserve first-timeout diagnostics and provide a supported T=1 no-Decode-drafting control. Default Spec4, ranking, cache layout and historical Docker runtime are preserved. RC1 stays active and unchanged. Fresh maintenance approval is required.

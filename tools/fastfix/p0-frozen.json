@@ -1,0 +1,18 @@
+{
+  "build-fastfix/strata": "14db752d630df2c1d992f77e0da71eb61852ffca0ab6c77ef71bda646af63434",
+  "build-fastfix/fastfix_memory_safety": "3d7bc4552d16d14b8a2d5e9bdf441fcebb4fb7c0c4d237ea57e1dc50ad25b377",
+  "build-fastfix/kv_q8_parity": "5c10d5d413ea14d23788762b026dc2917011fcb33c42cd80996048338669b0bd",
+  "build-fastfix/kv_stream_parity": "22fab0b92f82f8ae92444e6bea456f65383f2eab12af7cc61623110779c9a06c",
+  "build-fastfix/iq_multi_parity": "7aff8474cf5a0a5a9fdcf62b8e832f9587650b822d391b1543015297408d81d3",
+  "build-fastfix/native_grouped_parity": "724d5496e9197902e438ad8f792ba1d57683478288262e2361b5a4069fc2a59d",
+  "build-fastfix/quantize_act_parity": "769e0bdf83188090d6f6917e061dd68f994c31b56572f9b93d906773260830b8",
+  "build-fastfix/fastfix_ple_staging": "e0ddd5e79996b9b3c96a59e792398e0d113c93ab076148bfb4c5f897c0867af6",
+  "build-fastfix/fastfix_handoff": "a7a336a8b1c8e125085282be1faae8e5a10147840f82f32262ab86bc425b791c",
+  "tools/fastfix/p0-maintenance.py": "bc5329338ca1d6ba46f4efec54fb8ea42591bd0d875ee4e230ff202cd04216d2",
+  "tools/fastfix/p0-acceptance.py": "7574012f25f4c0fa8f2e7f27ceae76ff91454aa29f7bc59a7a308e78ed8ed94d",
+  "tools/fastfix/p0-engine-wrapper.py": "3af1cf212c3e878089601af23dba370ab66a615a0189bf063e8ba07390175789",
+  "tools/fastfix/p0-harness-tests.py": "4f5f37f57744bde7ea32ea9409b4f43a4003103bdd412f0888bf429060de81bf",
+  "tools/fastfix/quality.py": "e3ab8ff4def9cc85dd76f9530196983586bcbfa07ad2177ab86fc799488f9e68",
+  "tools/fastfix/runtime.json": "659d90696c35249a2e6f85f8e914eb1f813e019ab613a01acf6f39dfaa20ed90",
+  "tools/fastfix/source_order_test.py": "2651f098d5881fea32c8608cc99ff17000a6aa38b90d8326503e01a3519bc95a"
+}

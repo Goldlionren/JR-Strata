@@ -1,0 +1,29 @@
+{
+  "base_commit": "9b074f98c08df0eeadf66bb951e27e98a2036988",
+  "engine_source_commit": "47f505bde2da4982185737651d93364f39bb8c92",
+  "harness_commit": "5a9e5763d4a6451a84bc4974b74ada0589266605",
+  "binary": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata",
+  "sha256": "14db752d630df2c1d992f77e0da71eb61852ffca0ab6c77ef71bda646af63434",
+  "docker_image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "compiler": "oneAPI 2026.1.1 existing read-only compiler mount; no GPU devices mapped for build",
+  "runtime": "preserved Docker: libsycl 2026.1.0, UR 0.12.0, Level Zero 1.32.0",
+  "build_log": "logs/fastfix/p0-final-build.log",
+  "build": "PASS",
+  "cpu_lifecycle_cases": 11,
+  "cpu_lifecycle_sanitizers": "PASS ASan/UBSan",
+  "cpu_maintenance_cases": 10,
+  "cpu_ple_windows": 90,
+  "gpu_validation": "NOT RUN; requires new focused maintenance authorization",
+  "root_cause": "original readiness trigger unresolved; failure-plan and lifetime defects repaired offline",
+  "production": "RC1 active and unchanged",
+  "deployment": "BLOCKED",
+  "cache_control": {
+    "uniform_grant": 8098,
+    "expected_actual_experts": 10831,
+    "expected_native_cache_mib": 17990,
+    "expected_mirrored_experts": 13745,
+    "minimum_loaded_free_vram_mib": 512
+  },
+  "failed_artifact": "dist/failed-window-01/strata",
+  "failed_sha256": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e"
+}

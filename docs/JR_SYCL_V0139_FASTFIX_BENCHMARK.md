@@ -69,3 +69,10 @@ The new timeout early return preceded an existing copy-queue drain. That error-p
 Prior28.7tok/s/1036 tokens had`root!!!!!`; archived33.5tok/s/2932 tokens lacks complete qualification. FastFix's short16.6–23.6tok/s and failed long-prefix26.4tok/s neither prove recovered sustained performance nor a correctness-equivalent regression. No unsafe original binary was rerun.
 
 Raw evidence: `logs/fastfix/window-01/`, `logs/fastfix/window-01-resume/`, build/CPU logs under `logs/fastfix/`. Compact committed evidence and SHA256 inventory: `docs/jr-v0139-fastfix-evidence/`.
+
+
+## P0 ring-timeout offline follow-up (2026-10-09)
+
+The current candidate is an **offline-only lifecycle/readiness repair**, not the failed GPU-tested ELF or the intermediate copy-drain-only build. See [timestamp/root-cause classification, source changes and CPU evidence](JR_SYCL_V0139_FASTFIX_RING_TIMEOUT.md) and the [new 45-minute gated GPU plan](JR_SYCL_V0139_FASTFIX_P0_GPU_PLAN.md). The old maintenance command remains blocked. Current hashes are in `tools/fastfix/p0-candidate.json` and `p0-frozen.json`; no new GPU PASS or throughput result exists.
+
+11 CPU lifecycle/readiness cases, 90 PLE oracle windows, existing reader/output/harness checks and 10 CPU maintenance/profile gates passed. The exact producer responsible for ring33 is still unresolved. New guards reject unready plans, retain GPU owners until verified completion, preserve first-timeout diagnostics and provide a supported T=1 no-Decode-drafting control. Default Spec4, ranking, cache layout and historical Docker runtime are preserved. RC1 stays active and unchanged. Fresh maintenance approval is required.

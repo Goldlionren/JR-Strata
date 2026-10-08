@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-09T08:39:07.701803+11:00",
+  "read_only": true,
+  "service": "MainPID=1586519\nActiveState=active\nSubState=running\n",
+  "enabled": "enabled",
+  "engines": [
+    {
+      "pid": 1587016,
+      "exe": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/dist/jr-b60-sycl-v0.1.40.3-rc1/strata",
+      "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028"
+    }
+  ],
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "swift-1.5-iq3_xxs",
+        "object": "model",
+        "status": {
+          "value": "loaded"
+        },
+        "meta": {
+          "n_ctx": 32768
+        },
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      }
+    ]
+  },
+  "protected_hashes": {
+    "/home/james/.config/systemd/user/jr-strata-sycl-rc1.service": "b2d1f32bd92a7503f53b1119abcc615c72f6c864e66f6da9baffd46ba1ad20a4",
+    "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/strata-swift-iq3_xxs-b60-32k.json": "a1ddf093c8b536b67cfbd8a623a6442111d73de445729102d68f353bf107ca8e",
+    "/data/strata-lab/Strata/data/expert-profile.bin": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf",
+    "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-window-01/strata": "faa0efb9b9d2314f2e9140e1b45e9f5d275331b278b086b339b306fb15a0121e"
+  },
+  "kernel_since": "2026-10-09 07:30:00 Australia/Sydney",
+  "new_faults": []
+}

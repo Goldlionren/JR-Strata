@@ -1,0 +1,17 @@
+ple_reader selftest (row_bytes=90): OK
+ple_reader selftest (row_bytes=110): OK
+PASS: 90 windows, T=1/4/6, 3 request histories, changed/repeated rows, Direct/Mmap IQ4_NL independent oracle, delayed IO, error-before-submit, history oracle
+PASS: MTP completed-output bounds and nonfinite rejection (CPU; not GPU synchronization proof)
+PASS: actual legacy PLE-before-graph, failure propagation, existing per-draft wait ordering and Boolean queue completion
+PASS: timeout rejection follows copy-queue drain and precedes token consumption
+PASS: failure guards, immutable DMA publication, no fabricated readiness, completed commit history, explicit T=1 control
+PASS: 11 lifecycle/readiness fault-injection cases (CPU policy; GPU behavior pending)
+Evidence: /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/cpu-rXSXDf
+python PASS automated checks; natural-language semantics reviewed separately
+python PASS automated checks; natural-language semantics reviewed separately
+PASS: fenced/unfenced code and wrong formula rejected
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.066s
+
+OK

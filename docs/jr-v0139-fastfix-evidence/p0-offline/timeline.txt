@@ -1,0 +1,21 @@
+Oct 09 00:41:18 james-NUC12SNKi72 python[1563446]: [strata] answering: 256 of max 2048 tokens, 25.5 tok/s, 12 s
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] answering: 294 of max 2048 tokens, 26.6 tok/s, 13 s
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] the engine reported an error: verify: expert readiness device wait expired at ring 33; window discarded; host seq=48; restart engine before reuse
+Oct 09 00:41:19 james-NUC12SNKi72 python[1563446]: [strata] done: 306 tokens in 14 s (26.4 tok/s) (error, cancel=False)
+Oct 09 00:41:20 james-NUC12SNKi72 systemd[1802]: Stopping jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086...
+Oct 09 00:41:20 james-NUC12SNKi72 python[1563446]: [strata] stopping (Ctrl+C again to end the engine at once) ...
+Oct 09 00:41:20 james-NUC12SNKi72 python[1563446]: [strata] stopped
+Oct 09 00:41:20 james-NUC12SNKi72 systemd[1802]: Stopped jr-strata-fastfix-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/logs/fastfix/window-01-resume/historical-runtime.json --host 127.0.0.1 --port 18086.
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: Engine reset: engine_class=ccs, logical_mask: 0x1, guc_id=6, state=0x289
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: 
+                                                  ASID: 6195
+                                                  Faulted Address: 0x0000c71e38990000
+                                                  FaultType: 0
+                                                  AccessType: 0
+                                                  FaultLevel: 4
+                                                  EngineClass: 5 ccs
+                                                  EngineInstance: 0
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] Tile0: GT0: Fault response: Unsuccessful -ENOENT
+Oct 09 00:41:20 james-NUC12SNKi72 kernel: docker0: port 1(veth99152d1) entered disabled state
