@@ -1,0 +1,46 @@
+{
+  "time": "2026-10-09T09:22:03.366013+11:00",
+  "service": "jr-strata-sycl-rc1.service",
+  "active": "active",
+  "enabled": "enabled",
+  "server_pid": 198898,
+  "engine_pids": [
+    199664
+  ],
+  "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "lifecycle_actions": [],
+  "v1/models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "swift-1.5-iq3_xxs",
+        "object": "model",
+        "status": {
+          "value": "loaded"
+        },
+        "meta": {
+          "n_ctx": 32768
+        },
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      }
+    ]
+  },
+  "status": {
+    "busy": false,
+    "queued": 0,
+    "phase": "answering",
+    "prompt_tokens": 25,
+    "generated": 8,
+    "max_tokens": 32,
+    "reasoning_recoveries": 0
+  },
+  "kernel_fault_lines": [],
+  "journal_stderr": ""
+}

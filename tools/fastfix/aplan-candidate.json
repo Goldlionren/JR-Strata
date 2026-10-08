@@ -1,0 +1,42 @@
+{
+  "base_commit": "106c00c818efcde18211b42cd0bce90762ed5c54",
+  "engine_source_commit": "ee3ab2dba75a9597d5ad2c76e8d8e5fb5f764907",
+  "purpose": "opt-in A-plan diagnostic only; coverage invariant defect identified; exact timeout cause unproven",
+  "build": "PASS; no GPU devices mapped",
+  "binary": "build-fastfix/strata",
+  "sha256": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe",
+  "docker_image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "compiler": "oneAPI 2026.1.1, existing read-only build mount",
+  "runtime": "historical image SYCL2026.1.0 / UR0.12.0 / Level Zero1.32.0",
+  "diagnostics_env": "STRATA_APLAN_DIAG=1",
+  "default": "off",
+  "cpu": {
+    "aplan_cases": 15,
+    "asan_ubsan": "PASS",
+    "lifecycle_cases": 11,
+    "ple_windows": 90,
+    "maintenance_cases": 10,
+    "existing_output_and_parser": "PASS",
+    "profile_matches_archived_arguments": true
+  },
+  "gpu": "NOT RUN; fresh narrow authorization required",
+  "timeout_fixed": "UNPROVEN",
+  "performance": "UNMEASURED",
+  "rc1": "active/enabled, engine199664, frozen hash and32K API verified read-only",
+  "failed_p0_binary": "dist/failed-p0-window-01/strata",
+  "failed_p0_sha256": "14db752d630df2c1d992f77e0da71eb61852ffca0ab6c77ef71bda646af63434",
+  "files": {
+    "build-fastfix/strata": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe",
+    "build-fastfix/fastfix_handoff": "3237f2ced414e38d1695631b121dd6dcb54b30fd7a361da615f647323a1de4fa",
+    "tools/fastfix/build.sh": "837e630370ed898f6ef3160bd9b3f354acb7d73e764b739925ddd27b496c0463",
+    "tools/fastfix/aplan-runtime.json": "152879e3f1cf759a40a34718f247dc79c5df8f4f21de3b1f478c201b49731de2",
+    "tools/fastfix/aplan-request.json": "882abc7e4697caffc1658da09c3b5ef0edcb587332b6de38cc9c7c5f9912f9da",
+    "tools/fastfix/p0-engine-wrapper.py": "40f87e7aa1e0f7a5767a89819595290d3b653e8ea1b08df0a5b0d808c8e2afb0",
+    "include/strata/aplan_observation.hpp": "b893cc0b5922b15801f87ac5cac0954791c4afc4ff31339ffb3d1ab6088c6468",
+    "sycl/src/core/verify.cpp": "a5278543bb04215f87cbcee42f090d596e35d74b9c733ab8586ad0b2317f0e19",
+    "sycl/src/program/generate.cpp": "5f229395026781d107c1d19218d9fd7c51f27ecab3701ec9e168646b3df10862",
+    "sycl/src/kernels/cuda/verify_kernels.dp.cpp": "82289dee53d9ee103fb67a6b10e3eca1ed55338afdd57c7b70a9c3a408c044ef",
+    "sycl/include/strata/core/verify.hpp": "8e466c23e18778e7c2209d769463ed09b09ce942ae2e62c8492083d861ab4221",
+    "sycl/include/strata/sycl_verify_guard.hpp": "9f55ff3ea39a25d86ca15e60e095396c12f32631baaf0d5fa551aec9dbcc94ac"
+  }
+}

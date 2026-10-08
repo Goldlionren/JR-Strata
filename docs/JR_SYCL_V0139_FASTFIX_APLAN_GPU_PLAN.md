@@ -83,3 +83,17 @@ curl --fail --max-time 10 http://127.0.0.1:18083/v1/models
 Verify the running RC1 `/proc/ENGINE_PID/exe` SHA256 equals `cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028`,32768 context, original9248-expert profile and mirror, native `/status` and `/metrics`, then one short32-token arithmetic generation. Recheck protected hashes, service startup state and kernel faults. Leave RC1 running. If health is uncertain, report the incident instead of restarting either engine.
 
 The report must distinguish: probe PASS/FAIL; coverage loss observed/not observed; exact failed expert captured/not captured; skip publication/visibility contradiction; graph completion; output status; and RC1 restoration. A single nonfailure is not a repair or production qualification.
+
+## Frozen offline diagnostic build
+
+Engine source commit: `ee3ab2dba75a9597d5ad2c76e8d8e5fb5f764907`. Build: **PASS**, CPU-only historical Docker build.
+
+Experimental ELF: `/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata`
+
+SHA256: `6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe`
+
+Captured handoff probe SHA256: `3237f2ced414e38d1695631b121dd6dcb54b30fd7a361da615f647323a1de4fa`. It is compiled, not GPU-tested.
+
+Rebuild with `bash tools/fastfix/build.sh`; CPU checks with `bash tools/fastfix/cpu-tests.sh` and `python3 -B tools/fastfix/p0-harness-tests.py`. The manifest freezes the experimental binary, probe, profile, request, launcher and changed engine sources. Do not reuse an older maintenance manifest.
+
+Final read-only RC1 check: 2026-10-09 09:22 AEDT, service active/enabled, server198898, engine199664, frozen SHA256 and32768 context, native status reachable, no kernel fault lines since08:52:18. No production lifecycle action or inference request was made. Evidence: `docs/jr-v0139-fastfix-evidence/aplan-offline/`.

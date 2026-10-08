@@ -53,3 +53,8 @@ The current candidate is an **offline-only lifecycle/readiness repair**, not the
 **FAIL: readiness timeout remains; no new GPU faults; RC1 restored.** [Full measured results and recovery](JR_SYCL_V0139_FASTFIX_P0_GPU_RESULTS.md) supersede the earlier “GPU pending” state. Seven GPU safety tests and the event probe passed. T=1 and MTP-on512-token controls passed at20.3 and27.9tok/s. The2,048-token request stopped after1,186 tokens with `A-plan ring47 layer46 observed40 skip0`, window896/T1/position1264. No successful sustained2,048-token result exists. Failed-prefix33.9tok/s is not accepted performance.
 
 The controller suspended restoration for assessment; all experimental processes exited, B60 resources returned, no kernel fault or unsafe-drain marker appeared, and unchanged RC1 was restored and verified at330.09 seconds. RC1 engine199664, original32K configuration, active/enabled. The window is closed; do not rerun this failing candidate. Binary/hash/ranking/runtime remain unchanged. Full raw evidence and the initial restoration incident are preserved.
+
+
+## A-plan offline follow-up — 2026-10-09
+
+[Focused handshake analysis](JR_SYCL_V0139_FASTFIX_APLAN_ANALYSIS.md) identifies the default adaptive-swap/static-mirror coverage hole, but the archived failed expert is unknown. Opt-in diagnostics and15 CPU state/fault cases are prepared; no timeout cure or new GPU performance is claimed. [Proposed narrow diagnostic plan](JR_SYCL_V0139_FASTFIX_APLAN_GPU_PLAN.md) requires new authorization. The previously failed14db752… ELF is preserved at `dist/failed-p0-window-01/strata`; `build-fastfix/strata` now contains the separately hashed diagnostic build recorded in `tools/fastfix/aplan-candidate.json`. RC1 stayed running and unchanged.
