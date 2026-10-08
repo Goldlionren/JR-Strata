@@ -1163,24 +1163,24 @@ migrated code.
 */
 auto alloc = [&](size_t n, void** h, void** d, const char* what) {
                                                                           try {
-if (DPCT_CHECK_ERROR(*h = (void *)sycl::malloc_host(n, dpct::get_in_order_queue())) != 0) {            std::fprintf(stderr, "doorbell_init: cudaHostAlloc(%s) failed\n", what);            return false;        }        if (DPCT_CHECK_ERROR(*d = (void *)*h) != 0) {            std::fprintf(stderr, "doorbell_init: cudaHostGetDevicePointer(%s) failed\n", what);            return false;        }        std::memset(*h, 0, n);        bytes += n;        return true;    }
+if (DPCT_CHECK_ERROR(*h = strata::host_malloc_polled(n, dpct::get_in_order_queue())) != 0 || !*h) {            std::fprintf(stderr, "doorbell_init: cudaHostAlloc(%s) failed\n", what);            return false;        }        if (DPCT_CHECK_ERROR(*d = (void *)*h) != 0) {            std::fprintf(stderr, "doorbell_init: cudaHostGetDevicePointer(%s) failed\n", what);            return false;        }        std::memset(*h, 0, n);        bytes += n;        return true;    }
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
   std::exit(1);
 }
-};    if (!alloc((size_t) g.n_embd * 4, (void**) &db.h_x_f, (void**) &db.d_x_f, "x_f")) return 0;    if (!alloc((size_t) k * 4, (void**) &db.h_ids, (void**) &db.d_ids, "ids")) return 0;    if (!alloc((size_t) k * 4, (void**) &db.h_weights, (void**) &db.d_weights, "weights")) return 0;    if (!alloc(4, (void**) &db.h_seq, (void**) &db.d_seq, "seq")) return 0;    if (!alloc(4, (void**) &db.h_flag, (void**) &db.d_flag, "flag")) return 0;    return bytes;}
+};    if (!alloc((size_t) g.n_embd * 4, (void**) &db.h_x_f, (void**) &db.d_x_f, "x_f")) return 0;    if (!alloc((size_t) k * 4, (void**) &db.h_ids, (void**) &db.d_ids, "ids")) return 0;    if (!alloc((size_t) k * 4, (void**) &db.h_weights, (void**) &db.d_weights, "weights")) return 0;    if (!alloc(4, (void**) &db.h_seq, (void**) &db.d_seq, "seq")) return 0;    if (!alloc(8, (void**) &db.h_flag, (void**) &db.d_flag, "flag")) return 0;    return bytes;}
 void doorbell_free(Doorbell &db) {
-    if (db.h_x_f) sycl::free(db.h_x_f, dpct::get_in_order_queue());
-    if (db.h_ids) sycl::free(db.h_ids, dpct::get_in_order_queue());
-    if (db.h_weights) sycl::free(db.h_weights, dpct::get_in_order_queue());
-    if (db.h_seq) sycl::free(db.h_seq, dpct::get_in_order_queue());
-    if (db.h_flag) sycl::free(db.h_flag, dpct::get_in_order_queue());
+    if (db.h_x_f) strata::host_free_polled(db.h_x_f, dpct::get_in_order_queue());
+    if (db.h_ids) strata::host_free_polled(db.h_ids, dpct::get_in_order_queue());
+    if (db.h_weights) strata::host_free_polled(db.h_weights, dpct::get_in_order_queue());
+    if (db.h_seq) strata::host_free_polled(db.h_seq, dpct::get_in_order_queue());
+    if (db.h_flag) strata::host_free_polled(db.h_flag, dpct::get_in_order_queue());
     db = Doorbell{};
 }
 void doorbell_reset(const Doorbell& db) {
     if (db.h_seq) *db.h_seq = 0;
-    if (db.h_flag) *(volatile uint32_t*) db.h_flag = 0;
+    if (db.h_flag) { db.h_flag[0] = 0; db.h_flag[1] = 0; }
 }
 // ================================ THE TWO ENDS OF A TOKEN ================================
 bool embed_row(const WeightTable& tables, const ModelGeometry& g, int64_t token, float* out_dev,

@@ -55,3 +55,6 @@ inline void sys_store(volatile uint32_t* p, uint32_t v) {
 // verifier's checks catch. ~2 M host-memory reads is a few seconds at PCIe latency.
 inline constexpr uint32_t kSpinMax = 20u * 1000u;   // experiment: 100x smaller
 }  // namespace strata
+
+// FastFix SYCL waited flags require two uint32_t words: readiness and a sticky
+// device timeout ring. Reset both only after the previous graph has drained.

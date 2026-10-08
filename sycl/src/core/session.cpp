@@ -764,7 +764,7 @@ bool SessionLoopScratch::init(size_t parts_bytes_in, std::string &err) try {
     the migrated code and was removed or replaced with 0. You may need to check
     the migrated code.
     */
-    if (DPCT_CHECK_ERROR(y_miss = (float *)sycl::malloc_host(
+    if (DPCT_CHECK_ERROR(y_miss = (float *)strata::host_malloc_polled(
                              parts_bytes, dpct::get_in_order_queue())) != 0) {
         err = "SessionLoopScratch: cudaHostAlloc for the pool's staging failed";
         return false;
@@ -804,7 +804,7 @@ void SessionLoopScratch::free() {
     }
     if (probe != nullptr) { dpct::destroy_event(probe); probe = nullptr; }
     if (y_miss != nullptr) {
-        sycl::free(y_miss, dpct::get_in_order_queue()); y_miss = nullptr;
+        strata::host_free_polled(y_miss, dpct::get_in_order_queue()); y_miss = nullptr;
     }
     parts_bytes = 0;
 }
@@ -1400,7 +1400,7 @@ bool session_run_token(const ModelGeometry &g, int64_t pos, int32_t pos_base,
         tg.ms_pool += std::chrono::duration<double, std::milli>(t2 - t1).count();
     }
     progress_at("token: waiting for the GPU to finish the token");
-    const dpct::err0 se = DPCT_CHECK_ERROR(cs->wait());
+    const dpct::err0 se = DPCT_CHECK_ERROR(cs->wait_and_throw());
     /*
     DPCT1009: SYCL reports errors using exceptions and does not use error
     codes. Please replace the "get_error_string_dummy(...)" with a real
@@ -1416,6 +1416,11 @@ bool session_run_token(const ModelGeometry &g, int64_t pos, int32_t pos_base,
     if (se != 0) {
         err = std::string("session_run_token: ") +
               dpct::get_error_string_dummy(se);
+        return false;
+    }
+    if (((volatile uint32_t*) s.db->h_flag)[1]) {
+        err = "session_run_token: expert readiness device wait expired at ring " +
+              std::to_string(s.db->h_flag[1]) + "; token discarded; restart engine before reuse";
         return false;
     }
     progress_at("decode");

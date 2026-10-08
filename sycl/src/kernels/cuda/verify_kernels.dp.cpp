@@ -912,6 +912,7 @@ namespace {
 __dpct_inline__ void wait_flag_ge_kernel(const volatile uint32_t *flag,
                                          uint32_t value) {
     for (uint32_t spin = 0; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
+    if (strata::sys_load(flag) < value) strata::sys_store(const_cast<volatile uint32_t*>(flag) + 1, value);
     /*
     DPCT1078: Consider replacing memory_order::acq_rel with
     memory_order::seq_cst for correctness if strong memory order restrictions
@@ -1072,6 +1073,7 @@ __dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t *flag,
                                             const volatile uint32_t *skip) {
     if (strata::sys_load(skip) == value) return;
     for (uint32_t spin = 0; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
+    if (strata::sys_load(flag) < value) strata::sys_store(const_cast<volatile uint32_t*>(flag) + 1, value);
     /*
     DPCT1078: Consider replacing memory_order::acq_rel with
     memory_order::seq_cst for correctness if strong memory order restrictions

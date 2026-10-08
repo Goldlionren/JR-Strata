@@ -91,9 +91,9 @@ bool mapped(size_t bytes, void **h, void **d) try {
     migrated code and was removed or replaced with 0. You may need to check the
     migrated code.
     */
-    if (DPCT_CHECK_ERROR(*h = (void *)sycl::malloc_host(
+    if (DPCT_CHECK_ERROR(*h = strata::host_malloc_polled(
                              bytes, dpct::get_in_order_queue())) !=
-        0) return false;
+        0 || !*h) return false;
     std::memset(*h, 0, bytes);
     return DPCT_CHECK_ERROR(*d = (void *)*h) == 0;
 }
@@ -296,7 +296,7 @@ Verifier::~Verifier() try {
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_commit_, h_ple_, h_out_, h_x_, h_ids_, h_w_, h_seq_, h_flag_, h_ymiss_,
                      h_flagA_, h_plan_, h_flagB_};
     for (void* h : hosts)
-        if (h) sycl::free(h, dpct::get_in_order_queue());
+        if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
 } catch (...) {
 }
 
@@ -1319,6 +1319,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     *(volatile uint32_t*) h_flag_ = 0;
     *(volatile uint32_t*) h_flagA_ = 0;
     *(volatile uint32_t*) h_flagB_ = 0;
+    h_flag_[1] = h_flagA_[1] = h_flagB_[1] = 0; // sticky device timeout latches
     if (trace_h_ != nullptr) std::memset(trace_h_, 0, trace_n_ * 8);   // #649: this window's breadcrumbs only
     std::atomic_thread_fence(std::memory_order_seq_cst);
     trace_ev("WINDOW", -1, -1, pos0 * 16 + T);
@@ -1446,7 +1447,7 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     // watchdog then releases every verifier's GPU waits (release_live_verifiers) before it ends the engine, so no
     // spin kernel outlives the process.  The wait itself stays a blocking sync (a polling wait cost decode upstream).
     trace_ev("SYNC", -1, -1, 0);
-    const dpct::err0 se = DPCT_CHECK_ERROR(cs_->wait());
+    const dpct::err0 se = DPCT_CHECK_ERROR(cs_->wait_and_throw());
     trace_ev("SYNCED", -1, -1, (int64_t) se);
     if (std::getenv("STRATA_VERIFY_DEBUG") != nullptr) {
         const Clock::time_point t_done = Clock::now();
@@ -1469,6 +1470,13 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     */
     if (se != 0) {
         err = std::string("verify: ") + dpct::get_error_string_dummy(se);
+        return false;
+    }
+    // A bounded device wait must never silently turn an unfinished plan into output.
+    // The graph has drained; any state from a failed window is unusable and the caller must end this request.
+    for (auto f : {h_flagA_, h_flagB_, h_flag_}) if (((volatile uint32_t*) f)[1]) {
+        err = "verify: expert readiness device wait expired at ring " + std::to_string(f[1]) +
+              "; window discarded; host seq=" + std::to_string(*h_seq_) + "; restart engine before reuse";
         return false;
     }
     if (no_host && std::getenv("STRATA_VERIFY_DEBUG") != nullptr) {   // SYCL port: what the window left behind
@@ -1800,7 +1808,7 @@ bool Verifier::commit_finish(std::string &err) try {
     const OnDevice on_device(device_);
     const int n_keep = pending_commit_;
     pending_commit_ = 0;
-    const dpct::err0 se = DPCT_CHECK_ERROR(cs_->wait());
+    const dpct::err0 se = DPCT_CHECK_ERROR(cs_->wait_and_throw());
     if (se != 0) {
         err = std::string("verify: commit: ") + dpct::get_error_string_dummy(se);
         return false;
