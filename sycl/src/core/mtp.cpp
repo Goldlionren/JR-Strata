@@ -130,8 +130,8 @@ MtpDrafter::~MtpDrafter() {
     if (cring_) sycl::free(cring_, dpct::get_in_order_queue());
     if (dinv_) sycl::free(dinv_, dpct::get_in_order_queue());
     if (cscratch_) sycl::free(cscratch_, dpct::get_in_order_queue());
-    if (h_cparams_) sycl::free(h_cparams_, dpct::get_in_order_queue());
-    if (h_chist_) sycl::free(h_chist_, dpct::get_in_order_queue());
+    if (h_cparams_) strata::host_free_polled(h_cparams_, dpct::get_in_order_queue());
+    if (h_chist_) strata::host_free_polled(h_chist_, dpct::get_in_order_queue());
     if (cs_) dpct::get_current_device().destroy_queue(cs_);
     if (dense_) sycl::free(dense_, dpct::get_in_order_queue());
     if (experts_) sycl::free(experts_, dpct::get_in_order_queue());

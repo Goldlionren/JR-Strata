@@ -294,7 +294,7 @@ Verifier::~Verifier() try {
     }
     if (arena_) sycl::free(arena_, dpct::get_in_order_queue());
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_commit_, h_ple_, h_out_, h_x_, h_ids_, h_w_, h_seq_, h_flag_, h_ymiss_,
-                     h_flagA_, h_plan_, h_flagB_};
+                     h_flagA_, h_plan_, h_flagB_, trace_h_};
     for (void* h : hosts)
         if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
 } catch (...) {
