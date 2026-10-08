@@ -6974,6 +6974,11 @@ int main(int argc, char **argv) try {
             const int64_t decode_look0 = drive.d.cache_hits + drive.d.cache_admitted + drive.d.cache_refused;
             const int64_t offload0 = drive.d.offload_entries;   // #588
             if (cancelled) finish = "cancel";
+            const bool test_no_draft = [] {
+                const char* e = std::getenv("STRATA_TEST_VERIFY_NO_DRAFT");
+                return e && std::strcmp(e, "1") == 0;
+            }();
+            if (test_no_draft) std::fprintf(stderr, "FastFix control: T=1 verifier, no Decode MTP/suffix drafting; allocations unchanged\n");
             while (!cancelled && produced_n < max_new) {
                 int T = S_mtp;
                 if (req_spec_min_p > 0.0) {
@@ -6993,6 +6998,7 @@ int main(int argc, char **argv) try {
                         if (pk.lookup) { T = pk.t; from_sfx = true; }
                     }
                 }
+                if (test_no_draft) { T = 1; from_sfx = false; }
                 const bool timed_round = !first_window;
                 const Clock::time_point round0 = Clock::now();
                 if (p + T > o.max_context) break;
@@ -7079,9 +7085,9 @@ int main(int argc, char **argv) try {
                 const Clock::time_point tw2 = Clock::now();
                 // coupled drafts with penalties: the next window's row-0 history (`consumed` holds this window's
                 // commit, outv[a] is its row 0) - the drafts extend it on the device as the verify rows will
-                if (hist_n > 0 && mtp.coupled() && !eos && produced_n < max_new)
+                if (!test_no_draft && hist_n > 0 && mtp.coupled() && !eos && produced_n < max_new)
                     mtp.set_draft_history(consumed.data(), (int64_t) consumed.size(), outv[(size_t) a]);
-                const bool drafted = eos || produced_n >= max_new ||
+                const bool drafted = test_no_draft || eos || produced_n >= max_new ||
                                      mtp.draft(T, outv.data(), p, a, drafts.data(), err, dprob.data(), (float) req_spec_min_p);
                 {
                     const Clock::time_point tw3 = Clock::now();
