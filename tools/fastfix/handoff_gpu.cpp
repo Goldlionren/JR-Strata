@@ -1,3 +1,6 @@
+#include "strata/failed_work.hpp"
+#include <future>
+#include "strata/sycl_verify_guard.hpp"
 // Test the real SYCL wait launchers, including skipped device plans and expired host readiness.
 #include "strata/sycl_queue.hpp"
 #include "strata/kernels/verify_kernels.hpp"
@@ -23,6 +26,55 @@ int main() try {
    f[1]=0;strata::kernels::wait_flag_ge(f,w,&q);q.wait_and_throw();check(f[1]==w);
    f[1]=0;strata::kernels::doorbell_wait(f,seq,&q);q.wait_and_throw();check(f[1]==w);
  }
+
+ // Captured graph must reject an unavailable plan WITHOUT reading its source.
+ // nullptr deliberately catches accidental reads; only four count words may change.
+ auto* plan=sycl::malloc_device<int32_t>(16,q);
+ int32_t hp[16];
+ for(unsigned w=1;w<=12;++w) {
+   for(int i=0;i<16;++i)hp[i]=123;
+   q.memcpy(plan,hp,sizeof hp).wait_and_throw();
+   f[0]=0;f[1]=f[2]=f[3]=0;q.memset(skip,0,4).wait_and_throw();
+   namespace ex=sycl::ext::oneapi::experimental;
+   ex::command_graph graph(q.get_context(),q.get_device());
+   graph.begin_recording(q);
+   strata::kernels::wait_verify_ready(f,w,skip,nullptr,&q);
+   strata::kernels::copy_verify_plan(plan,nullptr,16,skip,w,f,&q);
+   graph.end_recording(q);
+   auto exec=graph.finalize();q.ext_oneapi_graph(exec).wait_and_throw();
+   q.memcpy(hp,plan,sizeof hp).wait_and_throw();
+   check(f[1]==w&&f[2]==0&&f[3]==0);
+   for(int i=0;i<16;++i)check(hp[i]==(i<4?0:123));
+   // A later expired B wait cannot overwrite first-failure evidence or consume weights.
+   strata::kernels::wait_verify_ready(f,w+1,nullptr,plan,&q);q.wait_and_throw();check(f[1]==w);
+   q.memcpy(hp,plan,sizeof hp).wait_and_throw();for(int i=0;i<4;++i)check(hp[i]==0);
+ }
+ sycl::free(plan,q);
+ // A deliberately withheld DMA host task proves readiness cannot publish early.
+ // No arbitrary delay: a future controls release; the copy queue stays in-order.
+ {
+   sycl::queue copy(q.get_context(),q.get_device(),
+       [](sycl::exception_list es){for(auto e:es)std::rethrow_exception(e);},
+       sycl::property_list{sycl::property::queue::in_order{}});
+   auto* target=sycl::malloc_device<int>(1,q);
+   for(unsigned w=1;w<=12;++w) {
+     std::promise<void> gate;auto opened=gate.get_future().share();
+     int input=int(w),output=-1;f[0]=0;
+     copy.submit([opened](sycl::handler& h){h.host_task([opened]{opened.wait();});});
+     auto moved=copy.memcpy(target,&input,sizeof input);
+     const strata::failed_work::Publication publication{f,w};
+     auto published=copy.submit([publication,moved](sycl::handler& h){
+       h.depends_on(moved);
+       h.host_task([publication]{publication([](unsigned* p,unsigned v){__atomic_store_n(p,v,__ATOMIC_SEQ_CST);});});
+     });
+     const bool not_ready=__atomic_load_n(f,__ATOMIC_SEQ_CST)==0 &&
+       published.get_info<sycl::info::event::command_execution_status>()!=sycl::info::event_command_status::complete;
+     gate.set_value();copy.wait_and_throw(); // release before any assertion can throw
+     check(not_ready&&f[0]==w);
+     q.memcpy(&output,target,sizeof output).wait_and_throw();check(output==input);
+   }
+   sycl::free(target,q);
+ }
  // GPU writes become host input only after the same explicit wait used by historical MTP.
  auto* out=(float*)strata::host_malloc_polled(64,q);
  for(int w=1;w<=12;++w) {
@@ -31,5 +83,5 @@ int main() try {
    check(strata::core::valid_draft_result((int)out[0],out[1],100));check(out[0]==w);
  }
  strata::host_free_polled(out,q);strata::host_free_polled(f,q);strata::host_free_polled(seq,q);sycl::free(skip,q);
- puts("PASS: 12 changing readiness rounds, skipped mirror plans, all three timeout latches, completed host outputs");return 0;
+ puts("PASS: 12 captured guarded-plan rounds plus 12 changing readiness rounds, skipped mirror plans, all three timeout latches, completed host outputs");return 0;
 } catch(const std::exception& e){std::fprintf(stderr,"FAIL: %s\n",e.what());return 1;}

@@ -1,3 +1,5 @@
+#include "strata/readiness_policy.hpp"
+#include "strata/sycl_verify_guard.hpp"
 // src/kernels/cuda/verify_kernels.cu - see include/strata/kernels/verify_kernels.hpp.
 //
 // The per-token arithmetic of every kernel here is transcribed from its single-token original (fused_gdn.cu,
@@ -1068,25 +1070,40 @@ __dpct_inline__ void resident_plan_kernel(
 #undef s_ids
 #undef S_RES
 }
-__dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t *flag,
-                                            uint32_t value,
-                                            const volatile uint32_t *skip) {
-    if (strata::sys_load(skip) == value) return;
-    for (uint32_t spin = 0; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
-    if (strata::sys_load(flag) < value) strata::sys_store(const_cast<volatile uint32_t*>(flag) + 1, value);
-    /*
-    DPCT1078: Consider replacing memory_order::acq_rel with
-    memory_order::seq_cst for correctness if strong memory order restrictions
-    are needed.
-    */
+__dpct_inline__ void wait_flag_ge_or_kernel(const volatile uint32_t* flag, uint32_t value,
+                                            const volatile uint32_t* skip, int32_t* discard_counts = nullptr,
+                                            bool diagnostics = false) {
+    const uint32_t bypass = skip ? strata::sys_load(skip) : 0;
+    if (bypass != value) {
+        for (uint32_t spin = 0; spin < strata::kSpinMax && strata::sys_load(flag) < value; ++spin) strata_spin_pause();
+        const uint32_t observed = strata::sys_load(flag);
+        if (observed < value) {
+            if (diagnostics) strata::readiness::timeout(const_cast<uint32_t*>(flag), value, observed, bypass,
+                [](const uint32_t* p) { return strata::sys_load(p); },
+                [](uint32_t* p, uint32_t v) { strata::sys_store(p, v); });
+            else if (!strata::sys_load(flag + 1)) strata::sys_store(const_cast<volatile uint32_t*>(flag) + 1, value);
+        }
+    }
+    // Do not let a bounded failed DMA wait authorize reads of unfinished blobs.
+    if (discard_counts && strata::sys_load(flag + 1))
+        for (int i = 0; i < 4; ++i) discard_counts[i] = 0;
     sycl::atomic_fence(sycl::memory_order::acq_rel, sycl::memory_scope::system);
 }
 __dpct_inline__ void copy_i32_unless_kernel(int32_t *__restrict__ dst,
                                             const volatile int32_t *src, int n,
                                             const uint32_t *skip,
-                                            uint32_t value) {
+                                            uint32_t value, const uint32_t* flag = nullptr) {
     auto item_ct1 = sycl::ext::oneapi::this_work_item::get_nd_item<3>();
-    if (strata::sys_load(skip) == value) return;
+    const uint32_t bypass = skip ? strata::sys_load(skip) : 0;
+    if (flag) {
+        const auto action = strata::readiness::plan(strata::sys_load(flag + 1), strata::sys_load(flag), value, bypass);
+        if (action == strata::readiness::Plan::reject) {
+            // No unready host-plan words (especially pointer words) may be read.
+            for (int i = item_ct1.get_local_id(2); i < 4; i += item_ct1.get_local_range(2)) dst[i] = 0;
+            return;
+        }
+        if (action == strata::readiness::Plan::device) return;
+    } else if (bypass == value) return;
 #pragma unroll
     for (int i = item_ct1.get_local_id(2); i < n;
          i += item_ct1.get_local_range(2)) dst[i] = src[i];
@@ -1156,6 +1173,18 @@ void wait_flag_ge_or(const uint32_t* flag, uint32_t value, const uint32_t* skip,
                 });
     }
     check("wait_flag_ge_or");
+}
+void wait_verify_ready(const uint32_t* flag, uint32_t ring, const uint32_t* skip,
+                       int32_t* discard_counts, void* stream) {
+    strata::q_of(stream)->parallel_for(sycl::nd_range<3>(sycl::range(1,1,1), sycl::range(1,1,1)),
+        [=](sycl::nd_item<3>) { wait_flag_ge_or_kernel(flag, ring, skip, discard_counts, true); });
+    check("wait_verify_ready");
+}
+void copy_verify_plan(int32_t* dst, const int32_t* src, long long n, const uint32_t* skip,
+                      uint32_t ring, const uint32_t* flag, void* stream) {
+    strata::q_of(stream)->parallel_for(sycl::nd_range<3>(sycl::range(1,1,128), sycl::range(1,1,128)),
+        [=](sycl::nd_item<3>) { copy_i32_unless_kernel(dst, src, (int)n, skip, ring, flag); });
+    check("copy_verify_plan");
 }
 void copy_i32_from_mapped_unless(int32_t* dst, const int32_t* src, long long n, const uint32_t* skip, uint32_t value,
                                  void* stream) {

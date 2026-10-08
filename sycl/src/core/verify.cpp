@@ -1,4 +1,6 @@
+#include "strata/sycl_verify_guard.hpp"
 #include "strata/sycl_queue.hpp"
+#include "strata/sycl_failed_work.hpp"
 // src/core/verify.cpp - see include/strata/core/verify.hpp.
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
@@ -100,7 +102,7 @@ bool mapped(size_t bytes, void **h, void **d) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 strata::kernels::QsaShapes shapes_of(const ModelGeometry& g) {
@@ -179,13 +181,8 @@ const int64_t g_test_stall = [] {
 bool Verifier::release_gpu_waits(int timeout_ms) try {
     released_.store(true);
     trace_ev("RELEASE", -1, -1, timeout_ms);
-    // the words the spin kernels read (wait_flag_ge, wait_flag_ge_or) are mapped host memory, so a store here
-    // reaches them with no API call; UINT32_MAX is past every ring.  (E-6's skip words are device memory, but
-    // wait_flag_ge_or also returns on its flag.)  A host function raising flag B later only raises.
-    for (uint32_t* p : {h_flag_, h_flagA_, h_flagB_})
-        if (p != nullptr) *(volatile uint32_t*) p = UINT32_MAX;
-    std::atomic_thread_fence(std::memory_order_seq_cst);
-    _mm_sfence();
+    // Never fabricate readiness on failure: a raised flag could authorize an
+    // invalid expert pointer. Bounded device waits finish or teardown fails closed.
     const OnDevice on_device(device_);
     const Clock::time_point t0 = Clock::now();
     // SYCL port: no cudaStreamQuery; a queue with nothing left to run reports ext_oneapi_empty()
@@ -198,6 +195,7 @@ bool Verifier::release_gpu_waits(int timeout_ms) try {
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
+        q->wait_and_throw(); // empty alone does not report asynchronous failures
     }
     trace_ev("RELEASE-DRAINED", -1, -1, (int64_t) ms_since(t0));   // aux: ms the GPU took to finish once released
     return true;
@@ -284,7 +282,8 @@ Verifier::~Verifier() try {
         Verifier* me = this;
         slot.compare_exchange_strong(me, nullptr);
     }
-    if (cs_) cs_->wait();
+    const OnDevice on_device(device_);
+    if (cs_ || copy_) strata::drain_device_or_exit("verifier destructor");
     for (auto& e : exec_)
         if (e) delete (e);
     if (commit_exec_) delete (commit_exec_);
@@ -298,6 +297,7 @@ Verifier::~Verifier() try {
     for (void* h : hosts)
         if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
 } catch (...) {
+    strata::unsafe_gpu_exit("verifier cleanup exception");
 }
 
 
@@ -545,7 +545,7 @@ bool Verifier::init(const WeightTable &wt, const ModelGeometry &g,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 const float* Verifier::final_R(int t) const { return R_ + (size_t) t * (size_t) (g_->hc * g_->n_embd); }
@@ -936,13 +936,9 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         const uint32_t ring = (uint32_t) ((l - lb_) * G + grp + 1);
         const int64_t cap = (int64_t) n * K, capx = (int64_t) max_t_ * K;
         int32_t* pl = plan_ + (size_t) grp * (size_t) (plan_i32_ + 16);
-        if (device_plan_) {   // E-6: skipped when the device planned this group (all its experts resident)
-            wait_flag_ge_or(m_flagA_, ring, skip_ + grp, cs);
-            copy_i32_from_mapped_unless(pl, m_plan_ + (size_t) grp * (size_t) plan_i32_, plan_i32_, skip_ + grp, ring, cs);
-        } else {
-            wait_flag_ge(m_flagA_, ring, cs);                  // the pool published this group's GPU plan
-            copy_i32_from_mapped(pl, m_plan_ + (size_t) grp * (size_t) plan_i32_, plan_i32_, cs);
-        }
+        wait_verify_ready(m_flagA_, ring, device_plan_ ? skip_ + grp : nullptr, nullptr, cs);
+        copy_verify_plan(pl, m_plan_ + (size_t) grp * (size_t) plan_i32_, plan_i32_,
+                         device_plan_ ? skip_ + grp : nullptr, ring, m_flagA_, cs);
         stamp(l, 19, grp);
         const int32_t* p_counts = pl;
         const int32_t* p_start = pl + 4;
@@ -970,8 +966,7 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         };
         grouped(p_ptr, p_start, p_counts, 0);
         stamp(l, 20, grp);
-        if (device_plan_) wait_flag_ge_or(m_flagB_, ring, skip_ + grp, cs);
-        else wait_flag_ge(m_flagB_, ring, cs);                 // the PCIe share is in staging (DMA) or mapped
+        wait_verify_ready(m_flagB_, ring, device_plan_ ? skip_ + grp : nullptr, pl, cs);
         if (sink_.pcie_mode == 2) {                            // stage it with a copy kernel, then point at staging
             const int64_t per = G == 2 ? kStagingBlobs / 2 : kStagingBlobs;
             uint8_t* stage = staging_ + (size_t) (grp * per) * lay.max_blob;
@@ -984,11 +979,11 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
         grouped(p_ptr2, p_start2, p_counts + 2, kPcieGroupRows);
         stamp(l, 22, grp);
         if (device_plan_) {   // no CPU share when the device planned the group: its rows are zeros
-            wait_flag_ge_or(m_flag_, ring, skip_ + grp, cs);
+            wait_verify_ready(m_flag_, ring, skip_ + grp, nullptr, cs);
             copy_or_zero_from_mapped(parts_ + (size_t) tb * K * N, m_ymiss_ + (size_t) tb * K * N, (long long) n * K * N,
                                      skip_ + grp, ring, cs);
         } else {
-            wait_flag_ge(m_flag_, ring, cs);               // the CPU's share is in the mapped rows
+            wait_verify_ready(m_flag_, ring, nullptr, nullptr, cs);               // the CPU's share is in the mapped rows
             stamp(l, 23, grp);
             if (dec_batch)   // only the CPU rows cross PCIe (p_dst[0, counts[1]) = the GPU's own rows)
                 copy_rows_from_mapped(parts_ + (size_t) tb * K * N, m_ymiss_ + (size_t) tb * K * N, (int64_t) n * K, N,
@@ -1198,7 +1193,7 @@ bool Verifier::capture(int T, std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 bool Verifier::capture_commit(std::string &err) try {
@@ -1280,7 +1275,7 @@ bool Verifier::capture_commit(std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
@@ -1319,7 +1314,8 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     *(volatile uint32_t*) h_flag_ = 0;
     *(volatile uint32_t*) h_flagA_ = 0;
     *(volatile uint32_t*) h_flagB_ = 0;
-    h_flag_[1] = h_flagA_[1] = h_flagB_[1] = 0; // sticky device timeout latches
+    for (auto flag : {h_flag_, h_flagA_, h_flagB_})
+        for (int i = 1; i < 4; ++i) flag[i] = 0; // first timeout and observed readiness/skip
     if (trace_h_ != nullptr) std::memset(trace_h_, 0, trace_n_ * 8);   // #649: this window's breadcrumbs only
     std::atomic_thread_fence(std::memory_order_seq_cst);
     trace_ev("WINDOW", -1, -1, pos0 * 16 + T);
@@ -1330,6 +1326,11 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     VDBG("staged; launching\n");
     static Clock::time_point t_prev_end;   // SYCL port timing: where does a round's wall clock go?
     const Clock::time_point t_launch = Clock::now();
+    strata::failed_work::FailureGuard failed_window{[&]() noexcept {
+        released_.store(true); // no failed state can be reused by another request
+        trace_ev("FAILED-DRAIN", -1, -1, 0);
+        strata::drain_device_or_exit("failed verifier window (compute/copy/commit/draft queues)");
+    }};
     const dpct::err0 le = (std::getenv("STRATA_VERIFY_EAGER") != nullptr)
                               ? (record_window(T, cs_, err) ? 0 : 1)   // SYCL port: eager replay of the window body
                               : DPCT_CHECK_ERROR((cs_)->ext_oneapi_graph(*exec_[T]));
@@ -1536,11 +1537,20 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     // hold references to staging/plan buffers even when the compute graph has ended.
     // A bounded device wait must never silently turn an unfinished plan into output.
     // The graph has drained; any state from a failed window is unusable and the caller must end this request.
-    for (auto f : {h_flagA_, h_flagB_, h_flag_}) if (((volatile uint32_t*) f)[1]) {
-        err = "verify: expert readiness device wait expired at ring " + std::to_string(f[1]) +
-              "; window discarded; host seq=" + std::to_string(*h_seq_) + "; restart engine before reuse";
-        return false;
+    const uint32_t* flags[] = {h_flagA_, h_flagB_, h_flag_};
+    const char* channels[] = {"A-plan", "B-copy", "M-CPU"};
+    bool timed_out = false;
+    for (int i = 0; i < 3; ++i) if (flags[i][1]) {
+        const auto ring = flags[i][1];
+        const std::string detail = std::string(channels[i]) + " ring=" + std::to_string(ring) +
+            " layer=" + std::to_string(lb_ + (ring - 1) / G) + " group=" + std::to_string((ring - 1) % G) +
+            " observed=" + std::to_string(flags[i][2]) + " skip=" + std::to_string(flags[i][3]);
+        std::fprintf(stderr, "verify: readiness timeout %s window=%lld T=%d pos=%lld host_seq=%u\n",
+                     detail.c_str(), (long long) windows + 1, T, (long long) pos0, *h_seq_);
+        if (!timed_out) err = "verify: expert readiness device wait expired: " + detail + "; window discarded; restart engine";
+        timed_out = true;
     }
+    if (timed_out) { diag(stderr); return false; }
     if (prof_on_ && G == 1) {       // the window's GPU stage stamps
         if (std::getenv("STRATA_VERIFY_EAGER") == nullptr)   // eager: prof_h_ already holds the host clocks
             dpct::get_in_order_queue()
@@ -1623,12 +1633,14 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
     ++windows;
     progress_at("decode");
     progress_beat();
+    failed_window.accepted = true;
     return true;
 }
 catch (sycl::exception const &exc) {
-  std::cerr << exc.what() << "Exception caught at file:" << __FILE__
-            << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+    released_.store(true);
+    err = "verify: SYCL failure: " + std::string(exc.what());
+    strata::drain_device_or_exit("verifier exception");
+    return false;
 }
 
 void Verifier::set_plan_slot(int grp) {
@@ -1681,13 +1693,11 @@ void Verifier::fetch_dma(void* ctx, const uint8_t* const* src, int n, size_t byt
     */
     for (int i = 0; i < n; ++i)
         v->copy_->memcpy(stage + (size_t)i * bytes, src[i], bytes);
-    FlagSet& fs = v->flag_sets_[v->cur_layer_ % (sizeof v->flag_sets_ / sizeof v->flag_sets_[0])];
-    fs.flag = v->h_flagB_;
-    fs.value = want;
-  FlagSet* fsp = &fs;
-  v->copy_->submit([&](sycl::handler &cgh) {
-    cgh.host_task([=]() { raise_flag(fsp->flag, fsp->value); });
-  });
+    const strata::failed_work::Publication publication{v->h_flagB_, want};
+    // copy_ is in-order: this callback runs after every submitted memcpy.
+    v->copy_->submit([publication](sycl::handler& cgh) {
+        cgh.host_task([publication]() { publication(raise_flag); });
+    });
 }
 
 void Verifier::publish_plan(void* ctx) {
@@ -1762,6 +1772,11 @@ bool Verifier::commit(int n_keep, std::string &err, bool wait) try {
     const OnDevice on_device(device_);
     if (n_keep < 1 || n_keep > last_t_) { err = "verify: commit count out of range"; return false; }
     if (pending_commit_ != 0 && !commit_finish(err)) return false;
+    if (released_.load()) { err = "verify: failed verifier cannot commit"; return false; }
+    strata::failed_work::FailureGuard failed_commit{[&]() noexcept {
+        released_.store(true);
+        strata::drain_device_or_exit("failed verifier commit submission");
+    }};
     const Clock::time_point t0 = Clock::now();
     h_commit_[0] = n_keep;
     h_commit_[1] = n_keep - 1;
@@ -1788,17 +1803,22 @@ bool Verifier::commit(int n_keep, std::string &err, bool wait) try {
     if (!wait && next_ == nullptr) {   // left running: commit_finish() collects it (the drafter overlaps it)
         pending_commit_ = n_keep;
         pending_commit_t0_ = t0;
+        failed_commit.accepted = true;
         return true;
     }
     pending_commit_ = n_keep;
     pending_commit_t0_ = t0;
     if (!commit_finish(err)) return false;
+    failed_commit.accepted = true;
     return next_ == nullptr || next_->commit(n_keep, err);
 }
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  released_.store(true);
+  strata::drain_device_or_exit("verifier commit exception");
+  err = exc.what();
+  return false;
 }
 
 bool Verifier::warm(std::string &err) {
@@ -1810,25 +1830,33 @@ bool Verifier::warm(std::string &err) {
 bool Verifier::commit_finish(std::string &err) try {
     if (pending_commit_ == 0) return true;
     const OnDevice on_device(device_);
+    strata::failed_work::FailureGuard failed_commit{[&]() noexcept {
+        released_.store(true);
+        strata::drain_device_or_exit("failed verifier commit completion");
+    }};
     const int n_keep = pending_commit_;
-    pending_commit_ = 0;
     const dpct::err0 se = DPCT_CHECK_ERROR(cs_->wait_and_throw());
     if (se != 0) {
         err = std::string("verify: commit: ") + dpct::get_error_string_dummy(se);
         return false;
     }
+    pending_commit_ = 0; // only completed, error-free commits advance PLE history
     if (ple_stage())   // stages that share one session must advance it once
         for (int t = 0; t < n_keep; ++t) {
             ss_->ple_prev[0] = ss_->ple_prev[1];
             ss_->ple_prev[1] = last_tokens_[t];
         }
     ms_commit += ms_since(pending_commit_t0_);
+    failed_commit.accepted = true;
     return true;
 }
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  released_.store(true);
+  strata::drain_device_or_exit("verifier commit exception");
+  err = exc.what();
+  return false;
 }
 
 bool Verifier::wait_commit(std::string& err) {

@@ -580,6 +580,12 @@ public:
 #endif // DPCT_USM_LEVEL_NONE
   }
 
+  // Keep queue ownership alive during error-only bounded quiescence checks.
+  std::vector<std::shared_ptr<sycl::queue>> queues_snapshot() {
+    std::lock_guard<mutex_type> lock(m_mutex);
+    return _queues;
+  }
+
   void queues_wait_and_throw() {
     std::unique_lock<mutex_type> lock(m_mutex);
     std::vector<std::shared_ptr<sycl::queue>> current_queues(

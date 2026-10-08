@@ -1,4 +1,5 @@
 #include "strata/sycl_queue.hpp"
+#include "strata/sycl_failed_work.hpp"
 // src/core/mtp.cpp - see include/strata/core/mtp.hpp.
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
@@ -75,7 +76,7 @@ bool mapped(size_t bytes, void **h, void **d) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 strata::kernels::QsaShapes shapes_of(const ModelGeometry& g) {
@@ -117,8 +118,8 @@ bool read_file(const std::string& path, std::vector<uint8_t>& out) {
 
 }  // namespace
 
-MtpDrafter::~MtpDrafter() {
-    if (cs_) cs_->wait();
+MtpDrafter::~MtpDrafter() try {
+    if (cs_) strata::drain_device_or_exit("MTP destructor (including overlapping verifier commit)");
     for (auto &e : prefill_exec_) if (e) delete (e);
     for (auto &e : prefill_dev_exec_) if (e) delete (e);
     if (pf_dev_) sycl::free(pf_dev_, dpct::get_in_order_queue());
@@ -142,7 +143,7 @@ MtpDrafter::~MtpDrafter() {
     if (dvocab_) sycl::free(dvocab_, dpct::get_in_order_queue());
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_row_, h_out_, h_prob_};
     for (void *h : hosts) if (h) strata::host_free_polled(h, dpct::get_in_order_queue());
-}
+} catch (...) { strata::unsafe_gpu_exit("MTP cleanup exception"); }
 
 const float* MtpDrafter::f32(const char* name) const {
     for (const auto& t : tensors_) if (t.name == name && t.kind == "f32") return (const float*) (dense_ + t.off);
@@ -379,7 +380,7 @@ bool MtpDrafter::load(const std::string &rt_dir, const ModelGeometry &g,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 uint64_t MtpDrafter::bind_bytes(uint64_t head_row_bytes, int64_t n_vocab) const {
@@ -546,7 +547,7 @@ bool MtpDrafter::bind(const WeightTable &wt, const NativeHead *head,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 // The layer for T rows.  full = false stops after the K/V append (the prompt only needs the cache).
@@ -766,7 +767,7 @@ bool finish_capture(dpct::queue_ptr cs, bool ok,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 }  // namespace
 
@@ -785,7 +786,7 @@ bool MtpDrafter::capture_prefill(int T, std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 bool MtpDrafter::capture_prefill_dev(int T, std::string &err) try {
@@ -799,7 +800,7 @@ bool MtpDrafter::capture_prefill_dev(int T, std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 bool MtpDrafter::capture_round(int T, bool coupled, std::string &err) try {
@@ -838,7 +839,7 @@ bool MtpDrafter::capture_round(int T, bool coupled, std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 // Chain step j (1..max_t-2): one row at the cell staged in step row `max_t + j - 1`, from the previous step's
@@ -864,7 +865,7 @@ bool MtpDrafter::capture_step(int j, bool coupled, std::string &err) try {
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 void MtpDrafter::kv_restore(int64_t upto) {
@@ -1061,7 +1062,7 @@ bool MtpDrafter::prefill(const float *R_rows, const int32_t *next_tokens,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 bool MtpDrafter::draft(int T, const int32_t* tokens, int64_t p, int a, int32_t* drafts, std::string& err,
@@ -1160,7 +1161,7 @@ bool MtpDrafter::draft_first(int T, const float *R_row, int32_t token,
 catch (sycl::exception const &exc) {
   std::cerr << exc.what() << "Exception caught at file:" << __FILE__
             << ", line:" << __LINE__ << std::endl;
-  std::exit(1);
+  strata::unsafe_gpu_exit("unhandled SYCL exception in verifier/drafter");
 }
 
 }  // namespace strata::core
