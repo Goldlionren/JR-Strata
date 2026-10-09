@@ -15,7 +15,7 @@ limits,prebuilt/source routes and original MIT attribution. Unmodified upstream 
 |prebuilt-production.tar.gz|72914388|ebcac13d3687f1440af2f3dc0816bef218200633bc977df8b71eef90746e1334|
 |ggml-source-3cf03257.tar.gz|3568955|685a58c7097daaf7055bdd2f5827447a1e969cda1fb4e1d509d68eb19c5ecaa5|
 
-SHA256SUMS is also published; full/public artifact inventories are committed. All three payloads were downloaded from the
+SHA256SUMS and PUBLIC-SHA256SUMS are also published; full/public artifact inventories are committed. All three payloads were downloaded from the
 remote Release and rehashed, including the exact production ELF8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e. GitHub's optional asset digest field was N/A;
 independent downloaded-byte SHA256 is the evidence. Fresh source clone/tag/install/scripts/manifests were actually checked.
 

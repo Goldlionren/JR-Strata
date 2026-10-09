@@ -43,7 +43,7 @@ or declared byte-identical to the production ELF. Toolchain acquisition is an ex
 | Isolated offline prebuilt install |PASS|own CPython3.12 venv/wheels;--no-systemd; no C++ build|
 | Native server/Intel frontend/tokenizer imports |PASS|new install app/venv,independent original development paths|
 | Native Chat/Monitor/About routes |PASS CPU mock|root/status/metrics/models; SIGTERM exit0; not a GPU acceptance test|
-| Generated profile/systemd syntax |PASS|spaces/port/device paths,fixed settings,systemd-analyze --user verify|
+| Generated profile/systemd syntax |PASS|spaces/port/device paths,fixed settings,systemd-analyze --user verify; synthetic user default-target boot dependency check exit0|
 | Installation file/checksum verification |PASS|installed-files inventory and frozen ELF|
 | Full public SDK/model acquisition |BLOCKED|redistribution/origin limitations documented; no silent substitution|
 | Fresh source rebuild |NOT EXECUTED|separate optional path with pinned flags/compiler|

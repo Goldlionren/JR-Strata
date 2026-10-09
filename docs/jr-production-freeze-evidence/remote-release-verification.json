@@ -1,0 +1,33 @@
+{
+  "release_url": "https://github.com/Goldlionren/JR-Strata/releases/tag/jr-b60-sycl-fastfix-prod-20261009",
+  "isDraft": false,
+  "remote_refs": "ef37d3896d9b37247dfcd6adfae5b9a8910487eb\trefs/heads/jr-b60-sycl-fastfix-release-20261009\nef37d3896d9b37247dfcd6adfae5b9a8910487eb\trefs/heads/main\nc488226185ae1ed50e8efe2cfadce455f738f9ff\trefs/heads/vulkan-dev\n453c5a20b6501a7108a60d6dcb07d6037895f681\trefs/tags/jr-b60-sycl-fastfix-prod-20261009\n06bb157c26c6cb7ce96a275a5f815a40bb4209a5\trefs/tags/jr-b60-sycl-fastfix-prod-20261009^{}\n",
+  "remote_readme_blob": "a4c06bf163cd3d91efcca66b250c83b172be9676",
+  "release_assets": [
+    {
+      "name": "ggml-source-3cf03257.tar.gz",
+      "size": 3568955
+    },
+    {
+      "name": "prebuilt-production.tar.gz",
+      "size": 72914388
+    },
+    {
+      "name": "PUBLIC-SHA256SUMS",
+      "size": 260
+    },
+    {
+      "name": "SHA256SUMS",
+      "size": 616
+    },
+    {
+      "name": "strata",
+      "size": 58760440
+    }
+  ],
+  "checksum_assets_downloaded": "PASS",
+  "payload_download_checksums": "PASS in fresh-install-validation.json",
+  "remote_full_sdk": "BLOCKED; not uploaded",
+  "tag_unchanged": true,
+  "main_contains_production_tag": true
+}
