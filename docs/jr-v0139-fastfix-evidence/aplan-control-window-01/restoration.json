@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "server_pid": 984699,
+  "engine_pid": 985485,
+  "running_sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "context": 32768,
+  "expert_slots": 9248,
+  "active": "active",
+  "enabled": "enabled",
+  "elapsed": 400.4850160490023,
+  "window_deadline_met": true,
+  "experimental_engine_gone": true,
+  "gpu_faults": false,
+  "smoke": "2 plus 2 equals 4."
+}

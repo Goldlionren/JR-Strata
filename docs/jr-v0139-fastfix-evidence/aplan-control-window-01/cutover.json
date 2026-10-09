@@ -1,0 +1,9 @@
+{
+  "start_epoch": 1791503946.033284,
+  "start_monotonic": 227321.983071894,
+  "deadline_epoch": 1791504846.033284,
+  "experiment_end_monotonic": 227921.983071894,
+  "deadline_monotonic": 228221.983071894,
+  "authorization": "one15-minute A-plan adaptive isolation, HEAD7b7b15d, operator2026-10-09",
+  "stage": "preflight"
+}

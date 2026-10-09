@@ -1,0 +1,11 @@
+{
+  "arm": "adaptive",
+  "verdict": "BLOCKED",
+  "executed": false,
+  "reason": "fixed15-minute plan admission bound exceeded after successful static teardown",
+  "elapsed_at_static_teardown": 344.2651616380026,
+  "required_arm_bound_seconds": 390,
+  "would_finish_by_seconds": 734.2651616380026,
+  "experimental_cleanup_deadline_seconds": 600,
+  "no_additional_window": true
+}

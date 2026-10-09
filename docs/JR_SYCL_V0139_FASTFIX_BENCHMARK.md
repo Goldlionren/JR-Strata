@@ -88,3 +88,8 @@ The controller suspended restoration for assessment; all experimental processes 
 ## A-plan offline follow-up — 2026-10-09
 
 [Focused handshake analysis](JR_SYCL_V0139_FASTFIX_APLAN_ANALYSIS.md) identifies the default adaptive-swap/static-mirror coverage hole, but the archived failed expert is unknown. Opt-in diagnostics and15 CPU state/fault cases are prepared; no timeout cure or new GPU performance is claimed. [Proposed narrow diagnostic plan](JR_SYCL_V0139_FASTFIX_APLAN_GPU_PLAN.md) requires new authorization. The previously failed14db752… ELF is preserved at `dist/failed-p0-window-01/strata`; `build-fastfix/strata` now contains the separately hashed diagnostic build recorded in `tools/fastfix/aplan-candidate.json`. RC1 stayed running and unchanged.
+
+
+## A-plan adaptive isolation — window01 completed
+
+[Measured window01 results](JR_SYCL_V0139_FASTFIX_APLAN_GPU_RESULTS.md): adaptive-off PASS,79 prompt/1536 generated tokens,12.0tok/s Decode,2.52s observed TTFT,820/1373 accepted drafts. Probe passed; no new GPU fault or unsafe teardown. Adaptive-on was never launched: after static teardown344.27s, its390s worst-case bound exceeded the600s experimental cutoff. Causal comparison remains BLOCKED; no exact archived failed expert was recovered. RC1 was restored/verified at400.49s, frozen hash,32768 context, original9248-expert profile, active/enabled. Authorization closed; no promotion or automatic further GPU run.

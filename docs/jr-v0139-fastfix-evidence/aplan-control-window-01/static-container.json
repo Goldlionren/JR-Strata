@@ -1,0 +1,290 @@
+[
+    {
+        "Id": "32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462",
+        "Created": "2026-10-09T00:01:14.907234731Z",
+        "Path": "/bin/bash",
+        "Args": [
+            "-lc",
+            "exec /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata --serve --pack /work/data/packs/swift-iq3_xxs --native /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --ple-gguf /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --expert-profile /work/Strata/data/expert-profile.bin --expert-cache 8098 --spec 4 --spec-min-p 0.5 --mtp /work/data/mtp/rt --max-context 131072 --kv int8 --kv-resident 32768 --stream-experts --vram-reserve-mib 768 --prefill 4096 --pcie-frac 0.25 --adapt-swaps 0"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 957341,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-09T00:01:15.076511002Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+        "ResolvConfPath": "/var/lib/docker/containers/32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462/hostname",
+        "HostsPath": "/var/lib/docker/containers/32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462/hosts",
+        "LogPath": "/var/lib/docker/containers/32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462/32a6f07867cf9e12cf0a89bf1def49ed083e106b98b2c9abc0958c9363034462-json.log",
+        "Name": "/jr-strata-fastfix-engine",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/data/strata-lab:/work:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 1000,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/dri",
+                    "PathInContainer": "/dev/dri",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle",
+                "/sys/devices/system/cpu/cpu18/thermal_throttle",
+                "/sys/devices/system/cpu/cpu19/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/data/strata-lab",
+                "Destination": "/work",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "32a6f07867cf",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "STRATA_STAGER_THREADS=12",
+                "STRATA_HOST_UNCACHED=1",
+                "STRATA_APLAN_DIAG=1",
+                "ONEAPI_DEVICE_SELECTOR=level_zero:0",
+                "SYCL_CACHE_PERSISTENT=0",
+                "STRATA_VERIFY_DEVICE_PLAN=1",
+                "STRATA_ARENA_ALIAS_CHECK=1",
+                "STRATA_DECODE_TIMING=1",
+                "STRATA_VERIFY_TRACE=1",
+                "PATH=/opt/intel/oneapi/mpi/2021.18/bin:/opt/intel/oneapi/mkl/2026.1/bin:/opt/intel/oneapi/dev-utilities/2026.0/bin:/opt/intel/oneapi/debugger/2026.1/opt/debugger/bin:/opt/intel/oneapi/compiler/2026.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "CCL_CONFIGURATION=cpu_gpu_dpcpp",
+                "CCL_CONFIGURATION_PATH=",
+                "CCL_ROOT=/opt/intel/oneapi/ccl/2022.1",
+                "CLASSPATH=/opt/intel/oneapi/mpi/2021.18/share/java/mpi.jar",
+                "CMAKE_PREFIX_PATH=/opt/intel/oneapi/tbb/2023.1/env/..:/opt/intel/oneapi/pti/1.0/lib/cmake/pti:/opt/intel/oneapi/mkl/2026.1/lib/cmake:/opt/intel/oneapi/dpl/2022.13/lib/cmake/oneDPL:/opt/intel/oneapi/compiler/2026.1:/opt/intel/oneapi/ccl/2022.1/lib/cmake/oneCCL",
+                "CMPLR_ROOT=/opt/intel/oneapi/compiler/2026.1",
+                "CPATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/dev-utilities/2026.0/include:/opt/intel/oneapi/ccl/2022.1/include",
+                "CPLUS_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include:/opt/intel/oneapi/dpl/2022.13/include",
+                "C_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include",
+                "DIAGUTIL_PATH=/opt/intel/oneapi/compiler/2026.1/etc/compiler/sys_check/sys_check.sh",
+                "DPLROOT=/opt/intel/oneapi/dpl/2022.13",
+                "DPL_ROOT=/opt/intel/oneapi/dpl/2022.13",
+                "FI_PROVIDER_PATH=/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib/prov:/usr/lib/x86_64-linux-gnu/libfabric",
+                "GDB_INFO=/opt/intel/oneapi/debugger/2026.1/share/info/",
+                "INFOPATH=/opt/intel/oneapi/debugger/2026.1/share/info",
+                "INTEL_PYTHONHOME=/opt/intel/oneapi/debugger/2026.1/opt/debugger",
+                "I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.18",
+                "LD_LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tcm/1.5/env/../lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/debugger/2026.1/opt/debugger/lib:/opt/intel/oneapi/compiler/2026.1/opt/compiler/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+                "LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+                "MANPATH=/opt/intel/oneapi/mpi/2021.18/share/man:/opt/intel/oneapi/debugger/2026.1/share/man:/opt/intel/oneapi/compiler/2026.1/share/man:",
+                "MKLROOT=/opt/intel/oneapi/mkl/2026.1",
+                "NLSPATH=/opt/intel/oneapi/compiler/2026.1/lib/compiler/locale/%l_%t/%N",
+                "OCL_ICD_FILENAMES=/opt/intel/oneapi/compiler/2026.1/lib/libintelocl.so",
+                "ONEAPI_ROOT=/opt/intel/oneapi",
+                "PKG_CONFIG_PATH=/opt/intel/oneapi/tbb/2023.1/env/../lib/pkgconfig:/opt/intel/oneapi/mpi/2021.18/lib/pkgconfig:/opt/intel/oneapi/mkl/2026.1/lib/pkgconfig:/opt/intel/oneapi/dpl/2022.13/lib/pkgconfig:/opt/intel/oneapi/compiler/2026.1/lib/pkgconfig:/opt/intel/oneapi/ccl/2022.1/lib/pkgconfig/",
+                "Pti_DIR=/opt/intel/oneapi/pti/1.0/lib/cmake/pti",
+                "SETVARS_COMPLETED=1",
+                "TBBROOT=/opt/intel/oneapi/tbb/2023.1/env/..",
+                "TCMROOT=/opt/intel/oneapi/tcm/1.5/env/..",
+                "TCM_ROOT=/opt/intel/oneapi/tcm/1.5",
+                "UMF_ROOT=/opt/intel/oneapi/umf/1.1",
+                "LLAMA_ARG_HOST=0.0.0.0",
+                "ZES_ENABLE_SYSMAN=1"
+            ],
+            "Cmd": [
+                "exec /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata --serve --pack /work/data/packs/swift-iq3_xxs --native /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --ple-gguf /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --expert-profile /work/Strata/data/expert-profile.bin --expert-cache 8098 --spec 4 --spec-min-p 0.5 --mtp /work/data/mtp/rt --max-context 131072 --kv int8 --kv-resident 32768 --stream-experts --vram-reserve-mib 768 --prefill 4096 --pcie-frac 0.25 --adapt-swaps 0"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "NONE"
+                ]
+            },
+            "Image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "/bin/bash",
+                "-lc"
+            ],
+            "Labels": {
+                "org.opencontainers.image.created": "N/A",
+                "org.opencontainers.image.description": "LLM inference in C/C++ - updated SYCL stack for Battlemage B70",
+                "org.opencontainers.image.revision": "N/A",
+                "org.opencontainers.image.source": "https://github.com/ggml-org/llama.cpp",
+                "org.opencontainers.image.title": "llama.cpp (community SYCL for Intel Arc B70)",
+                "org.opencontainers.image.url": "https://github.com/ggml-org/llama.cpp",
+                "org.opencontainers.image.version": "N/A"
+            },
+            "StopTimeout": 90
+        },
+        "NetworkSettings": {
+            "SandboxID": "c536e88a01daf9b4b2412b24503185cafcc33c29fde81c7d3c283befe2e09e53",
+            "SandboxKey": "/var/run/docker/netns/c536e88a01da",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "8ab27ba0a92e72b10e87291a61a706d64566448f54704eaba578144986484967",
+                    "EndpointID": "36f597dec71ac1949787a442e00b2dd501e33effaf578053b1f9079f942aa578",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "3a:60:90:c5:3c:70",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+            "size": 3161,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

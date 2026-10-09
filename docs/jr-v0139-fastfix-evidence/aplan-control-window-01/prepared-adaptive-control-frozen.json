@@ -9,7 +9,7 @@
   ],
   "cpu_state_cases": 16,
   "cpu_control_tests": 7,
-  "gpu": "window01: adaptive-off PASS1536 tokens; adaptive-on BLOCKED by deadline; authorization closed",
+  "gpu": "NOT RUN; new15-minute authorization required",
   "files": {
     "build-fastfix/strata": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe",
     "build-fastfix/fastfix_handoff": "3237f2ced414e38d1695631b121dd6dcb54b30fd7a361da615f647323a1de4fa",
@@ -28,7 +28,6 @@
     "tools/fastfix/aplan-control-plan.py": "95607625d4268bd920a02c48cfe2347c808da40561b90545575212170f472b94",
     "tools/fastfix/adaptive-control-tests.py": "4696bb47fadb4e64db0cbf1f8096d149cf35d8f752deba0de5e61b4aaef96991",
     "tools/fastfix/aplan_state_test.cpp": "e0288d5e994fc2a092093e713f859e84fcaf8cabbb1b06a75f0a0be3c64da934",
-    "docs/JR_SYCL_V0139_FASTFIX_APLAN_GPU_PLAN.md": "272a0f23ef8b9a95c7c3221ed73d4dbfc599c5403c10d1d62c7a724e06bbb850"
-  },
-  "execution_evidence": "docs/jr-v0139-fastfix-evidence/aplan-control-window-01/"
+    "docs/JR_SYCL_V0139_FASTFIX_APLAN_GPU_PLAN.md": "92d69d886a4db319a188ffa72435d9db069a8e471fce27756784cecf6f0eccfa"
+  }
 }

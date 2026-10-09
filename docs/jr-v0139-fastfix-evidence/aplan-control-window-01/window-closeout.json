@@ -1,0 +1,12 @@
+{
+  "start_epoch": 1791503946.033284,
+  "start_iso": "2026-10-09T10:59:06.033284+11:00",
+  "verified_end_epoch": 1791504346.5183,
+  "verified_duration_seconds": 400.4850160490023,
+  "experimental_teardown_seconds": 344.2651616380026,
+  "maintenance_closed": true,
+  "no_more_gpu_experiments_authorized": true,
+  "rc1_restored": "PASS",
+  "within900_seconds": true,
+  "experiment_cleanup_before600_seconds": true
+}

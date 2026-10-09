@@ -1,0 +1,11 @@
+{
+  "elapsed": 379.0738095009874,
+  "experimental_engine_pid_gone": 957341,
+  "experimental_port_free": true,
+  "experimental_containers_gone": true,
+  "unsafe_marker": false,
+  "new_gpu_faults": false,
+  "b60_normal": true,
+  "free_gpu_bytes": "24143736832",
+  "restoration_safe": true
+}

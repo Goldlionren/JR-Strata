@@ -1,0 +1,133 @@
+2026-10-09T11:01:14.416607+11:00 james-NUC12SNKi72 systemd[1802]: Starting jr-strata-fastfix-aplan-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/aplan-control-static.json --host 127.0.0.1 --port 18086...
+2026-10-09T11:01:14.417152+11:00 james-NUC12SNKi72 systemd[1802]: Started jr-strata-fastfix-aplan-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/aplan-control-static.json --host 127.0.0.1 --port 18086.
+2026-10-09T11:01:14.829539+11:00 james-NUC12SNKi72 python[957275]: loading the model (the first start takes a minute or two) ...
+2026-10-09T11:01:14.829989+11:00 james-NUC12SNKi72 python[957275]: [strata] starting the engine: reading the model's weights ...
+2026-10-09T11:01:18.331748+11:00 james-NUC12SNKi72 python[957275]: [strata] loading the experts into RAM (tens of GB) and locking part of them for the GPU.
+2026-10-09T11:01:18.331748+11:00 james-NUC12SNKi72 python[957275]:          YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+2026-10-09T11:01:18.331748+11:00 james-NUC12SNKi72 python[957275]:          Please wait and don't close this window; the browser opens when it is ready.
+2026-10-09T11:01:19.332182+11:00 james-NUC12SNKi72 python[957275]: [strata] filling the GPU's expert cache (10831 experts, 17.57 GiB of VRAM) ...
+2026-10-09T11:01:33.255263+11:00 james-NUC12SNKi72 python[957275]: ready: http://127.0.0.1:18086/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 131072 tokens)
+2026-10-09T11:01:33.255263+11:00 james-NUC12SNKi72 python[957275]:        open http://127.0.0.1:18086/ in a browser to chat; close this window to stop the model
+2026-10-09T11:02:40.603947+11:00 james-NUC12SNKi72 python[957275]: [strata] reading the prompt: 72 of 79 tokens, 2 s so far
+2026-10-09T11:02:41.754100+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 4 of max 1536 tokens, 8.9 tok/s, 3 s
+2026-10-09T11:02:42.901934+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 20 of max 1536 tokens, 12.5 tok/s, 4 s
+2026-10-09T11:02:44.045087+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 33 of max 1536 tokens, 12.0 tok/s, 5 s
+2026-10-09T11:02:45.278050+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 45 of max 1536 tokens, 11.3 tok/s, 6 s
+2026-10-09T11:02:46.481113+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 60 of max 1536 tokens, 11.6 tok/s, 8 s
+2026-10-09T11:02:47.517049+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 70 of max 1536 tokens, 11.3 tok/s, 9 s
+2026-10-09T11:02:48.565979+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 85 of max 1536 tokens, 11.7 tok/s, 10 s
+2026-10-09T11:02:49.706452+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 102 of max 1536 tokens, 12.1 tok/s, 11 s
+2026-10-09T11:02:50.770595+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 114 of max 1536 tokens, 12.0 tok/s, 12 s
+2026-10-09T11:02:51.952954+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 125 of max 1536 tokens, 11.7 tok/s, 13 s
+2026-10-09T11:02:53.118193+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 144 of max 1536 tokens, 12.2 tok/s, 14 s
+2026-10-09T11:02:54.272815+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 164 of max 1536 tokens, 12.6 tok/s, 15 s
+2026-10-09T11:02:55.395457+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 184 of max 1536 tokens, 13.1 tok/s, 16 s
+2026-10-09T11:02:56.585786+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 203 of max 1536 tokens, 13.3 tok/s, 18 s
+2026-10-09T11:02:57.612421+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 221 of max 1536 tokens, 13.6 tok/s, 19 s
+2026-10-09T11:02:58.619304+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 236 of max 1536 tokens, 13.6 tok/s, 20 s
+2026-10-09T11:02:59.812168+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 251 of max 1536 tokens, 13.6 tok/s, 21 s
+2026-10-09T11:03:00.865811+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 267 of max 1536 tokens, 13.6 tok/s, 22 s
+2026-10-09T11:03:01.942399+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 282 of max 1536 tokens, 13.7 tok/s, 23 s
+2026-10-09T11:03:03.008958+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 294 of max 1536 tokens, 13.5 tok/s, 24 s
+2026-10-09T11:03:04.080521+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 306 of max 1536 tokens, 13.4 tok/s, 25 s
+2026-10-09T11:03:05.186607+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 320 of max 1536 tokens, 13.4 tok/s, 26 s
+2026-10-09T11:03:06.248819+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 338 of max 1536 tokens, 13.6 tok/s, 27 s
+2026-10-09T11:03:07.334192+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 348 of max 1536 tokens, 13.4 tok/s, 28 s
+2026-10-09T11:03:08.515107+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 359 of max 1536 tokens, 13.2 tok/s, 30 s
+2026-10-09T11:03:09.593561+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 371 of max 1536 tokens, 13.1 tok/s, 31 s
+2026-10-09T11:03:10.686876+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 386 of max 1536 tokens, 13.1 tok/s, 32 s
+2026-10-09T11:03:11.696612+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 398 of max 1536 tokens, 13.1 tok/s, 33 s
+2026-10-09T11:03:12.820341+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 413 of max 1536 tokens, 13.1 tok/s, 34 s
+2026-10-09T11:03:13.901110+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 423 of max 1536 tokens, 13.0 tok/s, 35 s
+2026-10-09T11:03:14.920325+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 438 of max 1536 tokens, 13.0 tok/s, 36 s
+2026-10-09T11:03:15.965732+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 449 of max 1536 tokens, 13.0 tok/s, 37 s
+2026-10-09T11:03:17.039584+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 461 of max 1536 tokens, 12.9 tok/s, 38 s
+2026-10-09T11:03:18.075344+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 475 of max 1536 tokens, 12.9 tok/s, 39 s
+2026-10-09T11:03:19.083706+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 490 of max 1536 tokens, 13.0 tok/s, 40 s
+2026-10-09T11:03:20.150683+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 501 of max 1536 tokens, 12.9 tok/s, 41 s
+2026-10-09T11:03:21.337654+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 518 of max 1536 tokens, 12.9 tok/s, 42 s
+2026-10-09T11:03:22.354919+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 535 of max 1536 tokens, 13.0 tok/s, 43 s
+2026-10-09T11:03:23.543172+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 546 of max 1536 tokens, 12.9 tok/s, 45 s
+2026-10-09T11:03:24.678464+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 563 of max 1536 tokens, 13.0 tok/s, 46 s
+2026-10-09T11:03:25.774218+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 577 of max 1536 tokens, 13.0 tok/s, 47 s
+2026-10-09T11:03:26.817244+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 588 of max 1536 tokens, 12.9 tok/s, 48 s
+2026-10-09T11:03:27.959084+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 605 of max 1536 tokens, 13.0 tok/s, 49 s
+2026-10-09T11:03:29.120066+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 614 of max 1536 tokens, 12.8 tok/s, 50 s
+2026-10-09T11:03:30.225802+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 627 of max 1536 tokens, 12.8 tok/s, 51 s
+2026-10-09T11:03:31.270313+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 643 of max 1536 tokens, 12.9 tok/s, 52 s
+2026-10-09T11:03:32.397047+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 654 of max 1536 tokens, 12.8 tok/s, 53 s
+2026-10-09T11:03:33.440058+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 665 of max 1536 tokens, 12.8 tok/s, 54 s
+2026-10-09T11:03:34.458796+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 676 of max 1536 tokens, 12.7 tok/s, 56 s
+2026-10-09T11:03:35.604181+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 690 of max 1536 tokens, 12.7 tok/s, 57 s
+2026-10-09T11:03:36.726473+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 700 of max 1536 tokens, 12.6 tok/s, 58 s
+2026-10-09T11:03:37.754327+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 710 of max 1536 tokens, 12.6 tok/s, 59 s
+2026-10-09T11:03:38.858522+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 724 of max 1536 tokens, 12.6 tok/s, 60 s
+2026-10-09T11:03:39.915148+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 738 of max 1536 tokens, 12.6 tok/s, 61 s
+2026-10-09T11:03:40.962171+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 751 of max 1536 tokens, 12.6 tok/s, 62 s
+2026-10-09T11:03:42.131160+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 767 of max 1536 tokens, 12.6 tok/s, 63 s
+2026-10-09T11:03:43.184879+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 777 of max 1536 tokens, 12.6 tok/s, 64 s
+2026-10-09T11:03:44.195076+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 787 of max 1536 tokens, 12.5 tok/s, 65 s
+2026-10-09T11:03:45.414981+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 800 of max 1536 tokens, 12.5 tok/s, 66 s
+2026-10-09T11:03:46.536910+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 817 of max 1536 tokens, 12.5 tok/s, 68 s
+2026-10-09T11:03:47.581559+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 829 of max 1536 tokens, 12.5 tok/s, 69 s
+2026-10-09T11:03:48.642486+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 839 of max 1536 tokens, 12.5 tok/s, 70 s
+2026-10-09T11:03:49.695327+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 851 of max 1536 tokens, 12.4 tok/s, 71 s
+2026-10-09T11:03:50.807101+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 865 of max 1536 tokens, 12.4 tok/s, 72 s
+2026-10-09T11:03:51.821195+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 878 of max 1536 tokens, 12.5 tok/s, 73 s
+2026-10-09T11:03:52.916717+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 887 of max 1536 tokens, 12.4 tok/s, 74 s
+2026-10-09T11:03:54.149853+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 899 of max 1536 tokens, 12.3 tok/s, 75 s
+2026-10-09T11:03:55.186903+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 909 of max 1536 tokens, 12.3 tok/s, 76 s
+2026-10-09T11:03:56.362087+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 921 of max 1536 tokens, 12.3 tok/s, 77 s
+2026-10-09T11:03:57.452988+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 932 of max 1536 tokens, 12.2 tok/s, 79 s
+2026-10-09T11:03:58.673132+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 942 of max 1536 tokens, 12.2 tok/s, 80 s
+2026-10-09T11:03:59.699035+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 955 of max 1536 tokens, 12.2 tok/s, 81 s
+2026-10-09T11:04:00.787260+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 969 of max 1536 tokens, 12.2 tok/s, 82 s
+2026-10-09T11:04:01.799868+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 983 of max 1536 tokens, 12.2 tok/s, 83 s
+2026-10-09T11:04:02.941744+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 998 of max 1536 tokens, 12.2 tok/s, 84 s
+2026-10-09T11:04:04.087383+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1013 of max 1536 tokens, 12.2 tok/s, 85 s
+2026-10-09T11:04:05.101513+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1028 of max 1536 tokens, 12.3 tok/s, 86 s
+2026-10-09T11:04:06.249350+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1044 of max 1536 tokens, 12.3 tok/s, 87 s
+2026-10-09T11:04:07.317086+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1061 of max 1536 tokens, 12.3 tok/s, 88 s
+2026-10-09T11:04:08.400295+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1078 of max 1536 tokens, 12.4 tok/s, 89 s
+2026-10-09T11:04:09.562221+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1089 of max 1536 tokens, 12.3 tok/s, 91 s
+2026-10-09T11:04:10.682313+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1104 of max 1536 tokens, 12.4 tok/s, 92 s
+2026-10-09T11:04:11.749383+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1121 of max 1536 tokens, 12.4 tok/s, 93 s
+2026-10-09T11:04:12.871537+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1133 of max 1536 tokens, 12.4 tok/s, 94 s
+2026-10-09T11:04:13.871501+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1146 of max 1536 tokens, 12.4 tok/s, 95 s
+2026-10-09T11:04:14.925426+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1161 of max 1536 tokens, 12.4 tok/s, 96 s
+2026-10-09T11:04:15.990921+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1172 of max 1536 tokens, 12.4 tok/s, 97 s
+2026-10-09T11:04:17.159308+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1186 of max 1536 tokens, 12.4 tok/s, 98 s
+2026-10-09T11:04:18.249217+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1196 of max 1536 tokens, 12.3 tok/s, 99 s
+2026-10-09T11:04:19.368152+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1209 of max 1536 tokens, 12.3 tok/s, 100 s
+2026-10-09T11:04:20.421696+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1222 of max 1536 tokens, 12.3 tok/s, 101 s
+2026-10-09T11:04:21.538817+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1235 of max 1536 tokens, 12.3 tok/s, 103 s
+2026-10-09T11:04:22.697764+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1248 of max 1536 tokens, 12.3 tok/s, 104 s
+2026-10-09T11:04:23.818685+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1258 of max 1536 tokens, 12.3 tok/s, 105 s
+2026-10-09T11:04:24.857736+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1270 of max 1536 tokens, 12.3 tok/s, 106 s
+2026-10-09T11:04:25.912403+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1280 of max 1536 tokens, 12.2 tok/s, 107 s
+2026-10-09T11:04:26.988744+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1292 of max 1536 tokens, 12.2 tok/s, 108 s
+2026-10-09T11:04:28.034286+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1300 of max 1536 tokens, 12.2 tok/s, 109 s
+2026-10-09T11:04:29.178992+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1313 of max 1536 tokens, 12.2 tok/s, 110 s
+2026-10-09T11:04:30.259973+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1324 of max 1536 tokens, 12.2 tok/s, 111 s
+2026-10-09T11:04:31.504421+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1339 of max 1536 tokens, 12.2 tok/s, 113 s
+2026-10-09T11:04:32.529237+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1350 of max 1536 tokens, 12.1 tok/s, 114 s
+2026-10-09T11:04:33.647830+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1363 of max 1536 tokens, 12.1 tok/s, 115 s
+2026-10-09T11:04:34.905108+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1374 of max 1536 tokens, 12.1 tok/s, 116 s
+2026-10-09T11:04:35.912253+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1389 of max 1536 tokens, 12.1 tok/s, 117 s
+2026-10-09T11:04:37.078257+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1399 of max 1536 tokens, 12.1 tok/s, 118 s
+2026-10-09T11:04:38.213359+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1411 of max 1536 tokens, 12.1 tok/s, 119 s
+2026-10-09T11:04:39.268611+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1427 of max 1536 tokens, 12.1 tok/s, 120 s
+2026-10-09T11:04:40.441886+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1434 of max 1536 tokens, 12.0 tok/s, 121 s
+2026-10-09T11:04:41.624025+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1446 of max 1536 tokens, 12.0 tok/s, 123 s
+2026-10-09T11:04:42.863123+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1461 of max 1536 tokens, 12.0 tok/s, 124 s
+2026-10-09T11:04:43.880958+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1475 of max 1536 tokens, 12.0 tok/s, 125 s
+2026-10-09T11:04:45.057865+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1486 of max 1536 tokens, 12.0 tok/s, 126 s
+2026-10-09T11:04:46.222850+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1498 of max 1536 tokens, 12.0 tok/s, 127 s
+2026-10-09T11:04:47.353224+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1513 of max 1536 tokens, 12.0 tok/s, 128 s
+2026-10-09T11:04:48.459132+11:00 james-NUC12SNKi72 python[957275]: [strata] answering: 1527 of max 1536 tokens, 12.0 tok/s, 130 s
+2026-10-09T11:04:49.074675+11:00 james-NUC12SNKi72 python[957275]: [strata] done: 1536 tokens in 130 s (12.0 tok/s) (length, cancel=False), expert cache 59.8% hit (+6.4% of the routed experts over PCIe)
+2026-10-09T11:04:49.239556+11:00 james-NUC12SNKi72 systemd[1802]: Stopping jr-strata-fastfix-aplan-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/aplan-control-static.json --host 127.0.0.1 --port 18086...
+2026-10-09T11:04:49.239957+11:00 james-NUC12SNKi72 python[957275]: [strata] stopping (Ctrl+C again to end the engine at once) ...
+2026-10-09T11:04:50.230752+11:00 james-NUC12SNKi72 python[957275]: [strata] stopped
+2026-10-09T11:04:50.290419+11:00 james-NUC12SNKi72 systemd[1802]: Stopped jr-strata-fastfix-aplan-test.service - /data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/serve/server_intel.py --engine strata --config /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/aplan-control-static.json --host 127.0.0.1 --port 18086.
+2026-10-09T11:04:50.290482+11:00 james-NUC12SNKi72 systemd[1802]: jr-strata-fastfix-aplan-test.service: Consumed 1.356s CPU time.

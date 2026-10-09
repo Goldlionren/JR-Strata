@@ -1,0 +1,103 @@
+{
+  "prepared_commit": "7b7b15db8ebd954fb6f6000ef91e202d2393f859",
+  "binary_sha256": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe",
+  "probe": {
+    "exit_code": 0,
+    "seconds": 2.602934319002088,
+    "elapsed": 76.11164693298633
+  },
+  "adaptive_off": "PASS",
+  "adaptive_on": "BLOCKED: admission deadline, not executed",
+  "prompt_tokens": 79,
+  "generated_tokens": 1536,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 79,
+    "prompt_ms": 2279.2,
+    "prompt_per_token_ms": 28.851,
+    "prompt_per_second": 34.7,
+    "predicted_n": 1536,
+    "predicted_ms": 127847.3,
+    "predicted_per_token_ms": 83.234,
+    "predicted_per_second": 12.0,
+    "draft_n": 1373,
+    "draft_n_accepted": 820
+  },
+  "ttft_s": 2.51667286499287,
+  "request_wall_seconds": 130.33026726200478,
+  "mtp_acceptance_pct": 59.723233794610344,
+  "coverage": {
+    "initial_gpu_experts": 10831,
+    "native_cache_mib": 17990,
+    "initial_mirror_experts": 13745,
+    "mirror_gib": 22.4,
+    "captured_ring_rows": 48,
+    "captured_window": "generation1/T6, first completed prompt-verifier window only",
+    "missing_invalid_rows": 0,
+    "coverage_holes_observed": false,
+    "all_decode_windows_recorded": false
+  },
+  "io_scope": "whole request including prefill and Decode, not PLE-specific or pure Decode",
+  "io_delta": {
+    "rchar": 728123790,
+    "wchar": 30633,
+    "syscr": 31275,
+    "syscw": 1892,
+    "read_bytes": 540524544,
+    "write_bytes": 0,
+    "cancelled_write_bytes": 0
+  },
+  "sample_count": 62,
+  "major_fault_delta": 189,
+  "new_gpu_faults": 0,
+  "safe_teardown": true,
+  "restoration": {
+    "status": "PASS",
+    "server_pid": 984699,
+    "engine_pid": 985485,
+    "running_sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+    "context": 32768,
+    "expert_slots": 9248,
+    "active": "active",
+    "enabled": "enabled",
+    "elapsed": 400.4850160490023,
+    "window_deadline_met": true,
+    "experimental_engine_gone": true,
+    "gpu_faults": false,
+    "smoke": "2 plus 2 equals 4."
+  },
+  "cause": "adaptive-off control passed; matched adaptive-on missing, causal discrimination incomplete; no failed expert ID in this run",
+  "output_quality": "coherent inspected prefix/tail, no punctuation/invalid-token/repetition anomaly; LENGTH_CAPPED, unfinished field manual",
+  "vram_kib": {
+    "min": 24379492,
+    "max": 24504016
+  },
+  "gtt_kib": {
+    "min": 25758892,
+    "max": 25769772
+  },
+  "VmRSS_kib": {
+    "min": 1616936,
+    "max": 1831528
+  },
+  "VmHWM_kib": {
+    "min": 1709216,
+    "max": 1831528
+  },
+  "VmSwap_kib": {
+    "min": 0,
+    "max": 0
+  },
+  "host_available_kib": {
+    "min": 31449520,
+    "max": 32490036
+  },
+  "pswpin": {
+    "min": 25722458,
+    "max": 25722459
+  },
+  "pswpout": {
+    "min": 29808039,
+    "max": 29808039
+  }
+}

@@ -167,3 +167,8 @@ Prepared profiles: `tools/fastfix/aplan-control-static.json` adds exactly `--ada
 CPU results:16 deterministic state/fault cases pass, including1,000 changing windows with T1/4/6 under static versus adaptive coverage and ASan/UBSan. Seven control/profile tests verify the only inference flag difference, actual source gates, unchanged engine/probe/source hashes, exact archived arguments, safety/MTP settings, fixed900s window,600s cleanup and390s arm admission. Existing source-order checks and10 maintenance-gate tests pass. These are offline/reference checks; no GPU inference or production lifecycle action occurred.
 
 The [existing15-minute plan](JR_SYCL_V0139_FASTFIX_APLAN_GPU_PLAN.md) now prioritizes probe → static1536-token control → optional matched adaptive arm, only if the static arm passes and the original deadline admits it. A timeout/fault/corrupt output stops further work; restoration requires recorded device-health assessment. No new window is authorized by this preparation.
+
+
+## A-plan adaptive isolation — window01 completed
+
+[Measured window01 results](JR_SYCL_V0139_FASTFIX_APLAN_GPU_RESULTS.md): adaptive-off PASS,79 prompt/1536 generated tokens,12.0tok/s Decode,2.52s observed TTFT,820/1373 accepted drafts. Probe passed; no new GPU fault or unsafe teardown. Adaptive-on was never launched: after static teardown344.27s, its390s worst-case bound exceeded the600s experimental cutoff. Causal comparison remains BLOCKED; no exact archived failed expert was recovered. RC1 was restored/verified at400.49s, frozen hash,32768 context, original9248-expert profile, active/enabled. Authorization closed; no promotion or automatic further GPU run.
