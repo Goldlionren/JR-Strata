@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/.git",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/rc1-common-git-history.tar.zst",
+    "archive_sha256": "8eeeef6e0bf7fd25da7c38b9b999a674a461eef7b86412a1a03067022cb91355",
+    "archive_allocated_bytes": 34783232,
+    "original_allocated_bytes": 41205760,
+    "preserved_files": 1445,
+    "omitted_generated_builds": false,
+    "status": "VERIFIED"
+  },
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0.1.41",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-v0.1.41.tar.zst",
+    "archive_sha256": "b4650f6fb3a1d49eef58f2af56cf37928f6f79a7b4ed70c9758dd2319058726d",
+    "archive_allocated_bytes": 34406400,
+    "original_allocated_bytes": 331329536,
+    "preserved_files": 3928,
+    "omitted_generated_builds": true,
+    "status": "VERIFIED"
+  },
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-PLEFix",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-PLEFix.tar.zst",
+    "archive_sha256": "3ed12e7cb262d606db45991e9bba750cf68dce86f04d6c5fdc1894a095bf2315",
+    "archive_allocated_bytes": 17432576,
+    "original_allocated_bytes": 844890112,
+    "preserved_files": 2665,
+    "omitted_generated_builds": true,
+    "status": "VERIFIED"
+  },
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-window-01",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-window-01.tar.zst",
+    "archive_sha256": "2888151f6ac2fb286d97868887ada323fa50856d51bb418a1f4d38782fdc5456",
+    "archive_allocated_bytes": 10752000,
+    "original_allocated_bytes": 58667008,
+    "preserved_files": 1,
+    "omitted_generated_builds": false,
+    "status": "VERIFIED"
+  },
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-p0-window-01",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-p0-window-01.tar.zst",
+    "archive_sha256": "78a0f50c4c6d168f02234c4d6bde436687ab927d0ec3b75146b4d9a008cf427d",
+    "archive_allocated_bytes": 10780672,
+    "original_allocated_bytes": 58720256,
+    "preserved_files": 1,
+    "omitted_generated_builds": false,
+    "status": "VERIFIED"
+  },
+  {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/aplan-control-window-01",
+    "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-aplan-control-window-01.tar.zst",
+    "archive_sha256": "b977c45264b60a14ce1cd595296b3cd684e7ddd8fe0ef69e1cf7cc28b8059739",
+    "archive_allocated_bytes": 10784768,
+    "original_allocated_bytes": 58744832,
+    "preserved_files": 1,
+    "omitted_generated_builds": false,
+    "status": "VERIFIED"
+  }
+]

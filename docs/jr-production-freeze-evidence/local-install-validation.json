@@ -1,0 +1,12 @@
+{
+  "installed_file_check": "PASS installed ELF, native frontend, settings and launchers\n",
+  "imports": "PASS native server, Intel extension and tokenizer imports\n",
+  "unit_syntax": {
+    "returncode": 0,
+    "output": "Configuration file /home/james/.config/systemd/user/jr-music-producer.service is marked executable. Please remove executable permission bits. Proceeding anyway.\n"
+  },
+  "shell_syntax": "PASS all seven scripts",
+  "native_frontend_mock": "PASS native root Chat/Monitor/About and status/metrics/models; CPU mock only",
+  "mock_sigterm_exit": 0,
+  "gpu_tests": "NONE; current production never stopped or restarted"
+}

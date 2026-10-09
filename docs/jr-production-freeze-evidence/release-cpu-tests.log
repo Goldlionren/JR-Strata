@@ -1,0 +1,16 @@
+ple_reader selftest (row_bytes=90): OK
+ple_reader selftest (row_bytes=110): OK
+PASS: 90 windows, T=1/4/6, 3 request histories, changed/repeated rows, Direct/Mmap IQ4_NL independent oracle, delayed IO, error-before-submit, history oracle
+PASS: MTP completed-output bounds and nonfinite rejection (CPU; not GPU synchronization proof)
+PASS: actual legacy PLE-before-graph, failure propagation, existing per-draft wait ordering and Boolean queue completion
+PASS: timeout rejection follows copy-queue drain and precedes token consumption
+PASS: failure guards, immutable DMA publication, no fabricated readiness, completed commit history, explicit T=1 control
+PASS: opt-in diagnostic records read after both queues, original rejection/spin bound retained
+PASS: 11 lifecycle/readiness fault-injection cases (CPU policy; GPU behavior pending)
+Evidence: /data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/source/logs/fastfix/cpu-TnQm4H
+PASS: 16 deterministic A-plan state/fault cases; CPU evidence only, not GPU visibility proof; record bytes=168
+PASS: 16 adaptive mirror ownership/DMA/failure cases; 1000 exchanges, T=1/4/6, MTP on/off
+PASS: real serving/CLI exchange guards, exact aliases, completion-before-commit, safe destruction
+PASS: both adaptive workers propagate exceptions only after proven safe queue completion
+PASS: 6 host payload delay/generation/failure cases; 300 windows T=1/4/6 MTP on/off
+PASS: actual graph/host offsets match; graph/copy/host completion gates snapshot reuse

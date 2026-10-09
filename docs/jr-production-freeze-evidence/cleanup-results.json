@@ -1,0 +1,174 @@
+{
+  "time": "2026-10-09T15:08:08.205914+11:00",
+  "removed": [
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0.1.41",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "git worktree remove (no force)",
+      "allocated_bytes_removed": 331329536,
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-v0.1.41.tar.zst"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-PLEFix",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "git worktree remove (no force)",
+      "allocated_bytes_removed": 844890112,
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-PLEFix.tar.zst"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-window-01",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "exact archived failed-artifact directory",
+      "allocated_bytes_removed": 58667008,
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-window-01.tar.zst"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-p0-window-01",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "exact archived failed-artifact directory",
+      "allocated_bytes_removed": 58720256,
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-p0-window-01.tar.zst"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/aplan-control-window-01",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "exact archived failed-artifact directory",
+      "allocated_bytes_removed": 58744832,
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-aplan-control-window-01.tar.zst"
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/local install check",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "CPU scratch only; state/hash report retained",
+      "allocated_bytes_removed": 355491840
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/clean-install-check/installed",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "CPU scratch only; state/hash report retained",
+      "allocated_bytes_removed": 355647488
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/artifacts/runtime.tar.zst.part00",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "unpublished duplicate split staging copy; original verified archive retained",
+      "allocated_bytes_removed": 943722496
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/artifacts/runtime.tar.zst.part01",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "unpublished duplicate split staging copy; original verified archive retained",
+      "allocated_bytes_removed": 943722496
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/artifacts/runtime.tar.zst.part02",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "unpublished duplicate split staging copy; original verified archive retained",
+      "allocated_bytes_removed": 943722496
+    },
+    {
+      "path": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/artifacts/runtime.tar.zst.part03",
+      "classification": "OBSOLETE EXPERIMENT",
+      "method": "unpublished duplicate split staging copy; original verified archive retained",
+      "allocated_bytes_removed": 682364928
+    }
+  ],
+  "retained_archives": [
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/.git",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/rc1-common-git-history.tar.zst",
+      "archive_sha256": "8eeeef6e0bf7fd25da7c38b9b999a674a461eef7b86412a1a03067022cb91355",
+      "archive_allocated_bytes": 34783232,
+      "original_allocated_bytes": 41205760,
+      "preserved_files": 1445,
+      "omitted_generated_builds": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0.1.41",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-v0.1.41.tar.zst",
+      "archive_sha256": "b4650f6fb3a1d49eef58f2af56cf37928f6f79a7b4ed70c9758dd2319058726d",
+      "archive_allocated_bytes": 34406400,
+      "original_allocated_bytes": 331329536,
+      "preserved_files": 3928,
+      "omitted_generated_builds": true,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-PLEFix",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/JR-Strata-SYCL-PLEFix.tar.zst",
+      "archive_sha256": "3ed12e7cb262d606db45991e9bba750cf68dce86f04d6c5fdc1894a095bf2315",
+      "archive_allocated_bytes": 17432576,
+      "original_allocated_bytes": 844890112,
+      "preserved_files": 2665,
+      "omitted_generated_builds": true,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-window-01",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-window-01.tar.zst",
+      "archive_sha256": "2888151f6ac2fb286d97868887ada323fa50856d51bb418a1f4d38782fdc5456",
+      "archive_allocated_bytes": 10752000,
+      "original_allocated_bytes": 58667008,
+      "preserved_files": 1,
+      "omitted_generated_builds": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/failed-p0-window-01",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-failed-p0-window-01.tar.zst",
+      "archive_sha256": "78a0f50c4c6d168f02234c4d6bde436687ab927d0ec3b75146b4d9a008cf427d",
+      "archive_allocated_bytes": 10780672,
+      "original_allocated_bytes": 58720256,
+      "preserved_files": 1,
+      "omitted_generated_builds": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/aplan-control-window-01",
+      "archive": "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009/recovery-archives/fastfix-aplan-control-window-01.tar.zst",
+      "archive_sha256": "b977c45264b60a14ce1cd595296b3cd684e7ddd8fe0ef69e1cf7cc28b8059739",
+      "archive_allocated_bytes": 10784768,
+      "original_allocated_bytes": 58744832,
+      "preserved_files": 1,
+      "omitted_generated_builds": false,
+      "status": "VERIFIED"
+    }
+  ],
+  "policy": "Only exact whitelisted obsolete roots; no parent/model/image/volume deletion",
+  "public_release_verified": true,
+  "runtime_dependency_verified_locally": true,
+  "public_runtime_distribution": "BLOCKED; original exact archive retained",
+  "production_restart": "NONE",
+  "gross_allocated_bytes_removed": 5577023488,
+  "archive_allocated_bytes_kept": 120315904,
+  "net_allocated_bytes_recovered": 5456707584,
+  "kept": {
+    "PRODUCTION REQUIRED": [
+      "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix (current ELF/build/source/launcher/logs)",
+      "/data/strata-lab/Strata (.venv/ranking/GGMLcache/Git/shared untracked backups)",
+      "/data/strata-lab/data",
+      "installed FastFix user unit",
+      "all running FastFix image layers"
+    ],
+    "RELEASE / RECOVERY REQUIRED": [
+      "/data/strata-lab/releases/jr-b60-sycl-fastfix-prod-20261009",
+      "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3",
+      "/data/strata-lab/releases/JR-Strata-B60-SYCL-IQ3XXS-128K-20261006",
+      "/data/strata-lab/Strata-before-frozen-restore-20261006-201546"
+    ],
+    "UNRELATED PROJECT": [
+      "JR-Strata-Vulkan and its builds/releases/archives",
+      "GB10",
+      "ComfyUI",
+      "other Intel services",
+      "music/Hindsight units/containers",
+      "Strata-broken-full-20261006 (vulkan-dev branch; untouched)",
+      "strata-broken-20261006 (unclassified historical backup; retained)"
+    ]
+  },
+  "branches_deleted": [],
+  "docker_images_deleted": [],
+  "containers_deleted": [],
+  "units_deleted": []
+}

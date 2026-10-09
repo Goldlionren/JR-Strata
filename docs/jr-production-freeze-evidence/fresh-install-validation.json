@@ -1,0 +1,33 @@
+{
+  "tag": "jr-b60-sycl-fastfix-prod-20261009",
+  "tag_commit": "06bb157c26c6cb7ce96a275a5f815a40bb4209a5",
+  "remote": "https://github.com/Goldlionren/JR-Strata",
+  "public_artifacts": {
+    "strata": {
+      "bytes": 58760440,
+      "sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+      "remote_download": "PASS"
+    },
+    "prebuilt-production.tar.gz": {
+      "bytes": 72914388,
+      "sha256": "ebcac13d3687f1440af2f3dc0816bef218200633bc977df8b71eef90746e1334",
+      "remote_download": "PASS"
+    },
+    "ggml-source-3cf03257.tar.gz": {
+      "bytes": 3568955,
+      "sha256": "685a58c7097daaf7055bdd2f5827447a1e969cda1fb4e1d509d68eb19c5ecaa5",
+      "remote_download": "PASS"
+    }
+  },
+  "runtime_source": "explicitly reused locally verified licensed archive; NOT a remote OCI download",
+  "model_source": "locally reused exact assets after full-hash + unchanged inode/size/mtime verification",
+  "second_host_gpu_inference": "NOT YET VERIFIED",
+  "docker_load": "NOT EXECUTED on live production host",
+  "systemd_installation": "NOT EXECUTED; --no-systemd CPU install",
+  "native_imports": "PASS independent native imports\n",
+  "external_assets": 15,
+  "installer": "PASS isolated CPU install and immutable file check",
+  "dry_run": "PASS JSON generated profile/unit, no start/enable/load",
+  "packaging_tests": "PASS9/9 from remote tag",
+  "unit_parser": "PASS"
+}

@@ -1,0 +1,151 @@
+{
+  "time": "2026-10-09T15:09:24.958875+11:00",
+  "production_deployment_commit": "0953f6eff9b288d84fea1b1e74905707ffa9ffaf",
+  "production_git_status": "",
+  "service": "MainPID=1749394\nNRestarts=0\nActiveState=active\nUnitFileState=enabled\n",
+  "rc1": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n",
+  "container": {
+    "Pid": 1749505,
+    "StartedAt": "2026-10-09T02:14:07.620265402Z",
+    "Running": true
+  },
+  "container_id": "732842edcb139eae050ecb46e9538190ac4440ef682e635efb4bdbec76e849c6",
+  "image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "running_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+  "unit_sha256": "d96ec3656d2298b5fc33519d5629e3f67978ddefea0536e9fc650162fd61e0c5",
+  "launcher_files_unchanged": true,
+  "v1/models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "swift-1.5-iq3_xxs",
+        "object": "model",
+        "status": {
+          "value": "loaded"
+        },
+        "meta": {
+          "n_ctx": 131072
+        },
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      }
+    ]
+  },
+  "status": {
+    "busy": false,
+    "queued": 0,
+    "phase": "answering",
+    "prompt_tokens": 123,
+    "generated": 2162,
+    "max_tokens": 130941
+  },
+  "metrics": {
+    "engine": {
+      "model": "swift-1.5-iq3_xxs",
+      "max_context": 131072,
+      "images": false,
+      "version": "0.1.39-sycl",
+      "context": 131072,
+      "kv": "int8",
+      "kv_resident": 32768,
+      "expert_slots": 10831,
+      "expert_cache_mib": 17990,
+      "expert_slots_primary": 10831,
+      "expert_cache_primary_mib": 17990,
+      "spec": 6,
+      "mtp_max": 4,
+      "lookup": 3,
+      "vram_free_mib": 655,
+      "cvec": 0,
+      "arena_mib": 40925,
+      "pool_workers": 13,
+      "pcie_frac": "0.25",
+      "spec_min_p": "0.50",
+      "conversation_cache_mib": 0,
+      "conversation_cache_slots": 4,
+      "conversation_cache_min_free_mib": 2560,
+      "tail_role_token": -1,
+      "vram_elastic": 0,
+      "engine": "0.1.39-sycl"
+    },
+    "live": {
+      "state": "idle",
+      "queued": 0,
+      "phase": null,
+      "prompt_tokens": null,
+      "prompt_read": null,
+      "prompt_total": null,
+      "generated": null,
+      "max_tokens": null,
+      "elapsed_s": null,
+      "tok_s": null,
+      "tok_s_mean": null,
+      "prefill_tok_s_mean": null,
+      "tok_s_window_s": null
+    },
+    "request_records": 4
+  },
+  "native_ui": {
+    "http_status": 200,
+    "bytes": 15295,
+    "native_tabs_present": true
+  },
+  "gpu_faults_since_production_start": 0,
+  "gpu_discovery": {
+    "core_clock_rate": "2400 MHz",
+    "device_id": 0,
+    "device_name": "Intel(R) Arc(TM) Pro B60 Graphics",
+    "device_state": "normal",
+    "device_stepping": "A0",
+    "device_type": "Discrete GPU",
+    "driver_version": "17010844",
+    "drm_device": "/dev/dri/card2",
+    "gfx_data_firmware_name": "GFX_DATA",
+    "gfx_data_firmware_version": "",
+    "gfx_firmware_name": "GFX",
+    "gfx_firmware_status": "normal",
+    "gfx_firmware_version": "",
+    "kernel_version": "7.0.0-34-generic",
+    "max_command_queue_priority": "0",
+    "max_hardware_contexts": "65536",
+    "max_mem_alloc_size_byte": "24385683456",
+    "memory_bus_width": "4294967295",
+    "memory_ecc_state": "disabled",
+    "memory_free_size_byte": "0",
+    "memory_physical_size": "24480.00 MiB",
+    "memory_physical_size_byte": 25669140480,
+    "number_of_eus": 160,
+    "number_of_eus_per_sub_slice": "8",
+    "number_of_media_engines": "0",
+    "number_of_media_enh_engines": "0",
+    "number_of_memory_channels": "4294967295",
+    "number_of_slices": "5",
+    "number_of_sub_slices_per_slice": "4",
+    "number_of_threads_per_eu": "8",
+    "number_of_tiles": 1,
+    "oam_socket_id": "N/A",
+    "pci_bdf_address": "0000:07:00.0",
+    "pci_device_id": "0xe211",
+    "pci_slot": "",
+    "pci_vendor_id": "0x8086",
+    "pcie_generation": "N/A",
+    "pcie_max_bandwidth": "N/A",
+    "pcie_max_link_width": "N/A",
+    "physical_eu_simd_width": "16",
+    "serial_number": "unknown",
+    "sku_type": "Production ES",
+    "uuid": "00000000-0000-0007-0000-0000e2118086",
+    "vendor_name": "Intel(R) Corporation"
+  },
+  "user_linger": "Linger=yes",
+  "docker_autostart": "enabled",
+  "user_autostart_symlink": "/home/james/.config/systemd/user/jr-strata-sycl-fastfix.service",
+  "actual_reboot_test": "NOT EXECUTED",
+  "restart_or_gpu_test_during_freeze": false
+}
