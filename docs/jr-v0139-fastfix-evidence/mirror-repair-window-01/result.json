@@ -1,0 +1,11 @@
+{
+  "stages": {
+    "validation": "FAIL/BLOCKED: prepared resource gate BLOCKED: require23GiB B60 free /32GiB MemAvailable",
+    "experimental_teardown": "NOT STARTED; resources released",
+    "RC1_restoration": "PASS"
+  },
+  "elapsed_s": 27.205934469995555,
+  "start_epoch": 1791508288.3922405,
+  "deadline_epoch": 1791509488.3922405,
+  "unsafe": false
+}

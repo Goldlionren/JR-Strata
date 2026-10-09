@@ -1,0 +1,10 @@
+{
+  "max_context": 32768,
+  "expert_slots": 9248,
+  "expert_cache_mib": 15348,
+  "kv": "int8",
+  "kv_resident": 0,
+  "spec": 6,
+  "mtp_max": 4,
+  "vram_free_mib": 2936
+}

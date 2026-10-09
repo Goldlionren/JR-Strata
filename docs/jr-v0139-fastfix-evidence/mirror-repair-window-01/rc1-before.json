@@ -1,0 +1,78 @@
+{
+  "server_pid": 984699,
+  "engine_pids": [
+    985485
+  ],
+  "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "service": "ActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "watch": {
+    "service": "jr-strata-sycl-rc1.service",
+    "systemd": {
+      "MainPID": "984699",
+      "NRestarts": "0",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "last_start": {
+      "started_at": "2026-10-09T11:05:25.382177+11:00",
+      "server_pid": 984699,
+      "profile": "32k",
+      "config": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/strata-swift-iq3_xxs-b60-32k.json",
+      "binary": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/dist/jr-b60-sycl-v0.1.40.3-rc1/strata",
+      "binary_sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+      "release_commit": "ea2b6543afedc006e79f4a1b6f473518354daa4d",
+      "engine_log": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/logs/jr-v01403/engine-32k.log",
+      "engine_log_start": 59280,
+      "host_available_kib": 58991328,
+      "gpu_free_bytes": 24143736832
+    },
+    "engine_pid": 985485,
+    "memory_kib": {
+      "system_used_kib": 34735264,
+      "VmRSS_kib": 1739072,
+      "VmHWM_kib": 1782680,
+      "VmSwap_kib": 0,
+      "vram_kib": 22241732,
+      "gpu_host_kib": 26638888,
+      "host_available": 30662544,
+      "host_total": 65397808,
+      "host_swap_used": 1511572
+    },
+    "totals_since_process_start": {
+      "since": 1791504344.2526486,
+      "requests": 1,
+      "prompt_tokens": 26,
+      "reused": 0,
+      "output_tokens": 9,
+      "prompt_ms": 1350.8,
+      "decode_ms": 591.9,
+      "drafts_offered": 6,
+      "drafts_accepted": 6
+    },
+    "live": {
+      "state": "idle",
+      "queued": 0,
+      "phase": null,
+      "prompt_tokens": null,
+      "prompt_read": null,
+      "prompt_total": null,
+      "generated": null,
+      "max_tokens": null,
+      "elapsed_s": null,
+      "tok_s": null,
+      "tok_s_mean": null,
+      "prefill_tok_s_mean": null,
+      "tok_s_window_s": null
+    },
+    "context_capacity": 32768,
+    "last_request": {
+      "prefill_tps": 19.247853124074624,
+      "decode_tps": 15.2,
+      "finish": "stop"
+    },
+    "mtp_suffix_acceptance_pct": 100.0,
+    "recent_b60_fault_count": 0,
+    "recent_b60_faults": []
+  }
+}

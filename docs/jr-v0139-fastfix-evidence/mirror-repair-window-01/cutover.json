@@ -1,0 +1,8 @@
+{
+  "start_epoch": 1791508288.3922405,
+  "start_iso": "2026-10-09T12:11:28.392245+11:00",
+  "deadline_epoch": 1791509488.3922405,
+  "experiment_teardown_epoch": 1791509188.3922405,
+  "authorization": "user-approved20-minute Adaptive Mirror GPU validation at8b5c202",
+  "engine_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e"
+}

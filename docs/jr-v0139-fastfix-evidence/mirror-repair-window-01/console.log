@@ -1,0 +1,4 @@
+3.8s STOP: prepared resource gate BLOCKED: require23GiB B60 free /32GiB MemAvailable
+4.0s experimental process absence and RC1 recovery resource gate PASS
+27.2s RC1 restored: hash/API generation/native monitoring/kernel PASS
+27.2s WINDOW CLOSED

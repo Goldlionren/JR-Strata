@@ -1,5 +1,7 @@
 # FastFix experimental SOP
 
+Approved mirror window01 is **BLOCKED at the planned23GiB free-memory gate**, before any candidate GPU test. Actual clean free memory22.485607GiB matched the prior normal launch record; RC1 was safely restored within27.206s. [Actual results and first blocker](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS.md). Conditional promotion now requires≥20 sustained Decode tok/s plus all correctness/safety/restart gates; it remains BLOCKED because GPU validation was not executed.
+
 The current mirror/payload repair is offline-only. Use [the narrow Adaptive ON plan](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_PLAN.md) and its new manifest for any future approved test. Earlier scripts/manifests below describe historical candidates and must not execute this new build. RC1 remains active; no old maintenance approval is reused.
 
 Worktree `/data/strata-lab/JR-Strata-SYCL-v0139-FastFix`, branch `jr-b60-sycl-v0.1.39-fastfix`. No autostart or production promotion. The operator's final authorization covers completing controlled validation and RC1 restoration; it does not authorize changes to drivers, production profiles or other projects.

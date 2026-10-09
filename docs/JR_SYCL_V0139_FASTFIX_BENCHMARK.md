@@ -1,5 +1,7 @@
 # FastFix validation results — FAILED acceptance
 
+Approved mirror window01 is **BLOCKED at the planned23GiB free-memory gate**, before any candidate GPU test. Actual clean free memory22.485607GiB matched the prior normal launch record; RC1 was safely restored within27.206s. [Actual results and first blocker](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS.md). Conditional promotion now requires≥20 sustained Decode tok/s plus all correctness/safety/restart gates; it remains BLOCKED because GPU validation was not executed.
+
 Current offline update: adaptive GGUF slot exchange and independent per-layer host payload repair are implemented in separate commits. CPU/reference and sanitizer gates pass; repaired-engine GPU acceptance and performance remain **BLOCKED / not executed**. Production RC1 remains unchanged. See [the repair report](JR_SYCL_V0139_FASTFIX_ADAPTIVE_MIRROR_REPAIR.md), the new candidate manifest and [Adaptive ON plan](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_PLAN.md). Historical failures/results below are preserved and do not qualify the new binary.
 
 Do not deploy FastFix. RC1 is restored, active and enabled. One bounded window began2026-10-09 00:37:38 Australia/Sydney; verified restoration completed within393 seconds of that original start. A fixture-only first segment restored RC1, and the continuation inherited the same deadline. Testing stopped on the first runtime readiness failure and subsequent GPU fault. No MTP-off/device-only comparison or further GPU experiment followed.

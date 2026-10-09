@@ -1,0 +1,182 @@
+{
+  "engine": {
+    "model": "swift-1.5-iq3_xxs",
+    "max_context": 32768,
+    "images": false,
+    "version": "0.1.40.3",
+    "context": 32768,
+    "kv": "int8",
+    "kv_resident": 0,
+    "expert_slots": 9248,
+    "expert_cache_mib": 15348,
+    "expert_slots_primary": 9248,
+    "expert_cache_primary_mib": 15348,
+    "spec": 6,
+    "mtp_max": 4,
+    "lookup": 3,
+    "vram_free_mib": 2936,
+    "cvec": 0,
+    "arena_mib": 40925,
+    "pool_workers": 13,
+    "pcie_frac": "0.25",
+    "spec_min_p": "0.50",
+    "conversation_cache_mib": 0,
+    "conversation_cache_slots": 4,
+    "conversation_cache_min_free_mib": 2560,
+    "tail_role_token": -1,
+    "vram_elastic": 0,
+    "engine": "0.1.40.3"
+  },
+  "live": {
+    "state": "idle",
+    "queued": 0,
+    "phase": null,
+    "prompt_tokens": null,
+    "prompt_read": null,
+    "prompt_total": null,
+    "generated": null,
+    "max_tokens": null,
+    "elapsed_s": null,
+    "tok_s": null,
+    "tok_s_mean": null,
+    "prefill_tok_s_mean": null,
+    "tok_s_window_s": null
+  },
+  "requests": [
+    {
+      "projection": null,
+      "time": 1791508313.7220612,
+      "duration_s": 1.6,
+      "finish": "stop",
+      "prompt_tokens": 23,
+      "reused": 0,
+      "output_tokens": 3,
+      "prompt_total": 23,
+      "prompt_read": 23,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 3,
+      "prompt_ms": 1252.5,
+      "decode_ms": 363.3,
+      "decode_tok_s": 8.3,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    }
+  ],
+  "conversation_cache": {
+    "enabled": false,
+    "budget_mib": 0,
+    "slots": 4,
+    "parked": 0,
+    "bytes": 0,
+    "evictions": 0,
+    "parks": 0,
+    "restores": 0,
+    "last_event": null,
+    "last_tokens": null,
+    "last_at": null,
+    "requests": 1,
+    "requests_reused": 0,
+    "reused_tokens": 0,
+    "prompt_tokens": 23,
+    "last_reused": 0,
+    "last_prompt": 23
+  },
+  "requests_kept": 1,
+  "totals": {
+    "since": 1791508313.1603305,
+    "requests": 1,
+    "prompt_tokens": 23,
+    "reused": 0,
+    "output_tokens": 3,
+    "prompt_ms": 1252.5,
+    "decode_ms": 363.3,
+    "drafts_offered": 3,
+    "drafts_accepted": 3
+  },
+  "hardware": {
+    "gpu_temp": 60.0,
+    "gpu_power": 69.51433567612122,
+    "gpu_power_limit": null,
+    "gpu_pcie_gen": 4,
+    "gpu_pcie_gen_max": 4,
+    "gpu_pcie_width": 4,
+    "gpu_pcie_rx_mb": null,
+    "gpu_pcie_tx_mb": null,
+    "cpu": 11.7,
+    "ram_used": 34992070656,
+    "ram_total": 66967355392,
+    "disk_read_mb": 4.701618167369312,
+    "disk_write_mb": 0.0,
+    "tok_s": 4.0,
+    "tok_s_mean": 10.413102576770584,
+    "prefill_tok_s_mean": 0.0
+  },
+  "hardware_static": {
+    "gpu_name": "Intel Arc GPU",
+    "gpu_count": 1,
+    "gpu_note": null,
+    "cpu_name": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "cores": 14,
+    "threads": 20,
+    "psutil": true
+  },
+  "history": {
+    "gpu_util": [
+      null,
+      null,
+      null
+    ],
+    "gpu_mem_used": [
+      null,
+      null,
+      null
+    ],
+    "gpu_temp": [
+      55.0,
+      59.0,
+      60.0
+    ],
+    "gpu_power": [
+      null,
+      34.8,
+      69.51
+    ],
+    "gpu_pcie_rx_mb": [
+      null,
+      null,
+      null
+    ],
+    "cpu": [
+      0.0,
+      20.6,
+      11.7
+    ],
+    "ram_used": [
+      34755100672,
+      34839973888,
+      34992070656
+    ],
+    "disk_read_mb": [
+      null,
+      6.75,
+      4.7
+    ],
+    "tok_s": [
+      0.0,
+      0.0,
+      4.0
+    ],
+    "prefill_tok_s_mean": [
+      0.0,
+      null,
+      0.0
+    ]
+  },
+  "time": 1791508315.3415945
+}

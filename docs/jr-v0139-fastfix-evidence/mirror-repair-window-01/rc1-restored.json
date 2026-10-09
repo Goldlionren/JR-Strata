@@ -1,0 +1,11 @@
+{
+  "server_pid": 1383233,
+  "engine_pids": [
+    1383707
+  ],
+  "sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+  "state": "active",
+  "enabled": "enabled",
+  "elapsed_s": 27.20575938600814,
+  "protected_hashes_unchanged": true
+}

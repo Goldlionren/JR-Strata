@@ -1,0 +1,37 @@
+{
+  "id": "chatcmpl-b7aa28a938504a95975913e1",
+  "object": "chat.completion",
+  "created": 1791508313,
+  "model": "swift-1.5-iq3_xxs",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "42"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 23,
+    "completion_tokens": 3,
+    "total_tokens": 26,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 23,
+    "prompt_ms": 1252.5,
+    "prompt_per_token_ms": 54.457,
+    "prompt_per_second": 18.4,
+    "predicted_n": 3,
+    "predicted_ms": 363.3,
+    "predicted_per_token_ms": 121.1,
+    "predicted_per_second": 8.3,
+    "draft_n": 3,
+    "draft_n_accepted": 3
+  }
+}

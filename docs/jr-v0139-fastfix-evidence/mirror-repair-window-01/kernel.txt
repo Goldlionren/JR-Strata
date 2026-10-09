@@ -1,0 +1,13 @@
+2026-10-09T12:11:28.667745+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:28.990338+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:29.671497+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:30.679195+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:31.690225+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:32.178344+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:32.375351+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:32.454346+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:32.671264+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:53.166958+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:53.647288+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:54.168289+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T12:11:55.170358+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000

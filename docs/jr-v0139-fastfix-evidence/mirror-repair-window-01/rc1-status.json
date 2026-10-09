@@ -1,0 +1,9 @@
+{
+  "busy": false,
+  "queued": 0,
+  "phase": "answering",
+  "prompt_tokens": 23,
+  "generated": 2,
+  "max_tokens": 32,
+  "reasoning_recoveries": 0
+}

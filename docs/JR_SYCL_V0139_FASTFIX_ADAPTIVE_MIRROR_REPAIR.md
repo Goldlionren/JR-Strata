@@ -1,5 +1,7 @@
 # FastFix adaptive GGUF mirror and host payload repair
 
+Approved mirror window01 is **BLOCKED at the planned23GiB free-memory gate**, before any candidate GPU test. Actual clean free memory22.485607GiB matched the prior normal launch record; RC1 was safely restored within27.206s. [Actual results and first blocker](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS.md). Conditional promotion now requires≥20 sustained Decode tok/s plus all correctness/safety/restart gates; it remains BLOCKED because GPU validation was not executed.
+
 Offline work starts at `48a0fefe682a7c5aeea78a23a4a6fda6867751ea` on `jr-b60-sycl-v0.1.39-fastfix`. Production RC1 remains running. This is a source repair and CPU validation, **not GPU acceptance or a production release**.
 
 ## Confirmed defect and causal limit
