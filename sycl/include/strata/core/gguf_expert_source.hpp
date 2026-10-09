@@ -9,7 +9,7 @@
 //
 // It is slow per blob (three reads, ~2.7 MB) and that is fine: the profile fill reads each expert once at start,
 // the prefill's lent slots are refilled a few hundred at a time, and with every expert resident the pool never
-// asks. `pinned()` is false and `device_alias()` null, so nothing tries to DMA from it.
+// asks. A blob in the startup/adaptive pinned complement is device-readable; other blobs retain GGUF fallback.
 #pragma once
 
 #include "strata/core/expert_source.hpp"

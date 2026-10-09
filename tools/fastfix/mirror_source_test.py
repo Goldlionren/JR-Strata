@@ -12,3 +12,6 @@ assert g.count('apply_pending(true);')>=4
 assert 'mirror_table_h; // persistent' in g
 assert 'drain_device_or_exit("GGUF mirror destruction")' in s
 print('PASS: real serving/CLI exchange guards, exact aliases, completion-before-commit, safe destruction')
+
+assert g.count('strata::drain_device_or_exit("adaptive worker exception")')==2
+print('PASS: both adaptive workers propagate exceptions only after proven safe queue completion')

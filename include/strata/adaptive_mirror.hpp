@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <string>
 #include <vector>
+#include <utility>
 #include <unordered_set>
 namespace strata::adaptive_mirror {
 struct Swap { size_t in, out; int32_t slot; };

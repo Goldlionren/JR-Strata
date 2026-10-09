@@ -373,6 +373,11 @@ bool GgufExpertSource::finish_exchanges(std::vector<int32_t>& residency, ExpertC
         if (!exchange_.commit(residency, mirror_ptr_, mirror_generation_, err)) return false;
         for (const auto& i : items)
             cache.replace(i.swap.in / n_expert_, i.swap.out % n_expert_, i.swap.in % n_expert_);
+        static const bool diag = [] { const char* v=std::getenv("STRATA_APLAN_DIAG"); return v && std::atoi(v)!=0; }();
+        if (diag) for (const auto& i : items)
+            std::fprintf(stderr, "APLAN_EXCHANGE generation=%llu phase=cpu_committed copies=complete layer=%zu in=%zu out=%zu slot=%d host=%p\n",
+                (unsigned long long)mirror_generation_, i.swap.in/(size_t)n_expert_, i.swap.in%(size_t)n_expert_,
+                i.swap.out%(size_t)n_expert_, i.swap.slot, (void*)i.host);
         return true;
     } catch (const std::exception& e) {
         err = e.what();

@@ -3827,7 +3827,7 @@ int main(int argc, char **argv) try {
                     mirror_table_h.size() * sizeof(unsigned long long)).wait_and_throw();
             }
         }
-        if (srcp == &gguf_src && (multi_gpu || peer.valid()) && o.adapt_every > 0 && o.adapt_swaps > 0) {
+        if (srcp == &gguf_src && (multi_gpu || o.peer_device >= 0) && o.adapt_every > 0 && o.adapt_swaps > 0) {
             std::fprintf(stderr, "strata generate: GGUF adaptive mirror exchange currently requires a single GPU\n");
             return 1;
         }
@@ -4699,7 +4699,7 @@ int main(int argc, char **argv) try {
         dpct::get_in_order_queue().memcpy(mirror_table_d, mirror_table_h.data(),
             mirror_table_h.size() * sizeof(unsigned long long)).wait_and_throw();
         static const bool diag = [] { const char* v=std::getenv("STRATA_APLAN_DIAG"); return v && std::atoi(v)!=0; }();
-        if (diag) std::fprintf(stderr, "APLAN_MIRROR generation=%llu published=1 slots=%zu\n",
+        if (diag) std::fprintf(stderr, "APLAN_MIRROR generation=%llu phase=mirror_uploaded entries=%zu\n",
             (unsigned long long)gguf_src.mirror_generation(), mirror_table_h.size());
     };
     auto finish_gguf_exchange = [&]() {
@@ -5805,7 +5805,7 @@ int main(int argc, char **argv) try {
                     .wait_and_throw();
             }
         }
-        catch (sycl::exception const &exc) {
+        catch (std::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
           strata::drain_device_or_exit("adaptive metadata publication failure");
@@ -5838,7 +5838,7 @@ int main(int argc, char **argv) try {
             }
             pending.clear();
             res_upload();
-            // Opt-in evidence only: the startup mirror is static while adaptive residency can change.
+            // Opt-in evidence after BOTH tables complete: no verifier can see a mixed publication.
             static const bool aplan_diag = [] { const char* v=std::getenv("STRATA_APLAN_DIAG"); return v && std::atoi(v)!=0; }();
             static uint64_t aplan_upload=0;
             if (aplan_diag && srcp==&gguf_src) {
@@ -5851,12 +5851,12 @@ int main(int argc, char **argv) try {
                         ++holes;
                     }
                 }
-                std::fprintf(stderr,"APLAN_RESIDENCY upload=%llu adapt_every=%d adapt_swaps=%d holes=%zu first_layer=%lld first_expert=%lld hash=%u\n",
-                    (unsigned long long)++aplan_upload,o.adapt_every,o.adapt_swaps,holes,
+                std::fprintf(stderr,"APLAN_RESIDENCY upload=%llu generation=%llu adapt_every=%d adapt_swaps=%d holes=%zu first_layer=%lld first_expert=%lld hash=%u\n",
+                    (unsigned long long)++aplan_upload,(unsigned long long)gguf_src.mirror_generation(),o.adapt_every,o.adapt_swaps,holes,
                     (long long)(first<0?-1:first/g.n_expert),(long long)(first<0?-1:first%g.n_expert),hash);
             }
         }
-        catch (sycl::exception const &exc) {
+        catch (std::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
           strata::drain_device_or_exit("adaptive completion failure");
@@ -7097,7 +7097,18 @@ int main(int argc, char **argv) try {
                 std::thread adapt_thr;   // the adaptive tier beside the commit and the draft (as in generate)
                 bool adapt_ok = true;
                 if (!drive.d.usage.empty() && ((rounds + 1) % o.adapt_every) == 0)
-                    adapt_thr = std::thread([&] { adapt_ok = adapt(); });
+                    adapt_thr = std::thread([&] {
+                        try { adapt_ok = adapt(); }
+                        catch (const std::exception& e) {
+                            std::fprintf(stderr, "strata: adaptive worker failed: %s\n", e.what());
+                            strata::drain_device_or_exit("adaptive worker exception");
+                            adapt_ok = false;
+                        }
+                        catch (...) {
+                            strata::drain_device_or_exit("unknown adaptive worker exception");
+                            adapt_ok = false;
+                        }
+                    });
                 if (!ver.commit(a + 1, err)) {
                     if (adapt_thr.joinable()) adapt_thr.join();
                     std::printf("ERR %s\n", err.c_str());
@@ -7938,7 +7949,7 @@ int main(int argc, char **argv) try {
                 dpct::get_in_order_queue().memcpy(
                     d_res, host_res.data(), host_res.size() * sizeof(int32_t)).wait_and_throw();
         }
-        catch (sycl::exception const &exc) {
+        catch (std::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
           strata::drain_device_or_exit("adaptive completion failure");
@@ -8160,7 +8171,18 @@ int main(int argc, char **argv) try {
             std::thread adapt_thr;
             bool adapt_ok = true;
             if (!drive.d.usage.empty() && ((rounds + 1) % o.adapt_every) == 0)
-                adapt_thr = std::thread([&] { adapt_ok = adapt(); });
+                adapt_thr = std::thread([&] {
+                        try { adapt_ok = adapt(); }
+                        catch (const std::exception& e) {
+                            std::fprintf(stderr, "strata: adaptive worker failed: %s\n", e.what());
+                            strata::drain_device_or_exit("adaptive worker exception");
+                            adapt_ok = false;
+                        }
+                        catch (...) {
+                            strata::drain_device_or_exit("unknown adaptive worker exception");
+                            adapt_ok = false;
+                        }
+                    });
             // SYCL port: the commit graph is left running while the drafter's round (its own queue) runs; collected
             // below, before anything reads the committed state
             if (!ver.commit(a + 1, err, /*wait=*/!use_mtp)) {

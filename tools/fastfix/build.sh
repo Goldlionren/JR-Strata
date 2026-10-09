@@ -17,6 +17,6 @@ docker run --rm --user "$(id -u):$(id -g)" \
     -DCMAKE_C_COMPILER=/opt/intel/oneapi/compiler/2026.1/bin/icx \
     -DCMAKE_CXX_COMPILER=/opt/intel/oneapi/compiler/2026.1/bin/icpx \
     -DSTRATA_SYCL_AOT=bmg-g21 -DSTRATA_GGML_DIR=/data/strata-lab/Strata/build-sycl-aot/_deps/strata_llamacpp-src
-  cmake --build build-fastfix -j2 --target strata fastfix_handoff fastfix_memory_safety fastfix_ple_staging kv_q8_parity kv_stream_parity iq_multi_parity native_grouped_parity quantize_act_parity ple_parity
+  cmake --build build-fastfix -j2 --target strata fastfix_handoff fastfix_adaptive_mirror fastfix_memory_safety fastfix_ple_staging kv_q8_parity kv_stream_parity iq_multi_parity native_grouped_parity quantize_act_parity ple_parity
   '
 sha256sum build-fastfix/strata

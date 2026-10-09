@@ -250,3 +250,6 @@ target_compile_definitions(fastfix_ple_staging PRIVATE PLEFIX_GPU=1)
 target_link_libraries(fastfix_ple_staging PRIVATE strata_kernels)
 add_executable(fastfix_handoff ${STRATA_ROOT}/tools/fastfix/handoff_gpu.cpp)
 target_link_libraries(fastfix_handoff PRIVATE strata_kernels)
+# Narrow adaptive GGUF mirror and captured payload lifetime regression (approved GPU windows only).
+add_executable(fastfix_adaptive_mirror ${STRATA_ROOT}/tools/fastfix/adaptive_mirror_gpu.cpp)
+target_link_libraries(fastfix_adaptive_mirror PRIVATE strata_engine)
