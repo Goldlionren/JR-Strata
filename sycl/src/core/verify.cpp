@@ -1,3 +1,4 @@
+#include "strata/verify_payload.hpp"
 #include "strata/sycl_verify_guard.hpp"
 #include "strata/sycl_queue.hpp"
 #include "strata/sycl_failed_work.hpp"
@@ -368,6 +369,9 @@ bool Verifier::init(const WeightTable &wt, const ModelGeometry &g,
     const uint64_t TS = (uint64_t) (s.idx_block - 1) * ID;
     const int max_in = (int) std::max<uint64_t>(std::max<uint64_t>(N, ZV), NH * HD);
 
+    // Each layer publishes once into its own window rows. Device-plan skips can let the graph advance
+    // while the CPU is behind; seq >= want does not authorize reusing an older layer's payload storage.
+    const uint64_t payload_rows = T * (uint64_t)(le_ - lb_);
     // ---- mapped staging
     bool ok = mapped(T * 4, (void**) &h_tok_, (void**) &m_tok_) &&
               mapped(T * strata::kernels::kStepCount * 4, (void**) &h_step_, (void**) &m_step_) &&
@@ -375,9 +379,9 @@ bool Verifier::init(const WeightTable &wt, const ModelGeometry &g,
               mapped((2 + T) * 4 + 16, (void**) &h_commit_, (void**) &m_commit_) &&
               mapped(T * N * 4, (void**) &h_ple_, (void**) &m_ple_) &&
               mapped(T * 4 + 16, (void**) &h_out_, (void**) &m_out_) &&
-              mapped(T * N * 4, (void**) &h_x_, (void**) &m_x_) &&
-              mapped(T * K * 4, (void**) &h_ids_, (void**) &m_ids_) &&
-              mapped(T * K * 4, (void**) &h_w_, (void**) &m_w_) &&
+              mapped(payload_rows * N * 4, (void**) &h_x_, (void**) &m_x_) &&
+              mapped(payload_rows * K * 4, (void**) &h_ids_, (void**) &m_ids_) &&
+              mapped(payload_rows * K * 4, (void**) &h_w_, (void**) &m_w_) &&
               mapped(64, (void**) &h_seq_, (void**) &m_seq_) &&
               mapped(64, (void**) &h_flag_, (void**) &m_flag_) &&
               mapped(64, (void**) &h_flagA_, (void**) &m_flagA_) &&
@@ -905,14 +909,15 @@ bool Verifier::record_window(int T, dpct::queue_ptr cs, std::string &err) {
                           hits_.cache_base, slot_off_d_, (long long) hits_.blob,
                           plan_ + (size_t) grp * (size_t) (plan_i32_ + 16), (long long) max_t_ * K, skip_ + grp,
                           (uint32_t) ((l - lb_) * G + grp + 1), cs, aplan_m_ ? aplan_m_ + (l-lb_)*G+grp : nullptr);
+        const size_t payload_row = strata::verify_payload::row(l, lb_, max_t_, tb);
 #if defined(STRATA_USE_HIP)
         if (g_doorbell_store)   // #649 A/B: the step's ring stored, not incremented over PCIe
-            doorbell_publish_value(xm, ids_ + tb * K, w_ + tb * K, (int64_t) n * N, (int64_t) n * K, m_x_ + tb * N,
-                                   m_ids_ + tb * K, m_w_ + tb * K, m_seq_, (uint32_t) ((l - lb_) * G + grp + 1), cs);
+            doorbell_publish_value(xm, ids_ + tb * K, w_ + tb * K, (int64_t) n * N, (int64_t) n * K, m_x_ + payload_row * N,
+                                   m_ids_ + payload_row * K, m_w_ + payload_row * K, m_seq_, (uint32_t) ((l - lb_) * G + grp + 1), cs);
         else
 #endif
-        doorbell_publish(xm, ids_ + tb * K, w_ + tb * K, (int64_t) n * N, (int64_t) n * K, m_x_ + tb * N,
-                         m_ids_ + tb * K, m_w_ + tb * K, m_seq_, cs);
+        doorbell_publish(xm, ids_ + tb * K, w_ + tb * K, (int64_t) n * N, (int64_t) n * K, m_x_ + payload_row * N,
+                         m_ids_ + payload_row * K, m_w_ + payload_row * K, m_seq_, cs);
         stamp(l, 17, grp);
         {
             const WeightRef *wgi = need(v, "ffn_gate_inp_shexp.weight", err), *wsg = need(v, "ffn_gate_shexp.weight", err),
@@ -1444,8 +1449,9 @@ bool Verifier::run(int T, const int32_t *tokens, int64_t pos0, PoolMultiFn pool,
         set_plan_slot(grp);
         const int tb = gtb[grp], n = gte[grp] - gtb[grp];
         progress_at("verify window: the CPU experts of layer", l);
+        const size_t payload_row = strata::verify_payload::row(l, lb_, max_t_, tb);
         if (pool != nullptr)
-            pool(user, h_x_ + (size_t) tb * g.n_embd, h_ids_ + (size_t) tb * ss.k, n, ss.k,
+            pool(user, h_x_ + payload_row * g.n_embd, h_ids_ + payload_row * ss.k, n, ss.k,
                  h_ymiss_ + (size_t) tb * ss.k * g.n_embd, l);
         if (aplan_h_) { auto& a=aplan_host_[k]; a.return_ns=trace_now_ns(); a.seq_return=*seq; }
         VDBG("layer %lld served\n", (long long) l);

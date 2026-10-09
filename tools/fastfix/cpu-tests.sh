@@ -21,3 +21,7 @@ build-fastfix-cpu/aplan_state_test | tee "$out/aplan-state.log"
 c++ -std=c++20 -O2 -Wall -Wextra -Werror -Iinclude tools/fastfix/adaptive_mirror_test.cpp -o build-fastfix-cpu/adaptive_mirror_test
 build-fastfix-cpu/adaptive_mirror_test | tee "$out/adaptive-mirror.log"
 python3 -B tools/fastfix/mirror_source_test.py | tee "$out/mirror-source.log"
+
+c++ -std=c++20 -O2 -Wall -Wextra -Werror -Iinclude tools/fastfix/payload_lifetime_test.cpp -o build-fastfix-cpu/payload_lifetime_test
+build-fastfix-cpu/payload_lifetime_test | tee "$out/payload-lifetime.log"
+python3 -B tools/fastfix/payload_source_test.py | tee "$out/payload-source.log"
