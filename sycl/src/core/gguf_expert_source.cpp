@@ -9,6 +9,8 @@
 #include <sycl/sycl.hpp>
 #include <thread>
 #include <atomic>
+#include <stdexcept>
+#include "strata/sycl_failed_work.hpp"
 
 namespace strata::core {
 
@@ -19,6 +21,13 @@ constexpr size_t kRing = 512;   // blobs alive at once: the prompt path holds a 
 GgufExpertSource::~GgufExpertSource() { close(); }
 
 void GgufExpertSource::close() {
+    // Never reclaim mapped weights/scratch while graph, DMA or host-task readers may still reference them.
+    if (!blocks_.empty() || exchange_scratch_) strata::drain_device_or_exit("GGUF mirror destruction");
+    if (exchange_scratch_) sycl::free(exchange_scratch_, dpct::get_in_order_queue());
+    exchange_scratch_ = nullptr;
+    exchange_ = adaptive_mirror::Batch{};
+    exchange_queue_ = nullptr;
+    mirror_generation_ = 0;
     for (uint8_t* b : blocks_)
         if (b != nullptr) sycl::free(b, dpct::get_in_order_queue());
     blocks_.clear();
@@ -78,6 +87,7 @@ int GgufExpertSource::fd_of(int64_t layer, int role, std::string& err) {
 }
 
 const uint8_t* GgufExpertSource::blob(int64_t layer, int64_t expert) {
+    require_committed();
     if (layer < 0 || layer >= n_layers_ || expert < 0 || expert >= n_expert_ || ring_.empty()) return nullptr;
     if (!blocks_.empty() && !mirror_ptr_.empty()) {
         if (uint8_t* m = mirror_ptr_[(size_t) (layer * n_expert_ + expert)])
@@ -121,6 +131,8 @@ int64_t GgufExpertSource::mirror(const std::vector<std::pair<int64_t, int64_t>>&
     const auto& lay = strata::kernels::cpu::expert_layout();
     sycl::queue& q = dpct::get_in_order_queue();
 
+    require_committed();
+    if (!blocks_.empty()) strata::drain_device_or_exit("GGUF mirror replacement");
     // A fresh mirror replaces any previous one.
     for (uint8_t* b : blocks_)
         if (b != nullptr) sycl::free(b, q);
@@ -284,6 +296,7 @@ int64_t GgufExpertSource::mirror(const std::vector<std::pair<int64_t, int64_t>>&
 }
 
 bool GgufExpertSource::pinned(int64_t layer, int64_t expert) const {
+    require_committed();
     if (blocks_.empty() ||
         layer < 0 || layer >= n_layers_ ||
         expert < 0 || expert >= n_expert_ ||
@@ -293,19 +306,79 @@ bool GgufExpertSource::pinned(int64_t layer, int64_t expert) const {
     return mirror_ptr_[(size_t) (layer * n_expert_ + expert)] != nullptr;
 }
 
+void GgufExpertSource::require_committed() const {
+    if (exchange_.active()) throw std::logic_error("GGUF mirror read during uncommitted adaptive exchange");
+}
+
 const uint8_t* GgufExpertSource::device_alias(int64_t layer, int64_t expert) const {
-    if (blocks_.empty() ||
-        layer < 0 || layer >= n_layers_ ||
-        mirror_ptr_.empty())
-        return nullptr;
+    require_committed();
+    if (layer < 0 || layer >= n_layers_ || expert < 0 || expert >= n_expert_ || mirror_ptr_.empty()) return nullptr;
+    return mirror_ptr_[(size_t)(layer * n_expert_ + expert)];
+}
 
-    if (expert >= 0 && expert < n_expert_) {
-        if (uint8_t* p =
-                mirror_ptr_[(size_t) (layer * n_expert_ + expert)])
-            return p;
+bool GgufExpertSource::pcie_layer(int64_t layer) const {
+    require_committed();
+    return layer >= 0 && layer < n_layers_ && !layer_first_.empty() && layer_first_[(size_t)layer] != nullptr;
+}
+
+void GgufExpertSource::mirror_table(std::vector<unsigned long long>& table) const {
+    require_committed();
+    table.resize(mirror_ptr_.size());
+    for (size_t i = 0; i < table.size(); ++i) table[i] = (unsigned long long)mirror_ptr_[i];
+}
+
+bool GgufExpertSource::exchange_async(const std::vector<adaptive_mirror::Swap>& swaps,
+                                     const std::vector<int32_t>& residency, ExpertCache& cache,
+                                     sycl::queue& queue, std::string& err) {
+    if (swaps.empty()) return true;
+    if (!queue.is_in_order()) { err = "GGUF exchange needs an in-order copy queue"; return false; }
+    // Validate cache ownership too: never trust an index into repurposed slot storage.
+    for (const auto& s : swaps) {
+        if (s.slot < 0 || s.slot >= cache.slots() || s.in >= residency.size() || s.out >= residency.size() ||
+            cache.slot_of(s.out / n_expert_, s.out % n_expert_) != s.slot ||
+            cache.slot_of(s.in / n_expert_, s.in % n_expert_) != kNotResident) {
+            err = "GGUF exchange cache ownership mismatch"; return false;
+        }
     }
+    const auto& lay = strata::kernels::cpu::expert_layout();
+    if (!exchange_scratch_) {
+        try { exchange_scratch_ = sycl::malloc_host<uint8_t>((size_t)lay.max_blob, queue); }
+        catch (const std::exception& e) { err = e.what(); return false; }
+        if (!exchange_scratch_) { err = "GGUF exchange scratch allocation failed"; return false; }
+    }
+    if (!exchange_.prepare(swaps, (size_t)n_expert_, residency, mirror_ptr_, mirror_generation_, err)) return false;
+    exchange_queue_ = &queue;
+    try {
+        // Preserve victim first, upload incoming, then reuse its host slot. In-order execution also protects
+        // the single scratch buffer between swaps. No reader is admitted until finish + both table uploads.
+        adaptive_mirror::enqueue(exchange_, exchange_scratch_,
+            [&](int32_t slot) { return (uint8_t*)cache.device_slot(slot); },
+            [&](size_t in) { return (size_t)lay.blob_bytes(in / n_expert_); },
+            [&](uint8_t* dst, const uint8_t* src, size_t bytes) { exchange_event_ = queue.memcpy(dst, src, bytes); });
+        return true;
+    } catch (const std::exception& e) {
+        err = e.what();
+        strata::drain_device_or_exit("partial GGUF adaptive exchange submission");
+        return false; // contents may be partly replaced: caller must end this engine, never resume Decode
+    }
+}
 
-    return layer_first_[(size_t) layer];
+bool GgufExpertSource::finish_exchanges(std::vector<int32_t>& residency, ExpertCache& cache, std::string& err) {
+    if (!exchange_.active()) return true;
+    try {
+        exchange_event_.wait_and_throw();
+        exchange_queue_->throw_asynchronous();
+        const auto items = exchange_.items();
+        exchange_.copies_completed();
+        if (!exchange_.commit(residency, mirror_ptr_, mirror_generation_, err)) return false;
+        for (const auto& i : items)
+            cache.replace(i.swap.in / n_expert_, i.swap.out % n_expert_, i.swap.in % n_expert_);
+        return true;
+    } catch (const std::exception& e) {
+        err = e.what();
+        strata::drain_device_or_exit("GGUF adaptive exchange completion failed");
+        return false;
+    }
 }
 
 bool GgufExpertSource::read_into(int64_t layer, int64_t expert, uint8_t* dst, size_t bytes) const {

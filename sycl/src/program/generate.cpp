@@ -25,6 +25,7 @@
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "strata/sycl_queue.hpp"
+#include "strata/sycl_failed_work.hpp"
 #include "strata/core/device.hpp"
 #include "strata/core/expert_cache.hpp"
 #include "strata/core/conversation_snapshot.hpp"
@@ -3786,6 +3787,7 @@ int main(int argc, char **argv) try {
     // over PCIe (--stream-experts has no host copy otherwise: each routed miss was an SSD read). The share of misses
     // the GPU takes is --pcie-frac; STRATA_MIRROR_MIB caps the mirror (default: MemAvailable less 4 GiB), 0 = off.
     unsigned long long* mirror_table_d = nullptr;   // [n_layers][n_expert] device-readable mirror addresses (0 = none)
+    std::vector<unsigned long long> mirror_table_h; // persistent publication staging
     int64_t unmirrored_misses = 0;
     if (o.stream_experts && srcp == &gguf_src && o.expert_cache > 0) {
         std::vector<std::pair<int64_t, int64_t>> miss;
@@ -3818,14 +3820,16 @@ int main(int argc, char **argv) try {
                              (double) gguf_src.mirrored_bytes() / 1073741824.0,
                              std::chrono::duration<double>(Clock::now() - tm).count());
                 // the device-built verify plan's view of it: each (layer, expert) -> its mirror address, 0 = none
-                std::vector<unsigned long long> tab((size_t) (g.n_layers * g.n_expert), 0ull);
-                for (int64_t l = 0; l < g.n_layers; ++l)
-                    for (int64_t e = 0; e < g.n_expert; ++e)
-                        if (gguf_src.pinned(l, e))
-                            tab[(size_t) (l * g.n_expert + e)] = (unsigned long long) gguf_src.device_alias(l, e);
-                mirror_table_d = sycl::malloc_device<unsigned long long>(tab.size(), dpct::get_in_order_queue());
-                dpct::get_in_order_queue().memcpy(mirror_table_d, tab.data(), tab.size() * sizeof(unsigned long long)).wait();
+                gguf_src.mirror_table(mirror_table_h);
+                mirror_table_d = sycl::malloc_device<unsigned long long>(mirror_table_h.size(), dpct::get_in_order_queue());
+                if (!mirror_table_d) { std::fprintf(stderr, "strata generate: mirror table allocation failed\n"); return 1; }
+                dpct::get_in_order_queue().memcpy(mirror_table_d, mirror_table_h.data(),
+                    mirror_table_h.size() * sizeof(unsigned long long)).wait_and_throw();
             }
+        }
+        if (srcp == &gguf_src && (multi_gpu || peer.valid()) && o.adapt_every > 0 && o.adapt_swaps > 0) {
+            std::fprintf(stderr, "strata generate: GGUF adaptive mirror exchange currently requires a single GPU\n");
+            return 1;
         }
         unmirrored_misses = (int64_t) miss.size() - (int64_t) (gguf_src.mirrored_bytes() ? std::count_if(miss.begin(), miss.end(),
             [&](const std::pair<int64_t, int64_t>& pr) { return gguf_src.pinned(pr.first, pr.second); }) : 0);
@@ -4689,6 +4693,24 @@ int main(int argc, char **argv) try {
     int32_t* d_res = nullptr;
     int32_t* d_hit_count = nullptr;
     strata::core::TokenHits thits;
+    auto publish_gguf_mirror = [&]() {
+        if (srcp != &gguf_src || !mirror_table_d) return;
+        gguf_src.mirror_table(mirror_table_h);
+        dpct::get_in_order_queue().memcpy(mirror_table_d, mirror_table_h.data(),
+            mirror_table_h.size() * sizeof(unsigned long long)).wait_and_throw();
+        static const bool diag = [] { const char* v=std::getenv("STRATA_APLAN_DIAG"); return v && std::atoi(v)!=0; }();
+        if (diag) std::fprintf(stderr, "APLAN_MIRROR generation=%llu published=1 slots=%zu\n",
+            (unsigned long long)gguf_src.mirror_generation(), mirror_table_h.size());
+    };
+    auto finish_gguf_exchange = [&]() {
+        if (srcp != &gguf_src) return;
+        std::string why;
+        if (!gguf_src.finish_exchanges(host_res, xcache, why)) {
+            std::fprintf(stderr, "strata: GGUF adaptive exchange failed: %s\n", why.c_str());
+            strata::drain_device_or_exit("GGUF exchange rejected before publication");
+            std::exit(1);
+        }
+    };
     const bool graph_hits = hit_fn != nullptr && !profile.empty() && !o.no_pool;
     if (graph_hits && !o.no_capture && !o.no_token_graph && layer_dump == nullptr && half_dump == nullptr) {
         host_res.assign((size_t) (g.n_layers * g.n_expert), strata::core::kNotResident);
@@ -5765,6 +5787,7 @@ int main(int argc, char **argv) try {
         // a layer split's later stages keep a copy of the residency table on their devices, and swap on their own
         auto res_upload = [&]() {
             try {
+                publish_gguf_mirror();
         if (d_res != nullptr)
                 /*
                 DPCT1114: cudaMemcpy is migrated to asynchronization
@@ -5773,18 +5796,19 @@ int main(int argc, char **argv) try {
                 event return by memcpy API to ensure synchronization behavior.
                 */
                 dpct::get_in_order_queue().memcpy(
-                    d_res, host_res.data(), host_res.size() * sizeof(int32_t)).wait();
+                    d_res, host_res.data(), host_res.size() * sizeof(int32_t)).wait_and_throw();
             for (auto& st : stages) {
                 const strata::core::OnDevice on(st->dev);
                 dpct::get_in_order_queue()
                     .memcpy(st->d_res, host_res.data(),
                             host_res.size() * sizeof(int32_t))
-                    .wait();
+                    .wait_and_throw();
             }
         }
         catch (sycl::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
+          strata::drain_device_or_exit("adaptive metadata publication failure");
           std::exit(1);
         }
         };
@@ -5792,6 +5816,7 @@ int main(int argc, char **argv) try {
             try {
         if (peer.valid()) peer.apply_pending(wait);
             if (pending.empty()) return;
+            if (srcp == &gguf_src) { finish_gguf_exchange(); wait = true; }
             if (wait) adapt_ev->wait_and_throw();
             else if (adapt_ev->get_info<
                          sycl::info::event::command_execution_status>() !=
@@ -5834,6 +5859,7 @@ int main(int argc, char **argv) try {
         catch (sycl::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
+          strata::drain_device_or_exit("adaptive completion failure");
           std::exit(1);
         }
         };
@@ -5849,8 +5875,8 @@ int main(int argc, char **argv) try {
                 const float* u = drive.d.usage.data() + l * g.n_expert;
                 const int32_t* r = host_res.data() + l * g.n_expert;
                 for (int32_t e = 0; e < (int32_t) g.n_expert; ++e) {
-                    if (r[e] < 0) { if (u[e] >= 2.0f && !(peer.valid() && peer.has(l, e))) cand.emplace_back(u[e], e); }
-                    else vict.emplace_back(u[e], e);
+                    if (r[e] < 0) { if (u[e] >= 2.0f && !(peer.valid() && peer.has(l, e)) && (srcp != &gguf_src || gguf_src.pinned(l, e))) cand.emplace_back(u[e], e); }
+                    else if (srcp != &gguf_src || !gguf_src.pinned(l, e)) vict.emplace_back(u[e], e);
                 }
                 if (cand.empty() || vict.empty()) continue;
                 std::sort(cand.begin(), cand.end(), [](auto& a, auto& b) { return a.first > b.first; });
@@ -5864,6 +5890,22 @@ int main(int argc, char **argv) try {
             }
             std::sort(swaps.begin(), swaps.end(), [](const Swap& a, const Swap& b) { return a.gain > b.gain; });
             if ((int) swaps.size() > o.adapt_swaps) swaps.resize((size_t) o.adapt_swaps);
+            if (srcp == &gguf_src) {
+                std::vector<strata::adaptive_mirror::Swap> batch;
+                for (const Swap& s : swaps) {
+                    const size_t in = (size_t)s.layer * g.n_expert + s.in;
+                    const size_t out = (size_t)s.layer * g.n_expert + s.out;
+                    batch.push_back({in, out, host_res[out]});
+                }
+                std::string why;
+                if (!gguf_src.exchange_async(batch, host_res, xcache, *adapt_stream, why)) {
+                    std::fprintf(stderr, "strata: GGUF adaptive exchange submission failed: %s\n", why.c_str());
+                    return false;
+                }
+                for (const auto& item : batch) pending.emplace_back((int32_t)item.in, item.slot);
+                if (!batch.empty()) dpct::sync_barrier(adapt_ev, adapt_stream);
+                // Keep both ownership tables at the old generation until all three ordered copies land.
+            } else {
             if (!resident_stage_swaps(src, xcache, host_res, g.n_expert, swaps, adapt_stream)) return false;
             if (pin_blobs_on()) {   // lock the batch's source pages (a file-backed arena on AMD; see pin_blobs)
                 std::vector<std::pair<uintptr_t, uintptr_t>> spans;
@@ -5929,6 +5971,7 @@ int main(int argc, char **argv) try {
                     const strata::core::OnDevice on(st->dev);
                     dpct::sync_barrier(st->adapt_ev, st->adapt_stream);
                 }
+            }
             // #477: the routing counted since the start (each count adds up to 1 / (1 - --adapt-decay) over its
             // decays: the sum is proportional to the routing itself) - only with --expert-profile-save, else `heat`
             // is empty
@@ -7135,6 +7178,7 @@ int main(int argc, char **argv) try {
                 std::printf("ERR %s\n", err.c_str());
                 return 1;
             }
+            apply_pending(true);
             if (dec_timing && dec_windows > 0) {
                 const DecSnap d1 = dec_snap();
                 const double w = (double) dec_windows, L = (double) g.n_layers;
@@ -7864,6 +7908,7 @@ int main(int argc, char **argv) try {
         if (pending.empty()) return;
             // STRATA_TRACE_ADAPT=1: whether a round's copies had landed when the next window read the table
             static const bool trace_pending = std::getenv("STRATA_TRACE_ADAPT") != nullptr;
+            if (srcp == &gguf_src) { finish_gguf_exchange(); wait = true; }
             if (wait) adapt_ev->wait_and_throw();
             else if (adapt_ev->get_info<
                          sycl::info::event::command_execution_status>() !=
@@ -7882,6 +7927,7 @@ int main(int argc, char **argv) try {
                 srcp->release((int64_t) i / g.n_expert, (int64_t) i % g.n_expert);   // in VRAM now: RAM not needed
             }
             pending.clear();
+            publish_gguf_mirror();
             if (d_res != nullptr)
                 /*
                 DPCT1114: cudaMemcpy is migrated to asynchronization
@@ -7890,11 +7936,12 @@ int main(int argc, char **argv) try {
                 event return by memcpy API to ensure synchronization behavior.
                 */
                 dpct::get_in_order_queue().memcpy(
-                    d_res, host_res.data(), host_res.size() * sizeof(int32_t)).wait();
+                    d_res, host_res.data(), host_res.size() * sizeof(int32_t)).wait_and_throw();
         }
         catch (sycl::exception const &exc) {
           std::cerr << exc.what() << "Exception caught at file:" << __FILE__
                     << ", line:" << __LINE__ << std::endl;
+          strata::drain_device_or_exit("adaptive completion failure");
           std::exit(1);
         }
         };
@@ -7924,8 +7971,8 @@ int main(int argc, char **argv) try {
                 const float* u = drive.d.usage.data() + l * g.n_expert;
                 const int32_t* r = host_res.data() + l * g.n_expert;
                 for (int32_t e = 0; e < (int32_t) g.n_expert; ++e) {
-                    if (r[e] < 0) { if (u[e] >= 2.0f) cand.emplace_back(u[e], e); }
-                    else vict.emplace_back(u[e], e);
+                    if (r[e] < 0) { if (u[e] >= 2.0f && (srcp != &gguf_src || gguf_src.pinned(l, e))) cand.emplace_back(u[e], e); }
+                    else if (srcp != &gguf_src || !gguf_src.pinned(l, e)) vict.emplace_back(u[e], e);
                 }
                 if (cand.empty() || vict.empty()) continue;
                 std::sort(cand.begin(), cand.end(), [](auto& a, auto& b) { return a.first > b.first; });
@@ -7939,6 +7986,22 @@ int main(int argc, char **argv) try {
             }
             std::sort(swaps.begin(), swaps.end(), [](const Swap& a, const Swap& b) { return a.gain > b.gain; });
             if ((int) swaps.size() > o.adapt_swaps) swaps.resize((size_t) o.adapt_swaps);
+            if (srcp == &gguf_src) {
+                std::vector<strata::adaptive_mirror::Swap> batch;
+                for (const Swap& s : swaps) {
+                    const size_t in = (size_t)s.layer * g.n_expert + s.in;
+                    const size_t out = (size_t)s.layer * g.n_expert + s.out;
+                    batch.push_back({in, out, host_res[out]});
+                }
+                std::string why;
+                if (!gguf_src.exchange_async(batch, host_res, xcache, *adapt_stream, why)) {
+                    std::fprintf(stderr, "strata: GGUF adaptive exchange submission failed: %s\n", why.c_str());
+                    return false;
+                }
+                for (const auto& item : batch) pending.emplace_back((int32_t)item.in, item.slot);
+                if (!batch.empty()) dpct::sync_barrier(adapt_ev, adapt_stream);
+                // Keep both ownership tables at the old generation until all three ordered copies land.
+            } else {
             if (!resident_stage_swaps(src, xcache, host_res, g.n_expert, swaps, adapt_stream)) {
                 std::fprintf(stderr, "strata generate: an adaptive refill failed (copying evicted experts back)\n");
                 return false;
@@ -7976,6 +8039,7 @@ int main(int argc, char **argv) try {
                 pending.emplace_back((int32_t) in, slot);      // resident once the copy has landed
             }
             if (!swaps.empty()) dpct::sync_barrier(adapt_ev, adapt_stream);
+            }
             if (trace_adapt)
                 std::fprintf(stderr, "strata: ADAPT round=%lld swapped %zu of %d slots, usage decayed\n",
                              (long long) adapt_rounds, swaps.size(), o.adapt_swaps);
@@ -8144,6 +8208,7 @@ int main(int argc, char **argv) try {
             std::fprintf(stderr, "strata generate: %s\n", err.c_str());
             return 1;
         }
+        apply_pending(true);
         std::printf("%-24s %lld rounds of %d, drafts accepted %lld of %lld (%.3f), %.2f tokens per round\n",
                     "speculation", (long long) rounds, o.spec, (long long) drafts_ok, (long long) drafts_total,
                     drafts_total > 0 ? (double) drafts_ok / (double) drafts_total : 0.0,

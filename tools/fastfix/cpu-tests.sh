@@ -17,3 +17,7 @@ cat "$out/reader.log" "$out/staging.log" "$out/output.log" "$out/source-order.lo
 printf 'Evidence: %s\n' "$out"
 c++ -std=c++20 -Wall -Wextra -Werror -Iinclude tools/fastfix/aplan_state_test.cpp -o build-fastfix-cpu/aplan_state_test
 build-fastfix-cpu/aplan_state_test | tee "$out/aplan-state.log"
+
+c++ -std=c++20 -O2 -Wall -Wextra -Werror -Iinclude tools/fastfix/adaptive_mirror_test.cpp -o build-fastfix-cpu/adaptive_mirror_test
+build-fastfix-cpu/adaptive_mirror_test | tee "$out/adaptive-mirror.log"
+python3 -B tools/fastfix/mirror_source_test.py | tee "$out/mirror-source.log"
