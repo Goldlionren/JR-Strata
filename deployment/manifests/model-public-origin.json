@@ -1,0 +1,26 @@
+{
+  "repo": "ukisai/Swift-1.5-Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+  "revision": "b22d729eae29b5796f76fb70f91aef549b9fc52c",
+  "files": [
+    {
+      "rfilename": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+      "blobId": "38925035ff96e53dda6d1e692bd37a544ecbc344",
+      "size": 39785790560,
+      "lfs": {
+        "sha256": "3bddaa667c750f63baca766df9433e1afd35a139f401c5ca5e7ff560ceff3d23",
+        "size": 39785790560,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+      "blobId": "3532c7ba18248ec371cb5df225f2ec5a71297592",
+      "size": 36180282560,
+      "lfs": {
+        "sha256": "b0b15f782af71eb471909d2f3313b2927c324962f86c084325c247cd411a0160",
+        "size": 36180282560,
+        "pointerSize": 136
+      }
+    }
+  ]
+}

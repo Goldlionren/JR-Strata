@@ -1,0 +1,23 @@
+{
+  "deployment_commit": "0953f6eff9b288d84fea1b1e74905707ffa9ffaf",
+  "engine_source_commit": "be3105e7f66ef4f9668ef129a1938800954b1b3b",
+  "engine_source_tree": "dcb458f77d3f8370b72ab42cadc94ec41aa1e119",
+  "engine_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+  "server_pid": 1749394,
+  "engine_pid": 1749505,
+  "container_id": "732842edcb139eae050ecb46e9538190ac4440ef682e635efb4bdbec76e849c6",
+  "container_started_at": "2026-10-09T02:14:07.620265402Z",
+  "docker_image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "oci_amd64_manifest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+  "image_architecture": "amd64",
+  "host_os": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "kernel": "7.0.0-34-generic",
+  "effective_engine_cmdline": [
+    "exec /work/JR-Strata-SYCL-v0139-FastFix/dist/jr-b60-sycl-v0139-fastfix-adaptive-mirror/strata --serve --pack /work/data/packs/swift-iq3_xxs --native /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --ple-gguf /work/data/models/swift-IQ3_XXS/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf --expert-profile /work/Strata/data/expert-profile.bin --expert-cache 8098 --spec 4 --spec-min-p 0.5 --mtp /work/data/mtp/rt --max-context 131072 --kv int8 --kv-resident 32768 --stream-experts --vram-reserve-mib 768 --prefill 4096 --pcie-frac 0.25"
+  ],
+  "container_restart_policy": {
+    "Name": "no",
+    "MaximumRetryCount": 0
+  },
+  "docker_diff": "A /work\nC /root\nA /root/.cache\nA /root/.cache/neo_compiler_cache\n"
+}

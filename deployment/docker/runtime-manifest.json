@@ -1,0 +1,309 @@
+{
+  "image_id": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "oci_index_digest": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "oci_amd64_manifest_digest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+  "oci_config_digest": "sha256:ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39",
+  "platform": "linux/amd64",
+  "runtime": "SYCL2026.1.0 / UR0.12.0 / LevelZero1.32.0",
+  "container_os": "Ubuntu26.04",
+  "local_alias": "jr-strata-sycl-fastfix-runtime:prod-20261009",
+  "rootfs_diff_ids": [
+    "sha256:d6b1a90bccf18353db11e206211d1438050e64d14c56a48ae067131e0a3cc245",
+    "sha256:d85193ee52f1c6af3150f4f15bde65704cf6ec6f113dc3802940d62410eb8da5",
+    "sha256:8745e6e4c02464c2d230c3f92993793f08e5cc0e33be986730af8fb83ce1d1c5",
+    "sha256:bd5852b2eb28034185c052d984a0ae7b46a954ea7cad638143f3f1235b1ddddb",
+    "sha256:13fa93a70c7cd39962e7adb3a68b577676aa906e95d28a3562d6a5736cd6bcb0",
+    "sha256:098efade2dcfb60cc8f9d8551e496888c077bf917cf62e8401e5be7821b06cd1",
+    "sha256:965917893dd534666fd25cdc00c72292e988da5b33a65f5dc21b37606f7fc9ee",
+    "sha256:87d4955da5c9bc0855f01827599adc64383860b60da3d231f15f1791be612c41",
+    "sha256:b17da6fa19ba06236cb44f06303653398671f969252d800a9ae6dda98297a4dc",
+    "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "sha256:cc7001b0820aaf939890809a22e0a94bc1dfb1c8aa035916d805e0bc6e190429",
+    "sha256:79f90cb002f8bb16cd3a94c1175908b0429c9ce30d51a1148559010f5428a48e",
+    "sha256:2103cf4ea7257b99da193d99bab2f5156c7e0d3f9ed9da998d6b530e6ac11aec",
+    "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "sha256:d9281bb5cfe816a6074ba91b19e4a66407123a539dd33b50dbc8c6e4551ab594"
+  ],
+  "base_environment": [
+    "PATH=/opt/intel/oneapi/mpi/2021.18/bin:/opt/intel/oneapi/mkl/2026.1/bin:/opt/intel/oneapi/dev-utilities/2026.0/bin:/opt/intel/oneapi/debugger/2026.1/opt/debugger/bin:/opt/intel/oneapi/compiler/2026.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "CCL_CONFIGURATION=cpu_gpu_dpcpp",
+    "CCL_CONFIGURATION_PATH=",
+    "CCL_ROOT=/opt/intel/oneapi/ccl/2022.1",
+    "CLASSPATH=/opt/intel/oneapi/mpi/2021.18/share/java/mpi.jar",
+    "CMAKE_PREFIX_PATH=/opt/intel/oneapi/tbb/2023.1/env/..:/opt/intel/oneapi/pti/1.0/lib/cmake/pti:/opt/intel/oneapi/mkl/2026.1/lib/cmake:/opt/intel/oneapi/dpl/2022.13/lib/cmake/oneDPL:/opt/intel/oneapi/compiler/2026.1:/opt/intel/oneapi/ccl/2022.1/lib/cmake/oneCCL",
+    "CMPLR_ROOT=/opt/intel/oneapi/compiler/2026.1",
+    "CPATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/dev-utilities/2026.0/include:/opt/intel/oneapi/ccl/2022.1/include",
+    "CPLUS_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include:/opt/intel/oneapi/dpl/2022.13/include",
+    "C_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include",
+    "DIAGUTIL_PATH=/opt/intel/oneapi/compiler/2026.1/etc/compiler/sys_check/sys_check.sh",
+    "DPLROOT=/opt/intel/oneapi/dpl/2022.13",
+    "DPL_ROOT=/opt/intel/oneapi/dpl/2022.13",
+    "FI_PROVIDER_PATH=/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib/prov:/usr/lib/x86_64-linux-gnu/libfabric",
+    "GDB_INFO=/opt/intel/oneapi/debugger/2026.1/share/info/",
+    "INFOPATH=/opt/intel/oneapi/debugger/2026.1/share/info",
+    "INTEL_PYTHONHOME=/opt/intel/oneapi/debugger/2026.1/opt/debugger",
+    "I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.18",
+    "LD_LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tcm/1.5/env/../lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/debugger/2026.1/opt/debugger/lib:/opt/intel/oneapi/compiler/2026.1/opt/compiler/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+    "LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+    "MANPATH=/opt/intel/oneapi/mpi/2021.18/share/man:/opt/intel/oneapi/debugger/2026.1/share/man:/opt/intel/oneapi/compiler/2026.1/share/man:",
+    "MKLROOT=/opt/intel/oneapi/mkl/2026.1",
+    "NLSPATH=/opt/intel/oneapi/compiler/2026.1/lib/compiler/locale/%l_%t/%N",
+    "OCL_ICD_FILENAMES=/opt/intel/oneapi/compiler/2026.1/lib/libintelocl.so",
+    "ONEAPI_ROOT=/opt/intel/oneapi",
+    "PKG_CONFIG_PATH=/opt/intel/oneapi/tbb/2023.1/env/../lib/pkgconfig:/opt/intel/oneapi/mpi/2021.18/lib/pkgconfig:/opt/intel/oneapi/mkl/2026.1/lib/pkgconfig:/opt/intel/oneapi/dpl/2022.13/lib/pkgconfig:/opt/intel/oneapi/compiler/2026.1/lib/pkgconfig:/opt/intel/oneapi/ccl/2022.1/lib/pkgconfig/",
+    "Pti_DIR=/opt/intel/oneapi/pti/1.0/lib/cmake/pti",
+    "SETVARS_COMPLETED=1",
+    "TBBROOT=/opt/intel/oneapi/tbb/2023.1/env/..",
+    "TCMROOT=/opt/intel/oneapi/tcm/1.5/env/..",
+    "TCM_ROOT=/opt/intel/oneapi/tcm/1.5",
+    "UMF_ROOT=/opt/intel/oneapi/umf/1.1",
+    "LLAMA_ARG_HOST=0.0.0.0",
+    "ONEAPI_DEVICE_SELECTOR=level_zero:0",
+    "SYCL_CACHE_PERSISTENT=0",
+    "ZES_ENABLE_SYSMAN=1"
+  ],
+  "entrypoint": [
+    "/bin/bash",
+    "-lc"
+  ],
+  "loaded_libraries": [
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libOpenCL.so.1.0.0",
+      "bytes": 94848,
+      "sha256": "8a27699968d48772bb7db64d5e69e5f34a8683d371cbb818e9e2033e46b70cf6"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libimf.so",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libimf.so",
+      "bytes": 4865192,
+      "sha256": "2672329c035028dcb94e830456f125e2db6dd54f7ff236ca77fd9f705ab4fb46"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libintlc.so.5",
+      "bytes": 415824,
+      "sha256": "7e6eca462443a227d283e6fc7bac8fc07bc86fa3e1ea1901031564ad3662c7c7"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libirng.so",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libirng.so",
+      "bytes": 1100272,
+      "sha256": "888b6927c8c7e5c7b86d3bb88cd4a87aaaf0c35509c17af895b873bd9d83015a"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libsvml.so",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libsvml.so",
+      "bytes": 28103240,
+      "sha256": "cea16c88d65f0817785d0d094d3ac0369bf5ae9f915373498fd95c0ea148829e"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libsycl.so.9.0.0",
+      "bytes": 11677728,
+      "sha256": "c22729e471bd31391c04c24e753fd609a9b4cc4f14462cd61d124269cdb3261f"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0.12.0",
+      "bytes": 4134632,
+      "sha256": "db43d6ff9426731a67d6907c94a2dc1e93334b0764763029f31e3bb5ad0704bb"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0.12.0",
+      "bytes": 3983072,
+      "sha256": "19a8a85939919c16bede9bfd311f299c1142f4ad13a5a3c9dd16f0dfc83a2c3b"
+    },
+    {
+      "path": "/opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0",
+      "realpath": "/opt/intel/oneapi/compiler/2026.1/lib/libur_loader.so.0.12.0",
+      "bytes": 25008600,
+      "sha256": "07c6310a7df907b08e2b14347b192e5f3e5c05fd96f769ab840ccb7ebc895ad9"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_core.so.3",
+      "bytes": 76168096,
+      "sha256": "b4f086651ee5a8471140d53fedfdbbaba606287784763b0739f282872c31aa9b"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_intel_lp64.so.3",
+      "bytes": 19450800,
+      "sha256": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sequential.so.3",
+      "bytes": 25021272,
+      "sha256": "4e7ff529bec90a1b0ce70299258a64a2ebae7a5a6f3ec031306a6ddb39b5a650"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_blas.so.6",
+      "bytes": 75459712,
+      "sha256": "51d6c16990701a5aaf9fbbde5d86f5a7197b81357b66b19cbb912206564cf4ee"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_data_fitting.so.6",
+      "bytes": 10275048,
+      "sha256": "6229ece57870a65ed57720accc58d53e4e3b4d84747823c166a1168eb5af3ca3"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_dft.so.6",
+      "bytes": 37102056,
+      "sha256": "4cd0c0a1fe556697c90a5264fbe9bf3b74080a1b1ee3817c87be724703a2efd9"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_lapack.so.6",
+      "bytes": 34844424,
+      "sha256": "58f4dc8b28e7a7cf9353cc28d6dbc4993c240b4a891e2e5e683264346cb760c0"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_rng.so.6",
+      "bytes": 83363584,
+      "sha256": "8f7051b4ba81e0821eee1d284c56c5b1e75f77578c20da047b3e3d8fc93fa910"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_sparse.so.6",
+      "bytes": 75862784,
+      "sha256": "9290b022cce7e560a5ef0d7448a415f9cafe75e9a6dfb5aea42d6e9e9c3139c3"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_stats.so.6",
+      "bytes": 18133208,
+      "sha256": "8c9f3fc6452768676b2685531aba0d0abea3cb863d084d702ad1a7e029b9809a"
+    },
+    {
+      "path": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6",
+      "realpath": "/opt/intel/oneapi/mkl/2026.1/lib/libmkl_sycl_vm.so.6",
+      "bytes": 89027872,
+      "sha256": "66a967f2ccd334eddae86b2757435c22333395da9506f4f6727b71f95080ada7"
+    },
+    {
+      "path": "/opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2",
+      "realpath": "/opt/intel/oneapi/tcm/1.5/lib/libhwloc.so.15.10.2",
+      "bytes": 433120,
+      "sha256": "34e1ad15a2d207dc116d9f88fbf5f9ab97cc5ce5e6a704e54a587e8bc7ddefff"
+    },
+    {
+      "path": "/opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0",
+      "realpath": "/opt/intel/oneapi/umf/1.1/lib/libumf.so.1.1.0",
+      "bytes": 321648,
+      "sha256": "c74cfea0360d09b5072a8227efbc830db36bd57669ca22d190d0fb31fe8e3425"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "realpath": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 254864,
+      "sha256": "223b94a42758f2434da331cc0aa62db1af5b456481762c5caceefa1a2d1eb8fb"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2186512,
+      "sha256": "d763925433ff9b757390549e1b20c085f5e6de27ae700fe89194178d96a8a2b0"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "bytes": 14408,
+      "sha256": "d822d2db61dfc44ba839ebd6d3552dcd2030e1b762f13f35b25702017e5fe707"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "bytes": 187120,
+      "sha256": "9d339ecb409578d6a5d587e6c537a8f9589b8a13fefba30d167433a4b5758bee"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libigdgmm.so.12.10.0",
+      "bytes": 878992,
+      "sha256": "41892701dc8de4a9086653e1599c533f40e8e28baf435df27cab70ec2d0b9526"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "bytes": 1198376,
+      "sha256": "670fb59bd462ee2f833e2ed7c0a1814e0dcdbec0b8bfa048bec46e2e6fd66334"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "bytes": 14408,
+      "sha256": "c57a9c92bbd4dc724654c5e4cea774a28f772ba83b7c1804ccc8d9d364c1576b"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/librt.so.1",
+      "realpath": "/usr/lib/x86_64-linux-gnu/librt.so.1",
+      "bytes": 14624,
+      "sha256": "882fb78b405f88b1280b3d8d1936abd30beb1d419bdc972b7cb62a621b003653"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35",
+      "bytes": 2735712,
+      "sha256": "5bb0d21308f123b6ad46c6f35b42cedfcb8d6d439a53aa3dae04d880aaffdde3"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+      "bytes": 121272,
+      "sha256": "fbf56b0e59287033b6579bbbeae2f9de2fe86ad5bf2bd44d44aad67a15109318"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libze_intel_gpu.so.1.17.39758",
+      "bytes": 63522968,
+      "sha256": "7c0f894af43db6612150084167094c20c7ffa7f6ee1182bdd14ac1fdbfa077c9"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libze_loader.so.1.32.0",
+      "bytes": 1036264,
+      "sha256": "93661120ef96602219c0d86717b0b47380f76693b1d8fef03816bbdae247f455"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libze_tracing_layer.so.1.32.0",
+      "bytes": 1086800,
+      "sha256": "e9cdf406fada534d869987225db873cca1ec2d54670b27b5019e2cbd4e986fc2"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7",
+      "realpath": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7",
+      "bytes": 796824,
+      "sha256": "060eeb79531d435306665fd78329d8a9dd579f95876c5960bb67937825362a80"
+    },
+    {
+      "path": "/usr/local/lib/libigc.so.2.41.5+1788943183",
+      "realpath": "/usr/local/lib/libigc.so.2.41.5+1788943183",
+      "bytes": 104543000,
+      "sha256": "40badd8f1ee80ac844a8947f5e91e5654fbcd851caefe343b0e5ec4ce4d1b123"
+    },
+    {
+      "path": "/usr/local/lib/libigdfcl.so.2.41.5+1788943183",
+      "realpath": "/usr/local/lib/libigdfcl.so.2.41.5+1788943183",
+      "bytes": 2554016,
+      "sha256": "ece8bcd533a44cc1684c1f24eeeca3302e4d19307a806fad5f1b83171f9fc1c3"
+    },
+    {
+      "path": "/usr/local/lib/libopencl-clang2.so.22.1",
+      "realpath": "/usr/local/lib/libopencl-clang2.so.22.1",
+      "bytes": 158062480,
+      "sha256": "02ba9fb0f16b7f02c012095c46f8053c4bc20f9b5bde3028eedff6dcfed94bfe"
+    }
+  ],
+  "transport": "External operator-provided exact licensed OCI archive; public SDK redistribution BLOCKED",
+  "archive_original_sha256": "59f17cd2686b419c3590f82cfb4df5630b74a47a55a01d6184ad9e278add96de",
+  "public_retrievability": "BLOCKED: full SDK redistribution permission not established"
+}

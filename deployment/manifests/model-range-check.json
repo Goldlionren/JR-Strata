@@ -1,0 +1,10 @@
+{
+  "range_status": 206,
+  "content_range": "bytes 0-65535/39785790560",
+  "remote_header_sha256": "4fc1f07d3367174255baca996b927a944de12b64b91129accd0ba95433064efe",
+  "local_header_sha256": "4fc1f07d3367174255baca996b927a944de12b64b91129accd0ba95433064efe",
+  "header_equal": true,
+  "differing_bytes": 0,
+  "first_differences": [],
+  "bytes_downloaded": 65536
+}

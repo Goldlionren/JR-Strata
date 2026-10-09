@@ -1,0 +1,25 @@
+[Unit]
+Description=Frozen JR-Strata SYCL FastFix (native UI and API)
+After=default.target jr-strata-sycl-rc1.service
+Conflicts=jr-strata-sycl-rc1.service
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=exec
+WorkingDirectory=@WORKDIR@
+ExecStart=@PYTHON@ -B @START@
+ExecStartPost=@PYTHON@ -B @READY@ $MAINPID
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+KillSignal=SIGTERM
+KillMode=process
+SendSIGKILL=no
+TimeoutStartSec=300
+TimeoutStopSec=180
+Restart=on-failure
+RestartSec=30
+RestartPreventExitStatus=78 86
+
+[Install]
+WantedBy=default.target

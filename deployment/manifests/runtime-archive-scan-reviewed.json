@@ -1,0 +1,1404 @@
+{
+  "status": "PASS",
+  "archive": "/data/strata-lab/releases/JR-Strata-B60-SYCL-IQ3XXS-128K-20261006/strata-sycl-dev.tar.zst",
+  "metadata": {
+    "blobs/sha256/06e6c5824dcdf8898428c9ac1e5e3d4607011ee9ad6e97640d07bd8c53743c3b": {
+      "architecture": "unknown",
+      "os": "unknown",
+      "config": {},
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:d7c9b79d0e9209c38628018798e6b3f3fe179144f7d1159607386218547646b1"
+        ]
+      }
+    },
+    "blobs/sha256/989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+          "size": 3161,
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:d4ba5a2be45369ce0193f2a67dd930247138db86c8c459f318b58594ccce3db6",
+          "size": 564,
+          "annotations": {
+            "vnd.docker.reference.digest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+            "vnd.docker.reference.type": "attestation-manifest"
+          },
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          }
+        }
+      ]
+    },
+    "blobs/sha256/cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "config": {
+        "mediaType": "application/vnd.oci.image.config.v1+json",
+        "digest": "sha256:ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39",
+        "size": 30751
+      },
+      "layers": [
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:42edaced5904edf429a7f9dc5a029511de70a675b853fbc4608072cd1cc86518",
+          "size": 39951496
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:9cd1992a5339cbddb6a6ebdfd190274fd139eda82518076db78e9a64c16a3f8f",
+          "size": 368
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:26f937f59a5436c38119f82dd7e219dc988597f5a951e3f254addd58b27b251f",
+          "size": 196498133
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:6bdecbef83d9b515dc2ccc90604eb5d955e9cc240775836f2360e7e571546ad9",
+          "size": 3368
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:7a333418ff80b66efe4836c3a93ed24c63a8f66a072ecafe977d5f7fa5d643a5",
+          "size": 30969439
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:5ed4a82b515faa71c0eab66fdee2a09ec9a2cdc45fa1939c44111b675e19a4b6",
+          "size": 2283222773
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:b3ae9e316d1e801c20d254a9c312d584196e3f4a9fe42681396ec90a91779453",
+          "size": 593538815
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:9ff853ecee3eb6cf0a391ddc2cb630f920bb409e74769dab0acc37ed642ca0a4",
+          "size": 235632145
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:b2853ae24af3f037d9c97c3a4a979f4be1d5df663d53e98382e34dab44878818",
+          "size": 1654877
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "size": 32
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:7a618a9ef3073ae0e3a0a37a84b10669594337463771b245a116d70529a5a9d0",
+          "size": 248
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:d725094410d668cf7692330b0675786547dd60acacb715598d1ca6e0f6310864",
+          "size": 65139721
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:a605d25986ad34083390a40f43c4ce61350474145039d26ab3e4efcd62266aff",
+          "size": 599432
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "size": 32
+        },
+        {
+          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+          "digest": "sha256:162a3c06c26f292d9635208e3fac3fe5ff341ab5230002e51d01942c940a57b5",
+          "size": 85983170
+        }
+      ]
+    },
+    "blobs/sha256/d4ba5a2be45369ce0193f2a67dd930247138db86c8c459f318b58594ccce3db6": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "config": {
+        "mediaType": "application/vnd.oci.image.config.v1+json",
+        "digest": "sha256:06e6c5824dcdf8898428c9ac1e5e3d4607011ee9ad6e97640d07bd8c53743c3b",
+        "size": 167
+      },
+      "layers": [
+        {
+          "mediaType": "application/vnd.in-toto+json",
+          "digest": "sha256:d7c9b79d0e9209c38628018798e6b3f3fe179144f7d1159607386218547646b1",
+          "size": 1280,
+          "annotations": {
+            "in-toto.io/predicate-type": "https://slsa.dev/provenance/v1"
+          }
+        }
+      ]
+    },
+    "blobs/sha256/d7c9b79d0e9209c38628018798e6b3f3fe179144f7d1159607386218547646b1": {
+      "_type": "https://in-toto.io/Statement/v0.1",
+      "predicateType": "https://slsa.dev/provenance/v1",
+      "subject": [
+        {
+          "name": "pkg:docker/strata-sycl-dev@latest?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe"
+          }
+        }
+      ],
+      "predicate": {
+        "buildDefinition": {
+          "buildType": "https://github.com/moby/buildkit/blob/master/docs/attestations/slsa-definitions.md",
+          "resolvedDependencies": [
+            {
+              "uri": "pkg:docker/ghcr.io/snailium/llama.cpp-sycl-intel-b70/llama-sycl-b70@stable?platform=linux%2Famd64",
+              "digest": {
+                "sha256": "a7106ff20d67f1784bde2c5e2cdcf4fc0dc7fabb13161b62acef338313f85a79"
+              }
+            }
+          ],
+          "externalParameters": {
+            "configSource": {
+              "path": "Dockerfile"
+            },
+            "request": {
+              "frontend": "dockerfile.v0",
+              "locals": [
+                {
+                  "name": "context"
+                },
+                {
+                  "name": "dockerfile"
+                }
+              ]
+            }
+          },
+          "internalParameters": {
+            "builderPlatform": "linux/amd64"
+          }
+        },
+        "runDetails": {
+          "builder": {
+            "id": ""
+          },
+          "metadata": {
+            "invocationId": "1zvw40jbglzhunicr14f22gya",
+            "startedOn": "2026-10-05T22:58:00.029233137+11:00",
+            "finishedOn": "2026-10-05T23:01:50.31849379+11:00",
+            "buildkit_metadata": {
+              "vcs": {
+                "localdir:context": "sycl/tools",
+                "localdir:dockerfile": "sycl/tools",
+                "revision": "6f32ec070f23ced9f50e704d854d775da52591ab",
+                "source": "https://github.com/Niko1221/Strata.git"
+              }
+            },
+            "buildkit_completeness": {
+              "request": true,
+              "resolvedDependencies": false
+            }
+          }
+        }
+      }
+    },
+    "blobs/sha256/ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39": {
+      "architecture": "amd64",
+      "config": {
+        "Env": [
+          "PATH=/opt/intel/oneapi/mpi/2021.18/bin:/opt/intel/oneapi/mkl/2026.1/bin:/opt/intel/oneapi/dev-utilities/2026.0/bin:/opt/intel/oneapi/debugger/2026.1/opt/debugger/bin:/opt/intel/oneapi/compiler/2026.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "CCL_CONFIGURATION=cpu_gpu_dpcpp",
+          "CCL_CONFIGURATION_PATH=",
+          "CCL_ROOT=/opt/intel/oneapi/ccl/2022.1",
+          "CLASSPATH=/opt/intel/oneapi/mpi/2021.18/share/java/mpi.jar",
+          "CMAKE_PREFIX_PATH=/opt/intel/oneapi/tbb/2023.1/env/..:/opt/intel/oneapi/pti/1.0/lib/cmake/pti:/opt/intel/oneapi/mkl/2026.1/lib/cmake:/opt/intel/oneapi/dpl/2022.13/lib/cmake/oneDPL:/opt/intel/oneapi/compiler/2026.1:/opt/intel/oneapi/ccl/2022.1/lib/cmake/oneCCL",
+          "CMPLR_ROOT=/opt/intel/oneapi/compiler/2026.1",
+          "CPATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/dev-utilities/2026.0/include:/opt/intel/oneapi/ccl/2022.1/include",
+          "CPLUS_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include:/opt/intel/oneapi/dpl/2022.13/include",
+          "C_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include",
+          "DIAGUTIL_PATH=/opt/intel/oneapi/compiler/2026.1/etc/compiler/sys_check/sys_check.sh",
+          "DPLROOT=/opt/intel/oneapi/dpl/2022.13",
+          "DPL_ROOT=/opt/intel/oneapi/dpl/2022.13",
+          "FI_PROVIDER_PATH=/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib/prov:/usr/lib/x86_64-linux-gnu/libfabric",
+          "GDB_INFO=/opt/intel/oneapi/debugger/2026.1/share/info/",
+          "INFOPATH=/opt/intel/oneapi/debugger/2026.1/share/info",
+          "INTEL_PYTHONHOME=/opt/intel/oneapi/debugger/2026.1/opt/debugger",
+          "I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.18",
+          "LD_LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tcm/1.5/env/../lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/debugger/2026.1/opt/debugger/lib:/opt/intel/oneapi/compiler/2026.1/opt/compiler/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+          "LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+          "MANPATH=/opt/intel/oneapi/mpi/2021.18/share/man:/opt/intel/oneapi/debugger/2026.1/share/man:/opt/intel/oneapi/compiler/2026.1/share/man:",
+          "MKLROOT=/opt/intel/oneapi/mkl/2026.1",
+          "NLSPATH=/opt/intel/oneapi/compiler/2026.1/lib/compiler/locale/%l_%t/%N",
+          "OCL_ICD_FILENAMES=/opt/intel/oneapi/compiler/2026.1/lib/libintelocl.so",
+          "ONEAPI_ROOT=/opt/intel/oneapi",
+          "PKG_CONFIG_PATH=/opt/intel/oneapi/tbb/2023.1/env/../lib/pkgconfig:/opt/intel/oneapi/mpi/2021.18/lib/pkgconfig:/opt/intel/oneapi/mkl/2026.1/lib/pkgconfig:/opt/intel/oneapi/dpl/2022.13/lib/pkgconfig:/opt/intel/oneapi/compiler/2026.1/lib/pkgconfig:/opt/intel/oneapi/ccl/2022.1/lib/pkgconfig/",
+          "Pti_DIR=/opt/intel/oneapi/pti/1.0/lib/cmake/pti",
+          "SETVARS_COMPLETED=1",
+          "TBBROOT=/opt/intel/oneapi/tbb/2023.1/env/..",
+          "TCMROOT=/opt/intel/oneapi/tcm/1.5/env/..",
+          "TCM_ROOT=/opt/intel/oneapi/tcm/1.5",
+          "UMF_ROOT=/opt/intel/oneapi/umf/1.1",
+          "LLAMA_ARG_HOST=0.0.0.0",
+          "ONEAPI_DEVICE_SELECTOR=level_zero:0",
+          "SYCL_CACHE_PERSISTENT=0",
+          "ZES_ENABLE_SYSMAN=1"
+        ],
+        "Entrypoint": [
+          "/bin/bash",
+          "-lc"
+        ],
+        "WorkingDir": "/app",
+        "Labels": {
+          "org.opencontainers.image.created": "N/A",
+          "org.opencontainers.image.description": "LLM inference in C/C++ - updated SYCL stack for Battlemage B70",
+          "org.opencontainers.image.revision": "N/A",
+          "org.opencontainers.image.source": "https://github.com/ggml-org/llama.cpp",
+          "org.opencontainers.image.title": "llama.cpp (community SYCL for Intel Arc B70)",
+          "org.opencontainers.image.url": "https://github.com/ggml-org/llama.cpp",
+          "org.opencontainers.image.version": "N/A"
+        },
+        "Healthcheck": {
+          "Test": [
+            "CMD",
+            "curl",
+            "-f",
+            "http://localhost:8080/health"
+          ]
+        }
+      },
+      "created": "2026-10-05T23:01:43.425220057+11:00",
+      "history": [
+        {
+          "created": "2026-07-13T16:06:29.860542013Z",
+          "created_by": "umoci raw add-layer --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:rockcraft-base /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/.temp_layer.8989.tar --tag 26.04"
+        },
+        {
+          "created": "2026-07-13T16:06:30.472855537Z",
+          "created_by": "umoci config --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 --clear=config.entrypoint --clear=config.cmd",
+          "comment": "Set entrypoint",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-13T16:06:30.482263207Z",
+          "created_by": "umoci config --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 --clear=config.cmd --config.cmd /bin/bash",
+          "comment": "Set default commands",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-13T16:06:30.493864877Z",
+          "created_by": "umoci config --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 --config.env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "Set default PATH for bare-based rock",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-13T16:06:30.504654819Z",
+          "created_by": "umoci config --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 --clear=config.labels --config.label org.opencontainers.image.version=26.04 --config.label org.opencontainers.image.title=ubuntu --config.label org.opencontainers.image.created=2026-07-13T16:06:30.499069+00:00 --config.label org.opencontainers.image.description=The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n",
+          "comment": "Set labels",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-13T16:06:30.513830877Z",
+          "created_by": "umoci config --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 --clear=manifest.annotations --manifest.annotation org.opencontainers.image.version=26.04 --manifest.annotation org.opencontainers.image.title=ubuntu --manifest.annotation org.opencontainers.image.created=2026-07-13T16:06:30.499069+00:00 --manifest.annotation org.opencontainers.image.description=The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n",
+          "comment": "Set annotations",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-13T16:06:30.527382225Z",
+          "created_by": "umoci raw add-layer --image /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/ubuntu:26.04 /home/buildd/rockcraft-ubuntu-9cbff345d050d8210022046bb567023a/images/.temp_layer.control_data.8989.tar",
+          "comment": "Add rock control metadata"
+        },
+        {
+          "created": "2026-07-24T13:25:37.307927054Z",
+          "created_by": "ARG DEEP_LEARNING_ESSENTIALS_VERSION=2026.1.2-18",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:25:37.307927054Z",
+          "created_by": "RUN |1 DEEP_LEARNING_ESSENTIALS_VERSION=2026.1.2-18 /bin/sh -c apt-get update && apt-get upgrade -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl gpg-agent software-properties-common ca-certificates build-essential pkg-config gnupg libarchive13 openssh-server openssh-client wget net-tools git file cmake &&     rm -rf /var/lib/apt/lists/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-24T13:25:37.925487261Z",
+          "created_by": "RUN |1 DEEP_LEARNING_ESSENTIALS_VERSION=2026.1.2-18 /bin/sh -c curl -fsSL https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | tee /usr/share/keyrings/intel-oneapi-archive-keyring.gpg &&     echo \"deb [signed-by=/usr/share/keyrings/intel-oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main \" > /etc/apt/sources.list.d/oneAPI.list # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-24T13:25:37.925487261Z",
+          "created_by": "ARG REPOSITORY=ppa:kobuk-team/intel-graphics",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:26:11.772000639Z",
+          "created_by": "RUN |2 DEEP_LEARNING_ESSENTIALS_VERSION=2026.1.2-18 REPOSITORY=ppa:kobuk-team/intel-graphics /bin/sh -c add-apt-repository -y ${REPOSITORY} # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "RUN |2 DEEP_LEARNING_ESSENTIALS_VERSION=2026.1.2-18 REPOSITORY=ppa:kobuk-team/intel-graphics /bin/sh -c apt-get update && apt-get upgrade -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         intel-deep-learning-essentials=${DEEP_LEARNING_ESSENTIALS_VERSION} intel-opencl-icd libze-intel-gpu1 libze1 libze-dev &&     rm -rf /var/lib/apt/lists/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV LANG=C.UTF-8",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CCL_CONFIGURATION=cpu_gpu_dpcpp",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CCL_CONFIGURATION_PATH=",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CCL_ROOT=/opt/intel/oneapi/ccl/2022.1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CLASSPATH=/opt/intel/oneapi/mpi/2021.18/share/java/mpi.jar",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CMAKE_PREFIX_PATH=/opt/intel/oneapi/tbb/2023.1/env/..:/opt/intel/oneapi/pti/1.0/lib/cmake/pti:/opt/intel/oneapi/mkl/2026.1/lib/cmake:/opt/intel/oneapi/dpl/2022.13/lib/cmake/oneDPL:/opt/intel/oneapi/compiler/2026.1:/opt/intel/oneapi/ccl/2022.1/lib/cmake/oneCCL",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CMPLR_ROOT=/opt/intel/oneapi/compiler/2026.1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CPATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/dev-utilities/2026.0/include:/opt/intel/oneapi/ccl/2022.1/include",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV CPLUS_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include:/opt/intel/oneapi/dpl/2022.13/include",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV C_INCLUDE_PATH=/opt/intel/oneapi/umf/1.1/include:/opt/intel/oneapi/tbb/2023.1/env/../include:/opt/intel/oneapi/pti/1.0/include:/opt/intel/oneapi/mpi/2021.18/include:/opt/intel/oneapi/mkl/2026.1/include",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV DIAGUTIL_PATH=/opt/intel/oneapi/compiler/2026.1/etc/compiler/sys_check/sys_check.sh",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV DPLROOT=/opt/intel/oneapi/dpl/2022.13",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV DPL_ROOT=/opt/intel/oneapi/dpl/2022.13",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV FI_PROVIDER_PATH=/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib/prov:/usr/lib/x86_64-linux-gnu/libfabric",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV GDB_INFO=/opt/intel/oneapi/debugger/2026.1/share/info/",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV INFOPATH=/opt/intel/oneapi/debugger/2026.1/share/info",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV INTEL_PYTHONHOME=/opt/intel/oneapi/debugger/2026.1/opt/debugger",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.18",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV LD_LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tcm/1.5/env/../lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/debugger/2026.1/opt/debugger/lib:/opt/intel/oneapi/compiler/2026.1/opt/compiler/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV LIBRARY_PATH=/opt/intel/oneapi/tcm/1.5/lib:/opt/intel/oneapi/umf/1.1/lib:/opt/intel/oneapi/tbb/2023.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/pti/1.0/lib:/opt/intel/oneapi/mpi/2021.18/lib:/opt/intel/oneapi/mkl/2026.1/lib:/opt/intel/oneapi/compiler/2026.1/lib:/opt/intel/oneapi/ccl/2022.1/lib/",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV MANPATH=/opt/intel/oneapi/mpi/2021.18/share/man:/opt/intel/oneapi/debugger/2026.1/share/man:/opt/intel/oneapi/compiler/2026.1/share/man:",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV MKLROOT=/opt/intel/oneapi/mkl/2026.1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV NLSPATH=/opt/intel/oneapi/compiler/2026.1/lib/compiler/locale/%l_%t/%N",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV OCL_ICD_FILENAMES=/opt/intel/oneapi/compiler/2026.1/lib/libintelocl.so",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV ONEAPI_ROOT=/opt/intel/oneapi",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV PATH=/opt/intel/oneapi/mpi/2021.18/bin:/opt/intel/oneapi/mkl/2026.1/bin:/opt/intel/oneapi/dev-utilities/2026.0/bin:/opt/intel/oneapi/debugger/2026.1/opt/debugger/bin:/opt/intel/oneapi/compiler/2026.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV PKG_CONFIG_PATH=/opt/intel/oneapi/tbb/2023.1/env/../lib/pkgconfig:/opt/intel/oneapi/mpi/2021.18/lib/pkgconfig:/opt/intel/oneapi/mkl/2026.1/lib/pkgconfig:/opt/intel/oneapi/dpl/2022.13/lib/pkgconfig:/opt/intel/oneapi/compiler/2026.1/lib/pkgconfig:/opt/intel/oneapi/ccl/2022.1/lib/pkgconfig/",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV Pti_DIR=/opt/intel/oneapi/pti/1.0/lib/cmake/pti",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV SETVARS_COMPLETED=1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV TBBROOT=/opt/intel/oneapi/tbb/2023.1/env/..",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV TCMROOT=/opt/intel/oneapi/tcm/1.5/env/..",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV TCM_ROOT=/opt/intel/oneapi/tcm/1.5",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-24T13:28:14.230918901Z",
+          "created_by": "ENV UMF_ROOT=/opt/intel/oneapi/umf/1.1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG IGC_VERSION=v2.41.5",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG IGC_VERSION_FULL=2_2.41.5+22716",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG COMPUTE_RUNTIME_VERSION=26.35.39758.10",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG IGDGMM_VERSION=22.10.0",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG LEVEL_ZERO_VERSION=1.32.0",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG LEVEL_ZERO_UBUNTU_VERSION=u24.04",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG BUILD_DATE=N/A",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG APP_VERSION=N/A",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG APP_REVISION=N/A",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG IMAGE_URL=https://github.com/ggml-org/llama.cpp",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "ARG IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "LABEL org.opencontainers.image.created=N/A org.opencontainers.image.version=N/A org.opencontainers.image.revision=N/A org.opencontainers.image.title=llama.cpp (community SYCL for Intel Arc B70) org.opencontainers.image.description=LLM inference in C/C++ - updated SYCL stack for Battlemage B70 org.opencontainers.image.url=https://github.com/ggml-org/llama.cpp org.opencontainers.image.source=https://github.com/ggml-org/llama.cpp",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T22:35:31.319725101Z",
+          "created_by": "RUN |12 IGC_VERSION=v2.41.5 IGC_VERSION_FULL=2_2.41.5+22716 COMPUTE_RUNTIME_VERSION=26.35.39758.10 COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0 IGDGMM_VERSION=22.10.0 LEVEL_ZERO_VERSION=1.32.0 LEVEL_ZERO_UBUNTU_VERSION=u24.04 BUILD_DATE=N/A APP_VERSION=N/A APP_REVISION=N/A IMAGE_URL=https://github.com/ggml-org/llama.cpp IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp /bin/sh -c apt-get update && mkdir /tmp/neo/ && cd /tmp/neo/   && wget https://github.com/intel/intel-graphics-compiler/releases/download/$IGC_VERSION/intel-igc-core-${IGC_VERSION_FULL}_amd64.deb   && wget https://github.com/intel/intel-graphics-compiler/releases/download/$IGC_VERSION/intel-igc-opencl-${IGC_VERSION_FULL}_amd64.deb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/intel-ocloc-dbgsym_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.ddeb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/intel-ocloc_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.deb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/intel-opencl-icd-dbgsym_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.ddeb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/intel-opencl-icd_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.deb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/libigdgmm12_${IGDGMM_VERSION}_amd64.deb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/libze-intel-gpu1-dbgsym_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.ddeb   && wget https://github.com/intel/compute-runtime/releases/download/$COMPUTE_RUNTIME_VERSION/libze-intel-gpu1_${COMPUTE_RUNTIME_VERSION_FULL}_amd64.deb   && apt-get -o Dpkg::Options::=\"--force-overwrite\" --allow-downgrades install -y ./*.deb   && rm -f /usr/lib/x86_64-linux-gnu/libigc.so.2* /usr/lib/x86_64-linux-gnu/libiga64.so.2*   && ldconfig # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T22:36:11.725240716Z",
+          "created_by": "RUN |12 IGC_VERSION=v2.41.5 IGC_VERSION_FULL=2_2.41.5+22716 COMPUTE_RUNTIME_VERSION=26.35.39758.10 COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0 IGDGMM_VERSION=22.10.0 LEVEL_ZERO_VERSION=1.32.0 LEVEL_ZERO_UBUNTU_VERSION=u24.04 BUILD_DATE=N/A APP_VERSION=N/A APP_REVISION=N/A IMAGE_URL=https://github.com/ggml-org/llama.cpp IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp /bin/sh -c apt-get update     && apt-get install -y libgomp1 curl ffmpeg intel-oneapi-dnnl     && echo '/opt/intel/oneapi/dnnl/latest/lib' > /etc/ld.so.conf.d/onednn.conf     && ldconfig     && apt autoremove -y     && apt clean -y     && rm -rf /tmp/* /var/tmp/*     && find /var/cache/apt/archives /var/lib/apt/lists -not -name lock -type f -delete     && find /var/cache -type f -delete # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T22:36:13.350389904Z",
+          "created_by": "RUN |12 IGC_VERSION=v2.41.5 IGC_VERSION_FULL=2_2.41.5+22716 COMPUTE_RUNTIME_VERSION=26.35.39758.10 COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0 IGDGMM_VERSION=22.10.0 LEVEL_ZERO_VERSION=1.32.0 LEVEL_ZERO_UBUNTU_VERSION=u24.04 BUILD_DATE=N/A APP_VERSION=N/A APP_REVISION=N/A IMAGE_URL=https://github.com/ggml-org/llama.cpp IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp /bin/sh -c set -eux;     L0_DIR=/usr/lib/x86_64-linux-gnu;     NEEDED=0;     echo \"--- reconciling paired dependency versions ---\";     if [ ! -e \"${L0_DIR}/libze_loader.so.${LEVEL_ZERO_VERSION}\" ]; then       echo \"level-zero loader ${LEVEL_ZERO_VERSION} absent (have: $(readlink -f ${L0_DIR}/libze_loader.so.1 | xargs -r basename)); will install the paired version\";       NEEDED=1;     else       echo \"level-zero loader ${LEVEL_ZERO_VERSION} already present\";     fi;     if [ \"$NEEDED\" = \"1\" ]; then       cd /tmp;       (wget -q \"https://github.com/oneapi-src/level-zero/releases/download/v${LEVEL_ZERO_VERSION}/libze1_${LEVEL_ZERO_VERSION}%2B${LEVEL_ZERO_UBUNTU_VERSION}_amd64.deb\" -O l0-runtime.deb         || wget -q \"https://github.com/oneapi-src/level-zero/releases/download/v${LEVEL_ZERO_VERSION}/level-zero_${LEVEL_ZERO_VERSION}%2B${LEVEL_ZERO_UBUNTU_VERSION}_amd64.deb\" -O l0-runtime.deb);       (wget -q \"https://github.com/oneapi-src/level-zero/releases/download/v${LEVEL_ZERO_VERSION}/libze-dev_${LEVEL_ZERO_VERSION}%2B${LEVEL_ZERO_UBUNTU_VERSION}_amd64.deb\" -O l0-devel.deb         || wget -q \"https://github.com/oneapi-src/level-zero/releases/download/v${LEVEL_ZERO_VERSION}/level-zero-devel_${LEVEL_ZERO_VERSION}%2B${LEVEL_ZERO_UBUNTU_VERSION}_amd64.deb\" -O l0-devel.deb);       apt-get -o Dpkg::Options::=\"--force-overwrite\" --allow-downgrades install -y ./l0-runtime.deb ./l0-devel.deb;       rm -f /tmp/l0-runtime.deb /tmp/l0-devel.deb;       ldconfig;     fi;     if [ ! -e \"${L0_DIR}/libze_loader.so.${LEVEL_ZERO_VERSION}\" ]; then       echo \"ERROR: paired level-zero loader NOT satisfied after reconciliation.\" >&2;       echo \"  expected: ${L0_DIR}/libze_loader.so.${LEVEL_ZERO_VERSION}\" >&2;       echo \"  libze1:   $(dpkg-query -W -f='${Version}' libze1 2>/dev/null || echo '<not installed>')\" >&2;       ls -l ${L0_DIR}/libze_loader.so* >&2;       exit 1;     fi;     echo \"OK: level-zero loader ${LEVEL_ZERO_VERSION} present\" # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T22:36:13.495875548Z",
+          "created_by": "RUN |12 IGC_VERSION=v2.41.5 IGC_VERSION_FULL=2_2.41.5+22716 COMPUTE_RUNTIME_VERSION=26.35.39758.10 COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0 IGDGMM_VERSION=22.10.0 LEVEL_ZERO_VERSION=1.32.0 LEVEL_ZERO_UBUNTU_VERSION=u24.04 BUILD_DATE=N/A APP_VERSION=N/A APP_REVISION=N/A IMAGE_URL=https://github.com/ggml-org/llama.cpp IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp /bin/sh -c set -eux;     echo \"--- verifying paired components ---\";     IGC_EXPECTED=$(echo \"${IGC_VERSION}\" | sed -e 's/^v//');     GOT_IGC=$(dpkg-query -W -f='${Version}' intel-igc-core-2 2>/dev/null || echo MISSING);     GOT_GMM=$(dpkg-query -W -f='${Version}' libigdgmm12 2>/dev/null || echo MISSING);     GOT_GPU=$(dpkg-query -W -f='${Version}' libze-intel-gpu1 2>/dev/null || echo MISSING);     echo \"compute-runtime : ${GOT_GPU}  (paired: ${COMPUTE_RUNTIME_VERSION})\";     echo \"IGC             : ${GOT_IGC}  (paired: ${IGC_EXPECTED})\";     echo \"gmmlib          : ${GOT_GMM}  (paired: ${IGDGMM_VERSION})\";     case \"$GOT_IGC\" in       \"${IGC_EXPECTED}\"*) ;;       *) echo \"ERROR: IGC ${IGC_EXPECTED} expected, found ${GOT_IGC}\" >&2; exit 1 ;;     esac;     case \"$GOT_GMM\" in       \"${IGDGMM_VERSION}\"*) ;;       *) echo \"ERROR: gmmlib ${IGDGMM_VERSION} expected, found ${GOT_GMM}\" >&2; exit 1 ;;     esac;     case \"$GOT_GPU\" in       \"${COMPUTE_RUNTIME_VERSION}\"*) ;;       *) echo \"ERROR: compute-runtime ${COMPUTE_RUNTIME_VERSION} expected, found ${GOT_GPU}\" >&2; exit 1 ;;     esac;     echo \"OK: all paired components verified\" # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T22:36:13.662923766Z",
+          "created_by": "RUN |12 IGC_VERSION=v2.41.5 IGC_VERSION_FULL=2_2.41.5+22716 COMPUTE_RUNTIME_VERSION=26.35.39758.10 COMPUTE_RUNTIME_VERSION_FULL=26.35.39758.10-0 IGDGMM_VERSION=22.10.0 LEVEL_ZERO_VERSION=1.32.0 LEVEL_ZERO_UBUNTU_VERSION=u24.04 BUILD_DATE=N/A APP_VERSION=N/A APP_REVISION=N/A IMAGE_URL=https://github.com/ggml-org/llama.cpp IMAGE_SOURCE=https://github.com/ggml-org/llama.cpp /bin/sh -c {       echo \"PAIRED_COMPUTE_RUNTIME=$(dpkg-query -W -f='${Version}' libze-intel-gpu1 2>/dev/null || echo unknown)\";       echo \"PAIRED_IGC=$(dpkg-query -W -f='${Version}' intel-igc-core-2 2>/dev/null || echo unknown)\";       echo \"PAIRED_GMMLIB=$(dpkg-query -W -f='${Version}' libigdgmm12 2>/dev/null || echo unknown)\";       echo \"PAIRED_LIBZE1=$(dpkg-query -W -f='${Version}' libze1 2>/dev/null || echo unknown)\";       echo \"PAIRED_LIBZE_LOADER=$(readlink -f /usr/lib/x86_64-linux-gnu/libze_loader.so.1 2>/dev/null | xargs -r basename)\";     } > /etc/intel-stack-versions;     cat /etc/intel-stack-versions # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T22:36:13.662923766Z",
+          "created_by": "ENV LLAMA_ARG_HOST=0.0.0.0",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T23:00:51.048991428Z",
+          "created_by": "COPY /app/lib/ /app # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T23:00:51.06049874Z",
+          "created_by": "COPY /app/full/llama /app/full/llama-server /app/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T23:00:51.067659835Z",
+          "created_by": "WORKDIR /app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-09-23T23:00:51.067659835Z",
+          "created_by": "HEALTHCHECK {Test:[CMD curl -f http://localhost:8080/health] Interval:0s Timeout:0s StartPeriod:0s StartInterval:0s Retries:0}",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-09-23T23:00:51.067659835Z",
+          "created_by": "ENTRYPOINT [\"/app/llama-server\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-10-05T23:01:43.425220057+11:00",
+          "created_by": "RUN /bin/sh -c apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends       intel-oneapi-dpcpp-ct ninja-build unzip python3-pip python3-venv rsync     && rm -rf /var/lib/apt/lists/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-10-05T23:01:43.425220057+11:00",
+          "created_by": "ENV ONEAPI_DEVICE_SELECTOR=level_zero:0 SYCL_CACHE_PERSISTENT=0 ZES_ENABLE_SYSMAN=1",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-10-05T23:01:43.425220057+11:00",
+          "created_by": "ENTRYPOINT [\"/bin/bash\" \"-lc\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:d6b1a90bccf18353db11e206211d1438050e64d14c56a48ae067131e0a3cc245",
+          "sha256:d85193ee52f1c6af3150f4f15bde65704cf6ec6f113dc3802940d62410eb8da5",
+          "sha256:8745e6e4c02464c2d230c3f92993793f08e5cc0e33be986730af8fb83ce1d1c5",
+          "sha256:bd5852b2eb28034185c052d984a0ae7b46a954ea7cad638143f3f1235b1ddddb",
+          "sha256:13fa93a70c7cd39962e7adb3a68b577676aa906e95d28a3562d6a5736cd6bcb0",
+          "sha256:098efade2dcfb60cc8f9d8551e496888c077bf917cf62e8401e5be7821b06cd1",
+          "sha256:965917893dd534666fd25cdc00c72292e988da5b33a65f5dc21b37606f7fc9ee",
+          "sha256:87d4955da5c9bc0855f01827599adc64383860b60da3d231f15f1791be612c41",
+          "sha256:b17da6fa19ba06236cb44f06303653398671f969252d800a9ae6dda98297a4dc",
+          "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+          "sha256:cc7001b0820aaf939890809a22e0a94bc1dfb1c8aa035916d805e0bc6e190429",
+          "sha256:79f90cb002f8bb16cd3a94c1175908b0429c9ce30d51a1148559010f5428a48e",
+          "sha256:2103cf4ea7257b99da193d99bab2f5156c7e0d3f9ed9da998d6b530e6ac11aec",
+          "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+          "sha256:d9281bb5cfe816a6074ba91b19e4a66407123a539dd33b50dbc8c6e4551ab594"
+        ]
+      }
+    },
+    "index.json": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+          "size": 856,
+          "annotations": {
+            "io.containerd.image.name": "docker.io/library/strata-sycl-dev:latest",
+            "org.opencontainers.image.ref.name": "latest"
+          }
+        }
+      ]
+    },
+    "manifest.json": [
+      {
+        "Config": "blobs/sha256/ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39",
+        "RepoTags": [
+          "strata-sycl-dev:latest"
+        ],
+        "Layers": [
+          "blobs/sha256/42edaced5904edf429a7f9dc5a029511de70a675b853fbc4608072cd1cc86518",
+          "blobs/sha256/9cd1992a5339cbddb6a6ebdfd190274fd139eda82518076db78e9a64c16a3f8f",
+          "blobs/sha256/26f937f59a5436c38119f82dd7e219dc988597f5a951e3f254addd58b27b251f",
+          "blobs/sha256/6bdecbef83d9b515dc2ccc90604eb5d955e9cc240775836f2360e7e571546ad9",
+          "blobs/sha256/7a333418ff80b66efe4836c3a93ed24c63a8f66a072ecafe977d5f7fa5d643a5",
+          "blobs/sha256/5ed4a82b515faa71c0eab66fdee2a09ec9a2cdc45fa1939c44111b675e19a4b6",
+          "blobs/sha256/b3ae9e316d1e801c20d254a9c312d584196e3f4a9fe42681396ec90a91779453",
+          "blobs/sha256/9ff853ecee3eb6cf0a391ddc2cb630f920bb409e74769dab0acc37ed642ca0a4",
+          "blobs/sha256/b2853ae24af3f037d9c97c3a4a979f4be1d5df663d53e98382e34dab44878818",
+          "blobs/sha256/4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "blobs/sha256/7a618a9ef3073ae0e3a0a37a84b10669594337463771b245a116d70529a5a9d0",
+          "blobs/sha256/d725094410d668cf7692330b0675786547dd60acacb715598d1ca6e0f6310864",
+          "blobs/sha256/a605d25986ad34083390a40f43c4ce61350474145039d26ab3e4efcd62266aff",
+          "blobs/sha256/4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "blobs/sha256/162a3c06c26f292d9635208e3fac3fe5ff341ab5230002e51d01942c940a57b5"
+        ]
+      }
+    ],
+    "oci-layout": {
+      "imageLayoutVersion": "1.0.0"
+    }
+  },
+  "blob_checksums": {
+    "blobs/sha256/06e6c5824dcdf8898428c9ac1e5e3d4607011ee9ad6e97640d07bd8c53743c3b": {
+      "bytes": 167,
+      "sha256": "06e6c5824dcdf8898428c9ac1e5e3d4607011ee9ad6e97640d07bd8c53743c3b"
+    },
+    "blobs/sha256/162a3c06c26f292d9635208e3fac3fe5ff341ab5230002e51d01942c940a57b5": {
+      "bytes": 85983170,
+      "sha256": "162a3c06c26f292d9635208e3fac3fe5ff341ab5230002e51d01942c940a57b5"
+    },
+    "blobs/sha256/26f937f59a5436c38119f82dd7e219dc988597f5a951e3f254addd58b27b251f": {
+      "bytes": 196498133,
+      "sha256": "26f937f59a5436c38119f82dd7e219dc988597f5a951e3f254addd58b27b251f"
+    },
+    "blobs/sha256/42edaced5904edf429a7f9dc5a029511de70a675b853fbc4608072cd1cc86518": {
+      "bytes": 39951496,
+      "sha256": "42edaced5904edf429a7f9dc5a029511de70a675b853fbc4608072cd1cc86518"
+    },
+    "blobs/sha256/4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1": {
+      "bytes": 32,
+      "sha256": "4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1"
+    },
+    "blobs/sha256/5ed4a82b515faa71c0eab66fdee2a09ec9a2cdc45fa1939c44111b675e19a4b6": {
+      "bytes": 2283222773,
+      "sha256": "5ed4a82b515faa71c0eab66fdee2a09ec9a2cdc45fa1939c44111b675e19a4b6"
+    },
+    "blobs/sha256/6bdecbef83d9b515dc2ccc90604eb5d955e9cc240775836f2360e7e571546ad9": {
+      "bytes": 3368,
+      "sha256": "6bdecbef83d9b515dc2ccc90604eb5d955e9cc240775836f2360e7e571546ad9"
+    },
+    "blobs/sha256/7a333418ff80b66efe4836c3a93ed24c63a8f66a072ecafe977d5f7fa5d643a5": {
+      "bytes": 30969439,
+      "sha256": "7a333418ff80b66efe4836c3a93ed24c63a8f66a072ecafe977d5f7fa5d643a5"
+    },
+    "blobs/sha256/7a618a9ef3073ae0e3a0a37a84b10669594337463771b245a116d70529a5a9d0": {
+      "bytes": 248,
+      "sha256": "7a618a9ef3073ae0e3a0a37a84b10669594337463771b245a116d70529a5a9d0"
+    },
+    "blobs/sha256/989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44": {
+      "bytes": 856,
+      "sha256": "989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44"
+    },
+    "blobs/sha256/9cd1992a5339cbddb6a6ebdfd190274fd139eda82518076db78e9a64c16a3f8f": {
+      "bytes": 368,
+      "sha256": "9cd1992a5339cbddb6a6ebdfd190274fd139eda82518076db78e9a64c16a3f8f"
+    },
+    "blobs/sha256/9ff853ecee3eb6cf0a391ddc2cb630f920bb409e74769dab0acc37ed642ca0a4": {
+      "bytes": 235632145,
+      "sha256": "9ff853ecee3eb6cf0a391ddc2cb630f920bb409e74769dab0acc37ed642ca0a4"
+    },
+    "blobs/sha256/a605d25986ad34083390a40f43c4ce61350474145039d26ab3e4efcd62266aff": {
+      "bytes": 599432,
+      "sha256": "a605d25986ad34083390a40f43c4ce61350474145039d26ab3e4efcd62266aff"
+    },
+    "blobs/sha256/b2853ae24af3f037d9c97c3a4a979f4be1d5df663d53e98382e34dab44878818": {
+      "bytes": 1654877,
+      "sha256": "b2853ae24af3f037d9c97c3a4a979f4be1d5df663d53e98382e34dab44878818"
+    },
+    "blobs/sha256/b3ae9e316d1e801c20d254a9c312d584196e3f4a9fe42681396ec90a91779453": {
+      "bytes": 593538815,
+      "sha256": "b3ae9e316d1e801c20d254a9c312d584196e3f4a9fe42681396ec90a91779453"
+    },
+    "blobs/sha256/cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe": {
+      "bytes": 3161,
+      "sha256": "cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe"
+    },
+    "blobs/sha256/d4ba5a2be45369ce0193f2a67dd930247138db86c8c459f318b58594ccce3db6": {
+      "bytes": 564,
+      "sha256": "d4ba5a2be45369ce0193f2a67dd930247138db86c8c459f318b58594ccce3db6"
+    },
+    "blobs/sha256/d725094410d668cf7692330b0675786547dd60acacb715598d1ca6e0f6310864": {
+      "bytes": 65139721,
+      "sha256": "d725094410d668cf7692330b0675786547dd60acacb715598d1ca6e0f6310864"
+    },
+    "blobs/sha256/d7c9b79d0e9209c38628018798e6b3f3fe179144f7d1159607386218547646b1": {
+      "bytes": 1280,
+      "sha256": "d7c9b79d0e9209c38628018798e6b3f3fe179144f7d1159607386218547646b1"
+    },
+    "blobs/sha256/ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39": {
+      "bytes": 30751,
+      "sha256": "ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39"
+    },
+    "index.json": {
+      "bytes": 368,
+      "sha256": "0f963af67d6905e7efbc69587eb389f8f2ca53bfc4f4d08444053f55bfbe081a"
+    },
+    "manifest.json": {
+      "bytes": 1341,
+      "sha256": "c409d31f958270ce69bc324366f887b0799e5ec7c29219b63de3c10fc8ecf60b"
+    },
+    "oci-layout": {
+      "bytes": 30,
+      "sha256": "18f0797eab35a4597c1e9624aa4f15fd91f6254e5538c1e0d193b2a95dd4acc6"
+    }
+  },
+  "oci_amd64_manifest": "sha256:cdafd5ce1975e0449f51608d77fcd4bd7bda03374b1aed744c273d932d08f5fe",
+  "oci_config_digest": "sha256:ff4cac32a0d7642362f0efba05b4fb9ff27776ce63459924382c43b78807cb39",
+  "rootfs_matches_running_image": true,
+  "environment_matches_running_image": true,
+  "layer_count": 14,
+  "filesystem_entries_examined": 49855,
+  "potential_credentials_or_model_weights": [],
+  "license_files": [
+    "opt/intel/oneapi/ccl/2022.1/share/doc/ccl/licensing/license.txt",
+    "opt/intel/oneapi/compiler/2026.1/share/doc/compiler/licensing/c/LICENSE",
+    "opt/intel/oneapi/debugger/2026.1/opt/debugger/lib/python3.14/LICENSE.txt",
+    "opt/intel/oneapi/debugger/2026.1/opt/debugger/lib/python3.14/site-packages/pygments-2.17.2.dist-info/licenses/LICENSE",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/LICENSE.txt",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING.LIB",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING.LIBGLOSS",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING.NEWLIB",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING3",
+    "opt/intel/oneapi/debugger/2026.1/share/doc/debugger/licensing/COPYING3.LIB",
+    "opt/intel/oneapi/dev-utilities/2026.0/include/stb/LICENSE.txt",
+    "opt/intel/oneapi/dev-utilities/2026.0/share/doc/dev-utilities/licensing/com.intel.samples/LICENSE.txt",
+    "opt/intel/oneapi/dev-utilities/2026.0/share/doc/dev-utilities/licensing/oneapi-cli/LICENSE",
+    "opt/intel/oneapi/dnnl/2026.0/share/doc/dnnl/LICENSE",
+    "opt/intel/oneapi/dpcpp-ct/2025.3/share/doc/dpct/licensing/license.txt",
+    "opt/intel/oneapi/dpl/2022.13/share/doc/dpl/licensing/license.txt",
+    "opt/intel/oneapi/licensing/2025.3/licensing/2025.3/license.htm",
+    "opt/intel/oneapi/licensing/2026.0/licensing/2026.0/license.htm",
+    "opt/intel/oneapi/mkl/2026.1/share/doc/mkl/licensing/license.txt",
+    "opt/intel/oneapi/mkl/2026.1/share/mkl/benchmarks/hpcg/hpcg_cpu/COPYRIGHT",
+    "opt/intel/oneapi/mkl/2026.1/share/mkl/benchmarks/mp_linpack/COPYRIGHT",
+    "opt/intel/oneapi/mpi/2021.18/opt/mpi/benchmarks/imb/license/license.txt",
+    "opt/intel/oneapi/mpi/2021.18/share/doc/mpi/license.txt",
+    "opt/intel/oneapi/pti/1.0/share/doc/pti/LICENSE.txt",
+    "opt/intel/oneapi/tbb/2023.1/share/doc/tbb/licensing/license.txt",
+    "opt/intel/oneapi/tcm/1.5/share/doc/tcm/licensing/license.txt",
+    "opt/intel/oneapi/umf/1.1/share/doc/umf/LICENSE.TXT",
+    "usr/lib/python3.14/LICENSE.txt",
+    "usr/lib/python3/dist-packages/setuptools/_vendor/wheel/vendored/packaging/LICENSE",
+    "usr/lib/python3/dist-packages/setuptools/_vendor/wheel/vendored/packaging/LICENSE.APACHE",
+    "usr/lib/python3/dist-packages/setuptools/_vendor/wheel/vendored/packaging/LICENSE.BSD",
+    "usr/share/doc/adduser/copyright",
+    "usr/share/doc/adwaita-icon-theme/copyright",
+    "usr/share/doc/alsa-topology-conf/copyright",
+    "usr/share/doc/alsa-ucm-conf/copyright",
+    "usr/share/doc/apt/copyright",
+    "usr/share/doc/at-spi2-common/copyright",
+    "usr/share/doc/at-spi2-core/copyright",
+    "usr/share/doc/base-files/copyright",
+    "usr/share/doc/base-passwd/copyright",
+    "usr/share/doc/bash/copyright",
+    "usr/share/doc/binutils-common/copyright",
+    "usr/share/doc/binutils/copyright",
+    "usr/share/doc/bsdutils/copyright",
+    "usr/share/doc/bubblewrap/copyright",
+    "usr/share/doc/build-essential/copyright",
+    "usr/share/doc/bzip2/copyright",
+    "usr/share/doc/ca-certificates/copyright",
+    "usr/share/doc/ca-certificates/examples/ca-certificates-local/debian/copyright",
+    "usr/share/doc/cmake-data/copyright",
+    "usr/share/doc/cmake/copyright",
+    "usr/share/doc/coreutils-from-uutils/copyright",
+    "usr/share/doc/coreutils/copyright",
+    "usr/share/doc/cpp-x86-64-linux-gnu/copyright",
+    "usr/share/doc/curl/copyright",
+    "usr/share/doc/dash/copyright",
+    "usr/share/doc/dbus-bin/copyright",
+    "usr/share/doc/dbus-daemon/copyright",
+    "usr/share/doc/dbus-session-bus-common/copyright",
+    "usr/share/doc/dbus-system-bus-common/copyright",
+    "usr/share/doc/dbus-user-session/copyright",
+    "usr/share/doc/dbus/copyright",
+    "usr/share/doc/dconf-gsettings-backend/copyright",
+    "usr/share/doc/dconf-service/copyright",
+    "usr/share/doc/debconf/copyright",
+    "usr/share/doc/debianutils/copyright",
+    "usr/share/doc/diffutils/copyright",
+    "usr/share/doc/dirmngr/copyright",
+    "usr/share/doc/distro-info-data/copyright",
+    "usr/share/doc/dpkg-dev/copyright",
+    "usr/share/doc/dpkg/copyright",
+    "usr/share/doc/e2fsprogs/copyright",
+    "usr/share/doc/ffmpeg/copyright",
+    "usr/share/doc/file/copyright",
+    "usr/share/doc/findutils/copyright",
+    "usr/share/doc/fontconfig-config/copyright",
+    "usr/share/doc/fontconfig/copyright",
+    "usr/share/doc/fonts-dejavu-core/copyright",
+    "usr/share/doc/fonts-dejavu-mono/copyright",
+    "usr/share/doc/gcc-15-base/copyright",
+    "usr/share/doc/gcc-16-base/copyright",
+    "usr/share/doc/gir1.2-girepository-3.0/copyright",
+    "usr/share/doc/gir1.2-glib-2.0/copyright",
+    "usr/share/doc/gir1.2-packagekitglib-1.0/copyright",
+    "usr/share/doc/git-man/copyright",
+    "usr/share/doc/git/copyright",
+    "usr/share/doc/glycin-loaders/copyright",
+    "usr/share/doc/glycin-thumbnailers/copyright",
+    "usr/share/doc/gnu-coreutils/copyright",
+    "usr/share/doc/gnupg/copyright",
+    "usr/share/doc/gpg-agent/copyright",
+    "usr/share/doc/gpg/copyright",
+    "usr/share/doc/gpgconf/copyright",
+    "usr/share/doc/gpgsm/copyright",
+    "usr/share/doc/gpgv/copyright",
+    "usr/share/doc/grep/copyright",
+    "usr/share/doc/gsettings-desktop-schemas/copyright",
+    "usr/share/doc/gtk-update-icon-cache/copyright",
+    "usr/share/doc/gzip/copyright",
+    "usr/share/doc/hicolor-icon-theme/copyright",
+    "usr/share/doc/hostname/copyright",
+    "usr/share/doc/ibus-gtk3/copyright",
+    "usr/share/doc/init-system-helpers/copyright",
+    "usr/share/doc/intel-ocloc/copyright",
+    "usr/share/doc/intel-opencl-icd/copyright",
+    "usr/share/doc/iso-codes/copyright",
+    "usr/share/doc/libaacs0/copyright",
+    "usr/share/doc/libacl1/copyright",
+    "usr/share/doc/libaom3/copyright",
+    "usr/share/doc/libapparmor1/copyright",
+    "usr/share/doc/libappstream5/copyright",
+    "usr/share/doc/libapt-pkg7.0/copyright",
+    "usr/share/doc/libarchive13t64/copyright",
+    "usr/share/doc/libasound2-data/copyright",
+    "usr/share/doc/libasound2t64/copyright",
+    "usr/share/doc/libass9/copyright",
+    "usr/share/doc/libassuan9/copyright",
+    "usr/share/doc/libasyncns0/copyright",
+    "usr/share/doc/libatk-bridge2.0-0t64/copyright",
+    "usr/share/doc/libatk1.0-0t64/copyright",
+    "usr/share/doc/libatspi2.0-0t64/copyright",
+    "usr/share/doc/libattr1/copyright",
+    "usr/share/doc/libaudit-common/copyright",
+    "usr/share/doc/libaudit1/copyright",
+    "usr/share/doc/libavahi-client3/copyright",
+    "usr/share/doc/libavahi-common-data/copyright",
+    "usr/share/doc/libavahi-common3/copyright",
+    "usr/share/doc/libavc1394-0/copyright",
+    "usr/share/doc/libavcodec62/copyright",
+    "usr/share/doc/libavdevice62/copyright",
+    "usr/share/doc/libavfilter11/copyright",
+    "usr/share/doc/libavformat62/copyright",
+    "usr/share/doc/libavutil60/copyright",
+    "usr/share/doc/libbdplus0/copyright",
+    "usr/share/doc/libblkid1/copyright",
+    "usr/share/doc/libbluray3/copyright",
+    "usr/share/doc/libbrotli1/copyright",
+    "usr/share/doc/libbs2b0/copyright",
+    "usr/share/doc/libbsd0/copyright",
+    "usr/share/doc/libbz2-1.0/copyright",
+    "usr/share/doc/libc-bin/copyright",
+    "usr/share/doc/libc-dev-bin/copyright",
+    "usr/share/doc/libc-gconv-modules-extra/copyright",
+    "usr/share/doc/libc6-dev/copyright",
+    "usr/share/doc/libc6/copyright",
+    "usr/share/doc/libcairo-gobject2/copyright",
+    "usr/share/doc/libcairo2/copyright",
+    "usr/share/doc/libcap-ng0/copyright",
+    "usr/share/doc/libcap2-bin/copyright",
+    "usr/share/doc/libcap2/copyright",
+    "usr/share/doc/libcbor0.10/copyright",
+    "usr/share/doc/libcdio-cdda2t64/copyright",
+    "usr/share/doc/libcdio-paranoia2t64/copyright",
+    "usr/share/doc/libcdio19t64/copyright",
+    "usr/share/doc/libchromaprint1/copyright",
+    "usr/share/doc/libcjson1/copyright",
+    "usr/share/doc/libcodec2-1.2/copyright",
+    "usr/share/doc/libcolord2/copyright",
+    "usr/share/doc/libcom-err2/copyright",
+    "usr/share/doc/libcrypt-dev/copyright",
+    "usr/share/doc/libcrypt1/copyright",
+    "usr/share/doc/libctf-nobfd0/copyright",
+    "usr/share/doc/libcups2t64/copyright",
+    "usr/share/doc/libcurl3t64-gnutls/copyright",
+    "usr/share/doc/libcurl4t64/copyright",
+    "usr/share/doc/libdatrie1/copyright",
+    "usr/share/doc/libdav1d7/copyright",
+    "usr/share/doc/libdb5.3t64/copyright",
+    "usr/share/doc/libdbus-1-3/copyright",
+    "usr/share/doc/libdc1394-25/copyright",
+    "usr/share/doc/libdconf1/copyright",
+    "usr/share/doc/libdebconfclient0/copyright",
+    "usr/share/doc/libdecor-0-0/copyright",
+    "usr/share/doc/libdecor-0-plugin-1-gtk/copyright",
+    "usr/share/doc/libdisplay-info3/copyright",
+    "usr/share/doc/libdpkg-perl/copyright",
+    "usr/share/doc/libdrm-amdgpu1/copyright",
+    "usr/share/doc/libdrm-common/copyright",
+    "usr/share/doc/libdrm-intel1/copyright",
+    "usr/share/doc/libdrm2/copyright",
+    "usr/share/doc/libduktape207/copyright",
+    "usr/share/doc/libdvdnav4/copyright",
+    "usr/share/doc/libdvdread8t64/copyright",
+    "usr/share/doc/libedit2/copyright",
+    "usr/share/doc/libelf1t64/copyright",
+    "usr/share/doc/libepoxy0/copyright",
+    "usr/share/doc/liberror-perl/copyright",
+    "usr/share/doc/libexpat1/copyright",
+    "usr/share/doc/libext2fs2t64/copyright",
+    "usr/share/doc/libffi8/copyright",
+    "usr/share/doc/libfftw3-double3/copyright",
+    "usr/share/doc/libfftw3-single3/copyright",
+    "usr/share/doc/libfido2-1/copyright",
+    "usr/share/doc/libflac14/copyright",
+    "usr/share/doc/libflite1/copyright",
+    "usr/share/doc/libfontconfig1/copyright",
+    "usr/share/doc/libfreetype6/copyright",
+    "usr/share/doc/libfribidi0/copyright",
+    "usr/share/doc/libfyaml0/copyright",
+    "usr/share/doc/libgbm1/copyright",
+    "usr/share/doc/libgcrypt20/copyright",
+    "usr/share/doc/libgdbm-compat4t64/copyright",
+    "usr/share/doc/libgdbm6t64/copyright",
+    "usr/share/doc/libgdk-pixbuf-2.0-0/copyright",
+    "usr/share/doc/libgdk-pixbuf2.0-common/copyright",
+    "usr/share/doc/libgirepository-2.0-0/copyright",
+    "usr/share/doc/libglib2.0-0t64/copyright",
+    "usr/share/doc/libglib2.0-bin/copyright",
+    "usr/share/doc/libglib2.0-data/copyright",
+    "usr/share/doc/libglycin-2-0/copyright",
+    "usr/share/doc/libgme0/copyright",
+    "usr/share/doc/libgmp10/copyright",
+    "usr/share/doc/libgnutls30t64/copyright",
+    "usr/share/doc/libgpg-error0/copyright",
+    "usr/share/doc/libgraphite2-3/copyright",
+    "usr/share/doc/libgsm1/copyright",
+    "usr/share/doc/libgssapi-krb5-2/copyright",
+    "usr/share/doc/libgstreamer1.0-0/copyright",
+    "usr/share/doc/libgtk-3-0t64/copyright",
+    "usr/share/doc/libgtk-3-bin/copyright",
+    "usr/share/doc/libgtk-3-common/copyright",
+    "usr/share/doc/libharfbuzz0b/copyright",
+    "usr/share/doc/libheif-plugin-aomdec/copyright",
+    "usr/share/doc/libheif-plugin-aomenc/copyright",
+    "usr/share/doc/libheif1/copyright",
+    "usr/share/doc/libhogweed6t64/copyright",
+    "usr/share/doc/libhwy1t64/copyright",
+    "usr/share/doc/libibus-1.0-5/copyright",
+    "usr/share/doc/libidn2-0/copyright",
+    "usr/share/doc/libiec61883-0/copyright",
+    "usr/share/doc/libigc2/copyright",
+    "usr/share/doc/libigdfcl2/copyright",
+    "usr/share/doc/libigdgmm12/copyright",
+    "usr/share/doc/libisl23/copyright",
+    "usr/share/doc/libjack-jackd2-0/copyright",
+    "usr/share/doc/libjansson4/copyright",
+    "usr/share/doc/libjsoncpp26/copyright",
+    "usr/share/doc/libjxl0.11/copyright",
+    "usr/share/doc/libk5crypto3/copyright",
+    "usr/share/doc/libkeyutils1/copyright",
+    "usr/share/doc/libkrb5-3/copyright",
+    "usr/share/doc/libkrb5support0/copyright",
+    "usr/share/doc/libksba8/copyright",
+    "usr/share/doc/liblcms2-2/copyright",
+    "usr/share/doc/libldap-common/copyright",
+    "usr/share/doc/libldap2/copyright",
+    "usr/share/doc/liblilv-0-0/copyright",
+    "usr/share/doc/libllvm21/copyright",
+    "usr/share/doc/liblz4-1/copyright",
+    "usr/share/doc/liblzma5/copyright",
+    "usr/share/doc/libmagic-mgc/copyright",
+    "usr/share/doc/libmagic1t64/copyright",
+    "usr/share/doc/libmbedcrypto16/copyright",
+    "usr/share/doc/libmd0/copyright",
+    "usr/share/doc/libmount1/copyright",
+    "usr/share/doc/libmp3lame0/copyright",
+    "usr/share/doc/libmpc3/copyright",
+    "usr/share/doc/libmpfr6/copyright",
+    "usr/share/doc/libmpg123-0t64/copyright",
+    "usr/share/doc/libmysofa1/copyright",
+    "usr/share/doc/libnettle8t64/copyright",
+    "usr/share/doc/libnghttp2-14/copyright",
+    "usr/share/doc/libnorm1t64/copyright",
+    "usr/share/doc/libnpth0t64/copyright",
+    "usr/share/doc/libnuma1/copyright",
+    "usr/share/doc/libogg0/copyright",
+    "usr/share/doc/libopenal-data/copyright",
+    "usr/share/doc/libopenal1/copyright",
+    "usr/share/doc/libopenjp2-7/copyright",
+    "usr/share/doc/libopenmpt0t64/copyright",
+    "usr/share/doc/libopus0/copyright",
+    "usr/share/doc/libp11-kit0/copyright",
+    "usr/share/doc/libpackagekit-glib2-18/copyright",
+    "usr/share/doc/libpam-modules-bin/copyright",
+    "usr/share/doc/libpam-modules/copyright",
+    "usr/share/doc/libpam-runtime/copyright",
+    "usr/share/doc/libpam-systemd/copyright",
+    "usr/share/doc/libpam0g/copyright",
+    "usr/share/doc/libpango-1.0-0/copyright",
+    "usr/share/doc/libpangocairo-1.0-0/copyright",
+    "usr/share/doc/libpangoft2-1.0-0/copyright",
+    "usr/share/doc/libpciaccess0/copyright",
+    "usr/share/doc/libpcre2-8-0/copyright",
+    "usr/share/doc/libperl5.40/copyright",
+    "usr/share/doc/libpgm-5.3-0t64/copyright",
+    "usr/share/doc/libpipewire-0.3-0t64/copyright",
+    "usr/share/doc/libpipewire-0.3-common/copyright",
+    "usr/share/doc/libpixman-1-0/copyright",
+    "usr/share/doc/libpkgconf7/copyright",
+    "usr/share/doc/libplacebo360/copyright",
+    "usr/share/doc/libpng16-16t64/copyright",
+    "usr/share/doc/libpolkit-agent-1-0/copyright",
+    "usr/share/doc/libpolkit-gobject-1-0/copyright",
+    "usr/share/doc/libpopt0/copyright",
+    "usr/share/doc/libproc2-0/copyright",
+    "usr/share/doc/libpsl5t64/copyright",
+    "usr/share/doc/libpulse0/copyright",
+    "usr/share/doc/libpython3-stdlib/copyright",
+    "usr/share/doc/libpython3.14-minimal/copyright",
+    "usr/share/doc/librabbitmq4/copyright",
+    "usr/share/doc/librav1e0.8/copyright",
+    "usr/share/doc/libraw1394-11/copyright",
+    "usr/share/doc/libreadline8t64/copyright",
+    "usr/share/doc/librhash1/copyright",
+    "usr/share/doc/librist4/copyright",
+    "usr/share/doc/librsvg2-2/copyright",
+    "usr/share/doc/librsvg2-common/copyright",
+    "usr/share/doc/librtmp1/copyright",
+    "usr/share/doc/librubberband3/copyright",
+    "usr/share/doc/libsamplerate0/copyright",
+    "usr/share/doc/libsasl2-2/copyright",
+    "usr/share/doc/libsasl2-modules-db/copyright",
+    "usr/share/doc/libsdl2-2.0-0/copyright",
+    "usr/share/doc/libsdl2-classic/copyright",
+    "usr/share/doc/libseccomp2/copyright",
+    "usr/share/doc/libselinux1/copyright",
+    "usr/share/doc/libsemanage-common/copyright",
+    "usr/share/doc/libsemanage2/copyright",
+    "usr/share/doc/libsensors-config/copyright",
+    "usr/share/doc/libsensors5/copyright",
+    "usr/share/doc/libsepol2/copyright",
+    "usr/share/doc/libserd-0-0/copyright",
+    "usr/share/doc/libsframe3/copyright",
+    "usr/share/doc/libsharpyuv0/copyright",
+    "usr/share/doc/libshine3/copyright",
+    "usr/share/doc/libsmartcols1/copyright",
+    "usr/share/doc/libsnappy1v5/copyright",
+    "usr/share/doc/libsndfile1/copyright",
+    "usr/share/doc/libsodium23/copyright",
+    "usr/share/doc/libsord-0-0/copyright",
+    "usr/share/doc/libsoxr0/copyright",
+    "usr/share/doc/libspa-0.2-modules/copyright",
+    "usr/share/doc/libspeex1/copyright",
+    "usr/share/doc/libsqlite3-0/copyright",
+    "usr/share/doc/libsratom-0-0/copyright",
+    "usr/share/doc/libsrt1.5-gnutls/copyright",
+    "usr/share/doc/libss2/copyright",
+    "usr/share/doc/libssh-4/copyright",
+    "usr/share/doc/libssh2-1t64/copyright",
+    "usr/share/doc/libssl3t64/copyright",
+    "usr/share/doc/libstemmer0d/copyright",
+    "usr/share/doc/libsvtav1enc2/copyright",
+    "usr/share/doc/libswresample6/copyright",
+    "usr/share/doc/libswscale9/copyright",
+    "usr/share/doc/libsystemd-shared/copyright",
+    "usr/share/doc/libsystemd0/copyright",
+    "usr/share/doc/libtasn1-6/copyright",
+    "usr/share/doc/libtext-charwidth-perl/copyright",
+    "usr/share/doc/libtext-wrapi18n-perl/copyright",
+    "usr/share/doc/libthai-data/copyright",
+    "usr/share/doc/libthai0/copyright",
+    "usr/share/doc/libtheoradec2/copyright",
+    "usr/share/doc/libtheoraenc2/copyright",
+    "usr/share/doc/libtinfo6/copyright",
+    "usr/share/doc/libtwolame0/copyright",
+    "usr/share/doc/libudev1/copyright",
+    "usr/share/doc/libudfread3/copyright",
+    "usr/share/doc/libunibreak6/copyright",
+    "usr/share/doc/libunistring5/copyright",
+    "usr/share/doc/libusb-1.0-0/copyright",
+    "usr/share/doc/libuuid1/copyright",
+    "usr/share/doc/libuv1t64/copyright",
+    "usr/share/doc/libva-drm2/copyright",
+    "usr/share/doc/libva-x11-2/copyright",
+    "usr/share/doc/libva2/copyright",
+    "usr/share/doc/libvdpau1/copyright",
+    "usr/share/doc/libvidstab1.1/copyright",
+    "usr/share/doc/libvorbis0a/copyright",
+    "usr/share/doc/libvorbisenc2/copyright",
+    "usr/share/doc/libvorbisfile3/copyright",
+    "usr/share/doc/libvpl2/copyright",
+    "usr/share/doc/libvpx12/copyright",
+    "usr/share/doc/libvulkan1/copyright",
+    "usr/share/doc/libwayland-client0/copyright",
+    "usr/share/doc/libwayland-cursor0/copyright",
+    "usr/share/doc/libwayland-egl1/copyright",
+    "usr/share/doc/libwebp7/copyright",
+    "usr/share/doc/libwebpmux3/copyright",
+    "usr/share/doc/libwebrtc-audio-processing-1-3/copyright",
+    "usr/share/doc/libwrap0/copyright",
+    "usr/share/doc/libx11-6/copyright",
+    "usr/share/doc/libx11-data/copyright",
+    "usr/share/doc/libx11-xcb1/copyright",
+    "usr/share/doc/libx264-165/copyright",
+    "usr/share/doc/libx265-215/copyright",
+    "usr/share/doc/libxau6/copyright",
+    "usr/share/doc/libxcb-dri3-0/copyright",
+    "usr/share/doc/libxcb-present0/copyright",
+    "usr/share/doc/libxcb-randr0/copyright",
+    "usr/share/doc/libxcb-render0/copyright",
+    "usr/share/doc/libxcb-shape0/copyright",
+    "usr/share/doc/libxcb-shm0/copyright",
+    "usr/share/doc/libxcb-sync1/copyright",
+    "usr/share/doc/libxcb-xfixes0/copyright",
+    "usr/share/doc/libxcb1/copyright",
+    "usr/share/doc/libxcomposite1/copyright",
+    "usr/share/doc/libxcursor1/copyright",
+    "usr/share/doc/libxdamage1/copyright",
+    "usr/share/doc/libxdmcp6/copyright",
+    "usr/share/doc/libxext6/copyright",
+    "usr/share/doc/libxfixes3/copyright",
+    "usr/share/doc/libxi6/copyright",
+    "usr/share/doc/libxinerama1/copyright",
+    "usr/share/doc/libxkbcommon0/copyright",
+    "usr/share/doc/libxml2-16/copyright",
+    "usr/share/doc/libxmlb2/copyright",
+    "usr/share/doc/libxrandr2/copyright",
+    "usr/share/doc/libxrender1/copyright",
+    "usr/share/doc/libxres1/copyright",
+    "usr/share/doc/libxshmfence1/copyright",
+    "usr/share/doc/libxss1/copyright",
+    "usr/share/doc/libxtst6/copyright",
+    "usr/share/doc/libxv1/copyright",
+    "usr/share/doc/libxvidcore4/copyright",
+    "usr/share/doc/libxxhash0/copyright",
+    "usr/share/doc/libze-dev/copyright",
+    "usr/share/doc/libze-intel-gpu1/copyright",
+    "usr/share/doc/libze1/copyright",
+    "usr/share/doc/libzimg2/copyright",
+    "usr/share/doc/libzix-0-0/copyright",
+    "usr/share/doc/libzmq5/copyright",
+    "usr/share/doc/libzstd1/copyright",
+    "usr/share/doc/libzvbi-common/copyright",
+    "usr/share/doc/libzvbi0t64/copyright",
+    "usr/share/doc/linux-libc-dev/copyright",
+    "usr/share/doc/login.defs/copyright",
+    "usr/share/doc/login/copyright",
+    "usr/share/doc/logsave/copyright",
+    "usr/share/doc/lsb-release/copyright",
+    "usr/share/doc/lto-disabled-list/copyright",
+    "usr/share/doc/make/copyright",
+    "usr/share/doc/mawk/copyright",
+    "usr/share/doc/media-types/copyright",
+    "usr/share/doc/mesa-libgallium/copyright",
+    "usr/share/doc/mesa-vulkan-drivers/copyright",
+    "usr/share/doc/mount/copyright",
+    "usr/share/doc/ncurses-base/copyright",
+    "usr/share/doc/ncurses-bin/copyright",
+    "usr/share/doc/net-tools/copyright",
+    "usr/share/doc/netbase/copyright",
+    "usr/share/doc/ninja-build/copyright",
+    "usr/share/doc/ocl-icd-libopencl1/copyright",
+    "usr/share/doc/openssh-client/copyright",
+    "usr/share/doc/openssl-provider-legacy/copyright",
+    "usr/share/doc/packagekit/copyright",
+    "usr/share/doc/passwd/copyright",
+    "usr/share/doc/patch/copyright",
+    "usr/share/doc/perl-base/copyright",
+    "usr/share/doc/perl-modules-5.40/copyright",
+    "usr/share/doc/perl/copyright",
+    "usr/share/doc/pinentry-curses/copyright",
+    "usr/share/doc/pkg-config/copyright",
+    "usr/share/doc/pkgconf-bin/copyright",
+    "usr/share/doc/pkgconf/copyright",
+    "usr/share/doc/polkitd/copyright",
+    "usr/share/doc/procps/copyright",
+    "usr/share/doc/python-apt-common/copyright",
+    "usr/share/doc/python3-apt/copyright",
+    "usr/share/doc/python3-autocommand/copyright",
+    "usr/share/doc/python3-bcrypt/copyright",
+    "usr/share/doc/python3-blinker/copyright",
+    "usr/share/doc/python3-cffi-backend/copyright",
+    "usr/share/doc/python3-cryptography/copyright",
+    "usr/share/doc/python3-dbus/copyright",
+    "usr/share/doc/python3-distro/copyright",
+    "usr/share/doc/python3-gi/copyright",
+    "usr/share/doc/python3-httplib2/copyright",
+    "usr/share/doc/python3-inflect/copyright",
+    "usr/share/doc/python3-jaraco.context/copyright",
+    "usr/share/doc/python3-jaraco.functools/copyright",
+    "usr/share/doc/python3-jaraco.text/copyright",
+    "usr/share/doc/python3-jwt/copyright",
+    "usr/share/doc/python3-launchpadlib/copyright",
+    "usr/share/doc/python3-lazr.restfulclient/copyright",
+    "usr/share/doc/python3-lazr.uri/copyright",
+    "usr/share/doc/python3-minimal/copyright",
+    "usr/share/doc/python3-more-itertools/copyright",
+    "usr/share/doc/python3-oauthlib/copyright",
+    "usr/share/doc/python3-packaging/copyright",
+    "usr/share/doc/python3-pip-whl/copyright",
+    "usr/share/doc/python3-pip/copyright",
+    "usr/share/doc/python3-pkg-resources/copyright",
+    "usr/share/doc/python3-pyparsing/copyright",
+    "usr/share/doc/python3-setuptools-whl/copyright",
+    "usr/share/doc/python3-setuptools/copyright",
+    "usr/share/doc/python3-software-properties/copyright",
+    "usr/share/doc/python3-typeguard/copyright",
+    "usr/share/doc/python3-typing-extensions/copyright",
+    "usr/share/doc/python3-wadllib/copyright",
+    "usr/share/doc/python3-wheel/copyright",
+    "usr/share/doc/python3-zipp/copyright",
+    "usr/share/doc/python3.14-minimal/copyright",
+    "usr/share/doc/python3.14/copyright",
+    "usr/share/doc/python3/copyright",
+    "usr/share/doc/readline-common/copyright",
+    "usr/share/doc/rpcsvc-proto/copyright",
+    "usr/share/doc/rsync/copyright",
+    "usr/share/doc/rust-coreutils/copyright",
+    "usr/share/doc/sed/copyright",
+    "usr/share/doc/sensible-utils/copyright",
+    "usr/share/doc/sgml-base/copyright",
+    "usr/share/doc/shared-mime-info/copyright",
+    "usr/share/doc/software-properties-common/copyright",
+    "usr/share/doc/systemd-sysv/copyright",
+    "usr/share/doc/systemd/copyright",
+    "usr/share/doc/sysvinit-utils/copyright",
+    "usr/share/doc/tar/copyright",
+    "usr/share/doc/tzdata/copyright",
+    "usr/share/doc/ubuntu-keyring/copyright",
+    "usr/share/doc/ucf/copyright",
+    "usr/share/doc/unzip/copyright",
+    "usr/share/doc/user-session-migration/copyright",
+    "usr/share/doc/util-linux/copyright",
+    "usr/share/doc/wget/copyright",
+    "usr/share/doc/x11-common/copyright",
+    "usr/share/doc/xkb-data/copyright",
+    "usr/share/doc/xml-core/copyright",
+    "usr/share/doc/xz-utils/copyright",
+    "usr/share/doc/zlib1g/copyright"
+  ],
+  "image_not_rebuilt": true,
+  "reviewed_whiteouts": [
+    {
+      "layer": "blobs/sha256/26f937f59a5436c38119f82dd7e219dc988597f5a951e3f254addd58b27b251f",
+      "path": "root/.ssh/.wh..wh..opq",
+      "bytes": 0,
+      "classification": "REVIEW BEFORE PUBLICATION"
+    }
+  ],
+  "review": "All layers inspected; the sole flagged path is a zero-byte OCI opaque-directory whiteout, not an SSH key/credential payload. No actual secret/model-weight path found; no image bytes changed."
+}

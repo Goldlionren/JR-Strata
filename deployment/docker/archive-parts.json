@@ -1,0 +1,25 @@
+{
+  "archive_sha256": "59f17cd2686b419c3590f82cfb4df5630b74a47a55a01d6184ad9e278add96de",
+  "parts": [
+    {
+      "name": "runtime.tar.zst.part00",
+      "sha256": "4279abed022151c33fdc35df7077fa4a7bec2feb59c8c26f49d2a034e46377f2",
+      "bytes": 943718400
+    },
+    {
+      "name": "runtime.tar.zst.part01",
+      "sha256": "567940afb374568344ef03eec8afd517cb218f2f1af44e757c7e7f38307d0192",
+      "bytes": 943718400
+    },
+    {
+      "name": "runtime.tar.zst.part02",
+      "sha256": "b9bf35f799ecf355448a0f4cff24ae123e983f34c93e58f0bfed53197c4bb095",
+      "bytes": 943718400
+    },
+    {
+      "name": "runtime.tar.zst.part03",
+      "sha256": "8908a0181b6b5c04a07b4db3a8786b2a8cbfb230fe75dc8c7479f41308b10c5f",
+      "bytes": 682358272
+    }
+  ]
+}

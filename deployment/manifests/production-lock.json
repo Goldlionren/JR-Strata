@@ -1,0 +1,39 @@
+{
+  "release": "jr-b60-sycl-fastfix-prod-20261009",
+  "deployment_commit": "0953f6eff9b288d84fea1b1e74905707ffa9ffaf",
+  "engine_source_commit": "be3105e7f66ef4f9668ef129a1938800954b1b3b",
+  "engine_source_tree": "dcb458f77d3f8370b72ab42cadc94ec41aa1e119",
+  "engine_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+  "ranking_sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf",
+  "tested_host": {
+    "os": "Ubuntu24.04.4",
+    "kernel": "7.0.0-34-generic",
+    "xe_version": "17010844",
+    "gpu_pci_id": "8086:e211",
+    "physical_ram_gib": 64
+  },
+  "engine_info": {
+    "expert_slots": 10831,
+    "expert_cache_mib": 17990,
+    "max_context": 131072,
+    "kv": "int8",
+    "kv_resident": 32768,
+    "spec": 6,
+    "mtp_max": 4
+  },
+  "mirror_experts": 13745,
+  "adaptive": {
+    "every": 4,
+    "swaps": 96
+  },
+  "loaded_headroom_mib": 512,
+  "unloaded_free_gib": 22,
+  "startup_host_available_gib": 32,
+  "qualification": {
+    "generated_tokens": 2048,
+    "decode_tps": 25.3,
+    "near_128k_real_prompt": "NOT VERIFIED for this engine",
+    "new_build": "NOT EXECUTED",
+    "second_host_inference": "NOT YET VERIFIED"
+  }
+}
