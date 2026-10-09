@@ -1,0 +1,7 @@
+{
+  "start_epoch": 1791511802.5265203,
+  "start_iso": "2026-10-09T13:10:02.526529+11:00",
+  "authorization": "Final operator production migration; RC1 deprecated, no automatic fallback",
+  "validated_head": "c6a8a55dbd2989dd51f5355e9a83eb76198fe832",
+  "candidate_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e"
+}

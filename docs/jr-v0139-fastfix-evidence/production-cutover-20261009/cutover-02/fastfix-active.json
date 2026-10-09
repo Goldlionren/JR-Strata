@@ -1,0 +1,8 @@
+{
+  "MainPID": "1736934",
+  "NRestarts": "0",
+  "Conflicts": "shutdown.target jr-strata-sycl-rc1.service",
+  "ActiveState": "active",
+  "SubState": "running",
+  "UnitFileState": "disabled"
+}

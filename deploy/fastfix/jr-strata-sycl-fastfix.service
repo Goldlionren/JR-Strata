@@ -1,0 +1,30 @@
+[Unit]
+Description=JR Strata SYCL FastFix production on Intel Arc Pro B60 (localhost)
+Conflicts=jr-strata-sycl-rc1.service
+After=jr-strata-sycl-rc1.service
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=exec
+WorkingDirectory=/data/strata-lab/JR-Strata-SYCL-v0139-FastFix
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/deploy/fastfix/start.py
+ExecStartPost=/data/strata-lab/Strata/.venv/bin/python -B /data/strata-lab/JR-Strata-SYCL-v0139-FastFix/deploy/fastfix/ready.py $MAINPID
+# TERM goes only to the native Python server, which sends QUIT and awaits engine queue drain.
+# Never automatically SIGKILL a surviving GPU engine.
+KillMode=process
+KillSignal=SIGTERM
+SendSIGKILL=no
+TimeoutStartSec=300
+TimeoutStopSec=180
+Restart=on-failure
+RestartSec=30
+RestartPreventExitStatus=78 86
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=jr-strata-sycl-fastfix
+
+[Install]
+WantedBy=default.target

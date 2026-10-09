@@ -1,0 +1,8 @@
+{
+  "MainPID": "0",
+  "NRestarts": "0",
+  "Conflicts": "shutdown.target",
+  "ActiveState": "inactive",
+  "SubState": "dead",
+  "UnitFileState": "disabled"
+}

@@ -1,0 +1,7 @@
+{
+  "error": "OSError(98, 'Address already in use')",
+  "elapsed_s": 2.273872137069702,
+  "rc1_stopped": true,
+  "fastfix_started": false,
+  "policy": "No RC1 restart/fallback; preserve diagnostics and assess FastFix/hardware"
+}

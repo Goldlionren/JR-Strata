@@ -1,0 +1,37 @@
+{
+  "id": "chatcmpl-b2356b3c79844165bd4231cb",
+  "object": "chat.completion",
+  "created": 1791512062,
+  "model": "swift-1.5-iq3_xxs",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The presence of dissolved salt ions disrupts the formation of the ice crystal lattice, requiring the water to cool to a lower temperature than pure water to overcome this interference. This phenomenon, known as freezing point depression, occurs because the salt lowers the chemical potential of the liquid phase relative to the solid phase, thereby stabilizing the"
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 25,
+    "completion_tokens": 64,
+    "total_tokens": 89,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 25,
+    "prompt_ms": 1331.5,
+    "prompt_per_token_ms": 53.26,
+    "prompt_per_second": 18.8,
+    "predicted_n": 64,
+    "predicted_ms": 4690.9,
+    "predicted_per_token_ms": 73.295,
+    "predicted_per_second": 13.6,
+    "draft_n": 68,
+    "draft_n_accepted": 33
+  }
+}

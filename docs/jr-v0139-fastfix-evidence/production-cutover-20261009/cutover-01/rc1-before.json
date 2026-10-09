@@ -1,0 +1,8 @@
+{
+  "MainPID": "1515174",
+  "NRestarts": "0",
+  "Conflicts": "shutdown.target",
+  "ActiveState": "active",
+  "SubState": "running",
+  "UnitFileState": "enabled"
+}

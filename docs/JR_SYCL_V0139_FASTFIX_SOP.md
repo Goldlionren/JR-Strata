@@ -1,5 +1,8 @@
 # FastFix experimental SOP
 
+Current production decision (2026-10-09): **FastFix ACTIVE/ENABLED; RC1 INACTIVE/DISABLED and deprecated.** The operator's final migration decision supersedes earlier RC1-restoration/fallback recommendations below. The same validated engine now serves native Chat/Monitor/API at127.0.0.1:18083, with128K configured context,10831 GPU experts, full13745 mirror, Adaptive ON and MTP4. [Production results](JR_SYCL_V0139_FASTFIX_PRODUCTION_REPORT.md) and [current operations](JR_SYCL_V0139_FASTFIX_PRODUCTION_OPERATIONS.md). Historical validation reports remain dated evidence, not current production policy. No automatic RC1 fallback.
+
+
 Latest measured result (2026-10-09): **window02 PASS — PROMOTION ELIGIBLE** under the current sustained ≥20tok/s gate. The explicitly approved22GiB unloaded threshold passed at22.485607GiB; separate loaded headroom647MiB passed512MiB. Seven GPU safety tests, captured readiness, actual GGUF mirror exchange and delayed per-layer payload probes passed. Adaptive ON/MTP4 generated2048 actual tokens at25.3 Decode tok/s with no corruption/readiness failure/GPU fault. Three subsequent requests passed; Chinese/math Decode remained17.2/11.2tok/s. RC1 was restored within188.111s; no permanent cutover occurred. [Full results, limitations and raw evidence](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS_WINDOW02.md).
 
 All reports below are historical stage records with their original failures/blockers preserved. The new result applies only to the unchanged `8d2ac886…21ef04e` ELF/source `be3105e`; it does not reclassify failed older binaries or optional kernel tests. Fresh production startup/restart/endurance and real128K prompt regression are not claimed by this narrow run.

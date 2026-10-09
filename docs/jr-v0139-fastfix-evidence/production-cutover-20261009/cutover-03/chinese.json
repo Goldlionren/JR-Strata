@@ -1,0 +1,37 @@
+{
+  "id": "chatcmpl-ad3a538012724f59a492ab93",
+  "object": "chat.completion",
+  "created": 1791512069,
+  "model": "swift-1.5-iq3_xxs",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "因為海水中溶解的鹽分會干擾水分子形成規則的冰晶結構，從而降低其凝固溫度。\n這種溶質效應使得海水必須在低於攝氏零度的環境下才能結冰。"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 32,
+    "completion_tokens": 44,
+    "total_tokens": 76,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 32,
+    "prompt_ms": 1666.1,
+    "prompt_per_token_ms": 52.066,
+    "prompt_per_second": 19.2,
+    "predicted_n": 44,
+    "predicted_ms": 2974.3,
+    "predicted_per_token_ms": 67.598,
+    "predicted_per_second": 14.8,
+    "draft_n": 35,
+    "draft_n_accepted": 22
+  }
+}

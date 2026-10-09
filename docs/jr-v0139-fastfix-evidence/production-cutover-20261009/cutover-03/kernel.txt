@@ -1,0 +1,55 @@
+2026-10-09T13:10:03.502209+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:10:04.788359+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:13.519374+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:13.776369+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:14.087295+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:14.692253+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:14.950227+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered blocking state
+2026-10-09T13:12:14.950298+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered disabled state
+2026-10-09T13:12:14.950322+11:00 james-NUC12SNKi72 kernel: veth57f89b1: entered allmulticast mode
+2026-10-09T13:12:14.950338+11:00 james-NUC12SNKi72 kernel: veth57f89b1: entered promiscuous mode
+2026-10-09T13:12:14.960243+11:00 james-NUC12SNKi72 kernel: eth0: renamed from veth3626b34
+2026-10-09T13:12:14.960315+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered blocking state
+2026-10-09T13:12:14.960334+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered forwarding state
+2026-10-09T13:12:30.060721+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:30.611380+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:31.062227+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:32.064227+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:33.066839+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:34.068233+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:35.069233+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:36.070228+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:37.073394+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:12:38.006298+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered disabled state
+2026-10-09T13:12:38.006356+11:00 james-NUC12SNKi72 kernel: veth3626b34: renamed from eth0
+2026-10-09T13:12:38.051273+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered disabled state
+2026-10-09T13:12:38.051308+11:00 james-NUC12SNKi72 kernel: veth57f89b1 (unregistering): left allmulticast mode
+2026-10-09T13:12:38.051341+11:00 james-NUC12SNKi72 kernel: veth57f89b1 (unregistering): left promiscuous mode
+2026-10-09T13:12:38.051371+11:00 james-NUC12SNKi72 kernel: docker0: port 1(veth57f89b1) entered disabled state
+2026-10-09T13:12:38.080821+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:06.304366+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:06.544276+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:06.848229+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:07.451376+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:07.686230+11:00 james-NUC12SNKi72 kernel: docker0: port 1(vethbfcd86a) entered blocking state
+2026-10-09T13:14:07.686299+11:00 james-NUC12SNKi72 kernel: docker0: port 1(vethbfcd86a) entered disabled state
+2026-10-09T13:14:07.686309+11:00 james-NUC12SNKi72 kernel: vethbfcd86a: entered allmulticast mode
+2026-10-09T13:14:07.686320+11:00 james-NUC12SNKi72 kernel: vethbfcd86a: entered promiscuous mode
+2026-10-09T13:14:07.697228+11:00 james-NUC12SNKi72 kernel: eth0: renamed from vethbf5e871
+2026-10-09T13:14:07.697292+11:00 james-NUC12SNKi72 kernel: docker0: port 1(vethbfcd86a) entered blocking state
+2026-10-09T13:14:07.697305+11:00 james-NUC12SNKi72 kernel: docker0: port 1(vethbfcd86a) entered forwarding state
+2026-10-09T13:14:22.260839+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:22.913468+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:23.263223+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:24.263229+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:25.265234+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:26.266238+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:27.268244+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:28.269232+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:29.270249+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:30.271244+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:31.272842+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:32.274289+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:33.275225+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:34.276225+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000
+2026-10-09T13:14:35.278225+11:00 james-NUC12SNKi72 kernel: xe 0000:07:00.0: [drm] PL2 disabled for channel 0, val 0x00000000

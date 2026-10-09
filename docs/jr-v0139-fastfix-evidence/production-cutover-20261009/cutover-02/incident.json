@@ -1,0 +1,7 @@
+{
+  "error": "AssertionError()",
+  "elapsed_s": 154.504784822464,
+  "rc1_stopped": true,
+  "fastfix_started": true,
+  "policy": "No RC1 restart/fallback; preserve diagnostics and assess FastFix/hardware"
+}

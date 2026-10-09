@@ -1,0 +1,120 @@
+{
+  "health": {
+    "http_status": 200,
+    "keys": [
+      "status",
+      "max_context",
+      "model",
+      "images",
+      "api_key",
+      "loaded",
+      "service"
+    ],
+    "body": {
+      "status": "ok",
+      "max_context": 131072,
+      "model": "swift-1.5-iq3_xxs",
+      "images": false,
+      "api_key": false,
+      "loaded": true,
+      "service": "strata"
+    }
+  },
+  "config": {
+    "http_status": 200,
+    "keys": [
+      "file",
+      "keys",
+      "note"
+    ]
+  },
+  "settings": {
+    "http_status": 200,
+    "keys": [
+      "shared",
+      "defaults"
+    ]
+  },
+  "metrics": {
+    "http_status": 200,
+    "keys": [
+      "engine",
+      "live",
+      "requests",
+      "conversation_cache",
+      "requests_kept",
+      "totals",
+      "hardware",
+      "hardware_static",
+      "history",
+      "time"
+    ]
+  },
+  "status": {
+    "http_status": 200,
+    "keys": [
+      "busy",
+      "queued",
+      "phase",
+      "prompt_tokens",
+      "generated",
+      "max_tokens"
+    ],
+    "body": {
+      "busy": false,
+      "queued": 0,
+      "phase": "answering",
+      "prompt_tokens": 26,
+      "generated": 2,
+      "max_tokens": 16
+    }
+  },
+  "v1/models": {
+    "http_status": 200,
+    "keys": [
+      "object",
+      "data"
+    ],
+    "body": {
+      "object": "list",
+      "data": [
+        {
+          "id": "swift-1.5-iq3_xxs",
+          "object": "model",
+          "status": {
+            "value": "loaded"
+          },
+          "meta": {
+            "n_ctx": 131072
+          },
+          "architecture": {
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fastfix": {
+    "MainPID": "1749394",
+    "NRestarts": "0",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "docker.service": {
+    "is-active": "active",
+    "is-enabled": "enabled"
+  },
+  "jr-strata-sycl-rc1.service": {
+    "is-active": "inactive",
+    "is-enabled": "disabled"
+  },
+  "linger": "yes",
+  "default_target_link": "/home/james/.config/systemd/user/jr-strata-sycl-fastfix.service",
+  "cpu_tests": "8/8 PASS; native inference arguments unchanged; TIME_WAIT/active-listener regression checks passed"
+}

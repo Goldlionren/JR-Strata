@@ -1,0 +1,28 @@
+{
+  "root_status": 200,
+  "web/app.css": {
+    "status": 200,
+    "bytes": 13322,
+    "sha256": "5d7add8ecaeb4ef6ad620f466fc79506e88a737327ca6cc3cf9d9de71b74fe40"
+  },
+  "web/app.js": {
+    "status": 200,
+    "bytes": 59326,
+    "sha256": "ac0ba371ba8a6fcf9c03713a867f1d1885a65def85b9601560b9170697c1d80f"
+  },
+  "web/components.css": {
+    "status": 200,
+    "bytes": 10548,
+    "sha256": "e4b4895a62193c27bbe9fd8eb651c93bd9f50bf638e073620d47886b2c2c2f8b"
+  },
+  "web/sprite.svg": {
+    "status": 200,
+    "bytes": 28544,
+    "sha256": "bbbd3a03a8cdcc8453934508010202bc492505f39aa0f696f51341b260255094"
+  },
+  "web/tokens.css": {
+    "status": 200,
+    "bytes": 3991,
+    "sha256": "73ad21bfdd4145fae697dec37c2909ecec67d610f96cb2267c29a5526ed13256"
+  }
+}

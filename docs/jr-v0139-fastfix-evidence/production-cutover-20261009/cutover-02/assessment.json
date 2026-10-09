@@ -1,0 +1,8 @@
+{
+  "classification": "CPU smoke-request field error; LENGTH_CAPPED reasoning, no final answer",
+  "engine_corruption": false,
+  "gpu_faults_resets": 0,
+  "teardown": "native SIGTERM/QUIT completed",
+  "correction": "Use archived supported chat_template_kwargs.enable_thinking=false; no runtime/profile/binary change",
+  "request_cpu_checks": "PASS: all3 exact dictionaries match the archived supported thinking-control field"
+}

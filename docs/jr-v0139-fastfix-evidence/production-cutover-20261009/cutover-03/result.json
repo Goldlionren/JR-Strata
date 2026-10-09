@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "fastfix": {
+    "MainPID": "1749394",
+    "NRestarts": "0",
+    "Conflicts": "jr-strata-sycl-rc1.service shutdown.target",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "rc1": {
+    "MainPID": "0",
+    "NRestarts": "0",
+    "Conflicts": "shutdown.target",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "UnitFileState": "disabled"
+  },
+  "server_pid": 1749394,
+  "engine_pid": 1749505,
+  "binary_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+  "context": 131072,
+  "gpu_experts": 10831,
+  "gpu_cache_mib": 17990,
+  "mirror_experts": 13745,
+  "loaded_headroom_mib": 655,
+  "adaptive_pair_exchanges_smoke": 1344,
+  "adaptive_generations_smoke": 14,
+  "gpu_faults_resets": 0,
+  "native_ui": "http://127.0.0.1:18083/",
+  "linger": "yes",
+  "boot_autostart": "enabled default.target symlink and existing Linger=yes; reboot not performed",
+  "rc1_artifacts_unchanged": true,
+  "no_rc1_fallback": true,
+  "elapsed_s": 273.240070104599
+}
