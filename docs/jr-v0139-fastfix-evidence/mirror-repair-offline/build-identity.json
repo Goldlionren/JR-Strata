@@ -1,0 +1,54 @@
+{
+  "prepared_at": "2026-10-09T12:00:53.444886+11:00",
+  "base_commit": "48a0fefe682a7c5aeea78a23a4a6fda6867751ea",
+  "branch": "jr-b60-sycl-v0.1.39-fastfix",
+  "engine_source_commit": "be3105e7f66ef4f9668ef129a1938800954b1b3b",
+  "engine": {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fastfix/strata",
+    "sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e"
+  },
+  "probe": {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/build-fastfix/fastfix_adaptive_mirror",
+    "sha256": "a8e764fd2ee893bc6eb6d327f8eb2edb8e930a292df825153284c9d3afc3eae8"
+  },
+  "docker_image": "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "compiler": "oneAPI2026.1.1 existing read-only build mount",
+  "runtime": "stock historical image: SYCL2026.1.0 / UR0.12.0 / LevelZero1.32.0",
+  "build": "PASS: CPU-only Docker compilation, no GPU device mapping",
+  "cpu": {
+    "mirror_cases": 16,
+    "mirror_batches": 1000,
+    "mirror_pair_exchanges": 3000,
+    "payload_cases": 6,
+    "payload_windows": 300,
+    "asan_ubsan": "PASS: adaptive mirror, payload lifetime, existing lifecycle and A-plan state suites; leak detection and halt-on-error",
+    "ple_reference_windows": 90,
+    "lifecycle_cases": 11,
+    "aplan_cases": 16,
+    "restoration_controller_cases": 10,
+    "new_plan_cases": 7,
+    "output_parser": "PASS fenced/unfenced and wrong-formula rejection"
+  },
+  "gpu": "BLOCKED: not run; fresh narrow maintenance authorization required",
+  "expected_profile": {
+    "initial_gpu_experts": 10831,
+    "initial_cache_gib": 17.57,
+    "mirrored_experts": 13745,
+    "mirror_gib": 22.4,
+    "adapt_every": 4,
+    "adapt_swaps": 96,
+    "spec": 4,
+    "context": 131072,
+    "kv_resident": 32768,
+    "ranking": "original unchanged"
+  },
+  "previous_tested_elf": {
+    "path": "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/dist/aplan-control-window-01/strata",
+    "sha256": "6b00ee839b6cf342fc85bdefa504e17fa80cc3fd94f766611e3707bf1120d6fe"
+  },
+  "experimental_bounds_seconds": {
+    "total": 1200,
+    "execution_and_cleanup": 900,
+    "restoration": 300
+  }
+}

@@ -1,5 +1,7 @@
 # FastFix A-plan readiness: offline reconstruction
 
+Current offline update: adaptive GGUF slot exchange and independent per-layer host payload repair are implemented in separate commits. CPU/reference and sanitizer gates pass; repaired-engine GPU acceptance and performance remain **BLOCKED / not executed**. Production RC1 remains unchanged. See [the repair report](JR_SYCL_V0139_FASTFIX_ADAPTIVE_MIRROR_REPAIR.md), the new candidate manifest and [Adaptive ON plan](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_PLAN.md). Historical failures/results below are preserved and do not qualify the new binary.
+
 Starting revision: `106c00c818efcde18211b42cd0bce90762ed5c54`. This investigation runs no GPU work and makes no RC1 lifecycle changes. The new build is an **opt-in diagnostic candidate, not a timeout fix or a release**. Artifact identities and CPU results are in `tools/fastfix/aplan-candidate.json`.
 
 ## Findings and causal limits

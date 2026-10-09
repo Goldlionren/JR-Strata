@@ -1,0 +1,17 @@
+...F...
+======================================================================
+FAIL: test_original_artifacts_and_engine_sources_unchanged (__main__.Control.test_original_artifacts_and_engine_sources_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive-control-tests.py", line 21, in test_original_artifacts_and_engine_sources_unchanged
+    for path,expected in manifest['files'].items():self.assertEqual(digest(R/path),expected,path)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '756a712488165d64c36e61df43a44f8110e6bca4b258621e38a0e5876a5528fd' != '837e630370ed898f6ef3160bd9b3f354acb7d73e764b739925ddd27b496c0463'
+- 756a712488165d64c36e61df43a44f8110e6bca4b258621e38a0e5876a5528fd
++ 837e630370ed898f6ef3160bd9b3f354acb7d73e764b739925ddd27b496c0463
+ : tools/fastfix/build.sh
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.070s
+
+FAILED (failures=1)

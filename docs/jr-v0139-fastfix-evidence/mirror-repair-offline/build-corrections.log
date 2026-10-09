@@ -1,0 +1,19 @@
+build-first-failed.log
+FAILED: [code=1] CMakeFiles/strata.dir/src/program/generate.cpp.o 
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/sycl/src/program/generate.cpp:3830:48: error: use of undeclared identifier 'peer'
+ninja: build stopped: subcommand failed.
+
+build-probe-failed.log
+FAILED: [code=1] CMakeFiles/fastfix_adaptive_mirror.dir/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp.o 
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp:47:30: error: no member named 'aplan' in namespace 'strata'
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp:47:44: error: expected expression
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp:60:21: error: no member named 'resident_plan_observed' in namespace 'strata::kernels'
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp:113:23: error: no member named 'doorbell_publish' in namespace 'strata::kernels'
+ninja: build stopped: subcommand failed.
+
+build-probe-types-failed.log
+FAILED: [code=1] CMakeFiles/fastfix_adaptive_mirror.dir/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp.o 
+/data/strata-lab/JR-Strata-SYCL-v0139-FastFix/tools/fastfix/adaptive_mirror_gpu.cpp:63:70: error: cannot initialize a parameter of type 'const unsigned long long *' with an lvalue of type 'unsigned long *'
+ninja: build stopped: subcommand failed.
+
+All corrected; final build exit0. These were compilation defects, not GPU executions.

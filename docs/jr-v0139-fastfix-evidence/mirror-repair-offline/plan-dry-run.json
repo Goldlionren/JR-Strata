@@ -1,0 +1,40 @@
+{
+  "maximum_seconds": 1200,
+  "experimental_cleanup_deadline_seconds": 900,
+  "restoration_reserve_seconds": 300,
+  "stages": [
+    {
+      "name": "seven existing safety tests",
+      "bound_seconds": 120
+    },
+    {
+      "name": "existing captured readiness probe",
+      "bound_seconds": 30
+    },
+    {
+      "name": "actual GGUF mirror/captured payload probe",
+      "bound_seconds": 120
+    },
+    {
+      "name": "Adaptive ON startup",
+      "bound_seconds": 120
+    },
+    {
+      "name": "one2048-token Adaptive ON generation",
+      "bound_seconds": 240
+    },
+    {
+      "name": "three subsequent short requests",
+      "bound_seconds": 90
+    },
+    {
+      "name": "graceful experimental cleanup",
+      "bound_seconds": 90
+    }
+  ],
+  "stage_bounds_total_seconds": 810,
+  "adaptive": "ON: existing4/96 policy, original ranking/cache/model/MTP unchanged",
+  "gpu_execution": false,
+  "production_lifecycle_actions": false,
+  "authorization": "PENDING: no old approval is reused"
+}

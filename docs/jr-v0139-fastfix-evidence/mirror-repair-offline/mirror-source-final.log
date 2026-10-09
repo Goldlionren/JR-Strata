@@ -1,0 +1,2 @@
+PASS: real serving/CLI exchange guards, exact aliases, completion-before-commit, safe destruction
+PASS: both adaptive workers propagate exceptions only after proven safe queue completion
