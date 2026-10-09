@@ -1,0 +1,19 @@
+{
+  "model": "swift-1.5-iq3_xxs",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a practical field manual for volunteers starting a community vegetable garden. Cover site assessment, soil preparation, irrigation, crop rotation, pest management, shared responsibilities, seasonal scheduling, record keeping and troubleshooting. Include concrete examples and explain tradeoffs. Aim for at least 3000 words; continue until the manual is detailed and useful."
+    }
+  ],
+  "temperature": 0,
+  "seed": 42,
+  "max_tokens": 2048,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "stream": true,
+  "stream_options": {
+    "include_usage": true
+  }
+}

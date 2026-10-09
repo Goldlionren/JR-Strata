@@ -1,0 +1,6 @@
+**Width**: 6  
+**Area**: 54  
+
+**Calculation**:  
+Width = $\frac{30}{2} - 9 = 6$  
+Area = $9 \times 6 = 54$

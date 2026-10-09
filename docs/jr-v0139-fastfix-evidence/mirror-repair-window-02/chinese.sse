@@ -1,0 +1,103 @@
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"role": "assistant", "content": ""}, "finish_reason": null}]}
+
+: keep-alive
+
+: keep-alive
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "溶解"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "的"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "盐"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "离子"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "会"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "干扰"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "水"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "分子"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "形成"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "规则的"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "晶体"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "结构"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "，"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "迫使"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "水"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "分子"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "在"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "更"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "低的"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "温度"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "下"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "才能"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "排列"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "成"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "固态"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "。"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "\n此外"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "，"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "溶"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "质"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "降低了"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "水的"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "化学"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "势"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "，"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "使得"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "冰"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "与水"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "之间的"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "相"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "变"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "平衡"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "向"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "低温"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "方向"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "移动"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {"content": "。"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-d026fef8ad29422db40b24d6", "object": "chat.completion.chunk", "created": 1791509592, "model": "swift-1.5-iq3_xxs", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 26, "completion_tokens": 49, "total_tokens": 75, "prompt_tokens_details": {"cached_tokens": 0}}, "timings": {"cache_n": 0, "prompt_n": 26, "prompt_ms": 1369.4, "prompt_per_token_ms": 52.669, "prompt_per_second": 19.0, "predicted_n": 49, "predicted_ms": 2854.6, "predicted_per_token_ms": 58.257, "predicted_per_second": 17.2, "draft_n": 38, "draft_n_accepted": 25}}
+
+data: [DONE]

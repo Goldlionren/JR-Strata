@@ -1,0 +1,15 @@
+{
+  "execution": "CPU-only AST extraction of the actual retry controller free_check and loaded-headroom guard; mocked resources/sleep; no lifecycle/GPU actions.",
+  "cases": {
+    "exact_22GiB": "PASS",
+    "below_22GiB_rejected": "PASS",
+    "recorded_24143736832_bytes": "PASS",
+    "below_32GiB_host_rejected": "PASS",
+    "loaded_512MiB": "PASS",
+    "loaded_511MiB_rejected": "PASS",
+    "unchanged_1200_900_300_second_limits": "PASS"
+  },
+  "original_plan_tests": "7/7 PASS, 0.023s",
+  "frozen_manifest_files_verified": 38,
+  "note": "Historical CPU-only plan prints PENDING because it never grants authorization or starts GPU work; actual authorization/deadline are in cutover.json."
+}

@@ -1,0 +1,84 @@
+{
+  "stages": {
+    "fastfix_memory_safety": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 0.5978319610003382
+    },
+    "kv_q8_parity": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 0.6925464969826862
+    },
+    "kv_stream_parity": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 11.165301393979462
+    },
+    "iq_multi_parity": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 1.7470417139993515
+    },
+    "native_grouped_parity": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 1.5982413539895788
+    },
+    "quantize_act_parity": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 0.650020165980095
+    },
+    "fastfix_ple_staging": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 0.694662502995925
+    },
+    "fastfix_handoff": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 2.0516411759890616
+    },
+    "fastfix_adaptive_mirror": {
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_s": 9.276374242996098
+    },
+    "long_generation": {
+      "status": "PASS",
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 2048,
+        "total_tokens": 2127,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 79,
+        "prompt_ms": 7487.2,
+        "prompt_per_token_ms": 94.775,
+        "prompt_per_second": 10.6,
+        "predicted_n": 2048,
+        "predicted_ms": 80796.6,
+        "predicted_per_token_ms": 39.451,
+        "predicted_per_second": 25.3,
+        "draft_n": 1847,
+        "draft_n_accepted": 1109
+      },
+      "swaps": 12451,
+      "generations": 234
+    },
+    "english": "completed; semantic review pending",
+    "chinese": "completed; semantic review pending",
+    "math": "completed; semantic review pending",
+    "experimental_teardown": "PASS",
+    "RC1_restoration": "PASS"
+  },
+  "elapsed_s": 188.11140967800748,
+  "start_epoch": 1791509437.8983655,
+  "deadline_epoch": 1791510637.8983655,
+  "unsafe": false
+}

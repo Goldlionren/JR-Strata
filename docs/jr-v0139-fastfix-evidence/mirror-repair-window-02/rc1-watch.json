@@ -1,0 +1,70 @@
+{
+  "service": "jr-strata-sycl-rc1.service",
+  "systemd": {
+    "MainPID": "1515174",
+    "NRestarts": "0",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "last_start": {
+    "started_at": "2026-10-09T12:33:25.604864+11:00",
+    "server_pid": 1515174,
+    "profile": "32k",
+    "config": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/strata-swift-iq3_xxs-b60-32k.json",
+    "binary": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/dist/jr-b60-sycl-v0.1.40.3-rc1/strata",
+    "binary_sha256": "cfb7ee7610c373260a5e4ec62cbb609666055bff01d721bd521f5192d68d0028",
+    "release_commit": "ea2b6543afedc006e79f4a1b6f473518354daa4d",
+    "engine_log": "/data/strata-lab/JR-Strata-SYCL-v0.1.40.3/logs/jr-v01403/engine-32k.log",
+    "engine_log_start": 67334,
+    "host_available_kib": 60148888,
+    "gpu_free_bytes": 24143736832
+  },
+  "engine_pid": 1516093,
+  "memory_kib": {
+    "system_used_kib": 33428960,
+    "VmRSS_kib": 1738628,
+    "VmHWM_kib": 1780356,
+    "VmSwap_kib": 0,
+    "vram_kib": 22227032,
+    "gpu_host_kib": 26638888,
+    "host_available": 31969252,
+    "host_total": 65397808,
+    "host_swap_used": 2150924
+  },
+  "totals_since_process_start": {
+    "since": 1791509623.8562832,
+    "requests": 1,
+    "prompt_tokens": 23,
+    "reused": 0,
+    "output_tokens": 3,
+    "prompt_ms": 1235.7,
+    "decode_ms": 361.9,
+    "drafts_offered": 3,
+    "drafts_accepted": 3
+  },
+  "live": {
+    "state": "idle",
+    "queued": 0,
+    "phase": null,
+    "prompt_tokens": null,
+    "prompt_read": null,
+    "prompt_total": null,
+    "generated": null,
+    "max_tokens": null,
+    "elapsed_s": null,
+    "tok_s": null,
+    "tok_s_mean": null,
+    "prefill_tok_s_mean": null,
+    "tok_s_window_s": null
+  },
+  "context_capacity": 32768,
+  "last_request": {
+    "prefill_tps": 18.612931941409727,
+    "decode_tps": 8.3,
+    "finish": "stop"
+  },
+  "mtp_suffix_acceptance_pct": 100.0,
+  "recent_b60_fault_count": 0,
+  "recent_b60_faults": []
+}

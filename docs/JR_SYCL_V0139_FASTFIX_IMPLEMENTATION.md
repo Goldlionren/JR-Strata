@@ -1,5 +1,12 @@
 # v0.1.39 FastFix implementation
 
+Latest measured result (2026-10-09): **window02 PASS — PROMOTION ELIGIBLE** under the current sustained ≥20tok/s gate. The explicitly approved22GiB unloaded threshold passed at22.485607GiB; separate loaded headroom647MiB passed512MiB. Seven GPU safety tests, captured readiness, actual GGUF mirror exchange and delayed per-layer payload probes passed. Adaptive ON/MTP4 generated2048 actual tokens at25.3 Decode tok/s with no corruption/readiness failure/GPU fault. Three subsequent requests passed; Chinese/math Decode remained17.2/11.2tok/s. RC1 was restored within188.111s; no permanent cutover occurred. [Full results, limitations and raw evidence](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS_WINDOW02.md).
+
+All reports below are historical stage records with their original failures/blockers preserved. The new result applies only to the unchanged `8d2ac886…21ef04e` ELF/source `be3105e`; it does not reclassify failed older binaries or optional kernel tests. Fresh production startup/restart/endurance and real128K prompt regression are not claimed by this narrow run.
+
+
+## Preserved prior-stage record
+
 Approved mirror window01 is **BLOCKED at the planned23GiB free-memory gate**, before any candidate GPU test. Actual clean free memory22.485607GiB matched the prior normal launch record; RC1 was safely restored within27.206s. [Actual results and first blocker](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS.md). Conditional promotion now requires≥20 sustained Decode tok/s plus all correctness/safety/restart gates; it remains BLOCKED because GPU validation was not executed.
 
 Current offline update: adaptive GGUF slot exchange and independent per-layer host payload repair are implemented in separate commits. CPU/reference and sanitizer gates pass; repaired-engine GPU acceptance and performance remain **BLOCKED / not executed**. Production RC1 remains unchanged. See [the repair report](JR_SYCL_V0139_FASTFIX_ADAPTIVE_MIRROR_REPAIR.md), the new candidate manifest and [Adaptive ON plan](JR_SYCL_V0139_FASTFIX_MIRROR_GPU_PLAN.md). Historical failures/results below are preserved and do not qualify the new binary.

@@ -1,0 +1,32 @@
+[level_zero:gpu] Intel(R) oneAPI Unified Runtime over Level-Zero V2, Intel(R) Arc(TM) Pro B60 Graphics 20.1.0 [1.17.39758+10]
+
+Platforms: 1
+Platform [#1]:
+    Version  : 1.17
+    Name     : Intel(R) oneAPI Unified Runtime over Level-Zero V2
+    Vendor   : Intel(R) Corporation
+    Devices  : 1
+        Type              : gpu
+        Version           : 20.1.0
+        Name              : Intel(R) Arc(TM) Pro B60 Graphics
+        Vendor            : Intel(R) Corporation
+        Driver            : 1.17.39758+10
+        UUID              : 868011e2-0000-0000-0700-000000000000
+        DeviceID          : 57873
+        Num SubDevices    : 0
+        Num SubSubDevices : 0
+        Aspects           : gpu fp16 fp64 online_compiler online_linker queue_profiling usm_device_allocations usm_host_allocations usm_shared_allocations usm_system_allocations ext_intel_pci_address ext_intel_gpu_eu_count ext_intel_gpu_eu_simd_width ext_intel_gpu_slices ext_intel_gpu_subslices_per_slice ext_intel_gpu_eu_count_per_subslice atomic64 ext_intel_device_info_uuid ext_oneapi_native_assert ext_intel_gpu_hw_threads_per_eu ext_intel_free_memory ext_intel_device_id ext_intel_memory_clock_rate ext_intel_memory_bus_width ext_intel_legacy_image ext_oneapi_bindless_images ext_oneapi_bindless_images_1d_usm ext_oneapi_bindless_images_2d_usm ext_oneapi_external_memory_import ext_oneapi_external_semaphore_import ext_intel_esimd ext_oneapi_fragment ext_oneapi_chunk ext_oneapi_tangle ext_intel_matrix ext_oneapi_graph ext_oneapi_limited_graph ext_oneapi_private_alloca ext_oneapi_bindless_sampled_image_fetch_1d_usm ext_oneapi_bindless_sampled_image_fetch_1d ext_oneapi_bindless_sampled_image_fetch_2d_usm ext_oneapi_bindless_sampled_image_fetch_2d ext_oneapi_bindless_sampled_image_fetch_3d ext_oneapi_queue_profiling_tag ext_oneapi_virtual_mem ext_oneapi_image_array ext_oneapi_virtual_functions ext_intel_spill_memory_size ext_intel_current_clock_throttle_reasons ext_intel_fan_speed ext_intel_power_limits ext_oneapi_async_memory_alloc ext_oneapi_exportable_device_mem ext_oneapi_clock_sub_group ext_oneapi_ipc_memory ext_oneapi_device_wait ext_intel_xe_stack_count ext_intel_xe_regions_per_stack ext_intel_xe_clusters_per_region ext_intel_xe_cores_per_cluster ext_intel_eus_per_xe_core ext_intel_max_lanes_per_hw_thread
+        info::device::sub_group_sizes: 16 32
+        Architecture: intel_gpu_bmg_g21
+default_selector()      : gpu, Intel(R) oneAPI Unified Runtime over Level-Zero V2, Intel(R) Arc(TM) Pro B60 Graphics 20.1.0 [1.17.39758+10]
+accelerator_selector()  : No device of requested type available. Please chec...
+cpu_selector()          : No device of requested type available. Please chec...
+gpu_selector()          : gpu, Intel(R) oneAPI Unified Runtime over Level-Zero V2, Intel(R) Arc(TM) Pro B60 Graphics 20.1.0 [1.17.39758+10]
+custom_selector(gpu)    : gpu, Intel(R) oneAPI Unified Runtime over Level-Zero V2, Intel(R) Arc(TM) Pro B60 Graphics 20.1.0 [1.17.39758+10]
+custom_selector(cpu)    : No device of requested type available. Please chec...
+custom_selector(acc)    : No device of requested type available. Please chec...
+INFO: Output filtered by ONEAPI_DEVICE_SELECTOR environment variable, which is set to level_zero:0.
+To see device ids, use the --ignore-device-selectors CLI option.
+
+<LOADER>[INFO]: loaded adapter 0x0x652adb0e1830 (libur_adapter_level_zero.so.0) from /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero.so.0
+<LOADER>[INFO]: loaded adapter 0x0x652adb0e58b0 (libur_adapter_level_zero_v2.so.0) from /opt/intel/oneapi/compiler/2026.1/lib/libur_adapter_level_zero_v2.so.0

@@ -1,0 +1,34 @@
+{
+  "tested_checkout_commit": "11e46f7f53d5cc45883fe6e6eac0f510c6f1df35",
+  "engine_source_commit": "be3105e7f66ef4f9668ef129a1938800954b1b3b",
+  "engine_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e",
+  "approved_manifest": "mirror-repair-candidate.json",
+  "historical_manifest_unchanged": true,
+  "window": "mirror-repair-window-02",
+  "status": "PROMOTION ELIGIBLE; NOT DEPLOYED",
+  "resource_override": {
+    "unloaded_gpu_min_gib": 22,
+    "loaded_headroom_min_mib": 512
+  },
+  "window_limits_seconds": {
+    "total": 1200,
+    "experimental_teardown": 900,
+    "recovery_reserve": 300
+  },
+  "measured_generated_tokens": 2048,
+  "decode_seconds": 80.7966,
+  "decode_tokens_per_second": 25.3,
+  "adaptive_committed_pair_exchanges": 14066,
+  "adaptive_committed_generations": 251,
+  "gpu_faults_resets": 0,
+  "rc1_restored": true,
+  "production_changes": false,
+  "evidence": "docs/jr-v0139-fastfix-evidence/mirror-repair-window-02",
+  "report": "docs/JR_SYCL_V0139_FASTFIX_MIRROR_GPU_RESULTS_WINDOW02.md",
+  "limitations": [
+    "single sustained workload",
+    "slow short Chinese/math responses retained",
+    "Direct PLE disk reads remain",
+    "candidate restart/endurance and real128K prompt untested"
+  ]
+}

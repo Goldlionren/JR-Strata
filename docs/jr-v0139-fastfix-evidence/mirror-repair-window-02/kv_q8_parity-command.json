@@ -1,0 +1,23 @@
+[
+  "docker",
+  "run",
+  "--rm",
+  "--name",
+  "jr-fastfix-mirror-safety",
+  "--device",
+  "/dev/dri",
+  "-e",
+  "ONEAPI_DEVICE_SELECTOR=level_zero:0",
+  "-e",
+  "SYCL_CACHE_PERSISTENT=0",
+  "-e",
+  "STRATA_ARENA_ALIAS_CHECK=1",
+  "-e",
+  "STRATA_HOST_UNCACHED=1",
+  "-e",
+  "STRATA_APLAN_DIAG=1",
+  "-v",
+  "/data/strata-lab:/work:ro",
+  "sha256:989ceb3fe23df8c42d5fc37a1c8f2bfda668cb2f3b9fc1bcd14c76e9951d5d44",
+  "exec /work/JR-Strata-SYCL-v0139-FastFix/build-fastfix/kv_q8_parity --selftest"
+]

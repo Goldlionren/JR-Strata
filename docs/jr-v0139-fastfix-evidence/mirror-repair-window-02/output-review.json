@@ -1,0 +1,23 @@
+{
+  "method": "Offline human-readable review of the complete saved contents; no new API requests.",
+  "long_generation": {
+    "runtime_integrity": "PASS",
+    "actual_tokens": 2048,
+    "length_status": "LENGTH_CAPPED",
+    "notes": "Coherent garden-manual introduction, site assessment, soil preparation and beginning of irrigation. Ends mid-sentence at the requested token cap. No repeated punctuation, replacement characters or abnormal repeated passages observed.",
+    "complete_3000_word_answer": "BLOCKED: output budget did not complete all requested chapters; factual horticultural accuracy is not certified."
+  },
+  "english": {
+    "status": "PASS",
+    "notes": "Salt lowers the freezing point; complete concise English explanation."
+  },
+  "chinese": {
+    "status": "PASS",
+    "notes": "Complete Chinese explanation of dissolved ions and lower freezing point."
+  },
+  "math": {
+    "status": "PASS",
+    "notes": "Width 30/2-9=6, area 9*6=54; independent arithmetic correct."
+  },
+  "limitations": "A small bounded workload checks observed runtime corruption, not universal answer quality or endurance reliability."
+}

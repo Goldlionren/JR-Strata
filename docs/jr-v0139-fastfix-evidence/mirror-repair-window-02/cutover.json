@@ -1,0 +1,8 @@
+{
+  "start_epoch": 1791509437.8983655,
+  "start_iso": "2026-10-09T12:30:37.898370+11:00",
+  "deadline_epoch": 1791510637.8983655,
+  "experiment_teardown_epoch": 1791510337.8983655,
+  "authorization": "user-approved20-minute Adaptive Mirror GPU validation retry at11e46f7 with explicitly approved22GiB unloaded/512MiB loaded gates",
+  "engine_sha256": "8d2ac886f3b8deb18b1bddb5925992317a02564d0a213aa0ad228328721ef04e"
+}

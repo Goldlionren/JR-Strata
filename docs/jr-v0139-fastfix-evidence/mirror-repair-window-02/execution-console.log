@@ -1,0 +1,19 @@
+4.7s RC1 graceful stop and B60 resource gate PASS
+6.4s fastfix_memory_safety PASS
+7.2s kv_q8_parity PASS
+18.4s kv_stream_parity PASS
+20.2s iq_multi_parity PASS
+21.9s native_grouped_parity PASS
+22.6s quantize_act_parity PASS
+23.4s fastfix_ple_staging PASS
+25.5s fastfix_handoff PASS
+34.8s fastfix_adaptive_mirror PASS
+61.4s Adaptive ON original residency/MTP/runtime startup PASS
+150.2s long-response completed {'prompt_tokens': 79, 'completion_tokens': 2048, 'total_tokens': 2127, 'prompt_tokens_details': {'cached_tokens': 0}}
+154.5s english completed {'prompt_tokens': 26, 'completion_tokens': 58, 'total_tokens': 84, 'prompt_tokens_details': {'cached_tokens': 0}}
+159.0s chinese completed {'prompt_tokens': 26, 'completion_tokens': 49, 'total_tokens': 75, 'prompt_tokens_details': {'cached_tokens': 0}}
+165.9s math completed {'prompt_tokens': 39, 'completion_tokens': 50, 'total_tokens': 89, 'prompt_tokens_details': {'cached_tokens': 0}}
+167.2s experimental process absence and RC1 recovery resource gate PASS
+167.4s experimental process absence and RC1 recovery resource gate PASS
+188.1s RC1 restored: hash/API generation/native monitoring/kernel PASS
+188.1s WINDOW CLOSED

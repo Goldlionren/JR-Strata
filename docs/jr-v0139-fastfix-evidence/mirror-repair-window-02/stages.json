@@ -1,0 +1,47 @@
+{
+  "fastfix_memory_safety": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 0.5978319610003382
+  },
+  "kv_q8_parity": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 0.6925464969826862
+  },
+  "kv_stream_parity": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 11.165301393979462
+  },
+  "iq_multi_parity": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 1.7470417139993515
+  },
+  "native_grouped_parity": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 1.5982413539895788
+  },
+  "quantize_act_parity": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 0.650020165980095
+  },
+  "fastfix_ple_staging": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 0.694662502995925
+  },
+  "fastfix_handoff": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 2.0516411759890616
+  },
+  "fastfix_adaptive_mirror": {
+    "status": "PASS",
+    "exit_code": 0,
+    "duration_s": 9.276374242996098
+  }
+}
